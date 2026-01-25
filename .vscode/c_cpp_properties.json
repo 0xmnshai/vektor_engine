@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/opt/homebrew/include",
+                "/opt/homebrew/Cellar/sdl2/2.32.10/include",
+                "/opt/homebrew/Cellar/sdl2_image/2.8.8/include",
+                "/opt/homebrew/Cellar/nlohmann-json/3.12.0/include",
+                // build downloads 
+                "/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/build/_deps/spdlog-src/include"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c17",
+            "cppStandard": "c++20",
+            "intelliSenseMode": "macos-clang-arm64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}

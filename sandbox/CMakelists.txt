@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.17)
+project(sandbox)
+ 
+set(SOURCES
+    src/main.cpp
+)
+
+set(CMAKE_BUILD_RPATH_USE_ORIGIN ON)
+if(APPLE)
+    set(CMAKE_BUILD_RPATH "@loader_path")
+endif()
+ 
+add_executable(sandbox ${SOURCES})
+ 
+target_link_libraries(sandbox PRIVATE vektor)
+ 
+target_sources(sandbox PRIVATE "${vektor_SOURCE_DIR}/include/entry_point.hpp")
+ 
+if(WIN32)
+    # Optional: Copy DLL to output if output dirs weren't set globally
+    # (Handled by Root CMake, but good to know)
+endif()

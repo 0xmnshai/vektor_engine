@@ -1,0 +1,5 @@
+[21:30:30] [trace] VEKTOR: Starting Vektor Engine
+[21:30:30] [critical] VEKTOR: Vektor Engine is running
+[21:30:30] [warning] VEKTOR: Vektor Engine is running
+[21:30:30] [info] VEKTOR: Creating window: Vektor Engine (1280, 720)
+[21:30:31] [info] VEKTOR: GLFW Window hints set
