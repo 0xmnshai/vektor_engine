@@ -49,6 +49,7 @@ namespace vektor::window
 
         void setEventCallback(const EventCallbackFn &callback) override
         {
+            VEKTOR_INFO("Setting event callback");
             m_data.eventCallback = callback;
         }
 

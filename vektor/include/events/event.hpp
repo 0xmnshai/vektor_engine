@@ -54,6 +54,7 @@ namespace vektor::event
         virtual EventType getEventType() const = 0;
         virtual const char *getName() const = 0;
         virtual int getCategoryFlags() const = 0;
+
         virtual std::string toString() const { return getName(); }
 
         bool isInCategory(EventCategory category)

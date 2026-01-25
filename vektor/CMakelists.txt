@@ -53,12 +53,20 @@ target_include_directories(vektor PUBLIC
 
 target_link_libraries(vektor PUBLIC spdlog::spdlog glfw)
 
-target_compile_definitions(vektor PRIVATE VEKTOR_BUILD_DLL)
+target_compile_definitions(vektor PRIVATE
+    VEKTOR_BUILD_DLL
+    GL_SILENCE_DEPRECATION
+)
 
 if(UNIX)
     target_link_libraries(vektor PRIVATE ${CMAKE_DL_LIBS})
 endif()
 
 if(APPLE)
-    target_link_libraries(vektor PRIVATE "-framework Cocoa" "-framework IOKit" "-framework CoreVideo")
+    target_link_libraries(vektor PRIVATE
+        "-framework Cocoa"
+        "-framework IOKit"
+        "-framework CoreVideo"
+        "-framework OpenGL"
+    )
 endif()
