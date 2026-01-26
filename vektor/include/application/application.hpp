@@ -10,6 +10,9 @@
 #include "events/mouse.hpp"
 #include "events/keyboard.hpp"
 
+#include "layer/layer.hpp"
+#include "layer/layer_stack.hpp"
+
 namespace vektor
 {
     class VEKTOR_API Application
@@ -20,8 +23,19 @@ namespace vektor
 
         void Run();
         void onEvent(event::Event &event);
-        
+
         void addEventListener(const std::function<void(event::Event &)> &listener);
+
+        void pushLayer(layer::Layer *layer);
+        void popLayer(layer::Layer *layer);
+        void pushOverlay(layer::Layer *overlay);
+        void popOverlay(layer::Layer *overlay);
+
+        inline window::Window &getWindow() { return *m_Window; }
+        inline bool isRunning() { return m_Running; }
+
+        inline window::Window &getWindow() const { return *m_Window; }
+        inline static Application &getInstance() { return *s_Instance; }
 
     private:
         std::unique_ptr<window::Window> m_Window;
@@ -31,6 +45,10 @@ namespace vektor
 
         bool onWindowClose(event::WindowCloseEvent &e);
         bool onWindowResize(event::WindowResizeEvent &e);
+
+        layer::LayerStack m_LayerStack;
+
+        static Application *s_Instance;
     };
 
     Application *CreateApplication();

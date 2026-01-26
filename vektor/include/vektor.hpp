@@ -14,3 +14,8 @@
 #include "plugin/loader.hpp"
 #include "plugin/plugin.hpp"
 #include "plugin/shared_library.hpp"
+
+#include "imgui/layer.hpp"
+
+#include "layer/layer.hpp"
+#include "layer/layer_stack.hpp"

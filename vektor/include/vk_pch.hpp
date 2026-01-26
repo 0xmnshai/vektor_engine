@@ -12,4 +12,3 @@
 #ifdef VEKTOR_PLATFORM_WINDOWS
     #include <Windows.h>
 #endif
- 

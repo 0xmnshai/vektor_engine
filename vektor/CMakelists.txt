@@ -12,12 +12,40 @@ FetchContent_Declare(
 FetchContent_GetProperties(spdlog)
 
 if(NOT spdlog_POPULATED)
+    FetchContent_MakeAvailable(spdlog)
     message(STATUS " [Vektor] spdlog downloaded and configured.")
-    FetchContent_MakeAvailable(spdlog)
 else()
-    message(STATUS " [Vektor] spdlog found in cache. Skipping download.")
     FetchContent_MakeAvailable(spdlog)
+    message(STATUS " [Vektor] spdlog found in cache. Skipping download.")
 endif()
+
+FetchContent_Declare(
+    imgui
+    GIT_REPOSITORY https://github.com/ocornut/imgui.git
+    GIT_TAG v1.92.5
+)
+
+FetchContent_GetProperties(imgui)
+
+if(NOT imgui_POPULATED)
+    FetchContent_MakeAvailable(imgui)
+    message(STATUS " [Vektor] imgui downloaded and configured.")
+else()
+    FetchContent_MakeAvailable(imgui)
+    message(STATUS " [Vektor] imgui found in cache. Skipping download.")
+endif()
+
+add_library(imgui STATIC
+    ${imgui_SOURCE_DIR}/imgui.cpp
+    ${imgui_SOURCE_DIR}/imgui_demo.cpp
+    ${imgui_SOURCE_DIR}/imgui_draw.cpp
+    ${imgui_SOURCE_DIR}/imgui_tables.cpp
+    ${imgui_SOURCE_DIR}/imgui_widgets.cpp
+)
+
+target_include_directories(imgui PUBLIC
+    ${imgui_SOURCE_DIR}
+)
 
 FetchContent_Declare(
     glfw
@@ -33,12 +61,20 @@ set(GLFW_INSTALL OFF CACHE BOOL "" FORCE)
 FetchContent_GetProperties(glfw)
 
 if(NOT glfw_POPULATED)
+    FetchContent_MakeAvailable(glfw)
     message(STATUS " [Vektor] glfw downloaded and configured.")
-    FetchContent_MakeAvailable(glfw)
 else()
-    message(STATUS " [Vektor] glfw found in cache. Skipping download.")
     FetchContent_MakeAvailable(glfw)
+    message(STATUS " [Vektor] glfw found in cache. Skipping download.")
 endif()
+
+add_library(glad STATIC
+    "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glad/src/glad.c"
+)
+
+target_include_directories(glad PUBLIC
+    "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glad/include"
+)
 
 file(GLOB_RECURSE SOURCES
     "src/*.cpp"
@@ -47,11 +83,25 @@ file(GLOB_RECURSE SOURCES
 
 add_library(vektor SHARED ${SOURCES})
 
+target_sources(imgui PRIVATE
+    ${imgui_SOURCE_DIR}/backends/imgui_impl_glfw.cpp
+    ${imgui_SOURCE_DIR}/backends/imgui_impl_opengl3.cpp
+)
+
+target_include_directories(imgui PUBLIC
+    ${imgui_SOURCE_DIR}/backends
+)
+
+target_link_libraries(imgui PUBLIC 
+    glfw 
+    glad
+)
+
 target_include_directories(vektor PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-target_link_libraries(vektor PUBLIC spdlog::spdlog glfw)
+target_link_libraries(vektor PUBLIC spdlog::spdlog glfw imgui glad)
 
 target_compile_definitions(vektor PRIVATE
     VEKTOR_BUILD_DLL

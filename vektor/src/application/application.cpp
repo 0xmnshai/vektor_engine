@@ -8,8 +8,14 @@ namespace vektor
 {
 #define VEKTOR_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
 
+    Application *Application::s_Instance = nullptr;
+
     Application::Application()
     {
+
+        VEKTOR_CORE_ASSERT(!s_Instance, "Application already exists!");
+        s_Instance = this;
+
         window::WindowProps props;
         props.title = "Vektor Engine";
         props.width = 1280;
@@ -32,7 +38,14 @@ namespace vektor
         {
             glClearColor(1.0f, 0.5f, 0.5f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
+
+            for (layer::Layer *layer : m_LayerStack)
+            {
+                layer->onUpdate();
+            }
+
             m_Window->onUpdate();
+            // m_Window->swapBuffers();
         }
     }
 
@@ -42,11 +55,34 @@ namespace vektor
         m_EventListeners.emplace_back(listener);
     }
 
+    void Application::pushLayer(layer::Layer *layer)
+    {
+        m_LayerStack.pushLayer(layer);
+        layer->onAttach();
+    }
+
+    void Application::pushOverlay(layer::Layer *overlay)
+    {
+        m_LayerStack.pushOverlay(overlay);
+        overlay->onAttach();
+    }
+
     void Application::onEvent(event::Event &event)
     {
         event::EventDispatcher dispatcher(event);
         dispatcher.dispatch<event::WindowCloseEvent>(VEKTOR_BIND_EVENT_FN(Application::onWindowClose));
         dispatcher.dispatch<event::WindowResizeEvent>(VEKTOR_BIND_EVENT_FN(Application::onWindowResize));
+
+        VEKTOR_CORE_TRACE("Event received: {}", event.toString());
+
+        for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
+        {
+            (*--it)->onEvent(event);
+            if (event.isHandled())
+            {
+                break;
+            }
+        }
 
         for (auto &listener : m_EventListeners)
         {

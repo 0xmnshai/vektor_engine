@@ -4,6 +4,7 @@
 #define GLFW_EXPOSE_NATIVE_COCOA
 #endif
 
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include "core/core.hpp"
@@ -47,7 +48,7 @@ namespace vektor::window
         virtual void setVSync(bool enabled) = 0;
         virtual bool isVSync() const = 0;
 
-        virtual void *getNativeWindow() const = 0;
+        virtual GLFWwindow *getNativeWindow() const = 0;
 
         static Window *create(const WindowProps &props = WindowProps());
 

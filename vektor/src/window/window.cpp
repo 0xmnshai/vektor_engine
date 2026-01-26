@@ -6,7 +6,7 @@
 #include "logger/logger.hpp"
 #include "window/window.hpp"
 
-// events 
+// events
 #include "events/window.hpp"
 #include "events/mouse.hpp"
 #include "events/keyboard.hpp"
@@ -69,7 +69,7 @@ namespace vektor::window
             return m_data.vsync;
         }
 
-        void *getNativeWindow() const override
+        GLFWwindow *getNativeWindow() const override
         {
             return m_data.glfwWindow;
         }
@@ -126,6 +126,13 @@ namespace vektor::window
             }
 
             glfwMakeContextCurrent(m_data.glfwWindow);
+
+            int _status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+            if (!_status)
+            {
+                VEKTOR_CORE_ERROR("Failed to initialize GLAD!");
+                std::terminate();
+            }
 
             glfwSetWindowUserPointer(m_data.glfwWindow, &m_data);
 
