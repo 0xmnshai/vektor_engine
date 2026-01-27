@@ -4,6 +4,8 @@
 #include "logger/logger.hpp"
 #include "application/application.hpp"
 
+#include "input/input.hpp"
+
 namespace vektor
 {
 #define VEKTOR_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
@@ -43,6 +45,10 @@ namespace vektor
             {
                 layer->onUpdate();
             }
+
+            glm::vec2 mousePos = input::Input::getMousePosition();
+
+            VEKTOR_CORE_TRACE("Mouse position: ({}, {})", mousePos.x, mousePos.y);
 
             m_Window->onUpdate();
             // m_Window->swapBuffers();

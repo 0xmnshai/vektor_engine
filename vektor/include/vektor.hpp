@@ -8,6 +8,14 @@
 #include "events/keyboard.hpp"
 #include "events/mouse.hpp"
 
+#include "imgui/layer.hpp"
+
+#include "input/input.hpp"
+#include "input/window.hpp"
+
+#include "layer/layer.hpp"
+#include "layer/layer_stack.hpp"
+
 #include "logger/logger.hpp"
 
 #include "plugin/api.hpp"
@@ -15,7 +23,4 @@
 #include "plugin/plugin.hpp"
 #include "plugin/shared_library.hpp"
 
-#include "imgui/layer.hpp"
-
-#include "layer/layer.hpp"
-#include "layer/layer_stack.hpp"
+#include "window/window.hpp"
