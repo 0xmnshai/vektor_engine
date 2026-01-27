@@ -1,6 +1,2590 @@
-[15:26:58] [trace] VEKTOR: Starting Vektor Engine
-[15:26:58] [critical] VEKTOR: Vektor Engine is running
-[15:26:58] [warning] VEKTOR: Vektor Engine is running
-[15:26:58] [info] VEKTOR: Creating window: Vektor Engine (1280, 720)
-[15:26:58] [info] VEKTOR: GLFW Window hints set
-[15:26:59] [info] APP: Setting event callback
+[09:48:04] [trace] VEKTOR: Starting Vektor Engine
+[09:48:04] [critical] VEKTOR: Vektor Engine is running
+[09:48:04] [warning] VEKTOR: Vektor Engine is running
+[09:48:04] [info] VEKTOR: Creating window: Vektor Engine (1280, 720)
+[09:48:05] [info] VEKTOR: GLFW Window hints set
+[09:48:05] [info] APP: Setting event callback
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:05] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 648.5, 721.414
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 648.5, 721.414
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 654.773, 706.086
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 654.773, 706.086
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 658.734, 694.984
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 658.734, 694.984
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 662.23, 680.988
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 662.23, 680.988
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 665.891, 665.422
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 665.891, 665.422
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 672.113, 634.301
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 672.113, 634.301
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 676.094, 598.453
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 676.094, 598.453
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 680.074, 562.605
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 680.074, 562.605
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 681.027, 545.387
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 681.027, 545.387
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 682.312, 511.945
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 682.312, 511.945
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 682.312, 480.824
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 682.312, 480.824
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 682.312, 451.938
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 682.312, 451.938
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 682.312, 427.273
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 682.312, 427.273
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 681.598, 396.055
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 681.598, 396.055
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 677.852, 363.27
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 677.852, 363.27
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 675.309, 336.766
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 675.309, 336.766
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 674.555, 324.18
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 674.555, 324.18
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 673.926, 317.91
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 673.926, 317.91
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 672.742, 316.965
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 672.742, 316.965
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 656.359, 296.961
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 656.359, 296.961
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 624.801, 257.473
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 624.801, 257.473
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 583.555, 203.449
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 583.555, 203.449
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 554.223, 168.676
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 554.223, 168.676
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 531.75, 144.371
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 531.75, 144.371
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 519.312, 131.934
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 519.312, 131.934
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 509.305, 123.594
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 509.305, 123.594
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 500.582, 116.457
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 500.582, 116.457
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 497.773, 115.051
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 497.773, 115.051
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 492.734, 111.27
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 492.734, 111.27
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 488.344, 109.074
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 488.344, 109.074
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 485.535, 107.668
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 485.535, 107.668
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 482.727, 106.262
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 482.727, 106.262
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 481.176, 105.484
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 481.176, 105.484
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 477.488, 104.277
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 477.488, 104.277
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 473.215, 102.566
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 473.215, 102.566
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 468.613, 99.7539
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 468.613, 99.7539
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 464.254, 97.5703
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 464.254, 97.5703
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 459.309, 94.8789
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 459.309, 94.8789
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 453.691, 93.0039
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 453.691, 93.0039
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 445.742, 89.7891
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 445.742, 89.7891
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 436.961, 87.5938
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 436.961, 87.5938
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 425.355, 84.5625
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 425.355, 84.5625
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 419.055, 82.6719
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 419.055, 82.6719
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 411.676, 81.3281
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 411.676, 81.3281
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 405.375, 80.0664
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 405.375, 80.0664
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 400.07, 78.8867
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 400.07, 78.8867
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 393.77, 76.9961
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 393.77, 76.9961
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 388.465, 75.8164
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 388.465, 75.8164
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 383.16, 74.6367
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 383.16, 74.6367
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 377.855, 73.457
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 377.855, 73.457
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 373.465, 71.8086
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 373.465, 71.8086
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 366.023, 70.7891
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 366.023, 70.7891
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 358.906, 69.2578
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 358.906, 69.2578
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 353.961, 67.8906
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 353.961, 67.8906
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 350.859, 67.5
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 350.859, 67.5
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 349.039, 67.1094
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 349.039, 67.1094
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [info] APP: ExampleLayer::Update
+[09:48:06] [trace] VEKTOR: Event received: MouseMovedEvent: 346.875, 66.4102
+[09:48:06] [trace] VEKTOR: Received event: MouseMovedEvent: 346.875, 66.4102
+[09:48:06] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 346.336, 66.4102
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 346.336, 66.4102
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 346.336, 67.0977
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 346.336, 67.0977
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 346.336, 69.9023
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 346.336, 69.9023
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 346.336, 72.0352
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 346.336, 72.0352
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 346.762, 74.168
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 346.762, 74.168
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 347.188, 76.3008
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 347.188, 76.3008
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 347.188, 77.3398
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 347.188, 77.3398
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 347.188, 78.3789
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 347.188, 78.3789
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 347.188, 80.0273
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 347.188, 80.0273
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseButtonPressedEvent: 0
+[09:48:07] [trace] VEKTOR: Received event: MouseButtonPressedEvent: 0
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [trace] VEKTOR: Event received: MouseButtonReleasedEvent: 0
+[09:48:07] [trace] VEKTOR: Received event: MouseButtonReleasedEvent: 0
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 347.188, 80.7109
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 347.188, 80.7109
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 347.188, 81.75
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 347.188, 81.75
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 347.188, 83.2969
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 347.188, 83.2969
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 347.188, 84.8438
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 347.188, 84.8438
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 347.531, 85.8789
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 347.531, 85.8789
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 348.465, 88.6836
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 348.465, 88.6836
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 349.316, 90.8164
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 349.316, 90.8164
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 351.184, 96.4258
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 351.184, 96.4258
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 353.602, 102.359
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 353.602, 102.359
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 356.285, 107.297
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 356.285, 107.297
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 358.5, 112.234
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 358.5, 112.234
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 360.555, 115.488
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 360.555, 115.488
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 361.59, 117.566
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 361.59, 117.566
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 362.504, 118.785
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 362.504, 118.785
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 363.035, 119.316
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 363.035, 119.316
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 363.035, 119.582
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 363.035, 119.582
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 363.301, 119.848
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 363.301, 119.848
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 363.301, 120.113
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 363.301, 120.113
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 363.301, 119.371
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 363.301, 119.371
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 363.301, 113.004
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 363.301, 113.004
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 363.301, 103.309
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 363.301, 103.309
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 363.301, 96.7812
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 363.301, 96.7812
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 361.812, 90.4141
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 361.812, 90.4141
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [info] APP: ExampleLayer::Update
+[09:48:07] [trace] VEKTOR: Event received: MouseMovedEvent: 361.035, 87.2344
+[09:48:07] [trace] VEKTOR: Received event: MouseMovedEvent: 361.035, 87.2344
+[09:48:07] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 360.688, 85.5781
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 360.688, 85.5781
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 360.418, 85.0391
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 360.418, 85.0391
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 360.168, 84.7891
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 360.168, 84.7891
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.934, 84.7891
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.934, 84.7891
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.691, 84.7891
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.691, 84.7891
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.449, 84.7891
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.449, 84.7891
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseButtonPressedEvent: 0
+[09:48:08] [trace] VEKTOR: Received event: MouseButtonPressedEvent: 0
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseButtonReleasedEvent: 0
+[09:48:08] [trace] VEKTOR: Received event: MouseButtonReleasedEvent: 0
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.449, 85.0156
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.449, 85.0156
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.449, 90.625
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.449, 90.625
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.449, 96.2344
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.449, 96.2344
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.449, 98.3672
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.449, 98.3672
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.449, 101.922
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.449, 101.922
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.449, 107.223
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.449, 107.223
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.449, 109.355
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.449, 109.355
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.449, 114.656
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.449, 114.656
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.449, 119.043
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.449, 119.043
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 359.957, 122.598
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 359.957, 122.598
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 360.422, 125.402
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 360.422, 125.402
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 360.887, 128.207
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 360.887, 128.207
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 361.273, 131.301
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 361.273, 131.301
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 361.922, 132.949
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 361.922, 132.949
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 362.188, 133.824
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 362.188, 133.824
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 362.797, 135.043
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 362.797, 135.043
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 363.406, 136.262
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 363.406, 136.262
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 364.094, 138.34
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 364.094, 138.34
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 364.781, 140.418
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 364.781, 140.418
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 365.734, 142.066
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 365.734, 142.066
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 366.039, 142.676
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 366.039, 142.676
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 366.305, 142.941
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 366.305, 142.941
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 366.57, 143.207
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 366.57, 143.207
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 366.875, 143.816
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 366.875, 143.816
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 367.141, 144.082
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 367.141, 144.082
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 367.445, 144.691
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 367.445, 144.691
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 367.75, 145.301
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 367.75, 145.301
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 368.441, 146.34
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 368.441, 146.34
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 368.828, 147.887
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 368.828, 147.887
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 369.602, 149.434
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 369.602, 149.434
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 370.453, 151.566
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 370.453, 151.566
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 371.812, 156.504
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 371.812, 156.504
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 373.051, 160.184
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 373.051, 160.184
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 373.781, 162.77
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 373.781, 162.77
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 374.391, 164.074
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 374.391, 164.074
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 374.656, 164.605
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 374.656, 164.605
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 374.656, 165.137
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 374.656, 165.137
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 374.656, 166.91
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 374.656, 166.91
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 375.082, 170.082
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 375.082, 170.082
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [info] APP: ExampleLayer::Update
+[09:48:08] [trace] VEKTOR: Event received: MouseMovedEvent: 375.934, 174.348
+[09:48:08] [trace] VEKTOR: Received event: MouseMovedEvent: 375.934, 174.348
+[09:48:08] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 376.359, 178.027
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 376.359, 178.027
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 377.047, 180.105
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 377.047, 180.105
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 377.047, 181.41
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 377.047, 181.41
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 377.312, 181.941
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 377.312, 181.941
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 377.312, 182.207
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 377.312, 182.207
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 377.312, 182.453
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 377.312, 182.453
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 377.547, 182.453
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 377.547, 182.453
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 377.547, 182.719
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 377.547, 182.719
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 377.547, 182.984
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 377.547, 182.984
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 377.812, 183.25
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 377.812, 183.25
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 378.156, 184.289
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 378.156, 184.289
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 379.191, 186.367
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 379.191, 186.367
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 380.145, 188.016
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 380.145, 188.016
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 381.098, 189.664
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 381.098, 189.664
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 381.668, 190.539
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 381.668, 190.539
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 382.199, 191.07
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 382.199, 191.07
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 382.445, 191.07
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 382.445, 191.07
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 382.691, 191.07
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 382.691, 191.07
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 382.957, 191.07
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 382.957, 191.07
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 383.383, 188.934
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 383.383, 188.934
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 383.809, 186.797
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 383.809, 186.797
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 384.66, 184.66
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 384.66, 184.66
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 385.594, 181.852
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 385.594, 181.852
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 386.527, 179.043
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 386.527, 179.043
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 387.461, 176.234
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 387.461, 176.234
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 388.312, 174.098
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 388.312, 174.098
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 389.164, 171.961
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 389.164, 171.961
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 390.016, 169.824
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 390.016, 169.824
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 390.359, 168.781
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 390.359, 168.781
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 391.355, 167.125
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 391.355, 167.125
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 391.965, 165.898
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 391.965, 165.898
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 392.496, 165.359
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 392.496, 165.359
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 392.762, 165.09
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 392.762, 165.09
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 165.09
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 165.09
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 165.316
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 165.316
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 166.863
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 166.863
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 168.996
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 168.996
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 172.551
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 172.551
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 176.105
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 176.105
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 178.238
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 178.238
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 181.793
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 181.793
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 188.902
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 188.902
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 195.262
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 195.262
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 199.527
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 199.527
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 202.113
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 202.113
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.008, 204.191
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.008, 204.191
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 393.352, 205.84
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 393.352, 205.84
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 394.652, 207.488
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 394.652, 207.488
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 396.035, 209.566
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 396.035, 209.566
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 396.727, 210.605
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 396.727, 210.605
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 397.07, 211.645
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 397.07, 211.645
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 397.68, 212.254
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 397.68, 212.254
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 397.984, 212.863
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 397.984, 212.863
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 398.25, 213.129
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 398.25, 213.129
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 398.555, 213.738
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 398.555, 213.738
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 398.82, 214.004
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 398.82, 214.004
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 398.82, 214.27
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 398.82, 214.27
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 399.086, 214.535
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 399.086, 214.535
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseMovedEvent: 399.086, 214.781
+[09:48:09] [trace] VEKTOR: Received event: MouseMovedEvent: 399.086, 214.781
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseButtonPressedEvent: 0
+[09:48:09] [trace] VEKTOR: Received event: MouseButtonPressedEvent: 0
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [trace] VEKTOR: Event received: MouseButtonReleasedEvent: 0
+[09:48:09] [trace] VEKTOR: Received event: MouseButtonReleasedEvent: 0
+[09:48:09] [info] VEKTOR: Event dispatched to listener
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:09] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 403.188, 214.297
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 403.188, 214.297
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 412.961, 211.285
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 412.961, 211.285
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 423.266, 206.527
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 423.266, 206.527
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 435.508, 198.652
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 435.508, 198.652
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 450.156, 192.242
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 450.156, 192.242
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 463.273, 186.117
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 463.273, 186.117
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 488.281, 178.609
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 488.281, 178.609
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 529.004, 169.297
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 529.004, 169.297
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 576.34, 160.449
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 576.34, 160.449
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 605.648, 158.371
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 605.648, 158.371
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 633.715, 157.453
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 633.715, 157.453
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 652.023, 156.738
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 652.023, 156.738
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 660.129, 156.148
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 660.129, 156.148
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 668.664, 154.723
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 668.664, 154.723
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 669.121, 154.723
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 669.121, 154.723
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 687.43, 154.723
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 687.43, 154.723
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 705.738, 157.648
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 705.738, 157.648
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 724.535, 164.414
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 724.535, 164.414
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 744.27, 171.684
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 744.27, 171.684
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 764.004, 178.953
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 764.004, 178.953
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 781.957, 186.934
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 781.957, 186.934
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 800.652, 196.281
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 800.652, 196.281
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 817.609, 206.254
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 817.609, 206.254
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 825.43, 210.52
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 825.43, 210.52
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 839.16, 218.758
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 839.16, 218.758
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 851.402, 225.754
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 851.402, 225.754
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 860.914, 232.094
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 860.914, 232.094
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 869.184, 238.109
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 869.184, 238.109
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 875.887, 242.129
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 875.887, 242.129
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 878.223, 243.996
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 878.223, 243.996
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 881.758, 248.117
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 881.758, 248.117
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 882.926, 247.18
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 882.926, 247.18
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 888.309, 242.766
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 888.309, 242.766
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 892.352, 239.184
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 892.352, 239.184
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 895.766, 235.762
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 895.766, 235.762
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 901.148, 231.348
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 901.148, 231.348
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 903.484, 229.477
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 903.484, 229.477
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 904.645, 228.312
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 904.645, 228.312
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [trace] VEKTOR: Event received: MouseMovedEvent: 906.191, 227.535
+[09:48:10] [trace] VEKTOR: Received event: MouseMovedEvent: 906.191, 227.535
+[09:48:10] [info] VEKTOR: Event dispatched to listener
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:10] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: MouseButtonPressedEvent: 0
+[09:48:11] [trace] VEKTOR: Received event: MouseButtonPressedEvent: 0
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [trace] VEKTOR: Event received: MouseButtonReleasedEvent: 0
+[09:48:11] [trace] VEKTOR: Received event: MouseButtonReleasedEvent: 0
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: MouseMovedEvent: 907.578, 226.375
+[09:48:11] [trace] VEKTOR: Received event: MouseMovedEvent: 907.578, 226.375
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: MouseMovedEvent: 914.465, 221.086
+[09:48:11] [trace] VEKTOR: Received event: MouseMovedEvent: 914.465, 221.086
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: MouseMovedEvent: 918.305, 218.891
+[09:48:11] [trace] VEKTOR: Received event: MouseMovedEvent: 918.305, 218.891
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: MouseMovedEvent: 922.145, 216.145
+[09:48:11] [trace] VEKTOR: Received event: MouseMovedEvent: 922.145, 216.145
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: MouseMovedEvent: 927.812, 212.992
+[09:48:11] [trace] VEKTOR: Received event: MouseMovedEvent: 927.812, 212.992
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: MouseMovedEvent: 931.367, 211.465
+[09:48:11] [trace] VEKTOR: Received event: MouseMovedEvent: 931.367, 211.465
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: MouseButtonPressedEvent: 0
+[09:48:11] [trace] VEKTOR: Received event: MouseButtonPressedEvent: 0
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: MouseButtonReleasedEvent: 0
+[09:48:11] [trace] VEKTOR: Received event: MouseButtonReleasedEvent: 0
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:11] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:11] [trace] APP: KeyTypedEvent: 97
+[09:48:11] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:11] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:11] [info] VEKTOR: Event dispatched to listener
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:11] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:12] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:12] [trace] APP: KeyTypedEvent: 97
+[09:48:12] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:12] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:12] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:12] [trace] APP: KeyTypedEvent: 97
+[09:48:12] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:12] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [trace] VEKTOR: Event received: KeyPressedEvent: 83 (0 repeats)
+[09:48:12] [trace] VEKTOR: Received event: KeyPressedEvent: 83 (0 repeats)
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [trace] VEKTOR: Event received: KeyTypedEvent: 115
+[09:48:12] [trace] APP: KeyTypedEvent: 115
+[09:48:12] [trace] VEKTOR: Received event: KeyTypedEvent: 115
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:12] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:12] [trace] APP: KeyTypedEvent: 97
+[09:48:12] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [trace] VEKTOR: Event received: KeyReleasedEvent: 83
+[09:48:12] [trace] VEKTOR: Received event: KeyReleasedEvent: 83
+[09:48:12] [info] VEKTOR: Event dispatched to listener
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:12] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyPressedEvent: 83 (0 repeats)
+[09:48:13] [trace] VEKTOR: Received event: KeyPressedEvent: 83 (0 repeats)
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyTypedEvent: 115
+[09:48:13] [trace] APP: KeyTypedEvent: 115
+[09:48:13] [trace] VEKTOR: Received event: KeyTypedEvent: 115
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:13] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:13] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:13] [trace] APP: KeyTypedEvent: 97
+[09:48:13] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyReleasedEvent: 83
+[09:48:13] [trace] VEKTOR: Received event: KeyReleasedEvent: 83
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyPressedEvent: 83 (0 repeats)
+[09:48:13] [trace] VEKTOR: Received event: KeyPressedEvent: 83 (0 repeats)
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyTypedEvent: 115
+[09:48:13] [trace] APP: KeyTypedEvent: 115
+[09:48:13] [trace] VEKTOR: Received event: KeyTypedEvent: 115
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:13] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyReleasedEvent: 83
+[09:48:13] [trace] VEKTOR: Received event: KeyReleasedEvent: 83
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:13] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:13] [trace] APP: KeyTypedEvent: 97
+[09:48:13] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:13] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyPressedEvent: 83 (0 repeats)
+[09:48:13] [trace] VEKTOR: Received event: KeyPressedEvent: 83 (0 repeats)
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyTypedEvent: 115
+[09:48:13] [trace] APP: KeyTypedEvent: 115
+[09:48:13] [trace] VEKTOR: Received event: KeyTypedEvent: 115
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyReleasedEvent: 83
+[09:48:13] [trace] VEKTOR: Received event: KeyReleasedEvent: 83
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: MouseMovedEvent: 902.441, 206.773
+[09:48:13] [trace] VEKTOR: Received event: MouseMovedEvent: 902.441, 206.773
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:13] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:13] [trace] APP: KeyTypedEvent: 97
+[09:48:13] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: MouseMovedEvent: 849.188, 186.641
+[09:48:13] [trace] VEKTOR: Received event: MouseMovedEvent: 849.188, 186.641
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: MouseMovedEvent: 781.434, 157.348
+[09:48:13] [trace] VEKTOR: Received event: MouseMovedEvent: 781.434, 157.348
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: MouseMovedEvent: 665.219, 104.934
+[09:48:13] [trace] VEKTOR: Received event: MouseMovedEvent: 665.219, 104.934
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: MouseMovedEvent: 556.965, 59.2773
+[09:48:13] [trace] VEKTOR: Received event: MouseMovedEvent: 556.965, 59.2773
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: MouseMovedEvent: 485.793, 32.2461
+[09:48:13] [trace] VEKTOR: Received event: MouseMovedEvent: 485.793, 32.2461
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: MouseMovedEvent: 463.508, 25.8164
+[09:48:13] [trace] VEKTOR: Received event: MouseMovedEvent: 463.508, 25.8164
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: MouseMovedEvent: 433.449, 18.4492
+[09:48:13] [trace] VEKTOR: Received event: MouseMovedEvent: 433.449, 18.4492
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyPressedEvent: 83 (0 repeats)
+[09:48:13] [trace] VEKTOR: Received event: KeyPressedEvent: 83 (0 repeats)
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyTypedEvent: 115
+[09:48:13] [trace] APP: KeyTypedEvent: 115
+[09:48:13] [trace] VEKTOR: Received event: KeyTypedEvent: 115
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:13] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:13] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:13] [trace] APP: KeyTypedEvent: 97
+[09:48:13] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [trace] VEKTOR: Event received: KeyReleasedEvent: 83
+[09:48:13] [trace] VEKTOR: Received event: KeyReleasedEvent: 83
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: MouseMovedEvent: 432.988, 18.4492
+[09:48:13] [trace] VEKTOR: Received event: MouseMovedEvent: 432.988, 18.4492
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [info] APP: ExampleLayer::Update
+[09:48:13] [trace] VEKTOR: Event received: MouseMovedEvent: 420.305, 19.1172
+[09:48:13] [trace] VEKTOR: Received event: MouseMovedEvent: 420.305, 19.1172
+[09:48:13] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 399.258, 19.8281
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 399.258, 19.8281
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 352.57, 19.8281
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 352.57, 19.8281
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyPressedEvent: 83 (0 repeats)
+[09:48:14] [trace] VEKTOR: Received event: KeyPressedEvent: 83 (0 repeats)
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyTypedEvent: 115
+[09:48:14] [trace] APP: KeyTypedEvent: 115
+[09:48:14] [trace] VEKTOR: Received event: KeyTypedEvent: 115
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 273.16, 15.4688
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 273.16, 15.4688
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 229.598, 8.20703
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 229.598, 8.20703
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 210.641, 4.21484
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 210.641, 4.21484
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 122.129, -10.4961
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 122.129, -10.4961
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyReleasedEvent: 83
+[09:48:14] [trace] VEKTOR: Received event: KeyReleasedEvent: 83
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 109.621, -12.1641
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 109.621, -12.1641
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 84.957, -13.2852
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 84.957, -13.2852
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 66, -13.2852
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 66, -13.2852
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 53.4922, -13.2852
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 53.4922, -13.2852
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyPressedEvent: 83 (0 repeats)
+[09:48:14] [trace] VEKTOR: Received event: KeyPressedEvent: 83 (0 repeats)
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyTypedEvent: 115
+[09:48:14] [trace] APP: KeyTypedEvent: 115
+[09:48:14] [trace] VEKTOR: Received event: KeyTypedEvent: 115
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:14] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:14] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:14] [trace] APP: KeyTypedEvent: 97
+[09:48:14] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyReleasedEvent: 83
+[09:48:14] [trace] VEKTOR: Received event: KeyReleasedEvent: 83
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 52.3203, -13.2852
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 52.3203, -13.2852
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 50.7695, -13.2852
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 50.7695, -13.2852
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 48.6328, -13.2852
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 48.6328, -13.2852
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 47.082, -13.2852
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 47.082, -13.2852
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 45.5312, -13.2852
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 45.5312, -13.2852
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 43.9805, -13.6758
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 43.9805, -13.6758
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 42.9375, -13.6758
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 42.9375, -13.6758
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 38.6641, -13.6758
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 38.6641, -13.6758
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyPressedEvent: 83 (0 repeats)
+[09:48:14] [trace] VEKTOR: Received event: KeyPressedEvent: 83 (0 repeats)
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyTypedEvent: 115
+[09:48:14] [trace] APP: KeyTypedEvent: 115
+[09:48:14] [trace] VEKTOR: Received event: KeyTypedEvent: 115
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 36.0742, -14.0625
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 36.0742, -14.0625
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 33.9883, -15.1055
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 33.9883, -15.1055
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:14] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 32.7617, -16.332
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 32.7617, -16.332
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 31.8398, -17.2539
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 31.8398, -17.2539
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 31.5703, -17.793
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 31.5703, -17.793
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 31.3008, -18.0625
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 31.3008, -18.0625
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyReleasedEvent: 83
+[09:48:14] [trace] VEKTOR: Received event: KeyReleasedEvent: 83
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 31.0352, -18.3281
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 31.0352, -18.3281
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:14] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:14] [trace] APP: KeyTypedEvent: 97
+[09:48:14] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 30.7852, -18.3281
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 30.7852, -18.3281
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 30.5352, -18.5781
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 30.5352, -18.5781
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 30.2656, -18.5781
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 30.2656, -18.5781
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 29.9961, -18.5781
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 29.9961, -18.5781
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 29.3828, -18.8867
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 29.3828, -18.8867
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 29.1133, -19.1562
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 29.1133, -19.1562
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 28.8438, -19.4258
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 28.8438, -19.4258
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 28.2305, -19.4258
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 28.2305, -19.4258
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 27.6914, -19.4258
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 27.6914, -19.4258
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 27.0781, -19.4258
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 27.0781, -19.4258
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyPressedEvent: 83 (0 repeats)
+[09:48:14] [trace] VEKTOR: Received event: KeyPressedEvent: 83 (0 repeats)
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyTypedEvent: 115
+[09:48:14] [trace] APP: KeyTypedEvent: 115
+[09:48:14] [trace] VEKTOR: Received event: KeyTypedEvent: 115
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 26.4648, -19.4258
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 26.4648, -19.4258
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 25.9258, -19.4258
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 25.9258, -19.4258
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 25.043, -19.4258
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 25.043, -19.4258
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 24.5039, -19.4258
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 24.5039, -19.4258
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:14] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 24.5039, -17.7852
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 24.5039, -17.7852
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: MouseMovedEvent: 24.5039, -15.707
+[09:48:14] [trace] VEKTOR: Received event: MouseMovedEvent: 24.5039, -15.707
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyReleasedEvent: 83
+[09:48:14] [trace] VEKTOR: Received event: KeyReleasedEvent: 83
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyPressedEvent: 65 (0 repeats)
+[09:48:14] [trace] VEKTOR: Received event: KeyPressedEvent: 65 (0 repeats)
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyTypedEvent: 97
+[09:48:14] [trace] APP: KeyTypedEvent: 97
+[09:48:14] [trace] VEKTOR: Received event: KeyTypedEvent: 97
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyPressedEvent: 83 (0 repeats)
+[09:48:14] [trace] VEKTOR: Received event: KeyPressedEvent: 83 (0 repeats)
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [trace] VEKTOR: Event received: KeyTypedEvent: 115
+[09:48:14] [trace] APP: KeyTypedEvent: 115
+[09:48:14] [trace] VEKTOR: Received event: KeyTypedEvent: 115
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyReleasedEvent: 65
+[09:48:14] [trace] VEKTOR: Received event: KeyReleasedEvent: 65
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [trace] VEKTOR: Event received: KeyReleasedEvent: 83
+[09:48:14] [trace] VEKTOR: Received event: KeyReleasedEvent: 83
+[09:48:14] [info] VEKTOR: Event dispatched to listener
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:14] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 27.0352, -15.707
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 27.0352, -15.707
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 38.1328, -15.707
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 38.1328, -15.707
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 50.6367, -15.707
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 50.6367, -15.707
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 66.1992, -15.707
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 66.1992, -15.707
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 83.4141, -12.8398
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 83.4141, -12.8398
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 116.852, -7.69531
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 116.852, -7.69531
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 155.184, 0.515625
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 155.184, 0.515625
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 197.293, 13.582
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 197.293, 13.582
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 240.605, 30.0117
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 240.605, 30.0117
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 324.246, 73.4492
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 324.246, 73.4492
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 403.582, 137.309
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 403.582, 137.309
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 471.707, 207.012
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 471.707, 207.012
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 514.547, 256.246
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 514.547, 256.246
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 522.883, 266.25
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 522.883, 266.25
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 509.871, 259.961
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 509.871, 259.961
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 481.934, 247.301
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 481.934, 247.301
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 437.004, 224.797
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 437.004, 224.797
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 324.801, 162.629
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 324.801, 162.629
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 231.238, 111.172
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 231.238, 111.172
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 123.734, 48.0977
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 123.734, 48.0977
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 106.773, 38.1211
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 106.773, 38.1211
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 93.9531, 28.9648
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 93.9531, 28.9648
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 68.6797, 14.5195
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 68.6797, 14.5195
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 63.6406, 10.7383
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 63.6406, 10.7383
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 51.3945, 3.73828
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 51.3945, 3.73828
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 45.3594, -0.957031
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 45.3594, -0.957031
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 39.6875, -4.73828
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 39.6875, -4.73828
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [trace] VEKTOR: Event received: MouseMovedEvent: 39.6875, -5.00781
+[09:48:15] [trace] VEKTOR: Received event: MouseMovedEvent: 39.6875, -5.00781
+[09:48:15] [info] VEKTOR: Event dispatched to listener
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:15] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 38.9883, -5.47656
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 38.9883, -5.47656
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 35.207, -10.5156
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 35.207, -10.5156
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 28.9219, -18.4844
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 28.9219, -18.4844
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 26.8867, -21.5352
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 26.8867, -21.5352
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 24.8516, -24.5859
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 24.8516, -24.5859
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 23.5664, -26.7227
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 23.5664, -26.7227
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 22.2812, -28.4336
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 22.2812, -28.4336
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 20.4102, -30.7734
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 20.4102, -30.7734
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 19.125, -32.4844
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 19.125, -32.4844
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 18.3477, -34.0352
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 18.3477, -34.0352
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 17.7695, -34.918
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 17.7695, -34.918
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 17.7695, -34.4492
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 17.7695, -34.4492
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 17.7695, -33.2305
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 17.7695, -33.2305
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 17.7695, -31.1523
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 17.7695, -31.1523
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 17.7695, -28.5664
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 17.7695, -28.5664
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 17.7695, -27.0195
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 17.7695, -27.0195
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 17.7695, -25.4727
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 17.7695, -25.4727
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 17.7695, -23.3398
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 17.7695, -23.3398
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 18.1562, -21.793
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 18.1562, -21.793
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 18.582, -19.6602
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 18.582, -19.6602
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 18.9688, -18.1133
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 18.9688, -18.1133
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 19.3555, -16.5664
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 19.3555, -16.5664
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 19.3555, -15.5273
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 19.3555, -15.5273
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 19.6602, -14.918
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 19.6602, -14.918
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 19.6602, -14.3086
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 19.6602, -14.3086
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 19.9258, -14.043
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 19.9258, -14.043
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 19.9258, -13.168
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 19.9258, -13.168
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 20.1875, -12.2969
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 20.1875, -12.2969
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 20.1875, -11.4219
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 20.1875, -11.4219
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 20.4922, -10.5469
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 20.4922, -10.5469
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 20.4922, -10.0156
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 20.4922, -10.0156
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: MouseMovedEvent: 20.4922, -9.48438
+[09:48:16] [trace] VEKTOR: Received event: MouseMovedEvent: 20.4922, -9.48438
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [info] APP: ExampleLayer::Update
+[09:48:16] [trace] VEKTOR: Event received: WindowClose
+[09:48:16] [trace] VEKTOR: Received event: WindowClose
+[09:48:16] [info] VEKTOR: Event dispatched to listener
+[09:48:16] [trace] VEKTOR: Vektor Engine has stopped

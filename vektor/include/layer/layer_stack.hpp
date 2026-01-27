@@ -1,5 +1,5 @@
-#pragma once 
- 
+#pragma once
+
 #include <vector>
 
 #include "core/core.hpp"
@@ -22,7 +22,9 @@ namespace vektor::layer
         std::vector<Layer *>::iterator end() { return m_layers.end(); }
 
     private:
-        std::vector<Layer *> m_layers; 
-        std::vector<Layer *>::iterator m_layerInsertIndex;
+        std::vector<Layer *> m_layers;
+        // std::vector<Layer *>::iterator m_layerInsertIndex;
+
+        size_t m_layerInsertIndex = 0;
     };
 }

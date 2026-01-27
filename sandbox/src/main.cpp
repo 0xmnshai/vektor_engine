@@ -32,8 +32,8 @@ public:
     Sandbox()
     {
         std::cout << "Sandbox::Sandbox" << std::endl;
-        pushLayer(new ExampleLayer());
 
+        pushLayer(new ExampleLayer());
         pushLayer(new vektor::imgui_layer::Layer());
     }
 
