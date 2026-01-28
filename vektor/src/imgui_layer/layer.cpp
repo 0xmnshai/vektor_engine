@@ -1,7 +1,9 @@
 
+#include <imgui_internal.h>
 #include <imgui.h>
 #include <imgui_impl_glfw.h>
 #include <imgui_impl_opengl3.h>
+
 #include <GLFW/glfw3.h>
 
 #include "core/core.hpp"
@@ -30,8 +32,8 @@ namespace vektor::imgui_layer
         io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
         io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
 
-        io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
-        io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
+        // io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
+        // io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
         ImGuiStyle &style = ImGui::GetStyle();
 
@@ -60,7 +62,8 @@ namespace vektor::imgui_layer
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        // ImGui::DockSpaceOverViewport();
+        // ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
+        ImGui::DockSpaceOverViewport();
     }
 
     void imgui_layer::Layer::onRender()
@@ -74,15 +77,10 @@ namespace vektor::imgui_layer
         ImGuiIO &io = ImGui::GetIO();
         Application &app = Application::getInstance();
 
-        int w = app.getWindow().getWidth();
-        int h = app.getWindow().getHeight();
+        float w = static_cast<float>(app.getWindow().getWidth());
+        float h = static_cast<float>(app.getWindow().getHeight());
 
         io.DisplaySize = ImVec2(w, h);
-
-        // begin
-        // ImGui_ImplOpenGL3_NewFrame();
-        // ImGui_ImplGlfw_NewFrame();
-        // ImGui::NewFrame();
 
         ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
@@ -90,13 +88,14 @@ namespace vektor::imgui_layer
         if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
         {
             GLFWwindow *backup_current_context = glfwGetCurrentContext();
-            // ImGui::UpdatePlatformWindows();
-            // ImGui::RenderPlatformWindowsDefault();
+
+            ImGui::UpdatePlatformWindows();
+            ImGui::RenderPlatformWindowsDefault();
+
             glfwMakeContextCurrent(backup_current_context);
         }
 
-        // end
-        glViewport(0, 0, w, h);
+        glViewport(0, 0, static_cast<int>(w), static_cast<int>(h));
     }
 
     void imgui_layer::Layer::onEvent(event::Event &event)
@@ -176,9 +175,9 @@ namespace vektor::imgui_layer
     bool imgui_layer::Layer::onKeyTypedEvent(event::KeyTypedEvent &event)
     {
         return false;
-        //     ImGuiIO &io = ImGui::GetIO();
-        //     io.AddInputCharacter(event.getKeyCode());
-        //     return true;
+        // ImGuiIO &io = ImGui::GetIO();
+        // io.AddInputCharacter(event.getKeyCode());
+        // return true;
     }
 
     // Window events

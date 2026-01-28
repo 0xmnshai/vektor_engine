@@ -11,6 +11,8 @@
 #include "events/mouse.hpp"
 #include "events/keyboard.hpp"
 
+#include "renderer/opengl_context.hpp"
+
 namespace vektor::window
 {
     static bool s_GLFWInitialized = false;
@@ -38,12 +40,9 @@ namespace vektor::window
         void onUpdate() override
         {
             glfwPollEvents();
-
-            if (m_data.width > 0 && m_data.height > 0)
-            {
-                glfwSwapBuffers(m_data.glfwWindow);
-            }
+            m_Context->swapBuffers();
         }
+
         [[nodiscard]] unsigned int getWidth() const override { return m_data.width; }
         [[nodiscard]] unsigned int getHeight() const override { return m_data.height; }
 
@@ -88,8 +87,6 @@ namespace vektor::window
             m_data.width = props.width;
             m_data.height = props.height;
 
-            VEKTOR_CORE_INFO("Creating window: {} ({}, {})", props.title, props.width, props.height);
-
             if (!s_GLFWInitialized)
             {
                 const int success = glfwInit();
@@ -106,12 +103,17 @@ namespace vektor::window
             Window::setGLFWWindowHints();
             VEKTOR_CORE_INFO("GLFW Window hints set");
 
+            VEKTOR_CORE_INFO("Creating window: {} ({}, {})", props.title, props.width, props.height);
+
             m_data.glfwWindow = glfwCreateWindow(
                 static_cast<int>(m_data.width),
                 static_cast<int>(m_data.height),
                 m_data.title.c_str(),
                 nullptr,
                 nullptr);
+
+            m_Context = new renderer::OpenGLContext(m_data.glfwWindow);
+            m_Context->init();
 
             if (!m_data.glfwWindow)
             {
@@ -128,6 +130,9 @@ namespace vektor::window
             glfwMakeContextCurrent(m_data.glfwWindow);
 
             int _status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+
+            VEKTOR_CORE_ASSERT(_status, "Failed to initialize GLAD!");
+
             if (!_status)
             {
                 VEKTOR_CORE_ERROR("Failed to initialize GLAD!");

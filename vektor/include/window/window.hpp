@@ -9,6 +9,7 @@
 
 #include "core/core.hpp"
 #include "events/event.hpp"
+#include "renderer/graphics_context.hpp"
 
 namespace vektor::window
 {
@@ -80,6 +81,9 @@ namespace vektor::window
 
     protected:
         WindowData m_data;
+
+        renderer::GraphicsContext *m_Context;
+
         static void setGLFWCallbacks(GLFWwindow *window);
     };
 }
