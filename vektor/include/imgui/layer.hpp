@@ -18,9 +18,13 @@ namespace vektor::imgui_layer
 
         void onAttach() override;
         void onDetach() override;
-        void onUpdate() override;
+        
+        void onRender() override;
 
         void onEvent(event::Event &event) override;
+
+        void begin();
+        void end();
 
     private:
         bool m_BlockEvents = true;

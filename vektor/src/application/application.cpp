@@ -26,6 +26,9 @@ namespace vektor
         m_Window = std::unique_ptr<window::Window>(window::Window::create(props));
         m_Window->setEventCallback(VEKTOR_BIND_EVENT_FN(Application::onEvent));
 
+        m_ImGuiLayer = std::make_unique<imgui_layer::Layer>();
+        pushOverlay(m_ImGuiLayer.get());
+         
         addEventListener([](event::Event &e)
                          { VEKTOR_CORE_TRACE("Received event: {}", e.toString()); });
     }
@@ -41,16 +44,17 @@ namespace vektor
             glClearColor(1.0f, 0.5f, 0.5f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
+            m_ImGuiLayer->begin();
+
             for (layer::Layer *layer : m_LayerStack)
             {
-                layer->onUpdate();
+                layer->onRender();
             }
 
-            glm::vec2 mousePos = input::Input::getMousePosition();
-
-            VEKTOR_CORE_TRACE("Mouse position: ({}, {})", mousePos.x, mousePos.y);
+            m_ImGuiLayer->end();
 
             m_Window->onUpdate();
+
             // m_Window->swapBuffers();
         }
     }

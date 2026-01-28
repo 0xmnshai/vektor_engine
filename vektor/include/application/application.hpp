@@ -13,6 +13,8 @@
 #include "layer/layer.hpp"
 #include "layer/layer_stack.hpp"
 
+#include "imgui/layer.hpp"
+
 namespace vektor
 {
     class VEKTOR_API Application
@@ -39,6 +41,8 @@ namespace vektor
 
     private:
         std::unique_ptr<window::Window> m_Window;
+        std::unique_ptr<imgui_layer::Layer> m_ImGuiLayer;
+
         bool m_Running = true;
 
         std::vector<std::function<void(event::Event &)>> m_EventListeners;

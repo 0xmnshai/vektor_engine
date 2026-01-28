@@ -22,19 +22,29 @@ namespace vektor::imgui_layer
 
     void imgui_layer::Layer::onAttach()
     {
-        IMGUI_CHECKVERSION();
         ImGui::CreateContext();
-        ImGuiIO &io = ImGui::GetIO();
-        (void)io;
-        io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-
         ImGui::StyleColorsDark();
+
+        ImGuiIO &io = ImGui::GetIO();
+        io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+        io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+        io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+
+        io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
+        io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
+
+        ImGuiStyle &style = ImGui::GetStyle();
+
+        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+        {
+            style.WindowRounding = 0.0f;
+            style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+        }
 
         Application &app = Application::getInstance();
         GLFWwindow *window = static_cast<GLFWwindow *>(app.getWindow().getNativeWindow());
 
         ImGui_ImplGlfw_InitForOpenGL(window, true);
-
         ImGui_ImplOpenGL3_Init("#version 410");
     }
 
@@ -45,25 +55,48 @@ namespace vektor::imgui_layer
         ImGui::DestroyContext();
     }
 
-    void imgui_layer::Layer::onUpdate()
+    void imgui_layer::Layer::begin()
     {
-        Application &app = Application::getInstance();
-
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
-
         ImGui::NewFrame();
+        // ImGui::DockSpaceOverViewport();
+    }
 
-        static bool show = true;
-        ImGui::ShowDemoWindow(&show);
+    void imgui_layer::Layer::onRender()
+    {
+        static bool show_demo = false;
+        ImGui::ShowDemoWindow(&show_demo);
+    }
 
-        ImGui::Render();
+    void imgui_layer::Layer::end()
+    {
+        ImGuiIO &io = ImGui::GetIO();
+        Application &app = Application::getInstance();
 
         int w = app.getWindow().getWidth();
         int h = app.getWindow().getHeight();
-        glViewport(0, 0, w, h);
 
+        io.DisplaySize = ImVec2(w, h);
+
+        // begin
+        // ImGui_ImplOpenGL3_NewFrame();
+        // ImGui_ImplGlfw_NewFrame();
+        // ImGui::NewFrame();
+
+        ImGui::Render();
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+        if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+        {
+            GLFWwindow *backup_current_context = glfwGetCurrentContext();
+            // ImGui::UpdatePlatformWindows();
+            // ImGui::RenderPlatformWindowsDefault();
+            glfwMakeContextCurrent(backup_current_context);
+        }
+
+        // end
+        glViewport(0, 0, w, h);
     }
 
     void imgui_layer::Layer::onEvent(event::Event &event)

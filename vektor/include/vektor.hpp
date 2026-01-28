@@ -5,8 +5,10 @@
 #include "core/core.hpp"
 
 #include "events/event.hpp"
-#include "events/keyboard.hpp"
 #include "events/mouse.hpp"
+#include "events/keycode.hpp"
+#include "events/keyboard.hpp"
+#include "events/mousebuttoncode.hpp"
 
 #include "imgui/layer.hpp"
 
