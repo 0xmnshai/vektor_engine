@@ -15,7 +15,7 @@
 
 #include "imgui/layer.hpp"
 
-#include "utils/buffer.hpp""
+#include "utils/buffer.hpp"
 #include "utils/shader.hpp"
 
 namespace vektor
@@ -33,6 +33,7 @@ namespace vektor
 
         void pushLayer(layer::Layer *layer);
         void popLayer(layer::Layer *layer);
+
         void pushOverlay(layer::Layer *overlay);
         void popOverlay(layer::Layer *overlay);
 
@@ -46,14 +47,14 @@ namespace vektor
         std::unique_ptr<window::Window> m_Window;
         imgui_layer::Layer *m_ImGuiLayer;
 
-        unsigned int m_VertexArray; //, m_VertexBuffer, m_IndexBuffer;
+        unsigned int m_VertexArray;
 
         std::unique_ptr<utils::Shader> m_Shader;
 
         std::unique_ptr<utils::buffer::Vertex> m_VertexBuffer;
         std::unique_ptr<utils::buffer::Index> m_IndexBuffer;
 
-        bool m_Running = true;
+        bool m_Running = true; 
 
         std::vector<std::function<void(event::Event &)>> m_EventListeners;
 

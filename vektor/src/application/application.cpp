@@ -99,7 +99,7 @@ namespace vektor
             m_Shader->bindProgram();
 
             glBindVertexArray(m_VertexArray);
-            glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+            glDrawElements(GL_TRIANGLES, m_IndexBuffer->getCount(), GL_UNSIGNED_INT, nullptr);
             glBindVertexArray(0);
 
             for (layer::Layer *layer : m_LayerStack)

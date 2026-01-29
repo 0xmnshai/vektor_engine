@@ -6,6 +6,8 @@
 
 namespace vektor::opengl
 {
+
+    // VertexBuffer
     VertexBuffer::VertexBuffer(const std::vector<float> &vertices)
     {
         glGenBuffers(1, &m_RendererID);
@@ -28,6 +30,7 @@ namespace vektor::opengl
         glBindBuffer(GL_ARRAY_BUFFER, 0);
     }
 
+    // IndexBuffer
     IndexBuffer::IndexBuffer(const std::vector<uint32_t> &indices)
         : m_Count((uint32_t)indices.size())
     {
