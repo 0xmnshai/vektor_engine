@@ -43,6 +43,9 @@ namespace vektor
         std::unique_ptr<window::Window> m_Window;
         std::unique_ptr<imgui_layer::Layer> m_ImGuiLayer;
 
+        unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+        
+
         bool m_Running = true;
 
         std::vector<std::function<void(event::Event &)>> m_EventListeners;

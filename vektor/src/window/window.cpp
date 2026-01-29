@@ -130,6 +130,10 @@ namespace vektor::window
             glfwMakeContextCurrent(m_data.glfwWindow);
 
             int _status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+            
+            int bufferWidth, bufferHeight;
+            glfwGetFramebufferSize(m_data.glfwWindow, &bufferWidth, &bufferHeight);
+            glViewport(0, 0, bufferWidth, bufferHeight); 
 
             VEKTOR_CORE_ASSERT(_status, "Failed to initialize GLAD!");
 
