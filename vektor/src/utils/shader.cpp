@@ -2,7 +2,7 @@
 #include <glad/glad.h>
 
 #include "core/core.hpp"
-#include "utils/utils.hpp"
+#include "utils/shader.hpp"
 #include "logger/logger.hpp"
 
 namespace vektor::utils

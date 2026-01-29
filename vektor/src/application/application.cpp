@@ -3,7 +3,7 @@
 #include "logger/logger.hpp"
 #include "application/application.hpp"
 
-#include "utils/utils.hpp"
+#include "utils/shader.hpp"
 
 #include "input/input.hpp"
 
