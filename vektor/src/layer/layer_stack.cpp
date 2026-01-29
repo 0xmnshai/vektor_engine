@@ -13,6 +13,7 @@ namespace vektor::layer
     {
         for (Layer *layer : m_layers)
         {
+            layer->onDetach();
             delete layer;
         }
     }
@@ -24,6 +25,7 @@ namespace vektor::layer
 
         m_layers.insert(m_layers.begin() + m_layerInsertIndex, layer);
         m_layerInsertIndex++;
+        layer->onAttach();
     }
 
     void LayerStack::popLayer(Layer *layer)

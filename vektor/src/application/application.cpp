@@ -3,6 +3,8 @@
 #include "logger/logger.hpp"
 #include "application/application.hpp"
 
+#include "utils/utils.hpp"
+
 #include "input/input.hpp"
 
 namespace vektor
@@ -10,55 +12,6 @@ namespace vektor
 #define VEKTOR_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
 
     Application *Application::s_Instance = nullptr;
-
-    static GLenum ShaderTypeFromString(const std::string &type)
-    {
-        if (type == "vertex")
-            return GL_VERTEX_SHADER;
-        if (type == "fragment" || type == "pixel")
-            return GL_FRAGMENT_SHADER;
-        return 0;
-    }
-
-    static unsigned int CompileShader(unsigned int type, const std::string &source)
-    {
-        unsigned int id = glCreateShader(type);
-        const char *src = source.c_str();
-        glShaderSource(id, 1, &src, nullptr);
-        glCompileShader(id);
-
-        int result;
-        glGetShaderiv(id, GL_COMPILE_STATUS, &result);
-        if (result == GL_FALSE)
-        {
-            int length;
-            glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
-            char *message = (char *)alloca(length * sizeof(char));
-            glGetShaderInfoLog(id, length, &length, message);
-            VEKTOR_CORE_ERROR("Failed to compile {} shader!", (type == GL_VERTEX_SHADER ? "vertex" : "fragment"));
-            VEKTOR_CORE_ERROR("{}", message);
-            glDeleteShader(id);
-            return 0;
-        }
-        return id;
-    }
-
-    static unsigned int CreateShader(const std::string &vertexShader, const std::string &fragmentShader)
-    {
-        unsigned int program = glCreateProgram();
-        unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
-        unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
-
-        glAttachShader(program, vs);
-        glAttachShader(program, fs);
-        glLinkProgram(program);
-        glValidateProgram(program);
-
-        glDeleteShader(vs);
-        glDeleteShader(fs);
-
-        return program;
-    }
 
     Application::Application()
     {
@@ -73,8 +26,11 @@ namespace vektor
         m_Window = std::unique_ptr<window::Window>(window::Window::create(props));
         m_Window->setEventCallback(VEKTOR_BIND_EVENT_FN(Application::onEvent));
 
-        m_ImGuiLayer = std::make_unique<imgui_layer::Layer>();
-        pushOverlay(m_ImGuiLayer.get());
+        m_ImGuiLayer = new imgui_layer::Layer();
+        pushOverlay(m_ImGuiLayer);
+
+        // m_ImGuiLayer = std::make_unique<imgui_layer::Layer>();
+        // pushOverlay(m_ImGuiLayer.get());
 
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
@@ -121,16 +77,19 @@ namespace vektor
             }
         )";
 
-        m_ShaderProgram = CreateShader(vertexSrc, fragmentSrc);
+        m_ShaderProgram = utils::ShaderUtils::createProgram(vertexSrc, fragmentSrc);
 
         VEKTOR_CORE_INFO("OpenGL rendering setup complete");
     }
 
     Application::~Application()
     {
-        m_ImGuiLayer.reset();
-        m_Window.reset();
+        glDeleteProgram(m_ShaderProgram);
+        glDeleteVertexArrays(1, &m_VertexArray);
+        glDeleteBuffers(1, &m_VertexBuffer);
+        glDeleteBuffers(1, &m_IndexBuffer);
 
+        m_Window.reset();
         s_Instance = nullptr;
 
         VEKTOR_CORE_INFO("Application destroyed");

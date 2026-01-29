@@ -41,8 +41,9 @@ namespace vektor
 
     private:
         std::unique_ptr<window::Window> m_Window;
-        std::unique_ptr<imgui_layer::Layer> m_ImGuiLayer;
-
+        // std::unique_ptr<imgui_layer::Layer> m_ImGuiLayer;
+        imgui_layer::Layer *m_ImGuiLayer;
+        
         unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
         unsigned int m_ShaderProgram;
 
