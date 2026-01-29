@@ -1,4 +1,3 @@
-
 #include "vk_pch.hpp"
 
 #include "logger/logger.hpp"
@@ -28,33 +27,42 @@ namespace vektor
         m_ImGuiLayer = std::make_unique<imgui_layer::Layer>();
         pushOverlay(m_ImGuiLayer.get());
 
-        // Vertex Array Object
+        // Setup OpenGL rendering
+
+        glEnable(GL_DEPTH_TEST);
+
+        // Create and setup Vertex Array Object
         glGenVertexArrays(1, &m_VertexArray);
         glBindVertexArray(m_VertexArray);
 
+        // Create and setup Vertex Buffer Object
         glGenBuffers(1, &m_VertexBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
 
-        float vetices[3 * 3] = {
+        float vertices[3 * 3] = {
             -0.5f, -0.5f, 0.0f,
             0.5f, -0.5f, 0.0f,
             0.0f, 0.5f, 0.0f};
 
-        glBufferData(GL_ARRAY_BUFFER, sizeof(vetices), vetices, GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
+        // Setup vertex attributes
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
 
+        // Create and setup Index Buffer Object
         glGenBuffers(1, &m_IndexBuffer);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
 
         unsigned int indices[3] = {0, 1, 2};
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-        // glAccumxOES = (PFNGLACCUMXOESPROC)glfwGetProcAddress("glAccumxOES");
+        // Unbind VAO (but keep EBO bound)
+        glBindVertexArray(0);
+        glBindBuffer(GL_ARRAY_BUFFER, 0);
+        // Don't unbind EBO while VAO is unbound - keep it bound
 
-        //     addEventListener([](event::Event &e)
-        //                      { VEKTOR_CORE_TRACE("Received event: {}", e.toString()); });
+        VEKTOR_CORE_INFO("OpenGL rendering setup complete");
     }
 
     Application::~Application()
@@ -63,7 +71,6 @@ namespace vektor
         m_Window.reset();
 
         s_Instance = nullptr;
-        // m_LayerStack.clear();
 
         VEKTOR_CORE_INFO("Application destroyed");
     }
@@ -72,17 +79,11 @@ namespace vektor
     {
         while (m_Running)
         {
-            glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT);
+            // Clear with specified color
+            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            glBindVertexArray(m_VertexArray);
-            glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
-
-            for (layer::Layer *layer : m_LayerStack)
-            {
-                layer->onUpdate();
-            }
-
+            // Render ImGui
             m_ImGuiLayer->begin();
 
             for (layer::Layer *layer : m_LayerStack)
@@ -92,9 +93,19 @@ namespace vektor
 
             m_ImGuiLayer->end();
 
-            m_Window->onUpdate();
+            // Draw triangle
+            glBindVertexArray(m_VertexArray);
+            glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+            glBindVertexArray(0);
 
-            // m_Window->swapBuffers();
+            // Update layers
+            for (layer::Layer *layer : m_LayerStack)
+            {
+                layer->onUpdate();
+            }
+
+            // Update window
+            m_Window->onUpdate();
         }
     }
 

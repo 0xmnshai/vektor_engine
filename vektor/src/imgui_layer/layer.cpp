@@ -68,8 +68,8 @@ namespace vektor::imgui_layer
 
     void imgui_layer::Layer::onRender()
     {
-        static bool show_demo = false;
-        ImGui::ShowDemoWindow(&show_demo);
+        static bool show_demo = true;
+        if(show_demo)ImGui::ShowDemoWindow(&show_demo);
     }
 
     void imgui_layer::Layer::end()
