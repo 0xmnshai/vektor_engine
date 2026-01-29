@@ -44,7 +44,7 @@ namespace vektor
         std::unique_ptr<imgui_layer::Layer> m_ImGuiLayer;
 
         unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
-        
+        unsigned int m_ShaderProgram;
 
         bool m_Running = true;
 

@@ -11,6 +11,55 @@ namespace vektor
 
     Application *Application::s_Instance = nullptr;
 
+    static GLenum ShaderTypeFromString(const std::string &type)
+    {
+        if (type == "vertex")
+            return GL_VERTEX_SHADER;
+        if (type == "fragment" || type == "pixel")
+            return GL_FRAGMENT_SHADER;
+        return 0;
+    }
+
+    static unsigned int CompileShader(unsigned int type, const std::string &source)
+    {
+        unsigned int id = glCreateShader(type);
+        const char *src = source.c_str();
+        glShaderSource(id, 1, &src, nullptr);
+        glCompileShader(id);
+
+        int result;
+        glGetShaderiv(id, GL_COMPILE_STATUS, &result);
+        if (result == GL_FALSE)
+        {
+            int length;
+            glGetShaderiv(id, GL_INFO_LOG_LENGTH, &length);
+            char *message = (char *)alloca(length * sizeof(char));
+            glGetShaderInfoLog(id, length, &length, message);
+            VEKTOR_CORE_ERROR("Failed to compile {} shader!", (type == GL_VERTEX_SHADER ? "vertex" : "fragment"));
+            VEKTOR_CORE_ERROR("{}", message);
+            glDeleteShader(id);
+            return 0;
+        }
+        return id;
+    }
+
+    static unsigned int CreateShader(const std::string &vertexShader, const std::string &fragmentShader)
+    {
+        unsigned int program = glCreateProgram();
+        unsigned int vs = CompileShader(GL_VERTEX_SHADER, vertexShader);
+        unsigned int fs = CompileShader(GL_FRAGMENT_SHADER, fragmentShader);
+
+        glAttachShader(program, vs);
+        glAttachShader(program, fs);
+        glLinkProgram(program);
+        glValidateProgram(program);
+
+        glDeleteShader(vs);
+        glDeleteShader(fs);
+
+        return program;
+    }
+
     Application::Application()
     {
         VEKTOR_CORE_ASSERT(!s_Instance, "Application already exists!");
@@ -27,15 +76,13 @@ namespace vektor
         m_ImGuiLayer = std::make_unique<imgui_layer::Layer>();
         pushOverlay(m_ImGuiLayer.get());
 
-        // Setup OpenGL rendering
-
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glEnable(GL_DEPTH_TEST);
 
-        // Create and setup Vertex Array Object
         glGenVertexArrays(1, &m_VertexArray);
         glBindVertexArray(m_VertexArray);
 
-        // Create and setup Vertex Buffer Object
         glGenBuffers(1, &m_VertexBuffer);
         glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
 
@@ -46,21 +93,35 @@ namespace vektor
 
         glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-        // Setup vertex attributes
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
 
-        // Create and setup Index Buffer Object
         glGenBuffers(1, &m_IndexBuffer);
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
 
         unsigned int indices[3] = {0, 1, 2};
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
-        // Unbind VAO (but keep EBO bound)
-        glBindVertexArray(0);
         glBindBuffer(GL_ARRAY_BUFFER, 0);
-        // Don't unbind EBO while VAO is unbound - keep it bound
+        glBindVertexArray(0);
+
+        std::string vertexSrc = R"(
+            #version 410 core
+            layout(location = 0) in vec3 a_Position;
+            void main() {
+                gl_Position = vec4(a_Position, 1.0);
+            }
+        )";
+
+        std::string fragmentSrc = R"(
+            #version 410 core
+            layout(location = 0) out vec4 color;
+            void main() {
+                color = vec4(0.8, 0.2, 0.3, 1.0); // Reddish color
+            }
+        )";
+
+        m_ShaderProgram = CreateShader(vertexSrc, fragmentSrc);
 
         VEKTOR_CORE_INFO("OpenGL rendering setup complete");
     }
@@ -79,24 +140,24 @@ namespace vektor
     {
         while (m_Running)
         {
+            m_ImGuiLayer->begin();
+
             // Clear with specified color
             glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            // Render ImGui
-            m_ImGuiLayer->begin();
+            glUseProgram(m_ShaderProgram);
+            glBindVertexArray(m_VertexArray);
+            glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
+            glBindVertexArray(0);
 
+            // Render ImGui
             for (layer::Layer *layer : m_LayerStack)
             {
                 layer->onRender();
             }
 
             m_ImGuiLayer->end();
-
-            // Draw triangle
-            glBindVertexArray(m_VertexArray);
-            glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
-            glBindVertexArray(0);
 
             // Update layers
             for (layer::Layer *layer : m_LayerStack)

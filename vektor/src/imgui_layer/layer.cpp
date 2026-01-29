@@ -62,14 +62,40 @@ namespace vektor::imgui_layer
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-        // ImGui::DockSpaceOverViewport(ImGui::GetMainViewport());
-        ImGui::DockSpaceOverViewport();
+ 
+        ImGuiDockNodeFlags dockspace_flags = ImGuiDockNodeFlags_None;
+        dockspace_flags |= ImGuiDockNodeFlags_PassthruCentralNode;
+
+        // i am  using the ImGuiWindowFlags_NoBackground flag to ensure
+        // the parent window of the dockspace is transparent
+        ImGuiWindowFlags window_flags = ImGuiWindowFlags_NoDocking | ImGuiWindowFlags_NoBackground;
+
+        // Setup simple full-screen dockspace
+        const ImGuiViewport *viewport = ImGui::GetMainViewport();
+        ImGui::SetNextWindowPos(viewport->WorkPos);
+        ImGui::SetNextWindowSize(viewport->WorkSize);
+        ImGui::SetNextWindowViewport(viewport->ID);
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+        window_flags |= ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove;
+        window_flags |= ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoNavFocus;
+
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0.0f, 0.0f));
+        ImGui::Begin("DockSpace Demo", nullptr, window_flags);
+        ImGui::PopStyleVar();
+        ImGui::PopStyleVar(2);
+
+        ImGuiID dockspace_id = ImGui::GetID("MyDockSpace");
+        ImGui::DockSpace(dockspace_id, ImVec2(0.0f, 0.0f), dockspace_flags);
+
+        ImGui::End();
     }
 
     void imgui_layer::Layer::onRender()
     {
         static bool show_demo = true;
-        if(show_demo)ImGui::ShowDemoWindow(&show_demo);
+        if (show_demo)
+            ImGui::ShowDemoWindow(&show_demo);
     }
 
     void imgui_layer::Layer::end()
@@ -126,21 +152,21 @@ namespace vektor::imgui_layer
     {
         ImGuiIO &io = ImGui::GetIO();
         io.MouseDown[event.getMouseButton()] = true;
-        return true;
+        return false;
     }
 
     bool imgui_layer::Layer::onMouseButtonReleasedEvent(event::MouseButtonReleasedEvent &event)
     {
         ImGuiIO &io = ImGui::GetIO();
         io.MouseDown[event.getMouseButton()] = false;
-        return true;
+        return false;
     }
 
     bool imgui_layer::Layer::onMouseMovedEvent(event::MouseMovedEvent &event)
     {
         ImGuiIO &io = ImGui::GetIO();
         io.MousePos = ImVec2(event.getX(), event.getY());
-        return true;
+        return false;
     }
 
     bool imgui_layer::Layer::onMouseScrolledEvent(event::MouseScrolledEvent &event)
@@ -148,7 +174,7 @@ namespace vektor::imgui_layer
         ImGuiIO &io = ImGui::GetIO();
         io.MouseWheel += event.getYOffset();
         io.MouseWheelH += event.getXOffset();
-        return true;
+        return false;
     }
 
     // Keyboard events
@@ -159,7 +185,7 @@ namespace vektor::imgui_layer
         io.AddKeyEvent(ImGuiKey_RightCtrl, ImGui::IsKeyDown(ImGuiKey_RightCtrl));
         io.AddKeyEvent(ImGuiKey_LeftShift, ImGui::IsKeyDown(ImGuiKey_LeftShift));
         io.AddKeyEvent(ImGuiKey_RightShift, ImGui::IsKeyDown(ImGuiKey_RightShift));
-        return true;
+        return false;
     }
 
     bool imgui_layer::Layer::onKeyReleasedEvent(event::KeyReleasedEvent &event)
@@ -169,7 +195,7 @@ namespace vektor::imgui_layer
         io.AddKeyEvent(ImGuiKey_RightCtrl, false);
         io.AddKeyEvent(ImGuiKey_LeftShift, false);
         io.AddKeyEvent(ImGuiKey_RightShift, false);
-        return true;
+        return false;
     }
 
     bool imgui_layer::Layer::onKeyTypedEvent(event::KeyTypedEvent &event)
