@@ -32,26 +32,23 @@ namespace vektor
         glGenVertexArrays(1, &m_VertexArray);
         glBindVertexArray(m_VertexArray);
 
-        glGenBuffers(1, &m_VertexBuffer);
-        glBindBuffer(GL_ARRAY_BUFFER, m_VertexBuffer);
-
         float vertices[3 * 3] = {
             -0.5f, -0.5f, 0.0f,
             0.5f, -0.5f, 0.0f,
             0.0f, 0.5f, 0.0f};
+
+        m_VertexBuffer.reset(utils::buffer::Vertex::create(std::vector<float>(vertices, vertices + sizeof(vertices) / sizeof(float))));
+        m_VertexBuffer->bind();
 
         glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
         glEnableVertexAttribArray(0);
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
 
-        glGenBuffers(1, &m_IndexBuffer);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_IndexBuffer);
+        std::vector<uint32_t> indices = {0, 1, 2};
+        m_IndexBuffer.reset(utils::buffer::Index::create(indices));
+        m_IndexBuffer->bind(); // Binds to GL_ELEMENT_ARRAY_BUFFER
 
-        unsigned int indices[3] = {0, 1, 2};
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
-
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
         glBindVertexArray(0);
 
         std::string vertexSrc = R"(
@@ -79,13 +76,14 @@ namespace vektor
     {
         m_Shader->unbindProgram();
 
+        m_VertexBuffer.reset();
+        m_IndexBuffer.reset();
+
         glDeleteVertexArrays(1, &m_VertexArray);
-        glDeleteBuffers(1, &m_VertexBuffer);
-        glDeleteBuffers(1, &m_IndexBuffer);
 
         m_Window.reset();
         s_Instance = nullptr;
-
+        m_Shader.reset();
         VEKTOR_CORE_INFO("Application destroyed");
     }
 

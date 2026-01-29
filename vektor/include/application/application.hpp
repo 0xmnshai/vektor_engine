@@ -15,6 +15,7 @@
 
 #include "imgui/layer.hpp"
 
+#include "utils/buffer.hpp""
 #include "utils/shader.hpp"
 
 namespace vektor
@@ -43,11 +44,14 @@ namespace vektor
 
     private:
         std::unique_ptr<window::Window> m_Window;
-        // std::unique_ptr<imgui_layer::Layer> m_ImGuiLayer;
         imgui_layer::Layer *m_ImGuiLayer;
 
-        unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+        unsigned int m_VertexArray; //, m_VertexBuffer, m_IndexBuffer;
+
         std::unique_ptr<utils::Shader> m_Shader;
+
+        std::unique_ptr<utils::buffer::Vertex> m_VertexBuffer;
+        std::unique_ptr<utils::buffer::Index> m_IndexBuffer;
 
         bool m_Running = true;
 
@@ -61,5 +65,5 @@ namespace vektor
         static Application *s_Instance;
     };
 
-    Application *CreateApplication();
+    Application *createApplication();
 }

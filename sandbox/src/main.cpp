@@ -66,7 +66,7 @@ public:
     }
 };
 
-vektor::Application *vektor::CreateApplication()
+vektor::Application *vektor::createApplication()
 {
     return new Sandbox();
 }

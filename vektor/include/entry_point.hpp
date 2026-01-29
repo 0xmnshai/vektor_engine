@@ -14,7 +14,7 @@ int main(int argc, char **argv)
     VEKTOR_CORE_CRITICAL("Vektor Engine is running");
     VEKTOR_CORE_WARN("Vektor Engine is running");
 
-    vektor::Application *application = vektor::CreateApplication();
+    vektor::Application *application = vektor::createApplication();
     application->Run();
     delete application;
 
