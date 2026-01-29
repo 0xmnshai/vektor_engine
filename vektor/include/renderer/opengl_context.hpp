@@ -11,7 +11,7 @@ namespace vektor::renderer
     class VEKTOR_API OpenGLContext : public GraphicsContext
     {
     public:
-        OpenGLContext(GLFWwindow *windowHandle); //  : m_WindowHandle(windowHandle) {}
+        OpenGLContext(GLFWwindow *windowHandle);
        
         virtual void init() override;
         virtual void swapBuffers() override;

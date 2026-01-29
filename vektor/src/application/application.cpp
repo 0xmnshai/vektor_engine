@@ -32,10 +32,6 @@ namespace vektor
         // m_ImGuiLayer = std::make_unique<imgui_layer::Layer>();
         // pushOverlay(m_ImGuiLayer.get());
 
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-        glEnable(GL_DEPTH_TEST);
-
         glGenVertexArrays(1, &m_VertexArray);
         glBindVertexArray(m_VertexArray);
 
