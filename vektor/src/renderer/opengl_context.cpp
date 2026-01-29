@@ -25,6 +25,7 @@ namespace vektor::renderer
 
         std::string gl_version = std::string(reinterpret_cast<const char *>(glGetString(GL_VERSION)));                                // GluByte*
         std::string shading_language_version = std::string(reinterpret_cast<const char *>(glGetString(GL_SHADING_LANGUAGE_VERSION))); // GluByte*
+
         VEKTOR_CORE_INFO("OpenGL Version: {0}", gl_version);
         VEKTOR_CORE_INFO("GLSL Version: {0}", shading_language_version);
 

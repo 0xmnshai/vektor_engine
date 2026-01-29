@@ -15,6 +15,8 @@
 
 #include "imgui/layer.hpp"
 
+#include "utils/shader.hpp"
+
 namespace vektor
 {
     class VEKTOR_API Application
@@ -43,9 +45,9 @@ namespace vektor
         std::unique_ptr<window::Window> m_Window;
         // std::unique_ptr<imgui_layer::Layer> m_ImGuiLayer;
         imgui_layer::Layer *m_ImGuiLayer;
-        
+
         unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
-        unsigned int m_ShaderProgram;
+        std::unique_ptr<utils::Shader> m_Shader;
 
         bool m_Running = true;
 

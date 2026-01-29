@@ -13,15 +13,22 @@ namespace vektor::utils
         Fragment
     };
 
-    class VEKTOR_API ShaderUtils
+    class VEKTOR_API Shader
     {
     public:
-        static GLuint compileShader(ShaderType type, const std::string& source);
-        static GLuint createProgram(const std::string& vertexSrc, const std::string& fragmentSrc);
+        Shader(const std::string &vertexSrc, const std::string &fragmentSrc);
+        ~Shader();
+
+        static GLuint compileShader(ShaderType type, const std::string &source);
+
+        void bindProgram() const;
+        void unbindProgram() const;
 
     private:
         static GLenum toGLType(ShaderType type);
         static void checkCompileErrors(GLuint shader, ShaderType type);
         static void checkLinkErrors(GLuint program);
+
+        GLuint m_ShaderProgram;
     };
 }

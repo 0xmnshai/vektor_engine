@@ -29,9 +29,6 @@ namespace vektor
         m_ImGuiLayer = new imgui_layer::Layer();
         pushOverlay(m_ImGuiLayer);
 
-        // m_ImGuiLayer = std::make_unique<imgui_layer::Layer>();
-        // pushOverlay(m_ImGuiLayer.get());
-
         glGenVertexArrays(1, &m_VertexArray);
         glBindVertexArray(m_VertexArray);
 
@@ -73,14 +70,15 @@ namespace vektor
             }
         )";
 
-        m_ShaderProgram = utils::ShaderUtils::createProgram(vertexSrc, fragmentSrc);
+        m_Shader = std::make_unique<utils::Shader>(vertexSrc, fragmentSrc);
 
         VEKTOR_CORE_INFO("OpenGL rendering setup complete");
     }
 
     Application::~Application()
     {
-        glDeleteProgram(m_ShaderProgram);
+        m_Shader->unbindProgram();
+
         glDeleteVertexArrays(1, &m_VertexArray);
         glDeleteBuffers(1, &m_VertexBuffer);
         glDeleteBuffers(1, &m_IndexBuffer);
@@ -97,16 +95,15 @@ namespace vektor
         {
             m_ImGuiLayer->begin();
 
-            // Clear with specified color
             glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            glUseProgram(m_ShaderProgram);
+            m_Shader->bindProgram();
+
             glBindVertexArray(m_VertexArray);
             glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, nullptr);
             glBindVertexArray(0);
 
-            // Render ImGui
             for (layer::Layer *layer : m_LayerStack)
             {
                 layer->onRender();
@@ -114,13 +111,11 @@ namespace vektor
 
             m_ImGuiLayer->end();
 
-            // Update layers
             for (layer::Layer *layer : m_LayerStack)
             {
                 layer->onUpdate();
             }
 
-            // Update window
             m_Window->onUpdate();
         }
     }

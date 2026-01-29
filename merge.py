@@ -10,6 +10,7 @@ EXCLUDED_DIRS = {
     os.path.normpath("vektor/vendor"),
     os.path.normpath(".git"),
     os.path.normpath("merge.py"),
+    os.path.normpath("logs/engine.log")
 }
 
 def is_text_file(path):
@@ -53,9 +54,7 @@ def merge_files(file_list, output_file):
             except:
                 continue
 
-            out.write(f"file name : {file}\n")
             out.write(content)
-            out.write("\n\n----\n\n")
 
 def main():
     files = collect_files(ROOT_DIR)

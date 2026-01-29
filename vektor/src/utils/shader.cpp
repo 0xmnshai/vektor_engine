@@ -7,7 +7,31 @@
 
 namespace vektor::utils
 {
-    GLenum ShaderUtils::toGLType(ShaderType type)
+
+    Shader::Shader(const std::string &vertexSrc,
+                   const std::string &fragmentSrc)
+    {
+        m_ShaderProgram = glCreateProgram();
+
+        GLuint vs = compileShader(ShaderType::Vertex, vertexSrc);
+        GLuint fs = compileShader(ShaderType::Fragment, fragmentSrc);
+
+        glAttachShader(m_ShaderProgram, vs);
+        glAttachShader(m_ShaderProgram, fs);
+        glLinkProgram(m_ShaderProgram);
+
+        checkLinkErrors(m_ShaderProgram);
+
+        glDeleteShader(vs);
+        glDeleteShader(fs);
+    };
+
+    Shader::~Shader()
+    {
+        glDeleteProgram(m_ShaderProgram);
+    }
+
+    GLenum Shader::toGLType(ShaderType type)
     {
         switch (type)
         {
@@ -19,7 +43,7 @@ namespace vektor::utils
         return 0;
     }
 
-    GLuint ShaderUtils::compileShader(ShaderType type, const std::string &source)
+    GLuint Shader::compileShader(ShaderType type, const std::string &source)
     {
         GLenum glType = toGLType(type);
         GLuint shader = glCreateShader(glType);
@@ -33,27 +57,7 @@ namespace vektor::utils
         return shader;
     }
 
-    GLuint ShaderUtils::createProgram(const std::string &vertexSrc,
-                                      const std::string &fragmentSrc)
-    {
-        GLuint program = glCreateProgram();
-
-        GLuint vs = compileShader(ShaderType::Vertex, vertexSrc);
-        GLuint fs = compileShader(ShaderType::Fragment, fragmentSrc);
-
-        glAttachShader(program, vs);
-        glAttachShader(program, fs);
-        glLinkProgram(program);
-
-        checkLinkErrors(program);
-
-        glDeleteShader(vs);
-        glDeleteShader(fs);
-
-        return program;
-    }
-
-    void ShaderUtils::checkCompileErrors(GLuint shader, ShaderType type)
+    void Shader::checkCompileErrors(GLuint shader, ShaderType type)
     {
         GLint success;
         glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
@@ -74,7 +78,7 @@ namespace vektor::utils
         }
     }
 
-    void ShaderUtils::checkLinkErrors(GLuint program)
+    void Shader::checkLinkErrors(GLuint program)
     {
         GLint success;
         glGetProgramiv(program, GL_LINK_STATUS, &success);
@@ -90,5 +94,15 @@ namespace vektor::utils
             VEKTOR_CORE_ERROR("SHADER PROGRAM LINK FAILED:\n{}", log);
             glDeleteProgram(program);
         }
+    }
+
+    void Shader::bindProgram() const
+    {
+        glUseProgram(m_ShaderProgram);
+    }
+
+    void Shader::unbindProgram() const
+    {
+        glDeleteProgram(m_ShaderProgram);
     }
 }
