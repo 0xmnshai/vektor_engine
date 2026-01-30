@@ -41,11 +41,10 @@ namespace vektor
 
         utils::buffer::Layout layout = {
             {utils::buffer::ShaderDataType::Float3, "a_Position"},
-            {utils::buffer::ShaderDataType::Float4, "a_Color"}
-        };
+            {utils::buffer::ShaderDataType::Float4, "a_Color"}};
 
         uint32_t index = 0;
-        for (const auto &element : layout)
+        for (const auto &element : layout) //  m_VertexBuffer->getLayout())
         {
             glEnableVertexAttribArray(index);
             glVertexAttribPointer(

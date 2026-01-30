@@ -1,89 +1,128 @@
-[15:06:14] [trace] VEKTOR: Starting Vektor Engine
-[15:06:14] [critical] VEKTOR: Vektor Engine is running
-[15:06:14] [warning] VEKTOR: Vektor Engine is running
-[15:06:14] [info] VEKTOR: GLFW Window hints set
-[15:06:14] [info] VEKTOR: Creating window: Vektor Engine (1280, 720)
-[15:06:14] [info] VEKTOR: OpenGL Version: 4.1 Metal - 90.5
-[15:06:14] [info] VEKTOR: GLSL Version: 4.10
-[15:06:14] [info] VEKTOR: OpenGL context initialized successfully
-[15:06:14] [info] APP: Setting event callback
-[15:06:14] [info] VEKTOR: OpenGL rendering setup complete
-[15:06:14] [trace] VEKTOR: Event received: MouseMovedEvent: 662.537, 416.068
-[15:06:14] [trace] VEKTOR: Event received: MouseMovedEvent: 662.537, 414.516
-[15:06:14] [trace] VEKTOR: Event received: MouseMovedEvent: 662.945, 412.285
-[15:06:14] [trace] VEKTOR: Event received: MouseMovedEvent: 664.348, 409.477
-[15:06:14] [trace] VEKTOR: Event received: MouseMovedEvent: 666.194, 407.137
-[15:06:14] [trace] VEKTOR: Event received: MouseMovedEvent: 667.475, 405.426
-[15:06:14] [trace] VEKTOR: Event received: MouseMovedEvent: 669.34, 403.086
-[15:06:14] [trace] VEKTOR: Event received: MouseMovedEvent: 671.674, 401.215
-[15:06:14] [trace] VEKTOR: Event received: MouseMovedEvent: 673.376, 399.434
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 666.703, 398.883
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 647.367, 388.816
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 612.242, 371.625
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 516.5, 322.047
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 382.172, 244.32
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 278.781, 182.426
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 159.699, 101.82
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 141.52, 87.918
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 105.215, 63.2305
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 74.2852, 37.457
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 70.1602, 33.332
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 50.9648, 15.2656
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 47.4062, 7.44141
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 46.707, 7.44141
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 43.1484, 5.91406
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 40.0977, 3.37109
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 37.0703, 0.847656
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 32.9453, -2.69141
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 29.6523, -5.98438
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 26.1133, -10.1094
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 19.8555, -16.3672
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 17.3125, -18.9102
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 13.207, -23.0156
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 8.04297, -28.6484
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 5.83594, -30.5078
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 5.25781, -31.1211
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 5.25781, -31.3906
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 5.25781, -30.5547
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 5.60156, -28.9062
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 6.64062, -28.2148
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 7.33203, -27.1758
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 9.10156, -25.4062
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 9.71094, -24.7969
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 10.0156, -24.1875
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 10.625, -23.8828
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 10.8867, -23.6211
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 11.1523, -23.3555
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 11.4141, -23.0938
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 11.6797, -22.8281
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 11.9453, -22.5625
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 12.1836, -22.3242
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 12.4297, -22.0781
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 12.6719, -21.8359
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 12.6719, -21.5703
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 12.9375, -21.3047
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 12.9375, -21.0391
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 13.1992, -20.7773
-[15:06:15] [trace] VEKTOR: Event received: MouseMovedEvent: 13.4648, -20.5117
-[15:06:15] [trace] VEKTOR: Event received: WindowClose
-[15:06:15] [info] VEKTOR: Application destroyed
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[15:06:15] [trace] VEKTOR: Vektor Engine has stopped
+[15:24:27] [trace] VEKTOR: Starting Vektor Engine
+[15:24:27] [critical] VEKTOR: Vektor Engine is running
+[15:24:27] [warning] VEKTOR: Vektor Engine is running
+[15:24:28] [info] VEKTOR: GLFW Window hints set
+[15:24:28] [info] VEKTOR: Creating window: Vektor Engine (1280, 720)
+[15:24:28] [info] VEKTOR: OpenGL Version: 4.1 Metal - 90.5
+[15:24:28] [info] VEKTOR: GLSL Version: 4.10
+[15:24:28] [info] VEKTOR: OpenGL context initialized successfully
+[15:24:28] [info] APP: Setting event callback
+[15:24:28] [info] VEKTOR: OpenGL rendering setup complete
+[15:24:28] [trace] VEKTOR: Event received: MouseMovedEvent: 601.012, 279.027
+[15:24:28] [trace] VEKTOR: Event received: MouseMovedEvent: 612.387, 264.801
+[15:24:28] [trace] VEKTOR: Event received: MouseMovedEvent: 620.453, 252.098
+[15:24:28] [trace] VEKTOR: Event received: MouseMovedEvent: 623.395, 241.488
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 624.18, 219.348
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 607.484, 186.16
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 567.34, 150.703
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 523.754, 121.855
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 465.57, 88.9258
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 411.367, 64.7695
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 367.91, 55.1719
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 347.719, 55.1719
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 337.941, 55.1719
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 331.641, 55.1719
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 326.965, 58.0898
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 323.426, 62.2109
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 322.41, 65.7578
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 321.477, 65.7578
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 301.922, 61.2422
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 292.895, 57.4805
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 283.867, 53.7188
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 265.91, 46.7344
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 247.953, 39.75
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 240.609, 37.0781
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 215.039, 26.6172
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 195.934, 20.0234
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 166.953, 12.2812
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 144.809, 5.95312
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 127.73, 0.96875
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 114.48, -2.28125
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 106.043, -4.60156
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 98.9492, -5.62109
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 92.582, -6.08984
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 87.6406, -6.08984
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 83.3672, -6.08984
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 79.6797, -6.08984
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 75.9922, -6.08984
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 72.3047, -4.85156
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 68.6172, -3.61328
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 66.4805, -2.76172
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 64.3438, -2.33594
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 62.207, -1.91016
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 60.6562, -1.91016
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 59.1133, -1.91016
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 57.5625, -1.91016
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 56.0195, -1.91016
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 54.4688, -1.91016
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 53.4297, -2.60156
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 51.8789, -2.99219
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 50.3438, -3.76172
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 49.3008, -4.10938
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 47.7539, -4.88281
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 46.2031, -5.27344
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 44.668, -5.66016
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 43.625, -6.00781
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 42.1055, -6.00781
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 41.0625, -6.35547
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 39.5195, -6.74219
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 38.4766, -6.74219
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 37.4414, -7.08984
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 36.3984, -7.08984
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 35.3672, -7.08984
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 34.3242, -7.08984
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 33.293, -7.43359
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 32.6797, -7.43359
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 31.6523, -7.77734
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 29.5703, -7.77734
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 27.9141, -8.08594
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 26.2578, -8.74219
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 25.0312, -9.05078
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 23.8047, -9.35938
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 22.9219, -9.66797
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 21.6992, -10.2812
+[15:24:29] [trace] VEKTOR: Event received: MouseMovedEvent: 21.1602, -10.5508
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 20.2773, -10.8203
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 20.0312, -11.0664
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 19.4922, -11.3359
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 19.2422, -11.5859
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 18.9922, -11.5859
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 18.9922, -11.8516
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 18.7227, -11.8516
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 18.7227, -12.0977
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 18.4531, -12.0977
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 18.207, -12.3438
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 17.9609, -12.5898
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 17.7109, -12.5898
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 17.7109, -12.8594
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 17.4414, -12.8594
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 17.1758, -13.125
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 16.9258, -13.375
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 16.6602, -13.375
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 16.4102, -13.625
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 16.1602, -13.625
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 16.1602, -13.8945
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 16.1602, -14.1367
+[15:24:30] [trace] VEKTOR: Event received: MouseMovedEvent: 16.1602, -15.0195
+[15:24:30] [trace] VEKTOR: Event received: WindowClose
+[15:24:30] [info] VEKTOR: Application destroyed
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[15:24:30] [trace] VEKTOR: Vektor Engine has stopped

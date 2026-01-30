@@ -142,7 +142,10 @@ namespace vektor::utils::buffer
         std::vector<BufferElement>::iterator begin() { return m_Elements.begin(); }
         std::vector<BufferElement>::iterator end() { return m_Elements.end(); }
 
-        float getStride()
+        std::vector<BufferElement>::const_iterator begin() const { return m_Elements.begin(); }
+        std::vector<BufferElement>::const_iterator end() const { return m_Elements.end(); }
+
+        float getStride() const
         {
             return static_cast<float>(m_Stride);
         }
