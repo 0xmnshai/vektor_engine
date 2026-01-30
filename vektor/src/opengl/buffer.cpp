@@ -6,7 +6,6 @@
 
 namespace vektor::opengl
 {
-
     // VertexBuffer
     VertexBuffer::VertexBuffer(const std::vector<float> &vertices)
     {
