@@ -19,6 +19,9 @@ namespace vektor::opengl
         virtual void addVertexBuffer(const std::shared_ptr<utils::buffer::Vertex> &vertexBuffer) override;
         virtual void setIndexBuffer(const std::shared_ptr<utils::buffer::Index> &indexBuffer) override;
 
+        virtual const std::vector<std::shared_ptr<utils::buffer::Vertex>> &getVertexBuffers() const { return m_VertexBuffers; };
+        virtual const std::shared_ptr<utils::buffer::Index> &getIndexBuffer() const { return m_IndexBuffer; }
+
     private:
         std::vector<std::shared_ptr<utils::buffer::Vertex>> m_VertexBuffers;
         std::shared_ptr<utils::buffer::Index> m_IndexBuffer;

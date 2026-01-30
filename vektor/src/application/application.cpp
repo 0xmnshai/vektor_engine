@@ -46,7 +46,6 @@ namespace vektor
 
         std::vector<uint32_t> indices = {0, 1, 2};
         m_IndexBuffer.reset(utils::buffer::Index::create(indices));
-
         m_VertexArray->setIndexBuffer(m_IndexBuffer);
 
         std::string vertexSrc = R"(
@@ -82,6 +81,65 @@ namespace vektor
         m_Shader = std::make_unique<utils::Shader>(vertexSrc, fragmentSrc);
 
         VEKTOR_CORE_INFO("OpenGL rendering setup complete");
+
+        // SQUARE
+
+        m_SquareVertexArray.reset(utils::VertexArray::create());
+
+        float squareVertices[3 * 4] = {
+            -0.5f,
+            -0.5f,
+            0.0f,
+            0.5f,
+            -0.5f,
+            0.0f,
+            0.0f,
+            0.5f,
+            0.0f,
+            -0.5f,
+            0.5f,
+            0.0f,
+        };
+
+        m_VertexBufferSquare.reset(utils::buffer::Vertex::create(std::vector<float>(squareVertices, squareVertices + sizeof(squareVertices) / sizeof(float))));
+
+        utils::buffer::Layout layoutSquare = {
+            {utils::buffer::ShaderDataType::Float3, "a_Position"},
+        };
+
+        m_VertexBufferSquare->setLayout(layoutSquare);
+        m_SquareVertexArray->addVertexBuffer(m_VertexBufferSquare);
+
+        std::vector<uint32_t> indicesSquare = {0, 1, 2, 2, 3, 0};
+        m_IndexBufferSquare.reset(utils::buffer::Index::create(indicesSquare));
+        m_SquareVertexArray->setIndexBuffer(m_IndexBufferSquare);
+
+        std::string vertexSrcSquare = R"(
+            #version 410 core
+
+            layout(location = 0) in vec3 a_Position;
+
+            out vec3 v_Position;
+
+            void main() {
+                v_Position = a_Position;
+                gl_Position = vec4(a_Position, 1.0);
+            }
+        )";
+
+        std::string fragmentSrcSquare = R"(
+            #version 410 core
+            
+            layout(location = 0) out vec4 color;
+
+            in vec3 v_Position;
+
+            void main() {
+                color = vec4(0.2f, 0.3f, 0.8f, 1.0f); 
+            }
+        )";
+
+        m_ShaderSquare = std::make_unique<utils::Shader>(vertexSrcSquare, fragmentSrcSquare);
     }
 
     Application::~Application()
@@ -108,11 +166,13 @@ namespace vektor
             glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-            m_Shader->bindProgram();
+            m_ShaderSquare->bindProgram();
+            m_SquareVertexArray->bind();
+            glDrawElements(GL_TRIANGLES, m_IndexBufferSquare->getCount(), GL_UNSIGNED_INT, nullptr);
 
+            m_Shader->bindProgram();
             m_VertexArray->bind();
             glDrawElements(GL_TRIANGLES, m_IndexBuffer->getCount(), GL_UNSIGNED_INT, nullptr);
-            glBindVertexArray(0);
 
             for (layer::Layer *layer : m_LayerStack)
             {
