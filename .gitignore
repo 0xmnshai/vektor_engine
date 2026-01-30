@@ -2,3 +2,5 @@ build/
 bin/
 vektor/resources.md
 logs/
+merge.py
+all_files
