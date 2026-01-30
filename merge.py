@@ -1,7 +1,7 @@
 import os
 
 ROOT_DIR = "./"
-OUTPUT_FILE = "all_files.txt"
+OUTPUT_FILE = "all_files"
 
 # Normalize paths for OS-independent matching
 EXCLUDED_DIRS = {
@@ -10,7 +10,8 @@ EXCLUDED_DIRS = {
     os.path.normpath("vektor/vendor"),
     os.path.normpath(".git"),
     os.path.normpath("merge.py"),
-    os.path.normpath("logs")
+    os.path.normpath("logs"),
+    os.path.normpath("imgui.ini")
 }
 
 def is_text_file(path):

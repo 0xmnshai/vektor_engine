@@ -17,6 +17,7 @@
 
 #include "utils/buffer.hpp"
 #include "utils/shader.hpp"
+#include "utils/vertex_array.hpp"
 
 namespace vektor
 {
@@ -44,17 +45,17 @@ namespace vektor
         inline static Application &getInstance() { return *s_Instance; }
 
     private:
-        std::unique_ptr<window::Window> m_Window;
+        std::shared_ptr<utils::Shader> m_Shader;
+        std::shared_ptr<window::Window> m_Window;
+        std::shared_ptr<utils::buffer::Vertex> m_VertexBuffer;
+        std::shared_ptr<utils::buffer::Index> m_IndexBuffer;
+        std::shared_ptr<utils::VertexArray> m_VertexArray;
+
         imgui_layer::Layer *m_ImGuiLayer;
 
-        unsigned int m_VertexArray;
+        // unsigned int m_VertexArray;
 
-        std::unique_ptr<utils::Shader> m_Shader;
-
-        std::unique_ptr<utils::buffer::Vertex> m_VertexBuffer;
-        std::unique_ptr<utils::buffer::Index> m_IndexBuffer;
-
-        bool m_Running = true; 
+        bool m_Running = true;
 
         std::vector<std::function<void(event::Event &)>> m_EventListeners;
 

@@ -29,42 +29,48 @@ namespace vektor
         m_ImGuiLayer = new imgui_layer::Layer();
         pushOverlay(m_ImGuiLayer);
 
-        glGenVertexArrays(1, &m_VertexArray);
-        glBindVertexArray(m_VertexArray);
+        // glGenVertexArrays(1, &m_VertexArray);
+        // glBindVertexArray(m_VertexArray);
 
         float vertices[3 * 7] = {
             -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
             0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
             0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f};
 
+        m_VertexArray.reset(utils::VertexArray::create());
         m_VertexBuffer.reset(utils::buffer::Vertex::create(std::vector<float>(vertices, vertices + sizeof(vertices) / sizeof(float))));
 
         utils::buffer::Layout layout = {
             {utils::buffer::ShaderDataType::Float3, "a_Position"},
             {utils::buffer::ShaderDataType::Float4, "a_Color"}};
 
-        uint32_t index = 0;
-        for (const auto &element : layout) //  m_VertexBuffer->getLayout())
-        {
-            glEnableVertexAttribArray(index);
-            glVertexAttribPointer(
-                index,
-                element.getComponentCount(),
-                element.getType(element.type),
-                element.normalized ? GL_TRUE : GL_FALSE,
-                layout.getStride(),
-                (const GLvoid *)element.offset);
+        // uint32_t index = 0;
+        // for (const auto &element : layout) //  m_VertexBuffer->getLayout())
+        // {
+        //     glEnableVertexAttribArray(index);
+        //     glVertexAttribPointer(
+        //         index,
+        //         element.getComponentCount(),
+        //         element.getType(element.type),
+        //         element.normalized ? GL_TRUE : GL_FALSE,
+        //         layout.getStride(),
+        //         (const GLvoid *)element.offset);
 
-            index++;
-        }
+        //     index++;
+        // }
 
-        m_VertexBuffer->bind();
+        // m_VertexBuffer->bind();
+
+        m_VertexBuffer->setLayout(layout);
+        m_VertexArray->addVertexBuffer(m_VertexBuffer);
 
         std::vector<uint32_t> indices = {0, 1, 2};
         m_IndexBuffer.reset(utils::buffer::Index::create(indices));
-        m_IndexBuffer->bind(); // Binds to GL_ELEMENT_ARRAY_BUFFER
+        // m_IndexBuffer->bind(); // Binds to GL_ELEMENT_ARRAY_BUFFER
 
-        glBindVertexArray(0);
+        m_VertexArray->setIndexBuffer(m_IndexBuffer);
+
+        // glBindVertexArray(0);
 
         std::string vertexSrc = R"(
             #version 410 core
@@ -108,7 +114,8 @@ namespace vektor
         m_VertexBuffer.reset();
         m_IndexBuffer.reset();
 
-        glDeleteVertexArrays(1, &m_VertexArray);
+        // glDeleteVertexArrays(1, &m_VertexArray);
+        m_VertexArray->unBind();
 
         m_Window.reset();
         s_Instance = nullptr;
@@ -127,7 +134,8 @@ namespace vektor
 
             m_Shader->bindProgram();
 
-            glBindVertexArray(m_VertexArray);
+            // glBindVertexArray(m_VertexArray);
+            m_VertexArray->bind();
             glDrawElements(GL_TRIANGLES, m_IndexBuffer->getCount(), GL_UNSIGNED_INT, nullptr);
             glBindVertexArray(0);
 
