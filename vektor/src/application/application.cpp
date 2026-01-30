@@ -7,6 +7,8 @@
 
 #include "input/input.hpp"
 
+#include "renderer/command.hpp"
+
 namespace vektor
 {
 #define VEKTOR_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
@@ -155,18 +157,20 @@ namespace vektor
         {
             m_ImGuiLayer->begin();
 
-            glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            renderer::Command::setClearColor(glm::vec4(0.2f, 0.3f, 0.3f, 1.0f));
+            renderer::Command::clear();
+
+            renderer::Renderer::beginScene();
 
             glDisable(GL_DEPTH_TEST);
 
             m_ShaderSquare->bindProgram();
-            m_SquareVertexArray->bind();
-            glDrawElements(GL_TRIANGLES, m_IndexBufferSquare->getCount(), GL_UNSIGNED_INT, nullptr);
+
+            renderer::Renderer::submit(m_SquareVertexArray);
+            renderer::Renderer::endScene();
 
             m_Shader->bindProgram();
-            m_VertexArray->bind();
-            glDrawElements(GL_TRIANGLES, m_IndexBuffer->getCount(), GL_UNSIGNED_INT, nullptr);
+            renderer::Renderer::submit(m_VertexArray);
 
             for (layer::Layer *layer : m_LayerStack)
             {

@@ -9,9 +9,9 @@ namespace vektor::utils
     {
         switch (renderer::Renderer::getAPI())
         {
-        case renderer::API::OPENGL:
+        case renderer::RendererApi::API::OPENGL:
             return new opengl::VertexArray();
-        case renderer::API::NONE:
+        case renderer::RendererApi::API::NONE:
             VEKTOR_CORE_ASSERT(false, "Renderer API not set!");
             return nullptr;
         default:

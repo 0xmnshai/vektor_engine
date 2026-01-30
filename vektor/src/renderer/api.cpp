@@ -1,6 +1,20 @@
-#include "renderer/api.hpp"
+
+#include "renderer/command.hpp"
 
 namespace vektor::renderer
 {
-    renderer::API Renderer::s_RendererAPI = renderer::API::OPENGL;
+    RendererApi::API RendererApi::s_API = RendererApi::API::OPENGL;
+
+    void Renderer::beginScene()
+    {
+    }
+
+    void Renderer::endScene()
+    {
+    }
+
+    void Renderer::submit(const std::shared_ptr<utils::VertexArray> &vertexArray)
+    {
+        renderer::Command::drawIndexed(vertexArray);
+    }
 }

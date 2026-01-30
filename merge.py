@@ -17,6 +17,7 @@ EXCLUDED_PATHS = {
     os.path.normpath("Readme.md"),
     os.path.normpath("CMakelists.txt"),
     os.path.normpath("resources.md"), 
+    os.path.normpath("cmake-build-debug")
 }
 
 def is_text_file(path):

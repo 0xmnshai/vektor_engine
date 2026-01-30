@@ -3,6 +3,7 @@
 #include "renderer/api.hpp"
 #include "logger/logger.hpp"
 #include "opengl/buffer.hpp"
+#include "renderer/api.hpp"
 
 // In a real engine, you would check a Renderer::GetAPI() here
 // For now, we assume OpenGL is the only backend.
@@ -13,9 +14,9 @@ namespace vektor::utils::buffer
     {
         switch (renderer::Renderer::getAPI())
         {
-        case renderer::API::OPENGL:
+        case renderer::RendererApi::API::OPENGL:
             return new opengl::VertexBuffer(vertices);
-        case renderer::API::NONE:
+        case renderer::RendererApi::API::NONE:
             VEKTOR_CORE_ASSERT(false, "Renderer API not set!");
             return nullptr;
         default:
@@ -28,9 +29,9 @@ namespace vektor::utils::buffer
     {
         switch (renderer::Renderer::getAPI())
         {
-        case renderer::API::OPENGL:
+        case renderer::RendererApi::API::OPENGL:
             return new opengl::IndexBuffer(indices);
-        case renderer::API::NONE:
+        case renderer::RendererApi::API::NONE:
             VEKTOR_CORE_ASSERT(false, "Renderer API not set!");
             return nullptr;
         default:
