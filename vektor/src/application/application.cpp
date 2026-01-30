@@ -87,18 +87,10 @@ namespace vektor
         m_SquareVertexArray.reset(utils::VertexArray::create());
 
         float squareVertices[3 * 4] = {
-            -0.5f,
-            -0.5f,
-            0.0f,
-            0.5f,
-            -0.5f,
-            0.0f,
-            0.0f,
-            0.5f,
-            0.0f,
-            -0.5f,
-            0.5f,
-            0.0f,
+            -0.75f, -0.75f, 0.0f, // 0: Bottom Left
+            0.75f, -0.75f, 0.0f,  // 1: Bottom Right
+            0.75f, 0.75f, 0.0f,   // 2: Top Right
+            -0.75f, 0.75f, 0.0f   // 3: Top Left
         };
 
         m_VertexBufferSquare.reset(utils::buffer::Vertex::create(std::vector<float>(squareVertices, squareVertices + sizeof(squareVertices) / sizeof(float))));
@@ -165,6 +157,8 @@ namespace vektor
 
             glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+            glDisable(GL_DEPTH_TEST);
 
             m_ShaderSquare->bindProgram();
             m_SquareVertexArray->bind();
