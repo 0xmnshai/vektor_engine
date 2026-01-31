@@ -55,16 +55,21 @@ namespace vektor
     void Application::Run()
     {
         while (m_Running)
-        {
+        { 
             float time = (float)glfwGetTime();
 
             core::Timestep timestep = time - m_LastFrameTime;
 
             m_LastFrameTime = time;
 
+            for (layer::Layer *layer : m_LayerStack)
+            {
+                layer->onUpdate(timestep);
+            }
+
             m_ImGuiLayer->begin();
 
-            glDisable(GL_DEPTH_TEST);
+            // glDisable(GL_DEPTH_TEST);
 
             for (layer::Layer *layer : m_LayerStack)
             {
@@ -72,11 +77,6 @@ namespace vektor
             }
 
             m_ImGuiLayer->end();
-
-            for (layer::Layer *layer : m_LayerStack)
-            {
-                layer->onUpdate(timestep);
-            }
 
             m_Window->onUpdate();
         }
