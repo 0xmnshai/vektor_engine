@@ -2,8 +2,10 @@
 
 #include <string>
 
-#include "events/event.hpp"
 #include "core/core.hpp"
+#include "core/timestep.hpp"
+
+#include "events/event.hpp"
 
 namespace vektor::layer
 {
@@ -15,10 +17,10 @@ namespace vektor::layer
 
         virtual void onAttach() {}
         virtual void onDetach() {}
-        virtual void onUpdate() {}
-        
+        virtual void onUpdate(core::Timestep timestep) {}
+
         virtual void onRender() {}
-        
+
         virtual void onEvent(event::Event &event) {}
 
         inline const std::string &getName() const { return m_DebugName; }

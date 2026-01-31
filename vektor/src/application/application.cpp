@@ -1,5 +1,8 @@
 #include "vk_pch.hpp"
 
+#include "core/core.hpp"
+#include "core/timestep.hpp"
+
 #include "logger/logger.hpp"
 #include "application/application.hpp"
 
@@ -24,8 +27,8 @@ namespace vektor
 
         window::WindowProps props;
         props.title = "Vektor Engine";
-        props.width = 1280;
-        props.height = 720;
+        props.width = WINDOW_WIDTH;
+        props.height = WINDOW_HEIGHT;
 
         m_Window = std::unique_ptr<window::Window>(window::Window::create(props));
         m_Window->setEventCallback(VEKTOR_BIND_EVENT_FN(Application::onEvent));
@@ -53,6 +56,12 @@ namespace vektor
     {
         while (m_Running)
         {
+            float time = (float)glfwGetTime();
+
+            core::Timestep timestep = time - m_LastFrameTime;
+
+            m_LastFrameTime = time;
+
             m_ImGuiLayer->begin();
 
             glDisable(GL_DEPTH_TEST);
@@ -66,7 +75,7 @@ namespace vektor
 
             for (layer::Layer *layer : m_LayerStack)
             {
-                layer->onUpdate();
+                layer->onUpdate(timestep);
             }
 
             m_Window->onUpdate();

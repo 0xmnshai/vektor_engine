@@ -2,10 +2,6 @@
 
 class ExampleLayer : public vektor::layer::Layer
 {
-
-#define VEKTOR_BIND_EVENT_FN(fn) std::bind(&ExampleLayer::onKeyPressedEvent, this, std::placeholders::_1)
-#define VEKTOR_BIND_RESIZE_FN(fn) std::bind(&ExampleLayer::onWindowResizeEvent, this, std::placeholders::_1)
-
 public:
     ExampleLayer()
         : Layer("Example")
@@ -74,12 +70,15 @@ public:
         VEKTOR_CORE_INFO("OpenGL rendering setup complete");
     }
 
-    void onUpdate() override
+    void onUpdate(vektor::core::Timestep ts) override
     {
+
+        VEKTOR_CORE_TRACE("Delta time: {0} seconds", ts.getSeconds());
+
         if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_R))
-            m_CameraRotation += 1.0f;
+            m_CameraRotation += m_CameraRotateSpeed;
         if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_T))
-            m_CameraRotation -= 1.0f;
+            m_CameraRotation -= m_CameraRotateSpeed;
 
         if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_LEFT) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_A))
             m_CameraPosition.x -= m_CameraMoveSpeed;
@@ -108,9 +107,7 @@ public:
     void onEvent(vektor::event::Event &event) override
     {
         vektor::event::EventDispatcher dispatcher(event);
-        dispatcher.dispatch<vektor::event::KeyPressedEvent>(VEKTOR_BIND_EVENT_FN(ExampleLayer::onKeyPressedEvent));
-
-        dispatcher.dispatch<vektor::event::WindowResizeEvent>(VEKTOR_BIND_RESIZE_FN(ExampleLayer::onWindowResizeEvent));
+        dispatcher.dispatch<vektor::event::WindowResizeEvent>(VEKTOR_BIND_EVENT_FN(ExampleLayer::onWindowResizeEvent));
     }
 
     bool onKeyPressedEvent(vektor::event::KeyPressedEvent &event)
@@ -147,6 +144,7 @@ private:
     glm::vec3 m_CameraPosition;
     float m_CameraRotation = 0.0f;
 
+    float m_CameraRotateSpeed = 0.05f;
     float m_CameraMoveSpeed = 0.05f;
 };
 

@@ -19,8 +19,8 @@ namespace vektor::window
         unsigned int width, height;
 
         WindowProps(const std::string &title = "Vektor Engine",
-                    unsigned int width = 1280,
-                    unsigned int height = 720) : title(title), width(width), height(height) {}
+                    unsigned int width = WINDOW_WIDTH,
+                    unsigned int height = WINDOW_HEIGHT) : title(title), width(width), height(height) {}
 
         bool operator==(const WindowProps &other) const
         {
