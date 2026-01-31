@@ -145,7 +145,7 @@ private:
     std::shared_ptr<vektor::renderer::camera::Orthographic> m_Camera;
 
     glm::vec3 m_CameraPosition;
-    float m_CameraRotation = 0.0f;ca
+    float m_CameraRotation = 0.0f;
 
     float m_CameraMoveSpeed = 0.05f;
 };
