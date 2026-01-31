@@ -9,6 +9,8 @@
 
 #include "renderer/command.hpp"
 
+#include "input/input.hpp"
+
 namespace vektor
 {
 #define VEKTOR_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
@@ -17,6 +19,8 @@ namespace vektor
 
     Application::Application()
     {
+        m_Camera = std::make_shared<renderer::camera::Orthographic>(-2.0f, 2.0f, -0.9f, 0.9f);
+
         VEKTOR_CORE_ASSERT(!s_Instance, "Application already exists!");
         s_Instance = this;
 
@@ -59,10 +63,12 @@ namespace vektor
             out vec3 v_Position;
             out vec4 v_Color;
 
+            uniform mat4 u_ViewProjection;
+
             void main() {
                 v_Position = a_Position;
                 v_Color = a_Color;
-                gl_Position = vec4(a_Position, 1.0);
+                gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
             }
         )";
 
@@ -86,54 +92,54 @@ namespace vektor
 
         // SQUARE
 
-        m_SquareVertexArray.reset(utils::VertexArray::create());
+        // m_SquareVertexArray.reset(utils::VertexArray::create());
 
-        float squareVertices[3 * 4] = {
-            -0.75f, -0.75f, 0.0f, // 0: Bottom Left
-            0.75f, -0.75f, 0.0f,  // 1: Bottom Right
-            0.75f, 0.75f, 0.0f,   // 2: Top Right
-            -0.75f, 0.75f, 0.0f   // 3: Top Left
-        };
+        // float squareVertices[3 * 4] = {
+        //     -0.75f, -0.75f, 0.0f, // 0: Bottom Left
+        //     0.75f, -0.75f, 0.0f,  // 1: Bottom Right
+        //     0.75f, 0.75f, 0.0f,   // 2: Top Right
+        //     -0.75f, 0.75f, 0.0f   // 3: Top Left
+        // };
 
-        m_VertexBufferSquare.reset(utils::buffer::Vertex::create(std::vector<float>(squareVertices, squareVertices + sizeof(squareVertices) / sizeof(float))));
+        // m_VertexBufferSquare.reset(utils::buffer::Vertex::create(std::vector<float>(squareVertices, squareVertices + sizeof(squareVertices) / sizeof(float))));
 
-        utils::buffer::Layout layoutSquare = {
-            {utils::buffer::ShaderDataType::Float3, "a_Position"},
-        };
+        // utils::buffer::Layout layoutSquare = {
+        //     {utils::buffer::ShaderDataType::Float3, "a_Position"},
+        // };
 
-        m_VertexBufferSquare->setLayout(layoutSquare);
-        m_SquareVertexArray->addVertexBuffer(m_VertexBufferSquare);
+        // m_VertexBufferSquare->setLayout(layoutSquare);
+        // m_SquareVertexArray->addVertexBuffer(m_VertexBufferSquare);
 
-        std::vector<uint32_t> indicesSquare = {0, 1, 2, 2, 3, 0};
-        m_IndexBufferSquare.reset(utils::buffer::Index::create(indicesSquare));
-        m_SquareVertexArray->setIndexBuffer(m_IndexBufferSquare);
+        // std::vector<uint32_t> indicesSquare = {0, 1, 2, 2, 3, 0};
+        // m_IndexBufferSquare.reset(utils::buffer::Index::create(indicesSquare));
+        // m_SquareVertexArray->setIndexBuffer(m_IndexBufferSquare);
 
-        std::string vertexSrcSquare = R"(
-            #version 410 core
+        // std::string vertexSrcSquare = R"(
+        //     #version 410 core
 
-            layout(location = 0) in vec3 a_Position;
+        //     layout(location = 0) in vec3 a_Position;
 
-            out vec3 v_Position;
+        //     out vec3 v_Position;
 
-            void main() {
-                v_Position = a_Position;
-                gl_Position = vec4(a_Position, 1.0);
-            }
-        )";
+        //     void main() {
+        //         v_Position = a_Position;
+        //         gl_Position = vec4(a_Position, 1.0);
+        //     }
+        // )";
 
-        std::string fragmentSrcSquare = R"(
-            #version 410 core
-            
-            layout(location = 0) out vec4 color;
+        // std::string fragmentSrcSquare = R"(
+        //     #version 410 core
 
-            in vec3 v_Position;
+        //     layout(location = 0) out vec4 color;
 
-            void main() {
-                color = vec4(0.2f, 0.3f, 0.8f, 1.0f); 
-            }
-        )";
+        //     in vec3 v_Position;
 
-        m_ShaderSquare = std::make_unique<utils::Shader>(vertexSrcSquare, fragmentSrcSquare);
+        //     void main() {
+        //         color = vec4(0.2f, 0.3f, 0.8f, 1.0f);
+        //     }
+        // )";
+
+        // m_ShaderSquare = std::make_unique<utils::Shader>(vertexSrcSquare, fragmentSrcSquare);
     }
 
     Application::~Application()
@@ -160,17 +166,24 @@ namespace vektor
             renderer::Command::setClearColor(glm::vec4(0.2f, 0.3f, 0.3f, 1.0f));
             renderer::Command::clear();
 
-            renderer::Renderer::beginScene();
+            renderer::Renderer::beginScene(m_Camera);
 
             glDisable(GL_DEPTH_TEST);
 
-            m_ShaderSquare->bindProgram();
+            m_Camera->setPosition(glm::vec3(0.5f, 0.5f, 0.0f));
+            m_Camera->setRotation(45.0f);
 
-            renderer::Renderer::submit(m_SquareVertexArray);
+            // m_Camera->setPosition({input::Input::getMousePosition().x, input::Input::getMousePosition().y, 0.0f});
+
+            // m_ShaderSquare->bindProgram();
+
+            // renderer::Renderer::submit(m_SquareVertexArray);
             renderer::Renderer::endScene();
 
-            m_Shader->bindProgram();
-            renderer::Renderer::submit(m_VertexArray);
+            // m_Shader->bindProgram();
+            // m_Shader->setUniformShaderMatrix("u_ViewProjection", m_Camera->getViewProjectionMatrix());
+
+            renderer::Renderer::submit(m_Shader, m_VertexArray);
 
             for (layer::Layer *layer : m_LayerStack)
             {

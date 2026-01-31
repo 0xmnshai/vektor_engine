@@ -1,6 +1,9 @@
 
 #include <glad/glad.h>
 
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 #include "core/core.hpp"
 #include "utils/shader.hpp"
 #include "logger/logger.hpp"
@@ -104,5 +107,11 @@ namespace vektor::utils
     void Shader::unbindProgram() const
     {
         glDeleteProgram(m_ShaderProgram);
+    }
+
+    void Shader::setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const
+    { 
+        GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
+        glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 }

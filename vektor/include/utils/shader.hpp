@@ -2,6 +2,7 @@
 
 #include <string>
 #include <glad/glad.h>
+#include <glm/glm.hpp>
 
 #include "core/core.hpp"
 
@@ -22,8 +23,9 @@ namespace vektor::utils
         static GLuint compileShader(ShaderType type, const std::string &source);
 
         void bindProgram() const;
-        void unbindProgram() const;
+        void unbindProgram() const; 
 
+        void setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const;
     private:
         static GLenum toGLType(ShaderType type);
         static void checkCompileErrors(GLuint shader, ShaderType type);

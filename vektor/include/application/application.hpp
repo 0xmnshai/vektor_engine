@@ -19,12 +19,15 @@
 #include "utils/shader.hpp"
 #include "utils/vertex_array.hpp"
 
+#include "renderer/camera/orthographic.hpp"
+
 namespace vektor
 {
     class VEKTOR_API Application
     {
     public:
         Application();
+
         virtual ~Application();
 
         void Run();
@@ -53,10 +56,10 @@ namespace vektor
         std::shared_ptr<utils::VertexArray> m_VertexArray;
 
         // square
-        std::shared_ptr<utils::Shader> m_ShaderSquare;
-        std::shared_ptr<utils::buffer::Index> m_IndexBufferSquare;
-        std::shared_ptr<utils::VertexArray> m_SquareVertexArray;
-        std::shared_ptr<utils::buffer::Vertex> m_VertexBufferSquare;
+        // std::shared_ptr<utils::Shader> m_ShaderSquare;
+        // std::shared_ptr<utils::buffer::Index> m_IndexBufferSquare;
+        // std::shared_ptr<utils::VertexArray> m_SquareVertexArray;
+        // std::shared_ptr<utils::buffer::Vertex> m_VertexBufferSquare;
 
         imgui_layer::Layer *m_ImGuiLayer;
 
@@ -68,8 +71,9 @@ namespace vektor
         bool onWindowResize(event::WindowResizeEvent &e);
 
         layer::LayerStack m_LayerStack;
-
         static Application *s_Instance;
+
+         std::shared_ptr<renderer::camera::Orthographic> m_Camera;
     };
 
     Application *createApplication();

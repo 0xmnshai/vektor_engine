@@ -3,8 +3,12 @@
 #include <memory>
 #include <glm/glm.hpp>
 
+#include "utils/shader.hpp"
+
 #include "core/core.hpp"
 #include "utils/vertex_array.hpp"
+
+#include "renderer/camera/orthographic.hpp"
 
 namespace vektor::renderer
 {
@@ -32,12 +36,23 @@ namespace vektor::renderer
     class VEKTOR_API Renderer
     {
     public:
-        static void beginScene(); // const glm::mat4 &projection);
+        static void beginScene(const std::shared_ptr<camera::Orthographic> &camera);
+
         static void endScene();
 
-        static void submit(const std::shared_ptr<utils::VertexArray> &vertexArray);
+        static void submit( const std::shared_ptr<utils::Shader> &shader , const std::shared_ptr<utils::VertexArray> &vertexArray); // later we can implement material / mesh here
         // const std::shared_ptr<Command> &command);
 
         inline static RendererApi::API getAPI() { return RendererApi::getAPI(); }
+
+    private:
+        static std::shared_ptr<camera::Orthographic> s_SceneCamera;
+
+        struct SceneInfo
+        {
+            glm::mat4 ViewProjectionMatrix;
+        };
+
+        static SceneInfo *cs_SceneData;
     };
 }
