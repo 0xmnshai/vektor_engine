@@ -1,3 +1,7 @@
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+
 #include "vektor.hpp"
 
 class ExampleLayer : public vektor::layer::Layer
@@ -8,6 +12,9 @@ public:
     {
         float aspectRatio = 1280.0f / 720.0f;
         float zoom = 0.9f;
+
+        m_Position = {0.0f, 0.0f, 0.0f};
+        m_Transform = glm::translate(glm::mat4(1.0f), m_Position);
 
         m_Camera = std::make_shared<vektor::renderer::camera::Orthographic>(
             -aspectRatio * zoom, aspectRatio * zoom, -zoom, zoom);
@@ -43,11 +50,12 @@ public:
             out vec4 v_Color;
 
             uniform mat4 u_ViewProjection;
+            uniform mat4 u_Transform;
 
             void main() {
                 v_Position = a_Position;
                 v_Color = a_Color;
-                gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
+                gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
             }
         )";
 
@@ -59,35 +67,42 @@ public:
             in vec3 v_Position;
             in vec4 v_Color;
 
+            uniform vec4 u_color;
+
             void main() {
-                color = vec4(v_Position * 0.5 + 0.5, 1.0); 
-                color = v_Color;
+                // color = vec4(v_Position * 0.5 + 0.5, 1.0); 
+                // color = v_Color;
+
+                color = u_color;
             }
         )";
 
         m_Shader = std::make_unique<vektor::utils::Shader>(vertexSrc, fragmentSrc);
+    }
+
+    void onAttach() override
+    {
 
         VEKTOR_CORE_INFO("OpenGL rendering setup complete");
     }
 
-    void onUpdate(vektor::core::Timestep ts) override
+    void onUpdate(vektor::core::Timestep timestep) override
     {
-
-        VEKTOR_CORE_TRACE("Delta time: {0} seconds", ts.getSeconds());
+        VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());
 
         if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_R))
-            m_CameraRotation += m_CameraRotateSpeed;
+            m_CameraRotation += m_CameraRotateSpeed * timestep;
         if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_T))
-            m_CameraRotation -= m_CameraRotateSpeed;
+            m_CameraRotation -= m_CameraRotateSpeed * timestep;
 
         if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_LEFT) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_A))
-            m_CameraPosition.x -= m_CameraMoveSpeed;
+            m_CameraPosition.x -= m_CameraMoveSpeed * timestep;
         if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_RIGHT) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_D))
-            m_CameraPosition.x += m_CameraMoveSpeed;
+            m_CameraPosition.x += m_CameraMoveSpeed * timestep;
         if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_UP) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_W))
-            m_CameraPosition.y += m_CameraMoveSpeed;
+            m_CameraPosition.y += m_CameraMoveSpeed * timestep;
         if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_DOWN) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_S))
-            m_CameraPosition.y -= m_CameraMoveSpeed;
+            m_CameraPosition.y -= m_CameraMoveSpeed * timestep;
 
         m_Camera->setPosition(m_CameraPosition);
         m_Camera->setRotation(m_CameraRotation);
@@ -96,7 +111,37 @@ public:
         vektor::renderer::Command::clear();
 
         vektor::renderer::Renderer::beginScene(m_Camera);
-        vektor::renderer::Renderer::submit(m_Shader, m_VertexArray);
+
+        // TEST
+        glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
+
+        glm::vec4 redColor(1.0f, 0.0f, 0.0f, 1.0f);
+        glm::vec4 greenColor(0.0f, 1.0f, 0.0f, 1.0f);
+        glm::vec4 blueColor(0.0f, 0.0f, 1.0f, 1.0f);
+
+        for (size_t y = 0; y < 5; y++)
+        {
+            for (size_t i = 0; i < 5; i++)
+            {
+                glm::vec3 pos(i * 0.2f, y * 0.2f, 0.0f);
+                glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+                m_Transform = transform;
+
+                if ((i + y) % 2 == 0)
+                {
+                    m_Shader->setUniformMat4("u_color", redColor);
+                    vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, transform);
+                }
+                else
+                {
+                    m_Shader->setUniformMat4("u_color", blueColor);
+                    vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, transform);
+                }
+
+                vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, m_Transform);
+            }
+        }
+        // TEST
         vektor::renderer::Renderer::endScene();
     }
 
@@ -144,8 +189,11 @@ private:
     glm::vec3 m_CameraPosition;
     float m_CameraRotation = 0.0f;
 
-    float m_CameraRotateSpeed = 0.05f;
-    float m_CameraMoveSpeed = 0.05f;
+    float m_CameraRotateSpeed = 50.0f;
+    float m_CameraMoveSpeed = 5.0f;
+
+    glm::vec3 m_Position;
+    glm::mat4 m_Transform;
 };
 
 class Sandbox : public vektor::Application

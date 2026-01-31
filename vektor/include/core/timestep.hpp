@@ -12,6 +12,8 @@ namespace vektor::core
 
         Timestep(const Timestep &) = default;
 
+        operator float() const { return m_Time; }
+
         float getSeconds() const { return m_Time; }
         float getMilliseconds() const { return m_Time * 1000.0f; }
     private:

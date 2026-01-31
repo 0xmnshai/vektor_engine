@@ -24,11 +24,15 @@ namespace vektor::renderer
         s_SceneCamera.reset();
     }
 
-    void Renderer::submit(const std::shared_ptr<utils::Shader> &shader, const std::shared_ptr<utils::VertexArray> &vertexArray)
+    void Renderer::submit(
+        const std::shared_ptr<utils::Shader> &shader,
+        const std::shared_ptr<utils::VertexArray> &vertexArray,
+        const glm::mat4 &transform)
     {
         shader->bindProgram();
-        
+
         shader->setUniformShaderMatrix("u_ViewProjection", cs_SceneData->ViewProjectionMatrix);
+        shader->setUniformShaderMatrix("u_Transform", transform);
 
         vertexArray->bind();
         renderer::Command::drawIndexed(vertexArray);

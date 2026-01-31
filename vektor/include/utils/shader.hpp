@@ -23,9 +23,11 @@ namespace vektor::utils
         static GLuint compileShader(ShaderType type, const std::string &source);
 
         void bindProgram() const;
-        void unbindProgram() const; 
+        void unbindProgram() const;
 
         void setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const;
+        void setUniformMat4(const std::string &name, const glm::vec4 &values) const;
+
     private:
         static GLenum toGLType(ShaderType type);
         static void checkCompileErrors(GLuint shader, ShaderType type);

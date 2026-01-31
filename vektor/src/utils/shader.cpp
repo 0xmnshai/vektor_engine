@@ -10,7 +10,6 @@
 
 namespace vektor::utils
 {
-
     Shader::Shader(const std::string &vertexSrc,
                    const std::string &fragmentSrc)
     {
@@ -110,8 +109,14 @@ namespace vektor::utils
     }
 
     void Shader::setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const
-    { 
+    {
         GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
         glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+    }
+
+    void Shader::setUniformMat4(const std::string &name, const glm::vec4 &values) const
+    {
+        GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
+        glUniform4f(location, values.x, values.y, values.z, values.w);
     }
 }
