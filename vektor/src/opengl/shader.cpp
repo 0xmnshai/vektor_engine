@@ -1,4 +1,3 @@
-
 #include <glad/glad.h>
 
 #include <glm/glm.hpp>
@@ -107,15 +106,55 @@ namespace vektor::opengl
         glDeleteProgram(m_ShaderProgram);
     }
 
-    void opengl::OpenGLShader::setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const
+    // ------------------------------------------------------------------------
+    // Uniform Implementations
+    // ------------------------------------------------------------------------
+
+    void opengl::OpenGLShader::setUniform1i(const std::string &name, const int value) const
     {
         GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
-        glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
+        glUniform1i(location, value);
+    }
+
+    void opengl::OpenGLShader::setUniform1iv(const std::string &name, const int count, const int *value) const
+    {
+        GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
+        glUniform1iv(location, count, value);
+    }
+
+    void opengl::OpenGLShader::setUniform1f(const std::string &name, const float value) const
+    {
+        GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
+        glUniform1f(location, value);
+    }
+
+    void opengl::OpenGLShader::setUniform2f(const std::string &name, const glm::vec2 value) const
+    {
+        GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
+        glUniform2f(location, value.x, value.y);
+    }
+
+    void opengl::OpenGLShader::setUniform3f(const std::string &name, const glm::vec3 value) const
+    {
+        GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
+        glUniform3f(location, value.x, value.y, value.z);
+    }
+
+    void opengl::OpenGLShader::setUniform4f(const std::string &name, const glm::vec4 value) const
+    {
+        GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
+        glUniform4f(location, value.x, value.y, value.z, value.w);
     }
 
     void opengl::OpenGLShader::setUniformMat4(const std::string &name, const glm::vec4 &values) const
     {
         GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
         glUniform4f(location, values.x, values.y, values.z, values.w);
+    }
+
+    void opengl::OpenGLShader::setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const
+    {
+        GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
+        glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 }

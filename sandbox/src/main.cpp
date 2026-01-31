@@ -1,6 +1,11 @@
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_opengl3.h>
 
 #include "vektor.hpp"
 
@@ -113,7 +118,7 @@ public:
         m_Camera->setPosition(m_CameraPosition);
         m_Camera->setRotation(m_CameraRotation);
 
-        vektor::renderer::Command::setClearColor(glm::vec4(0.2f, 0.3f, 0.3f, 1.0f));
+        vektor::renderer::Command::setClearColor(m_Color);
         vektor::renderer::Command::clear();
 
         vektor::renderer::Renderer::beginScene(m_Camera);
@@ -153,6 +158,9 @@ public:
 
     void onRender() override // imgui
     {
+        ImGui::Begin("Settings");
+        ImGui::ColorEdit3("Clear Color", glm::value_ptr(m_Color));
+        ImGui::End();
     }
 
     void onEvent(vektor::event::Event &event) override
@@ -200,6 +208,8 @@ private:
 
     glm::vec3 m_Position;
     glm::mat4 m_Transform;
+
+    glm::vec4 m_Color = glm::vec4(0.2f, 0.3f, 0.3f, 1.0f); 
 };
 
 class Sandbox : public vektor::Application

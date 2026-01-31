@@ -20,8 +20,16 @@ namespace vektor::opengl
 
         static GLuint compileShader(utils::ShaderType type, const std::string &source);
 
-        virtual void setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const;
+        virtual void setUniform1i(const std::string &name, const int value) const;
+        virtual void setUniform1iv(const std::string &name, const int count, const int *value) const;
+
+        virtual void setUniform1f(const std::string &name, const float value) const;
+        virtual void setUniform2f(const std::string &name, const glm::vec2 value) const;
+        virtual void setUniform3f(const std::string &name, const glm::vec3 value) const;
+        virtual void setUniform4f(const std::string &name, const glm::vec4 value) const;
+
         virtual void setUniformMat4(const std::string &name, const glm::vec4 &values) const;
+        virtual void setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const;
 
     private:
         GLuint m_ShaderProgram;
