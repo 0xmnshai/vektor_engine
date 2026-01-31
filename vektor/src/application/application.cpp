@@ -19,8 +19,6 @@ namespace vektor
 
     Application::Application()
     {
-        m_Camera = std::make_shared<renderer::camera::Orthographic>(-2.0f, 2.0f, -0.9f, 0.9f);
-
         VEKTOR_CORE_ASSERT(!s_Instance, "Application already exists!");
         s_Instance = this;
 
@@ -34,112 +32,6 @@ namespace vektor
 
         m_ImGuiLayer = new imgui_layer::Layer();
         pushOverlay(m_ImGuiLayer);
-
-        float vertices[3 * 7] = {
-            -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
-            0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-            0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f};
-
-        m_VertexArray.reset(utils::VertexArray::create());
-        m_VertexBuffer.reset(utils::buffer::Vertex::create(std::vector<float>(vertices, vertices + sizeof(vertices) / sizeof(float))));
-
-        utils::buffer::Layout layout = {
-            {utils::buffer::ShaderDataType::Float3, "a_Position"},
-            {utils::buffer::ShaderDataType::Float4, "a_Color"}};
-
-        m_VertexBuffer->setLayout(layout);
-        m_VertexArray->addVertexBuffer(m_VertexBuffer);
-
-        std::vector<uint32_t> indices = {0, 1, 2};
-        m_IndexBuffer.reset(utils::buffer::Index::create(indices));
-        m_VertexArray->setIndexBuffer(m_IndexBuffer);
-
-        std::string vertexSrc = R"(
-            #version 410 core
-
-            layout(location = 0) in vec3 a_Position;
-            layout(location = 1) in vec4 a_Color;
-
-            out vec3 v_Position;
-            out vec4 v_Color;
-
-            uniform mat4 u_ViewProjection;
-
-            void main() {
-                v_Position = a_Position;
-                v_Color = a_Color;
-                gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
-            }
-        )";
-
-        std::string fragmentSrc = R"(
-            #version 410 core
-            
-            layout(location = 0) out vec4 color;
-
-            in vec3 v_Position;
-            in vec4 v_Color;
-
-            void main() {
-                color = vec4(v_Position * 0.5 + 0.5, 1.0); 
-                color = v_Color;
-            }
-        )";
-
-        m_Shader = std::make_unique<utils::Shader>(vertexSrc, fragmentSrc);
-
-        VEKTOR_CORE_INFO("OpenGL rendering setup complete");
-
-        // SQUARE
-
-        // m_SquareVertexArray.reset(utils::VertexArray::create());
-
-        // float squareVertices[3 * 4] = {
-        //     -0.75f, -0.75f, 0.0f, // 0: Bottom Left
-        //     0.75f, -0.75f, 0.0f,  // 1: Bottom Right
-        //     0.75f, 0.75f, 0.0f,   // 2: Top Right
-        //     -0.75f, 0.75f, 0.0f   // 3: Top Left
-        // };
-
-        // m_VertexBufferSquare.reset(utils::buffer::Vertex::create(std::vector<float>(squareVertices, squareVertices + sizeof(squareVertices) / sizeof(float))));
-
-        // utils::buffer::Layout layoutSquare = {
-        //     {utils::buffer::ShaderDataType::Float3, "a_Position"},
-        // };
-
-        // m_VertexBufferSquare->setLayout(layoutSquare);
-        // m_SquareVertexArray->addVertexBuffer(m_VertexBufferSquare);
-
-        // std::vector<uint32_t> indicesSquare = {0, 1, 2, 2, 3, 0};
-        // m_IndexBufferSquare.reset(utils::buffer::Index::create(indicesSquare));
-        // m_SquareVertexArray->setIndexBuffer(m_IndexBufferSquare);
-
-        // std::string vertexSrcSquare = R"(
-        //     #version 410 core
-
-        //     layout(location = 0) in vec3 a_Position;
-
-        //     out vec3 v_Position;
-
-        //     void main() {
-        //         v_Position = a_Position;
-        //         gl_Position = vec4(a_Position, 1.0);
-        //     }
-        // )";
-
-        // std::string fragmentSrcSquare = R"(
-        //     #version 410 core
-
-        //     layout(location = 0) out vec4 color;
-
-        //     in vec3 v_Position;
-
-        //     void main() {
-        //         color = vec4(0.2f, 0.3f, 0.8f, 1.0f);
-        //     }
-        // )";
-
-        // m_ShaderSquare = std::make_unique<utils::Shader>(vertexSrcSquare, fragmentSrcSquare);
     }
 
     Application::~Application()
@@ -163,27 +55,7 @@ namespace vektor
         {
             m_ImGuiLayer->begin();
 
-            renderer::Command::setClearColor(glm::vec4(0.2f, 0.3f, 0.3f, 1.0f));
-            renderer::Command::clear();
-
-            renderer::Renderer::beginScene(m_Camera);
-
             glDisable(GL_DEPTH_TEST);
-
-            m_Camera->setPosition(glm::vec3(0.5f, 0.5f, 0.0f));
-            m_Camera->setRotation(45.0f);
-
-            // m_Camera->setPosition({input::Input::getMousePosition().x, input::Input::getMousePosition().y, 0.0f});
-
-            // m_ShaderSquare->bindProgram();
-
-            // renderer::Renderer::submit(m_SquareVertexArray);
-            renderer::Renderer::endScene();
-
-            // m_Shader->bindProgram();
-            // m_Shader->setUniformShaderMatrix("u_ViewProjection", m_Camera->getViewProjectionMatrix());
-
-            renderer::Renderer::submit(m_Shader, m_VertexArray);
 
             for (layer::Layer *layer : m_LayerStack)
             {

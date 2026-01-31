@@ -1,53 +1,150 @@
 
 #include "vektor.hpp"
 
-#include "events/event.hpp"
-#include "layer/layer.hpp"
-#include "entry_point.hpp"
-
-#include "imgui/layer.hpp"
-
-#include "input/input.hpp"
-#include "input/window.hpp"
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
-glm::mat4 camera(float translate, glm::vec2 const &rotate)
-{
-    glm::mat4 projection = glm::perspective(glm::radians(45.0f), 4.0f / 3.0f, 0.1f, 100.0f);
-    glm::mat4 view = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, -translate));
-    view = glm::rotate(view, glm::radians(rotate.x), glm::vec3(1.0f, 0.0f, 0.0f));
-    view = glm::rotate(view, glm::radians(rotate.y), glm::vec3(0.0f, 1.0f, 0.0f));
-    return projection * view;
-}
-
 class ExampleLayer : public vektor::layer::Layer
 {
+
+#define VEKTOR_BIND_EVENT_FN(fn) std::bind(&ExampleLayer::onKeyPressedEvent, this, std::placeholders::_1)
+#define VEKTOR_BIND_RESIZE_FN(fn) std::bind(&ExampleLayer::onWindowResizeEvent, this, std::placeholders::_1)
+
 public:
     ExampleLayer()
         : Layer("Example")
     {
-        glm::mat4 cam = camera(5.0f, glm::vec2(0.0f, 0.0f));
+
+        float aspectRatio = 1280.0f / 720.0f;
+        float zoom = 0.9f;
+
+        m_Camera = std::make_shared<vektor::renderer::camera::Orthographic>(
+            -aspectRatio * zoom, aspectRatio * zoom, -zoom, zoom);
+        m_CameraPosition = {0.0f, 0.0f, 0.0f};
+
+        // TRIANGLE
+        float vertices[3 * 7] = {
+            -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
+            0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
+            0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f};
+
+        m_VertexArray.reset(vektor::utils::VertexArray::create());
+        m_VertexBuffer.reset(vektor::utils::buffer::Vertex::create(std::vector<float>(vertices, vertices + sizeof(vertices) / sizeof(float))));
+
+        vektor::utils::buffer::Layout layout = {
+            {vektor::utils::buffer::ShaderDataType::Float3, "a_Position"},
+            {vektor::utils::buffer::ShaderDataType::Float4, "a_Color"}};
+
+        m_VertexBuffer->setLayout(layout);
+        m_VertexArray->addVertexBuffer(m_VertexBuffer);
+
+        std::vector<uint32_t> indices = {0, 1, 2};
+        m_IndexBuffer.reset(vektor::utils::buffer::Index::create(indices));
+        m_VertexArray->setIndexBuffer(m_IndexBuffer);
+
+        std::string vertexSrc = R"(
+            #version 410 core
+
+            layout(location = 0) in vec3 a_Position;
+            layout(location = 1) in vec4 a_Color;
+
+            out vec3 v_Position;
+            out vec4 v_Color;
+
+            uniform mat4 u_ViewProjection;
+
+            void main() {
+                v_Position = a_Position;
+                v_Color = a_Color;
+                gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
+            }
+        )";
+
+        std::string fragmentSrc = R"(
+            #version 410 core
+            
+            layout(location = 0) out vec4 color;
+
+            in vec3 v_Position;
+            in vec4 v_Color;
+
+            void main() {
+                color = vec4(v_Position * 0.5 + 0.5, 1.0); 
+                color = v_Color;
+            }
+        )";
+
+        m_Shader = std::make_unique<vektor::utils::Shader>(vertexSrc, fragmentSrc);
+
+        VEKTOR_CORE_INFO("OpenGL rendering setup complete");
     }
 
     void onUpdate() override
     {
-        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_DELETE))
-        {
-            // VEKTOR_INFO("Delete key pressed");
-        }
+        vektor::renderer::Command::setClearColor(glm::vec4(0.2f, 0.3f, 0.3f, 1.0f));
+        vektor::renderer::Command::clear();
+
+        vektor::renderer::Renderer::beginScene(m_Camera);
+        vektor::renderer::Renderer::endScene();
+
+        vektor::renderer::Renderer::submit(m_Shader, m_VertexArray);
+    }
+
+    void onRender() override // imgui
+    {
     }
 
     void onEvent(vektor::event::Event &event) override
     {
-        // VEKTOR_TRACE("{0}", event.toString());
-        if (event.getEventType() == vektor::event::EventType::KeyPressed)
-        {
-            vektor::event::KeyPressedEvent &kp = (vektor::event::KeyPressedEvent &)event;
-            VEKTOR_CORE_TRACE("Key pressed character: {0}", (char)kp.getKeyCode());
-        }
+        vektor::event::EventDispatcher dispatcher(event);
+        dispatcher.dispatch<vektor::event::KeyPressedEvent>(VEKTOR_BIND_EVENT_FN(ExampleLayer::onKeyPressedEvent));
+        dispatcher.dispatch<vektor::event::WindowResizeEvent>(VEKTOR_BIND_RESIZE_FN(ExampleLayer::onWindowResizeEvent));
     }
+
+    bool onKeyPressedEvent(vektor::event::KeyPressedEvent &event)
+    {
+        vektor::renderer::Command::setClearColor(glm::vec4(0.2f, 0.3f, 0.3f, 1.0f));
+        vektor::renderer::Command::clear();
+
+        if (event.getKeyCode() == VEKTOR_KEY_R)
+            m_CameraRotation += 1.0f;
+
+        m_Camera->setPosition(m_CameraPosition);
+        m_Camera->setRotation(m_CameraRotation);
+
+        vektor::renderer::Renderer::beginScene(m_Camera);
+        vektor::renderer::Renderer::endScene();
+        vektor::renderer::Renderer::submit(m_Shader, m_VertexArray);
+        return false;
+    }
+
+    bool onWindowResizeEvent(vektor::event::WindowResizeEvent &event)
+    {
+        if (event.getWidth() == 0 || event.getHeight() == 0)
+            return false;
+
+        float aspectRatio = (float)event.getWidth() / (float)event.getHeight();
+        float zoom = 0.9f;
+
+        m_Camera = std::make_shared<vektor::renderer::camera::Orthographic>(
+            -aspectRatio * zoom, aspectRatio * zoom, -zoom, zoom);
+
+        m_Camera->setPosition(m_CameraPosition);
+        m_Camera->setRotation(m_CameraRotation);
+
+        return false;
+    }
+
+private:
+    std::shared_ptr<vektor::utils::Shader> m_Shader;
+    std::shared_ptr<vektor::utils::VertexArray> m_VertexArray;
+
+    std::shared_ptr<vektor::utils::buffer::Index> m_IndexBuffer;
+    std::shared_ptr<vektor::utils::buffer::Vertex> m_VertexBuffer;
+
+    std::shared_ptr<vektor::renderer::camera::Orthographic> m_Camera;
+
+    glm::vec3 m_CameraPosition;
+    float m_CameraRotation = 0.0f;
+
+    float m_CameraMoveSpeed = 0.1;
 };
 
 class Sandbox : public vektor::Application
@@ -55,10 +152,7 @@ class Sandbox : public vektor::Application
 public:
     Sandbox()
     {
-        std::cout << "Sandbox::Sandbox" << std::endl;
-
-        // pushLayer(new ExampleLayer());
-        // pushLayer(new vektor::imgui_layer::Layer());
+        pushLayer(new ExampleLayer());
     }
 
     ~Sandbox()

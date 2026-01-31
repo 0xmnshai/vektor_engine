@@ -16,6 +16,7 @@ namespace vektor::layer
         virtual void onAttach() {}
         virtual void onDetach() {}
         virtual void onUpdate() {}
+        
         virtual void onRender() {}
         
         virtual void onEvent(event::Event &event) {}
