@@ -38,7 +38,8 @@
 #include "input/window.hpp"
 
 #include "utils/buffer.hpp"
-#include "utils/shader.hpp"
 #include "utils/vertex_array.hpp"
 
 #include "renderer/command.hpp"
+
+#include "opengl/shader.hpp"

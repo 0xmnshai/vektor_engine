@@ -1,5 +1,5 @@
 
-#include "utils/shader.hpp"
+#include "opengl/shader.hpp"
 
 #include "renderer/api.hpp"
 #include "renderer/command.hpp"
@@ -28,11 +28,14 @@ namespace vektor::renderer
         const std::shared_ptr<utils::Shader> &shader,
         const std::shared_ptr<utils::VertexArray> &vertexArray,
         const glm::mat4 &transform)
+        // Taking Material
     {
-        shader->bindProgram();
+        std::dynamic_pointer_cast<opengl::OpenGLShader>(shader)->bindProgram();
 
-        shader->setUniformShaderMatrix("u_ViewProjection", cs_SceneData->ViewProjectionMatrix);
-        shader->setUniformShaderMatrix("u_Transform", transform);
+        std::dynamic_pointer_cast<opengl::OpenGLShader>(shader)->setUniformShaderMatrix("u_ViewProjection", cs_SceneData->ViewProjectionMatrix);
+        std::dynamic_pointer_cast<opengl::OpenGLShader>(shader)->setUniformShaderMatrix("u_Transform", transform);
+
+        // binding material with shader 
 
         vertexArray->bind();
         renderer::Command::drawIndexed(vertexArray);

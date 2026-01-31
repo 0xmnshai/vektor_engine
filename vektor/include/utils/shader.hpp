@@ -16,23 +16,17 @@ namespace vektor::utils
 
     class VEKTOR_API Shader
     {
-    public:
-        Shader(const std::string &vertexSrc, const std::string &fragmentSrc);
-        ~Shader();
+    public: 
+        virtual ~Shader() = default;
 
         static GLuint compileShader(ShaderType type, const std::string &source);
 
-        void bindProgram() const;
-        void unbindProgram() const;
+        virtual void bindProgram() const = 0;
+        virtual void unbindProgram() const = 0;
 
-        void setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const;
-        void setUniformMat4(const std::string &name, const glm::vec4 &values) const;
+        static Shader *create(const std::string &vertexSrc, const std::string &fragmentSrc);
 
-    private:
-        static GLenum toGLType(ShaderType type);
-        static void checkCompileErrors(GLuint shader, ShaderType type);
-        static void checkLinkErrors(GLuint program);
-
+    protected: 
         GLuint m_ShaderProgram;
     };
 }

@@ -40,6 +40,12 @@ public:
         m_IndexBuffer.reset(vektor::utils::buffer::Index::create(indices));
         m_VertexArray->setIndexBuffer(m_IndexBuffer);
 
+        // Material material = new Material(m_Shader);
+        // Material::Instance = new MaterialInstance(material);
+        // maetrial->set("name",shader);
+        // texture ..
+        // using material in SceneRenderer::submit
+
         std::string vertexSrc = R"(
             #version 410 core
 
@@ -77,7 +83,7 @@ public:
             }
         )";
 
-        m_Shader = std::make_unique<vektor::utils::Shader>(vertexSrc, fragmentSrc);
+        m_Shader = std::make_shared<vektor::opengl::OpenGLShader>(vertexSrc, fragmentSrc);
     }
 
     void onAttach() override
@@ -129,12 +135,12 @@ public:
 
                 if ((i + y) % 2 == 0)
                 {
-                    m_Shader->setUniformMat4("u_color", redColor);
+                    std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniformMat4("u_color", redColor);
                     vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, transform);
                 }
                 else
                 {
-                    m_Shader->setUniformMat4("u_color", blueColor);
+                    std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniformMat4("u_color", blueColor);
                     vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, transform);
                 }
 

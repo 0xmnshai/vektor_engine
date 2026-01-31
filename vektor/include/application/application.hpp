@@ -16,8 +16,9 @@
 #include "imgui/layer.hpp"
 
 #include "utils/buffer.hpp"
-#include "utils/shader.hpp"
 #include "utils/vertex_array.hpp"
+
+#include "opengl/shader.hpp"
 
 #include "renderer/camera/orthographic.hpp"
 

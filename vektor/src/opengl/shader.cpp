@@ -5,47 +5,46 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include "core/core.hpp"
-#include "utils/shader.hpp"
+#include "opengl/shader.hpp"
 #include "logger/logger.hpp"
 
-namespace vektor::utils
+namespace vektor::opengl
 {
-    Shader::Shader(const std::string &vertexSrc,
-                   const std::string &fragmentSrc)
+    opengl::OpenGLShader::OpenGLShader(const std::string &vertexSrc, const std::string &fragmentSrc)
     {
         m_ShaderProgram = glCreateProgram();
 
-        GLuint vs = compileShader(ShaderType::Vertex, vertexSrc);
-        GLuint fs = compileShader(ShaderType::Fragment, fragmentSrc);
+        GLuint vs = compileShader(utils::ShaderType::Vertex, vertexSrc);
+        GLuint fs = compileShader(utils::ShaderType::Fragment, fragmentSrc);
 
         glAttachShader(m_ShaderProgram, vs);
         glAttachShader(m_ShaderProgram, fs);
         glLinkProgram(m_ShaderProgram);
 
-        checkLinkErrors(m_ShaderProgram);
+        opengl::OpenGLShader::checkLinkErrors(m_ShaderProgram);
 
         glDeleteShader(vs);
         glDeleteShader(fs);
     };
 
-    Shader::~Shader()
+    opengl::OpenGLShader::~OpenGLShader()
     {
         glDeleteProgram(m_ShaderProgram);
     }
 
-    GLenum Shader::toGLType(ShaderType type)
+    GLenum opengl::OpenGLShader::toGLType(utils::ShaderType type)
     {
         switch (type)
         {
-        case ShaderType::Vertex:
+        case utils::ShaderType::Vertex:
             return GL_VERTEX_SHADER;
-        case ShaderType::Fragment:
+        case utils::ShaderType::Fragment:
             return GL_FRAGMENT_SHADER;
         }
         return 0;
     }
 
-    GLuint Shader::compileShader(ShaderType type, const std::string &source)
+    GLuint opengl::OpenGLShader::compileShader(utils::ShaderType type, const std::string &source)
     {
         GLenum glType = toGLType(type);
         GLuint shader = glCreateShader(glType);
@@ -59,7 +58,7 @@ namespace vektor::utils
         return shader;
     }
 
-    void Shader::checkCompileErrors(GLuint shader, ShaderType type)
+    void opengl::OpenGLShader::checkCompileErrors(GLuint shader, utils::ShaderType type)
     {
         GLint success;
         glGetShaderiv(shader, GL_COMPILE_STATUS, &success);
@@ -73,14 +72,14 @@ namespace vektor::utils
             glGetShaderInfoLog(shader, length, nullptr, log.data());
 
             const char *typeStr =
-                (type == ShaderType::Vertex) ? "VERTEX" : "FRAGMENT";
+                (type == utils::ShaderType::Vertex) ? "VERTEX" : "FRAGMENT";
 
             VEKTOR_CORE_ERROR("{} SHADER COMPILATION FAILED:\n{}", typeStr, log);
             glDeleteShader(shader);
         }
     }
 
-    void Shader::checkLinkErrors(GLuint program)
+    void opengl::OpenGLShader::checkLinkErrors(GLuint program)
     {
         GLint success;
         glGetProgramiv(program, GL_LINK_STATUS, &success);
@@ -98,23 +97,23 @@ namespace vektor::utils
         }
     }
 
-    void Shader::bindProgram() const
+    void opengl::OpenGLShader::bindProgram() const
     {
         glUseProgram(m_ShaderProgram);
     }
 
-    void Shader::unbindProgram() const
+    void opengl::OpenGLShader::unbindProgram() const
     {
         glDeleteProgram(m_ShaderProgram);
     }
 
-    void Shader::setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const
+    void opengl::OpenGLShader::setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const
     {
         GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
         glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(matrix));
     }
 
-    void Shader::setUniformMat4(const std::string &name, const glm::vec4 &values) const
+    void opengl::OpenGLShader::setUniformMat4(const std::string &name, const glm::vec4 &values) const
     {
         GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
         glUniform4f(location, values.x, values.y, values.z, values.w);

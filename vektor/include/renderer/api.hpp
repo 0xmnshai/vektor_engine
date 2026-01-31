@@ -4,6 +4,7 @@
 #include <glm/glm.hpp>
 
 #include "utils/shader.hpp"
+#include "opengl/shader.hpp"
 
 #include "core/core.hpp"
 #include "utils/vertex_array.hpp"

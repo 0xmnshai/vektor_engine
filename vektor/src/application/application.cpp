@@ -6,7 +6,7 @@
 #include "logger/logger.hpp"
 #include "application/application.hpp"
 
-#include "utils/shader.hpp"
+#include "opengl/shader.hpp"
 
 #include "input/input.hpp"
 
@@ -39,7 +39,7 @@ namespace vektor
 
     Application::~Application()
     {
-        m_Shader->unbindProgram();
+        std::dynamic_pointer_cast<opengl::OpenGLShader>(m_Shader)->unbindProgram();
 
         m_VertexBuffer.reset();
         m_IndexBuffer.reset();
@@ -48,7 +48,7 @@ namespace vektor
 
         m_Window.reset();
         s_Instance = nullptr;
-        m_Shader.reset();
+        std::dynamic_pointer_cast<opengl::OpenGLShader>(m_Shader).reset();
         VEKTOR_CORE_INFO("Application destroyed");
     }
 
