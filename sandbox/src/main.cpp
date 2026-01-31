@@ -1,4 +1,3 @@
-
 #include "vektor.hpp"
 
 class ExampleLayer : public vektor::layer::Layer
@@ -11,7 +10,6 @@ public:
     ExampleLayer()
         : Layer("Example")
     {
-
         float aspectRatio = 1280.0f / 720.0f;
         float zoom = 0.9f;
 
@@ -78,13 +76,29 @@ public:
 
     void onUpdate() override
     {
+        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_R))
+            m_CameraRotation += 1.0f;
+        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_T))
+            m_CameraRotation -= 1.0f;
+
+        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_LEFT) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_A))
+            m_CameraPosition.x -= m_CameraMoveSpeed;
+        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_RIGHT) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_D))
+            m_CameraPosition.x += m_CameraMoveSpeed;
+        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_UP) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_W))
+            m_CameraPosition.y += m_CameraMoveSpeed;
+        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_DOWN) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_S))
+            m_CameraPosition.y -= m_CameraMoveSpeed;
+
+        m_Camera->setPosition(m_CameraPosition);
+        m_Camera->setRotation(m_CameraRotation);
+
         vektor::renderer::Command::setClearColor(glm::vec4(0.2f, 0.3f, 0.3f, 1.0f));
         vektor::renderer::Command::clear();
 
         vektor::renderer::Renderer::beginScene(m_Camera);
-        vektor::renderer::Renderer::endScene();
-
         vektor::renderer::Renderer::submit(m_Shader, m_VertexArray);
+        vektor::renderer::Renderer::endScene();
     }
 
     void onRender() override // imgui
@@ -95,23 +109,12 @@ public:
     {
         vektor::event::EventDispatcher dispatcher(event);
         dispatcher.dispatch<vektor::event::KeyPressedEvent>(VEKTOR_BIND_EVENT_FN(ExampleLayer::onKeyPressedEvent));
+
         dispatcher.dispatch<vektor::event::WindowResizeEvent>(VEKTOR_BIND_RESIZE_FN(ExampleLayer::onWindowResizeEvent));
     }
 
     bool onKeyPressedEvent(vektor::event::KeyPressedEvent &event)
     {
-        vektor::renderer::Command::setClearColor(glm::vec4(0.2f, 0.3f, 0.3f, 1.0f));
-        vektor::renderer::Command::clear();
-
-        if (event.getKeyCode() == VEKTOR_KEY_R)
-            m_CameraRotation += 1.0f;
-
-        m_Camera->setPosition(m_CameraPosition);
-        m_Camera->setRotation(m_CameraRotation);
-
-        vektor::renderer::Renderer::beginScene(m_Camera);
-        vektor::renderer::Renderer::endScene();
-        vektor::renderer::Renderer::submit(m_Shader, m_VertexArray);
         return false;
     }
 
@@ -142,9 +145,9 @@ private:
     std::shared_ptr<vektor::renderer::camera::Orthographic> m_Camera;
 
     glm::vec3 m_CameraPosition;
-    float m_CameraRotation = 0.0f;
+    float m_CameraRotation = 0.0f;ca
 
-    float m_CameraMoveSpeed = 0.1;
+    float m_CameraMoveSpeed = 0.05f;
 };
 
 class Sandbox : public vektor::Application
