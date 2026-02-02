@@ -34,9 +34,9 @@ public:
 
         float vertices[] = {
             // Position           // Color             // UV
-            -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
-            0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
-            0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f,
+            -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
+            0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
+            0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f,
             -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f};
 
         m_VertexArray.reset(vektor::utils::VertexArray::create());
@@ -179,12 +179,12 @@ public:
                 glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
                 m_Transform = transform;
 
-                if ((i + y) % 2 == 0)
+                if ((i + y) % 2 == 0) // RED
                 {
                     std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniformMat4("u_Color", redColor);
                     vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, transform);
                 }
-                else
+                else // BLACK ( blue + red )
                 {
                     std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniformMat4("u_Color", blueColor);
                     vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, transform);
