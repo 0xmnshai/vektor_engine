@@ -10,6 +10,8 @@
 
 namespace vektor::opengl
 {
+    static std::unordered_map<utils::ShaderType, std::string> s_ShaderSourceMap;
+
     opengl::OpenGLShader::OpenGLShader(const std::string &filePath)
     {
         std::string source = utils::FileSystem::readFileToString(filePath);
@@ -18,7 +20,7 @@ namespace vektor::opengl
 
         const char *typeToken = "#type";
         size_t typeTokenLength = strlen(typeToken);
-        
+
         size_t pos = source.find(typeToken, 0);
 
         while (pos != std::string::npos)
@@ -31,23 +33,29 @@ namespace vektor::opengl
             pos = source.find(typeToken, nextLinePos);
 
             if (type == "vertex")
-                vertexSource = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() : nextLinePos));
+            {
+                size_t end = (pos == std::string::npos) ? source.size() : pos;
+                vertexSource = source.substr(nextLinePos, end - nextLinePos);
+                s_ShaderSourceMap[utils::ShaderType::Vertex] = vertexSource;
+            }
             else if (type == "fragment")
-                fragmentSource = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() : nextLinePos));
+            {
+
+                size_t end = (pos == std::string::npos) ? source.size() : pos;
+                fragmentSource = source.substr(nextLinePos, end - nextLinePos);
+                s_ShaderSourceMap[utils::ShaderType::Fragment] = fragmentSource;
+            }
         }
 
-        m_ShaderProgram = glCreateProgram();
-        GLuint vs = compileShader(utils::ShaderType::Vertex, vertexSource);
-        GLuint fs = compileShader(utils::ShaderType::Fragment, fragmentSource);
-        glAttachShader(m_ShaderProgram, vs);
-        glAttachShader(m_ShaderProgram, fs);
-        glLinkProgram(m_ShaderProgram);
-        checkLinkErrors(m_ShaderProgram);
-        glDeleteShader(vs);
-        glDeleteShader(fs);
+        compile(vertexSource, fragmentSource);
     }
 
     opengl::OpenGLShader::OpenGLShader(const std::string &vertexSrc, const std::string &fragmentSrc)
+    {
+        compile(vertexSrc, fragmentSrc);
+    };
+
+    void opengl::OpenGLShader::compile(const std::string &vertexSrc, const std::string &fragmentSrc)
     {
         m_ShaderProgram = glCreateProgram();
 
@@ -62,7 +70,7 @@ namespace vektor::opengl
 
         glDeleteShader(vs);
         glDeleteShader(fs);
-    };
+    }
 
     opengl::OpenGLShader::~OpenGLShader()
     {
