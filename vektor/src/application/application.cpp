@@ -39,23 +39,29 @@ namespace vektor
 
     Application::~Application()
     {
-        std::dynamic_pointer_cast<opengl::OpenGLShader>(m_Shader)->unbindProgram();
+        if (m_Shader)
+        {
+            auto glShader = std::dynamic_pointer_cast<opengl::OpenGLShader>(m_Shader);
+            if (glShader)
+                glShader->unbindProgram();
+        }
 
         m_VertexBuffer.reset();
         m_IndexBuffer.reset();
 
-        m_VertexArray->unBind();
+        if (m_VertexArray)
+            m_VertexArray->unBind();
 
         m_Window.reset();
         s_Instance = nullptr;
-        std::dynamic_pointer_cast<opengl::OpenGLShader>(m_Shader).reset();
+
         VEKTOR_CORE_INFO("Application destroyed");
     }
 
     void Application::Run()
     {
         while (m_Running)
-        { 
+        {
             float time = (float)glfwGetTime();
 
             core::Timestep timestep = time - m_LastFrameTime;

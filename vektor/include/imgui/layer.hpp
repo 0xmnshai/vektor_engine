@@ -26,6 +26,9 @@ namespace vektor::imgui_layer
         void begin();
         void end();
 
+        //testing theme 
+        void setTheme();
+
     private:
         bool m_BlockEvents = true;
         float m_Time = 0.0f;

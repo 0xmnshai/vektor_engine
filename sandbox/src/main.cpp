@@ -1,4 +1,3 @@
-
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -15,7 +14,7 @@ public:
     ExampleLayer()
         : Layer("Example")
     {
-        float aspectRatio = 1280.0f / 720.0f;
+        float aspectRatio = WINDOW_WIDTH / WINDOW_HEIGHT;
         float zoom = 0.9f;
 
         m_Position = {0.0f, 0.0f, 0.0f};
@@ -36,7 +35,8 @@ public:
 
         vektor::utils::buffer::Layout layout = {
             {vektor::utils::buffer::ShaderDataType::Float3, "a_Position"},
-            {vektor::utils::buffer::ShaderDataType::Float4, "a_Color"}};
+            {vektor::utils::buffer::ShaderDataType::Float4, "a_Color"},
+            {vektor::utils::buffer::ShaderDataType::Float2, "a_TexCoord"}};
 
         m_VertexBuffer->setLayout(layout);
         m_VertexArray->addVertexBuffer(m_VertexBuffer);
@@ -209,7 +209,7 @@ private:
     glm::vec3 m_Position;
     glm::mat4 m_Transform;
 
-    glm::vec4 m_Color = glm::vec4(0.2f, 0.3f, 0.3f, 1.0f); 
+    glm::vec4 m_Color = glm::vec4(0.2f, 0.3f, 0.3f, 1.0f);
 };
 
 class Sandbox : public vektor::Application

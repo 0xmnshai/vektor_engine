@@ -103,7 +103,8 @@ namespace vektor::opengl
 
     void opengl::OpenGLShader::unbindProgram() const
     {
-        glDeleteProgram(m_ShaderProgram);
+        // glDeleteProgram(m_ShaderProgram);
+        glUseProgram(0);
     }
 
     // ------------------------------------------------------------------------
