@@ -22,6 +22,7 @@ endif()
 FetchContent_Declare(
     imgui
     GIT_REPOSITORY https://github.com/ocornut/imgui.git
+
     # GIT_TAG v1.92.5
     GIT_TAG docking
 )
@@ -93,6 +94,21 @@ else()
     message(STATUS " [Vektor] glm found in cache. Skipping download.")
 endif()
 
+FetchContent_Declare(
+    stb
+    GIT_REPOSITORY https://github.com/nothings/stb.git
+    GIT_TAG master
+)
+FetchContent_GetProperties(stb)
+
+if(NOT stb_POPULATED)
+    FetchContent_MakeAvailable(stb)
+    message(STATUS " [Vektor] stb downloaded and configured.")
+else()
+    FetchContent_MakeAvailable(stb)
+    message(STATUS " [Vektor] stb found in cache. Skipping download.")
+endif()
+
 file(GLOB_RECURSE SOURCES
     "src/*.cpp"
     "include/*.hpp"
@@ -109,8 +125,8 @@ target_include_directories(imgui PUBLIC
     ${imgui_SOURCE_DIR}/backends
 )
 
-target_link_libraries(imgui PUBLIC 
-    glfw 
+target_link_libraries(imgui PUBLIC
+    glfw
     glad
 )
 
@@ -118,7 +134,17 @@ target_include_directories(vektor PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
-target_link_libraries(vektor PUBLIC spdlog::spdlog glfw imgui glad glm)
+target_include_directories(vektor PRIVATE
+    ${stb_SOURCE_DIR}
+)
+
+target_link_libraries(vektor PUBLIC
+    spdlog::spdlog
+    glfw
+    imgui
+    glad
+    glm
+)
 
 target_compile_definitions(vektor PRIVATE
     VEKTOR_BUILD_DLL

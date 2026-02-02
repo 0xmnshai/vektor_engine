@@ -7,6 +7,7 @@
 #include <imgui_impl_opengl3.h>
 
 #include "vektor.hpp"
+#include "opengl/texture.hpp"
 
 class ExampleLayer : public vektor::layer::Layer
 {
@@ -25,10 +26,18 @@ public:
         m_CameraPosition = {0.0f, 0.0f, 0.0f};
 
         // TRIANGLE
-        float vertices[3 * 7] = {
-            -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f,
-            0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f,
-            0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f};
+        // float vertices[] = {
+        //     // position         // texcoord
+        //     -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
+        //     0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+        //     0.0f, 0.5f, 0.0f, 0.5f, 1.0f};
+
+        float vertices[] = {
+            // Position           // Color             // UV
+            -0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+            0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 1.0f, 0.0f,
+            0.5f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f,
+            -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 1.0f};
 
         m_VertexArray.reset(vektor::utils::VertexArray::create());
         m_VertexBuffer.reset(vektor::utils::buffer::Vertex::create(std::vector<float>(vertices, vertices + sizeof(vertices) / sizeof(float))));
@@ -41,7 +50,7 @@ public:
         m_VertexBuffer->setLayout(layout);
         m_VertexArray->addVertexBuffer(m_VertexBuffer);
 
-        std::vector<uint32_t> indices = {0, 1, 2};
+        std::vector<uint32_t> indices = {0, 1, 2, 2, 3, 0};
         m_IndexBuffer.reset(vektor::utils::buffer::Index::create(indices));
         m_VertexArray->setIndexBuffer(m_IndexBuffer);
 
@@ -51,20 +60,49 @@ public:
         // texture ..
         // using material in SceneRenderer::submit
 
+        // std::string fragmentSrc = R"(
+        //     #version 410 core
+
+        //     layout(location = 0) out vec4 color;
+
+        //     in vec2 v_TexCoord;
+
+        //     void main() {
+        //         color = vec4(v_TexCoord, 0.0, 1.0);
+        //     }
+        // )";
+
+        // std::string vertexSrc = R"(
+        //     #version 410 core
+
+        //     layout(location = 0) in vec3 a_Position;
+        //     layout(location = 1) in vec2 a_TexCoord;
+
+        //     uniform mat4 u_ViewProjection;
+        //     uniform mat4 u_Transform;
+
+        //     out vec2 v_TexCoord;
+
+        //     void main() {
+        //         v_TexCoord = a_TexCoord;
+        //         gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
+        //     }
+        // )";
+
         std::string vertexSrc = R"(
             #version 410 core
-
             layout(location = 0) in vec3 a_Position;
             layout(location = 1) in vec4 a_Color;
-
-            out vec3 v_Position;
-            out vec4 v_Color;
+            layout(location = 2) in vec2 a_TexCoord;
 
             uniform mat4 u_ViewProjection;
             uniform mat4 u_Transform;
 
+            out vec2 v_TexCoord;
+            out vec4 v_Color;
+
             void main() {
-                v_Position = a_Position;
+                v_TexCoord = a_TexCoord;
                 v_Color = a_Color;
                 gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
             }
@@ -72,28 +110,29 @@ public:
 
         std::string fragmentSrc = R"(
             #version 410 core
-            
             layout(location = 0) out vec4 color;
-
-            in vec3 v_Position;
+            in vec2 v_TexCoord;
             in vec4 v_Color;
 
-            uniform vec4 u_color;
+            uniform sampler2D u_Texture;
+            uniform vec4 u_Color; 
 
             void main() {
-                // color = vec4(v_Position * 0.5 + 0.5, 1.0); 
-                // color = v_Color;
-
-                color = u_color;
+                // Multiply texture by vertex color AND the uniform tint
+                color = texture(u_Texture, v_TexCoord) * v_Color * u_Color;
             }
         )";
 
         m_Shader = std::make_shared<vektor::opengl::OpenGLShader>(vertexSrc, fragmentSrc);
+
+        m_Texture = vektor::utils::Texture::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/texture.jpg");
+
+        m_Shader->bindProgram();
+        std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniform1i("u_Texture", 0);
     }
 
     void onAttach() override
     {
-
         VEKTOR_CORE_INFO("OpenGL rendering setup complete");
     }
 
@@ -130,6 +169,8 @@ public:
         glm::vec4 greenColor(0.0f, 1.0f, 0.0f, 1.0f);
         glm::vec4 blueColor(0.0f, 0.0f, 1.0f, 1.0f);
 
+        m_Texture->bind(0);
+
         for (size_t y = 0; y < 5; y++)
         {
             for (size_t i = 0; i < 5; i++)
@@ -140,16 +181,14 @@ public:
 
                 if ((i + y) % 2 == 0)
                 {
-                    std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniformMat4("u_color", redColor);
+                    std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniformMat4("u_Color", redColor);
                     vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, transform);
                 }
                 else
                 {
-                    std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniformMat4("u_color", blueColor);
+                    std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniformMat4("u_Color", blueColor);
                     vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, transform);
                 }
-
-                vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, m_Transform);
             }
         }
         // TEST
@@ -192,11 +231,13 @@ public:
     }
 
 private:
-    std::shared_ptr<vektor::utils::Shader> m_Shader;
+    std::shared_ptr<vektor::utils::Shader> m_Shader, m_TextureShader;
     std::shared_ptr<vektor::utils::VertexArray> m_VertexArray;
 
     std::shared_ptr<vektor::utils::buffer::Index> m_IndexBuffer;
     std::shared_ptr<vektor::utils::buffer::Vertex> m_VertexBuffer;
+
+    std::shared_ptr<vektor::utils::Texture> m_Texture;
 
     std::shared_ptr<vektor::renderer::camera::Orthographic> m_Camera;
 
