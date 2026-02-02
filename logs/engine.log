@@ -3,3 +3,53 @@
 [09:34:55] [warning] VEKTOR: Vektor Engine is running
 [09:34:56] [info] VEKTOR: GLFW Window hints set
 [09:34:56] [info] VEKTOR: Creating window: Vektor Engine (1280, 720)
+[09:34:56] [info] VEKTOR: OpenGL Version: 4.1 Metal - 90.5
+[09:34:56] [info] VEKTOR: GLSL Version: 4.10
+[09:34:56] [info] VEKTOR: OpenGL context initialized successfully
+[09:34:56] [info] APP: Setting event callback
+[09:34:56] [info] VEKTOR: OpenGL rendering setup complete
+[09:34:56] [info] VEKTOR: OpenGL rendering setup complete
+[09:34:56] [trace] VEKTOR: Delta time: 0.31748596 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.12541372 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.015677273 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.012596309 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.005158007 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.011436582 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0046636164 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.01197356 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.010790825 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0057923794 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0035588741 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.013206303 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0055577755 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.011067927 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0045826435 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0121052265 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.003646791 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.013261557 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.005068779 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.011444867 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.004102528 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0125768185 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.004456699 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.012177348 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0035478473 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.013106346 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0036904812 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.013032019 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0053139925 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.011326015 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.003930509 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.012692988 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.0049367547 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.011795223 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.004238069 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.012373805 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.003978014 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.012747586 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.003825128 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.012994587 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.049815297 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.012886167 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.017561615 seconds
+[09:34:56] [trace] VEKTOR: Delta time: 0.016453803 seconds
