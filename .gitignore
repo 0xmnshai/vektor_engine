@@ -1,6 +1,6 @@
 build/
 bin/
 vektor/resources.md
-logs/
+logs/engine.log
 merge.py
 all_files
