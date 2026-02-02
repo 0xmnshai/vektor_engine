@@ -91,6 +91,7 @@ public:
 
         std::string vertexSrc = R"(
             #version 410 core
+
             layout(location = 0) in vec3 a_Position;
             layout(location = 1) in vec4 a_Color;
             layout(location = 2) in vec2 a_TexCoord;
@@ -110,20 +111,22 @@ public:
 
         std::string fragmentSrc = R"(
             #version 410 core
+
             layout(location = 0) out vec4 color;
+
             in vec2 v_TexCoord;
             in vec4 v_Color;
 
             uniform sampler2D u_Texture;
             uniform vec4 u_Color; 
 
-            void main() {
-                // Multiply texture by vertex color AND the uniform tint
+            void main() { 
                 color = texture(u_Texture, v_TexCoord) * v_Color * u_Color;
             }
         )";
 
-        m_Shader = std::make_shared<vektor::opengl::OpenGLShader>(vertexSrc, fragmentSrc);
+        // m_Shader = std::make_shared<vektor::opengl::OpenGLShader>(vertexSrc, fragmentSrc);
+        m_Shader = std::make_shared<vektor::opengl::OpenGLShader>("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/shaders/texture.glsl");
 
         m_Texture = vektor::utils::Texture::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/texture.jpg");
 

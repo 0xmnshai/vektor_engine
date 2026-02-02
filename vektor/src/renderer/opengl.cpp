@@ -5,6 +5,12 @@
 
 namespace vektor::renderer
 {
+      void renderer::OpenGLAPI::init()
+      {
+            glEnable(GL_BLEND);
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+      }
+
       void renderer::OpenGLAPI::setClearColor(const glm::vec4 &color)
       {
             glClearColor(color.r, color.g, color.b, color.a);

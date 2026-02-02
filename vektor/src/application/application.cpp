@@ -4,15 +4,15 @@
 #include "core/timestep.hpp"
 
 #include "logger/logger.hpp"
+
 #include "application/application.hpp"
 
 #include "opengl/shader.hpp"
 
 #include "input/input.hpp"
-
-#include "renderer/command.hpp"
-
 #include "input/input.hpp"
+
+#include "renderer/api.hpp"
 
 namespace vektor
 {
@@ -32,6 +32,8 @@ namespace vektor
 
         m_Window = std::unique_ptr<window::Window>(window::Window::create(props));
         m_Window->setEventCallback(VEKTOR_BIND_EVENT_FN(Application::onEvent));
+
+        renderer::Renderer::init();
 
         m_ImGuiLayer = new imgui_layer::Layer();
         pushOverlay(m_ImGuiLayer);
@@ -74,8 +76,6 @@ namespace vektor
             }
 
             m_ImGuiLayer->begin();
-
-            // glDisable(GL_DEPTH_TEST);
 
             for (layer::Layer *layer : m_LayerStack)
             {

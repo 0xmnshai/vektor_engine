@@ -25,6 +25,8 @@ namespace vektor::renderer
         virtual void setClearColor(const glm::vec4 &color) = 0;
         virtual void clear() = 0;
 
+        virtual void init() = 0;
+
         virtual void drawIndexed(const std::shared_ptr<utils::VertexArray> &vertexArray) = 0;
 
         inline static API getAPI() { return s_API; }
@@ -38,8 +40,9 @@ namespace vektor::renderer
     {
     public:
         static void beginScene(const std::shared_ptr<camera::Orthographic> &camera);
-
         static void endScene();
+
+        static void init();
 
         static void submit(
             const std::shared_ptr<utils::Shader> &shader,

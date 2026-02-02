@@ -19,8 +19,8 @@ namespace vektor::renderer
         glfwSwapInterval(1);
         gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
-        glEnable(GL_BLEND);
-        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        // glEnable(GL_BLEND);
+        // glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glEnable(GL_DEPTH_TEST);
 
         std::string gl_version = std::string(reinterpret_cast<const char *>(glGetString(GL_VERSION)));                                // GluByte*

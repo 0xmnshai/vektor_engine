@@ -24,6 +24,11 @@ namespace vektor::renderer
         s_SceneCamera.reset();
     }
 
+    void Renderer::init()
+    { 
+        renderer::Command::init();
+    }
+
     void Renderer::submit(
         const std::shared_ptr<utils::Shader> &shader,
         const std::shared_ptr<utils::VertexArray> &vertexArray,
@@ -36,7 +41,6 @@ namespace vektor::renderer
         std::dynamic_pointer_cast<opengl::OpenGLShader>(shader)->setUniformShaderMatrix("u_Transform", transform);
 
         // binding material with shader 
-
         vertexArray->bind();
         renderer::Command::drawIndexed(vertexArray);
     }

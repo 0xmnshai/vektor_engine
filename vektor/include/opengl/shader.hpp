@@ -12,6 +12,7 @@ namespace vektor::opengl
     class VEKTOR_API OpenGLShader : public utils::Shader
     {
     public:
+        OpenGLShader(const std::string &filePath);
         OpenGLShader(const std::string &vertexSrc, const std::string &fragmentSrc);
         ~OpenGLShader();
 
@@ -30,7 +31,6 @@ namespace vektor::opengl
 
         virtual void setUniformMat4(const std::string &name, const glm::vec4 &values) const;
         virtual void setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const;
-
     private:
         GLuint m_ShaderProgram;
         static GLenum toGLType(utils::ShaderType type);

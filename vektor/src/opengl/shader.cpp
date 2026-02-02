@@ -6,9 +6,47 @@
 #include "core/core.hpp"
 #include "opengl/shader.hpp"
 #include "logger/logger.hpp"
+#include "utils/file_system.hpp"
 
 namespace vektor::opengl
 {
+    opengl::OpenGLShader::OpenGLShader(const std::string &filePath)
+    {
+        std::string source = utils::FileSystem::readFileToString(filePath);
+
+        std::string vertexSource, fragmentSource;
+
+        const char *typeToken = "#type";
+        size_t typeTokenLength = strlen(typeToken);
+        
+        size_t pos = source.find(typeToken, 0);
+
+        while (pos != std::string::npos)
+        {
+            size_t eol = source.find_first_of("\r\n", pos);
+            size_t begin = pos + typeTokenLength + 1;
+            std::string type = source.substr(begin, eol - begin);
+
+            size_t nextLinePos = source.find_first_not_of("\r\n", eol);
+            pos = source.find(typeToken, nextLinePos);
+
+            if (type == "vertex")
+                vertexSource = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() : nextLinePos));
+            else if (type == "fragment")
+                fragmentSource = source.substr(nextLinePos, pos - (nextLinePos == std::string::npos ? source.size() : nextLinePos));
+        }
+
+        m_ShaderProgram = glCreateProgram();
+        GLuint vs = compileShader(utils::ShaderType::Vertex, vertexSource);
+        GLuint fs = compileShader(utils::ShaderType::Fragment, fragmentSource);
+        glAttachShader(m_ShaderProgram, vs);
+        glAttachShader(m_ShaderProgram, fs);
+        glLinkProgram(m_ShaderProgram);
+        checkLinkErrors(m_ShaderProgram);
+        glDeleteShader(vs);
+        glDeleteShader(fs);
+    }
+
     opengl::OpenGLShader::OpenGLShader(const std::string &vertexSrc, const std::string &fragmentSrc)
     {
         m_ShaderProgram = glCreateProgram();

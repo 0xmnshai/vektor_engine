@@ -36,4 +36,19 @@ namespace vektor::utils
             return nullptr;
         }
     }
+
+    utils::Shader *utils::Shader::create(const std::string &filepath)
+    {
+        switch (renderer::Renderer::getAPI())
+        {
+        case renderer::RendererApi::API::OPENGL:
+            return new opengl::OpenGLShader(filepath);
+        case renderer::RendererApi::API::NONE:
+            VEKTOR_CORE_ASSERT(false, "Renderer API not set!");
+            return nullptr;
+        default:
+            VEKTOR_CORE_ASSERT(false, "Renderer API not supported!");
+            return nullptr;
+        }
+    }
 }

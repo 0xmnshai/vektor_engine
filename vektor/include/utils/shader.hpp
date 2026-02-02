@@ -16,17 +16,18 @@ namespace vektor::utils
 
     class VEKTOR_API Shader
     {
-    public: 
+    public:
         virtual ~Shader() = default;
 
         static GLuint compileShader(ShaderType type, const std::string &source);
 
         virtual void bindProgram() const = 0;
         virtual void unbindProgram() const = 0;
-
+ 
+        static Shader *create(const std::string &filePath);
         static Shader *create(const std::string &vertexSrc, const std::string &fragmentSrc);
 
-    protected: 
+    protected:
         GLuint m_ShaderProgram;
     };
 }

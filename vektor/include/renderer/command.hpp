@@ -23,6 +23,11 @@ namespace vektor::renderer
             s_RendererAPI->drawIndexed(vertexArray);
         }
 
+        inline static void init()
+        {
+            s_RendererAPI->init();
+        };
+
     private:
         static renderer::RendererApi *s_RendererAPI;
     };
