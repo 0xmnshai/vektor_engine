@@ -17,7 +17,12 @@ namespace vektor::opengl
         std::string source = utils::FileSystem::readFileToString(filePath);
 
         std::string vertexSource, fragmentSource;
+        readShaderFile(source, &vertexSource, &fragmentSource);
+        compile(vertexSource, fragmentSource);
+    }
 
+    void opengl::OpenGLShader::readShaderFile(std::string &source, std::string *vertexSource, std::string *fragmentSource)
+    {
         const char *typeToken = "#type";
         size_t typeTokenLength = strlen(typeToken);
 
@@ -35,19 +40,17 @@ namespace vektor::opengl
             if (type == "vertex")
             {
                 size_t end = (pos == std::string::npos) ? source.size() : pos;
-                vertexSource = source.substr(nextLinePos, end - nextLinePos);
-                s_ShaderSourceMap[utils::ShaderType::Vertex] = vertexSource;
+                *vertexSource = source.substr(nextLinePos, end - nextLinePos);
+                s_ShaderSourceMap[utils::ShaderType::Vertex] = *vertexSource;
             }
             else if (type == "fragment")
             {
 
                 size_t end = (pos == std::string::npos) ? source.size() : pos;
-                fragmentSource = source.substr(nextLinePos, end - nextLinePos);
-                s_ShaderSourceMap[utils::ShaderType::Fragment] = fragmentSource;
+                *fragmentSource = source.substr(nextLinePos, end - nextLinePos);
+                s_ShaderSourceMap[utils::ShaderType::Fragment] = *fragmentSource;
             }
         }
-
-        compile(vertexSource, fragmentSource);
     }
 
     opengl::OpenGLShader::OpenGLShader(const std::string &vertexSrc, const std::string &fragmentSrc)
@@ -152,10 +155,6 @@ namespace vektor::opengl
         // glDeleteProgram(m_ShaderProgram);
         glUseProgram(0);
     }
-
-    // ------------------------------------------------------------------------
-    // Uniform Implementations
-    // ------------------------------------------------------------------------
 
     void opengl::OpenGLShader::setUniform1i(const std::string &name, const int value) const
     {

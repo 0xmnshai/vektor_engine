@@ -19,6 +19,8 @@ namespace vektor::opengl
         virtual void bindProgram() const override;
         virtual void unbindProgram() const override;
 
+        void readShaderFile(std::string &source, std::string *vertexSource, std::string *fragmentSource);
+
         static GLuint compileShader(utils::ShaderType type, const std::string &source);
 
         virtual void setUniform1i(const std::string &name, const int value) const;
@@ -31,13 +33,14 @@ namespace vektor::opengl
 
         virtual void setUniformMat4(const std::string &name, const glm::vec4 &values) const;
         virtual void setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const;
-         void compile(const std::string &vertexSrc, const std::string &fragmentSrc);
+        void compile(const std::string &vertexSrc, const std::string &fragmentSrc);
+
     private:
         GLuint m_ShaderProgram;
         static GLenum toGLType(utils::ShaderType type);
         static void checkCompileErrors(GLuint shader, utils::ShaderType type);
         static void checkLinkErrors(GLuint program);
 
-         std::unordered_map<utils::ShaderType, std::string> s_ShaderSourceMap;
+        std::unordered_map<utils::ShaderType, std::string> s_ShaderSourceMap;
     };
 }
