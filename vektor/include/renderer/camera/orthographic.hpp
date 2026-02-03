@@ -12,8 +12,14 @@ namespace vektor::renderer::camera
         Orthographic(float left, float right, float bottom, float top); // left and right are the x-axis limits, bottom and top are the y-axis limits.
         ~Orthographic();
 
+        void setProjection(float left, float right, float bottom, float top);
+
         inline const glm::vec3 &getPosition() const { return m_Position; }
-        inline void setPosition(const glm::vec3 &position) { m_Position = position; }
+        inline void setPosition(const glm::vec3 &position)
+        {
+            m_Position = position;
+            reCalculateViewMatrix();
+        }
 
         inline const glm::mat4 &getProjectionMatrix() const { return m_projectionMatrix; }
         inline const glm::mat4 &getViewMatrix() const { return m_viewMatrix; }
