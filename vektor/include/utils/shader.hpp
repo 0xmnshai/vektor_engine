@@ -19,7 +19,7 @@ namespace vektor::utils
     public:
         virtual ~Shader() = default;
 
-        static GLuint compileShader(ShaderType type, const std::string &source);
+        virtual GLuint compileShader(utils::ShaderType type, const std::string &source) = 0;
 
         virtual void bindProgram() const = 0;
         virtual void unbindProgram() const = 0;

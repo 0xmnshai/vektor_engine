@@ -34,6 +34,8 @@ namespace vektor::utils
         }
     }
 
+    std::unordered_map<std::string, std::shared_ptr<utils::Shader>> utils::ShaderLibrary::s_Shaders;
+
     void utils::ShaderLibrary::add(const std::string &name, const std::shared_ptr<utils::Shader> &shader)
     {
         std::string shaderName = shader->getName();

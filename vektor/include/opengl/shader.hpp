@@ -26,7 +26,7 @@ namespace vektor::opengl
 
         void readShaderFile(std::string &source, std::string *vertexSource, std::string *fragmentSource);
 
-        static GLuint compileShader(utils::ShaderType type, const std::string &source);
+        GLuint compileShader(utils::ShaderType type, const std::string &source) override;
 
         virtual void setUniform1i(const std::string &name, const int value) const;
         virtual void setUniform1iv(const std::string &name, const int count, const int *value) const;
@@ -42,7 +42,7 @@ namespace vektor::opengl
 
     private:
         GLuint m_ShaderProgram;
-         std::string m_Name;
+        std::string m_Name;
 
         static GLenum toGLType(utils::ShaderType type);
 
