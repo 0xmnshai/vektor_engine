@@ -34,7 +34,7 @@ namespace vektor
         m_Window->setEventCallback(VEKTOR_BIND_EVENT_FN(Application::onEvent));
 
         renderer::Renderer::init();
-
+ 
         m_ImGuiLayer = new imgui_layer::Layer();
         pushOverlay(m_ImGuiLayer);
     }

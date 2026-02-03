@@ -125,7 +125,7 @@ public:
             }
         )";
 
-        // m_Shader = std::make_shared<vektor::opengl::OpenGLShader>(vertexSrc, fragmentSrc);
+        // m_Shader = std::make_shared<vektor::opengl::OpenGLShader>("texture",vertexSrc, fragmentSrc);
         m_Shader = std::make_shared<vektor::opengl::OpenGLShader>("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/shaders/texture.glsl");
 
         m_Texture = vektor::utils::Texture::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/texture.jpg");

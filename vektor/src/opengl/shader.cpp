@@ -16,6 +16,13 @@ namespace vektor::opengl
     {
         std::string source = utils::FileSystem::readFileToString(filePath);
 
+        size_t lastSlashPos = filePath.find_last_of("/\\");
+        lastSlashPos = lastSlashPos == std::string::npos ? 0 : lastSlashPos + 1;
+        size_t lastDotPos = filePath.find_last_of(".");
+        std::string name = filePath.substr(lastSlashPos, lastDotPos - lastSlashPos);
+
+        m_Name = name;
+
         std::string vertexSource, fragmentSource;
         readShaderFile(source, &vertexSource, &fragmentSource);
         compile(vertexSource, fragmentSource);
@@ -53,8 +60,9 @@ namespace vektor::opengl
         }
     }
 
-    opengl::OpenGLShader::OpenGLShader(const std::string &vertexSrc, const std::string &fragmentSrc)
+    opengl::OpenGLShader::OpenGLShader(const std::string &name, const std::string &vertexSrc, const std::string &fragmentSrc)
     {
+        m_Name = name;
         compile(vertexSrc, fragmentSrc);
     };
 
@@ -152,7 +160,6 @@ namespace vektor::opengl
 
     void opengl::OpenGLShader::unbindProgram() const
     {
-        // glDeleteProgram(m_ShaderProgram);
         glUseProgram(0);
     }
 

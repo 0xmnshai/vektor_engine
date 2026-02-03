@@ -13,11 +13,16 @@ namespace vektor::opengl
     {
     public:
         OpenGLShader(const std::string &filePath);
-        OpenGLShader(const std::string &vertexSrc, const std::string &fragmentSrc);
+        OpenGLShader(const std::string &name, const std::string &vertexSrc, const std::string &fragmentSrc);
         ~OpenGLShader();
 
         virtual void bindProgram() const override;
         virtual void unbindProgram() const override;
+
+        inline const std::string &getName() const override
+        {
+            return m_Name;
+        };
 
         void readShaderFile(std::string &source, std::string *vertexSource, std::string *fragmentSource);
 
@@ -37,7 +42,10 @@ namespace vektor::opengl
 
     private:
         GLuint m_ShaderProgram;
+         std::string m_Name;
+
         static GLenum toGLType(utils::ShaderType type);
+
         static void checkCompileErrors(GLuint shader, utils::ShaderType type);
         static void checkLinkErrors(GLuint program);
 
