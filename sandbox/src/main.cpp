@@ -7,6 +7,7 @@
 #include <imgui_impl_opengl3.h>
 
 #include "vektor.hpp"
+#include "events/keycode.hpp"
 #include "opengl/texture.hpp"
 #include "utils/shader.hpp"
 

@@ -31,10 +31,11 @@ namespace vektor
         props.height = WINDOW_HEIGHT;
 
         m_Window = std::unique_ptr<window::Window>(window::Window::create(props));
-        m_Window->setEventCallback(VEKTOR_BIND_EVENT_FN(Application::onEvent));
+        m_Window->setEventCallback([this](event::Event &e)
+                                   { this->onEvent(e); });
 
         renderer::Renderer::init();
- 
+
         m_ImGuiLayer = new imgui_layer::Layer();
         pushOverlay(m_ImGuiLayer);
     }
@@ -109,8 +110,10 @@ namespace vektor
     void Application::onEvent(event::Event &event)
     {
         event::EventDispatcher dispatcher(event);
-        dispatcher.dispatch<event::WindowCloseEvent>(VEKTOR_BIND_EVENT_FN(Application::onWindowClose));
-        dispatcher.dispatch<event::WindowResizeEvent>(VEKTOR_BIND_EVENT_FN(Application::onWindowResize));
+        dispatcher.dispatch<event::WindowCloseEvent>([this](auto &&e)
+                                                     { return onWindowClose(e); });
+        dispatcher.dispatch<event::WindowResizeEvent>([this](auto &&e)
+                                                      { return onWindowResize(e); });
 
         VEKTOR_CORE_TRACE("Event received: {}", event.toString());
 
@@ -118,10 +121,8 @@ namespace vektor
         {
             (*--it)->onEvent(event);
             if (event.isHandled())
-            {
                 break;
-            }
-        }
+        };
 
         for (auto &listener : m_EventListeners)
         {

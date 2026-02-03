@@ -24,8 +24,8 @@ namespace vektor::event
             return ss.str();
         }
 
-        EVENT_CLASS_TYPE(WindowResize)
-        EVENT_CLASS_CATEGORY(EventCategoryApplication)
+        EVENT_CLASS_TYPE(WindowResize);
+        EVENT_CLASS_CATEGORY(EventCategoryApplication);
 
     private:
         unsigned int m_Width, m_Height;
@@ -36,8 +36,8 @@ namespace vektor::event
     public:
         WindowCloseEvent() = default;
 
-        EVENT_CLASS_TYPE(WindowClose)
-        EVENT_CLASS_CATEGORY(EventCategoryApplication)
+        EVENT_CLASS_TYPE(WindowClose);
+        EVENT_CLASS_CATEGORY(EventCategoryApplication); 
     };
 
     class VEKTOR_API WindowMovedEvent : public Event
@@ -56,8 +56,8 @@ namespace vektor::event
             return ss.str();
         }
 
-        EVENT_CLASS_TYPE(WindowMoved)
-        EVENT_CLASS_CATEGORY(EventCategoryApplication)
+        EVENT_CLASS_TYPE(WindowMoved);
+        EVENT_CLASS_CATEGORY(EventCategoryApplication);
 
     private:
         unsigned int m_XPos, m_YPos;
@@ -69,7 +69,7 @@ namespace vektor::event
     public:
         WindowFocusEvent() = default;
 
-        EVENT_CLASS_TYPE(WindowFocus)
+        EVENT_CLASS_TYPE(WindowFocus);
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     };
 
@@ -78,7 +78,7 @@ namespace vektor::event
     public:
         WindowLostFocusEvent() = default;
 
-        EVENT_CLASS_TYPE(WindowLostFocus)
+        EVENT_CLASS_TYPE(WindowLostFocus);
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     };
 
@@ -87,7 +87,7 @@ namespace vektor::event
     public:
         AppTickEvent() = default;
 
-        EVENT_CLASS_TYPE(AppTick)
+        EVENT_CLASS_TYPE(AppTick);
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     };
 
@@ -96,7 +96,7 @@ namespace vektor::event
     public:
         AppUpdateEvent() = default;
 
-        EVENT_CLASS_TYPE(AppUpdate)
+        EVENT_CLASS_TYPE(AppUpdate);
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     };
 
@@ -105,7 +105,7 @@ namespace vektor::event
     public:
         AppRenderEvent() = default;
 
-        EVENT_CLASS_TYPE(AppRender)
+        EVENT_CLASS_TYPE(AppRender);
         EVENT_CLASS_CATEGORY(EventCategoryApplication)
     };
 }

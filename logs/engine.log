@@ -1,432 +1,636 @@
-[10:52:40] [trace] VEKTOR: Starting Vektor Engine
-[10:52:40] [critical] VEKTOR: Vektor Engine is running
-[10:52:40] [warning] VEKTOR: Vektor Engine is running
-[10:52:40] [info] VEKTOR: GLFW Window hints set
-[10:52:40] [info] VEKTOR: Creating window: Vektor Engine (1280, 720)
-[10:52:40] [info] VEKTOR: OpenGL Version: 4.1 Metal - 90.5
-[10:52:40] [info] VEKTOR: GLSL Version: 4.10
-[10:52:40] [info] VEKTOR: OpenGL context initialized successfully
-[10:52:40] [info] APP: Setting event callback
-[10:52:41] [info] VEKTOR: OpenGL rendering setup complete
-[10:52:41] [info] VEKTOR: OpenGL rendering setup complete
-[10:52:41] [trace] VEKTOR: Delta time: 0.66587126 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0787428 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0139862895 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.014528275 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.01945597 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.013745248 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.006098509 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.010506988 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.009120047 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.007601261 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0037925243 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.012825489 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.00367409 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.013065577 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0034307241 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.013280034 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.003930092 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.012620389 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0167557 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.016665876 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.004045129 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.01252079 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.002965808 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.013768971 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0034373403 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.013239205 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0035854578 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.013165772 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.005547762 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.010998607 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0041594505 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.012557864 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0036927462 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.012947679 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0038852692 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.012765169 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.00344491 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.013242006 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0040398836 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0126258135 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0034373999 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.013224721 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.004003525 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0126821995 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0038551092 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.012822151 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.004548073 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.012155414 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0036273003 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.013060451 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0038115978 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.012804031 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.004604578 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.01210916 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0037785769 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.012889147 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.0034087896 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.013327837 seconds
-[10:52:41] [trace] VEKTOR: Delta time: 0.004231453 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.01245904 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.004935384 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.011741877 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.004021883 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012573719 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0036867857 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0129624605 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003344059 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013376236 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003827691 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012897849 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0032435656 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0134135485 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0042631626 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0123746395 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.005337596 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0113328695 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0032795668 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.01329577 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003766656 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013077617 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0033967495 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013189197 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0042153597 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012349129 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0036196709 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0131748915 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.00435555 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012291431 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0039497614 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012683511 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0035840273 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0130268335 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0056483746 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.011089921 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0037115812 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012911439 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0033217669 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.01327908 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0047763586 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012059569 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0032767057 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013319969 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003932357 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012742877 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0047006607 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.01180017 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0034815073 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013312221 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0033454895 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013214111 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0035028458 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013336539 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.00400126 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.01269877 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0035847425 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013032317 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0032988787 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013351321 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003340602 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013421655 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0049643517 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.011555433 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.00399518 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012618065 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003588438 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013233185 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0032510757 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013393402 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0033459663 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.01331377 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0032904148 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0133879185 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.004056692 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012559533 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003410697 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013195157 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0043064356 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012489796 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0037282705 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012905121 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0033142567 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013314009 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.005696535 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.010806799 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0035403967 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013352752 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0032740831 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013347983 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0038576126 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0127744675 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003348112 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013465643 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003843069 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012726307 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.00509429 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.011541843 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0042567253 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012442589 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.004286051 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012369633 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003865242 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012844324 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003264904 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013278246 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0049130917 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.011780024 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.003572464 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013147354 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0033180714 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013365746 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0033242702 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.01340127 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0033438206 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.013303757 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.004221916 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012345314 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.004502058 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.012268543 seconds
-[10:52:42] [trace] VEKTOR: Delta time: 0.0039391518 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012619734 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0036280155 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013022661 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0034034252 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013215065 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0036432743 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0129954815 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0034489632 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013278961 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.005125046 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.011568308 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0033888817 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013268948 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.004130125 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012516499 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.005554199 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.011203289 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0033128262 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013223648 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0034942627 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.01331377 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 744.648, 342.078
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 730.652, 338.578
-[10:52:43] [trace] VEKTOR: Delta time: 0.003525257 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013161182 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 698.824, 327.301
-[10:52:43] [trace] VEKTOR: Delta time: 0.0040647984 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012495995 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 655.75, 308.992
-[10:52:43] [trace] VEKTOR: Delta time: 0.003704071 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013129711 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 588.805, 276.285
-[10:52:43] [trace] VEKTOR: Delta time: 0.0033049583 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013329983 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 529.32, 242.453
-[10:52:43] [trace] VEKTOR: Delta time: 0.004586935 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0122048855 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 489.184, 217.848
-[10:52:43] [trace] VEKTOR: Delta time: 0.0031967163 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013162136 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 464.707, 201.105
-[10:52:43] [trace] VEKTOR: Delta time: 0.003504753 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.01322937 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0035738945 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013157845 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.003689766 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.01285243 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.004086733 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012531757 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0036041737 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013074875 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0034606457 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013286829 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0037868023 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012866735 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.003406763 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013290882 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0040352345 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012562513 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 463.766, 201.105
-[10:52:43] [trace] VEKTOR: Delta time: 0.0039613247 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012737036 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 446.078, 195.676
-[10:52:43] [trace] VEKTOR: Delta time: 0.0034310818 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013266563 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 422.992, 181.129
-[10:52:43] [trace] VEKTOR: Delta time: 0.0039372444 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012735605 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 391.973, 161.715
-[10:52:43] [trace] VEKTOR: Delta time: 0.0035719872 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013514042 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 341.59, 129.699
-[10:52:43] [trace] VEKTOR: Delta time: 0.0029678345 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013175964 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 263.504, 82.5664
-[10:52:43] [trace] VEKTOR: Delta time: 0.0035140514 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013247013 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 209.488, 53.1289
-[10:52:43] [trace] VEKTOR: Delta time: 0.004386902 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012281179 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 152.723, 27.2109
-[10:52:43] [trace] VEKTOR: Delta time: 0.003951311 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012612104 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 139.043, 23.2656
-[10:52:43] [trace] VEKTOR: Delta time: 0.0035068989 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013261318 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 126.535, 19.9297
-[10:52:43] [trace] VEKTOR: Delta time: 0.0034508705 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013185024 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0035984516 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013094664 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0034284592 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013390541 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0033667088 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013279915 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.003255844 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013369799 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.00335598 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013201952 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0034372807 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013512373 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0038912296 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012493849 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0036108494 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013015032 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 121.684, 19.9297
-[10:52:43] [trace] VEKTOR: Delta time: 0.0034735203 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013213873 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 111.988, 18.7891
-[10:52:43] [trace] VEKTOR: Delta time: 0.0039765835 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0125665665 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 105.621, 16.3242
-[10:52:43] [trace] VEKTOR: Delta time: 0.0035440922 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013189793 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 100.004, 13.9805
-[10:52:43] [trace] VEKTOR: Delta time: 0.0041718483 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 94.6992, 11.6211
-[10:52:43] [trace] VEKTOR: Delta time: 0.012526751 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 89.3945, 9.26172
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 85.0039, 7.61328
-[10:52:43] [trace] VEKTOR: Delta time: 0.00374794 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012908459 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 80.6133, 5.96484
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 78.4766, 5.10938
-[10:52:43] [trace] VEKTOR: Delta time: 0.0034565926 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013287306 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 69.5469, 1.64844
-[10:52:43] [trace] VEKTOR: Delta time: 0.003679514 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013015032 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 63.8516, 0.199219
-[10:52:43] [trace] VEKTOR: Delta time: 0.0033609867 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0131623745 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 59.5781, -1.08594
-[10:52:43] [trace] VEKTOR: Delta time: 0.004350662 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.012453556 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 57.4922, -1.43359
-[10:52:43] [trace] VEKTOR: Delta time: 0.003503561 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013147116 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 55.8359, -1.78125
-[10:52:43] [trace] VEKTOR: Delta time: 0.004273653 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.0122869015 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 54.1836, -1.78125
-[10:52:43] [trace] VEKTOR: Delta time: 0.0035505295 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013161182 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 52.957, -2.08984
-[10:52:43] [trace] VEKTOR: Delta time: 0.003474474 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013397694 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 51.3008, -2.08984
-[10:52:43] [trace] VEKTOR: Delta time: 0.0033974648 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.01298666 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 50.0742, -2.39844
-[10:52:43] [trace] VEKTOR: Delta time: 0.0035393238 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013188601 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 48.8477, -2.39844
-[10:52:43] [trace] VEKTOR: Delta time: 0.003479004 seconds
-[10:52:43] [trace] VEKTOR: Delta time: 0.013133526 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 46.7617, -2.74609
-[10:52:43] [trace] VEKTOR: Delta time: 0.0035641193 seconds
-[10:52:43] [trace] VEKTOR: Event received: MouseMovedEvent: 45.7188, -3.09375
-[10:52:44] [trace] VEKTOR: Delta time: 0.013080835 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 44.168, -3.48438
-[10:52:44] [trace] VEKTOR: Delta time: 0.003818512 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 42.0312, -4.33984
-[10:52:44] [trace] VEKTOR: Delta time: 0.012909651 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 40.4805, -5.11719
-[10:52:44] [trace] VEKTOR: Delta time: 0.0035130978 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.0135576725 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 38.9648, -5.42188
-[10:52:44] [trace] VEKTOR: Delta time: 0.0030896664 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.013154507 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 32.1445, -9.01172
-[10:52:44] [trace] VEKTOR: Delta time: 0.005790949 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.010976076 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 29.0508, -10.1758
-[10:52:44] [trace] VEKTOR: Delta time: 0.0038733482 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.012933493 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 26.9688, -11.2188
-[10:52:44] [trace] VEKTOR: Delta time: 0.0032713413 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.013169289 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 25.3125, -11.875
-[10:52:44] [trace] VEKTOR: Delta time: 0.0035319328 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.013146877 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 24.4297, -12.4531
-[10:52:44] [trace] VEKTOR: Delta time: 0.0034937859 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.013232231 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 23.5508, -12.7188
-[10:52:44] [trace] VEKTOR: Delta time: 0.0037078857 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.012928486 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 22.668, -12.9883
-[10:52:44] [trace] VEKTOR: Delta time: 0.0044875145 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.012177229 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 21.7852, -13.2578
-[10:52:44] [trace] VEKTOR: Delta time: 0.0034639835 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.013339281 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 20.5586, -13.5664
-[10:52:44] [trace] VEKTOR: Delta time: 0.0033061504 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 19.9453, -13.875
-[10:52:44] [trace] VEKTOR: Delta time: 0.013351202 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 19.332, -14.1836
-[10:52:44] [trace] VEKTOR: Delta time: 0.0033824444 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 18.7188, -14.4922
-[10:52:44] [trace] VEKTOR: Delta time: 0.013355732 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 17.8359, -15.0703
-[10:52:44] [trace] VEKTOR: Delta time: 0.0035583973 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.013071775 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 16.6094, -15.3789
-[10:52:44] [trace] VEKTOR: Delta time: 0.004355669 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.012298346 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 15.7266, -15.6484
-[10:52:44] [trace] VEKTOR: Delta time: 0.0037264824 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.012994528 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 15.1875, -16.1875
-[10:52:44] [trace] VEKTOR: Delta time: 0.0033824444 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.013184071 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 14.918, -16.457
-[10:52:44] [trace] VEKTOR: Delta time: 0.0041661263 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.012397289 seconds
-[10:52:44] [trace] VEKTOR: Event received: MouseMovedEvent: 14.6484, -16.457
-[10:52:44] [trace] VEKTOR: Delta time: 0.0034427643 seconds
-[10:52:44] [trace] VEKTOR: Delta time: 0.013362408 seconds
-[10:52:44] [trace] VEKTOR: Event received: WindowClose
-[10:52:44] [info] VEKTOR: Application destroyed
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
-[10:52:44] [trace] VEKTOR: Vektor Engine has stopped
+[11:27:28] [trace] VEKTOR: Starting Vektor Engine
+[11:27:28] [critical] VEKTOR: Vektor Engine is running
+[11:27:28] [warning] VEKTOR: Vektor Engine is running
+[11:27:29] [info] VEKTOR: GLFW Window hints set
+[11:27:29] [info] VEKTOR: Creating window: Vektor Engine (1280, 720)
+[11:27:29] [info] VEKTOR: OpenGL Version: 4.1 Metal - 90.5
+[11:27:29] [info] VEKTOR: GLSL Version: 4.10
+[11:27:29] [info] VEKTOR: OpenGL context initialized successfully
+[11:27:29] [info] APP: Setting event callback
+[11:27:30] [info] VEKTOR: OpenGL rendering setup complete
+[11:27:30] [info] VEKTOR: OpenGL rendering setup complete
+[11:27:30] [trace] VEKTOR: Delta time: 0.9350771 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.12631714 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.009669185 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.015282035 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0038973093 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012701154 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0056729317 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.011062503 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.010460496 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.016996741 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.00581038 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0074044466 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.009264708 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0038011074 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.013085961 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.004680395 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.011817098 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0037914515 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012792826 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0035475492 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.013135791 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0038278103 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012850046 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0036337376 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.013012171 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.003641963 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.013045907 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0037096739 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012963891 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0039949417 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012648344 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.004418254 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012336731 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0042066574 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.01238668 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.017800212 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.015559435 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0042848587 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012337923 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0041167736 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012549639 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0036531687 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012989759 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0031331778 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.013562083 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0035749674 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.013124704 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0037392378 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012882352 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0036262274 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.013112187 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0035289526 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0131287575 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.004507661 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012174845 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0037634373 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012846589 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0041730404 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012496352 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0039434433 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.012686849 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.003614068 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0130496025 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.0029615164 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.013845086 seconds
+[11:27:30] [trace] VEKTOR: Delta time: 0.004205227 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012451172 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004180908 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012487769 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004741311 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.01188767 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003486514 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013125777 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004819751 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.011880279 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.00450027 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012164831 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003523469 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013198733 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003719449 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012926698 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034980774 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013178229 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003997922 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.01264894 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034822226 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.01315856 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004166007 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012528896 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004483938 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012203336 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004199624 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012444019 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0038083792 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012854099 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034778118 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013237476 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0036927462 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012951851 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034663677 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013211489 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0037494898 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012887239 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003480196 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013178229 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003861785 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012835979 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003616929 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013169289 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0058056116 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.010841727 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004380226 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012289524 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0037209988 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012962103 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.00412035 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012546778 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0038545132 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012650251 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0035128593 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013217211 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003771305 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012845755 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034763813 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013194561 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004102707 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012552023 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003690958 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012988806 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0047631264 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.011902094 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0035383701 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013094187 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003521204 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013183594 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0035803318 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013000965 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0044338703 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012277842 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0048224926 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.011875153 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034487247 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013233423 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003461361 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013202906 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034880638 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013178349 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.00427413 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0124053955 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0035071373 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013158798 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034565926 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013219833 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0035817623 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013062477 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034713745 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013206005 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004170656 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.01250267 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034787655 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013187885 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034451485 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013150215 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0035979748 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.01312542 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0034649372 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013228178 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0036849976 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012951374 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0046453476 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012042284 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0038955212 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012790203 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0046408176 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.01198864 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004044533 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012622833 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.003636837 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013020277 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004164934 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012507439 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0036468506 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.013007879 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.004155159 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.012536764 seconds
+[11:27:31] [trace] VEKTOR: Delta time: 0.0037453175 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012942791 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0046179295 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0120277405 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0038883686 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0127875805 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0046498775 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012023926 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0040693283 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0125956535 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.003525257 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013162613 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.004122734 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012526751 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0035266876 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013134718 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0034143925 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013205528 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.003553152 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.01315999 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.004577875 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012077808 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.003965378 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012722731 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0034837723 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013205051 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0039975643 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012626171 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0035352707 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013110638 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0034856796 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013236523 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0035996437 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013005972 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0044431686 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012232065 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0038692951 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012832403 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0046088696 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012038946 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.003809929 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012864113 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0035204887 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013189077 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.004055977 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.01256609 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.003651619 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013032675 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0034964085 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013186216 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.003730297 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012848139 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.004685402 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012063026 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0038554668 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0127949715 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0035352707 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013131142 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.004035473 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012623072 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0034737587 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013198614 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0042295456 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0124258995 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0036211014 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013039827 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.004260063 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012420177 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0039327145 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0127568245 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0044920444 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012155056 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0040249825 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012645483 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0036437511 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013048887 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0054187775 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0112428665 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.00344038 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013220549 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0038385391 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012812853 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0034525394 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013165712 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0035264492 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013214111 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0035338402 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013113022 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.004322052 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012360096 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0035746098 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013116598 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0034127235 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013096094 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0036768913 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013090372 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0046486855 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0120277405 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0038204193 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012824535 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0034906864 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0131931305 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0039539337 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012727261 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0035312176 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013151646 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0041763783 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0124681 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0036513805 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0130028725 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0044341087 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.01223588 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0037631989 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012890339 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0046715736 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.012022734 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0038444996 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.01282239 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.0034639835 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.013212681 seconds
+[11:27:32] [trace] VEKTOR: Delta time: 0.004032612 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012628078 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0035541058 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013112307 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0043759346 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012293577 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0036695004 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012983084 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0044355392 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012203932 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0037555695 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012900591 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0046362877 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012050629 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.003672123 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013007402 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0045285225 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012125254 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0039379597 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012752295 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0035135746 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013162136 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.004009962 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012648106 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0035114288 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0131726265 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0042085648 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012423992 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.003499031 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.01315403 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0034894943 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.01319623 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0036661625 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0129265785 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0040683746 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012607098 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.004746914 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0120027065 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0051493645 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.011506557 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.003830433 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012862682 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0046212673 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.01205039 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.003992319 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012681484 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0035743713 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013088703 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0040717125 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0125694275 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0036597252 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012982845 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0034761429 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0132369995 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0037436485 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012869835 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.004691124 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012032986 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.003832817 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012801647 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0034909248 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013214588 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0038347244 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012785912 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0035414696 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013177395 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0035295486 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013150215 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0036654472 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012922764 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.004254341 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012376308 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0035071373 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.01322031 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0043592453 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012303352 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0036129951 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.01307869 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0045833588 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012055874 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0037026405 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012969494 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0045871735 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012082577 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0038495064 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012809753 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0046429634 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.01202631 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0039486885 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012699604 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.003522396 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013175011 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.004192829 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012458801 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0035305023 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013150692 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0034461021 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013191223 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0034866333 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013228893 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0044937134 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.01214695 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0039014816 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012791634 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0045986176 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012014866 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0039982796 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012702465 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0034732819 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013185978 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.004242897 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012433529 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.0036201477 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012983322 seconds
+[11:27:33] [trace] VEKTOR: Event received: MouseMovedEvent: 722.555, 749.473
+[11:27:33] [trace] VEKTOR: Delta time: 0.0036969185 seconds
+[11:27:33] [trace] VEKTOR: Event received: MouseMovedEvent: 710.09, 732.852
+[11:27:33] [trace] VEKTOR: Delta time: 0.012944698 seconds
+[11:27:33] [trace] VEKTOR: Event received: MouseMovedEvent: 681.996, 701.605
+[11:27:33] [trace] VEKTOR: Delta time: 0.0045990944 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.012118816 seconds
+[11:27:33] [trace] VEKTOR: Event received: MouseMovedEvent: 645.344, 658.98
+[11:27:33] [trace] VEKTOR: Delta time: 0.0036950111 seconds
+[11:27:33] [trace] VEKTOR: Delta time: 0.013011456 seconds
+[11:27:33] [trace] VEKTOR: Event received: MouseMovedEvent: 611.059, 613.988
+[11:27:33] [trace] VEKTOR: Delta time: 0.004304886 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012290478 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 544.562, 524.914
+[11:27:34] [trace] VEKTOR: Delta time: 0.0037884712 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0128932 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 508.316, 468.152
+[11:27:34] [trace] VEKTOR: Delta time: 0.0035128593 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013106346 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 485.215, 427.262
+[11:27:34] [trace] VEKTOR: Delta time: 0.004239559 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012494087 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 478.074, 407.84
+[11:27:34] [trace] VEKTOR: Delta time: 0.0044178963 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012244225 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 472.824, 394.719
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036554337 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012998104 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.004550457 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012125015 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0038352013 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012870789 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.00475502 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.011902809 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0040068626 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012691498 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036115646 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013048172 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0040802956 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.01257515 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.003540516 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.01317215 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0034971237 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.01307869 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 465.887, 391.363
+[11:27:34] [trace] VEKTOR: Delta time: 0.003718853 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013266563 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 447.605, 377.004
+[11:27:34] [trace] VEKTOR: Delta time: 0.0032587051 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013098717 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 418.055, 348.492
+[11:27:34] [trace] VEKTOR: Delta time: 0.0035529137 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013112545 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 363.844, 291.129
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036005974 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0130934715 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 301.871, 227.953
+[11:27:34] [trace] VEKTOR: Delta time: 0.004023075 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012581348 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 221.121, 137.16
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036525726 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013114452 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 175.293, 81.5
+[11:27:34] [trace] VEKTOR: Delta time: 0.0038514137 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0128798485 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 146.703, 44.0195
+[11:27:34] [trace] VEKTOR: Delta time: 0.004175186 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 142.922, 38.3477
+[11:27:34] [trace] VEKTOR: Delta time: 0.012480736 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 134.582, 28.3398
+[11:27:34] [trace] VEKTOR: Delta time: 0.003815651 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012749195 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0034489632 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013226986 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0046629906 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012009621 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0039024353 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012748718 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0035037994 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013203621 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.003988743 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012665749 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036816597 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012917519 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.004216671 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012470245 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036149025 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013051033 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0043768883 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012354851 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 130.594, 25.5625
+[11:27:34] [trace] VEKTOR: Delta time: 0.0037560463 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012838364 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 124.492, 20.9844
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036931038 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 121.441, 18.9492
+[11:27:34] [trace] VEKTOR: Delta time: 0.012996197 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 119.102, 17.0781
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036258698 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 116.965, 15.793
+[11:27:34] [trace] VEKTOR: Delta time: 0.013040543 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 109.156, 11.7852
+[11:27:34] [trace] VEKTOR: Delta time: 0.0063915253 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.010250568 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 100.312, 8
+[11:27:34] [trace] VEKTOR: Delta time: 0.0037722588 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012962341 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 92.3633, 5.88281
+[11:27:34] [trace] VEKTOR: Delta time: 0.0054836273 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.01109457 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 83.5, 4.19141
+[11:27:34] [trace] VEKTOR: Delta time: 0.0037317276 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012946129 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 75.5508, 4.19141
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036883354 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0129880905 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 67.6016, 3.67969
+[11:27:34] [trace] VEKTOR: Delta time: 0.003581047 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013118744 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 61.0742, 3.67969
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036735535 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012963295 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 54.707, 3.21094
+[11:27:34] [trace] VEKTOR: Delta time: 0.0035762787 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013112068 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 49.0898, 2.27344
+[11:27:34] [trace] VEKTOR: Delta time: 0.0039539337 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012709618 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 45.4023, 1.84375
+[11:27:34] [trace] VEKTOR: Delta time: 0.0035233498 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013187408 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 42.8086, 1.10547
+[11:27:34] [trace] VEKTOR: Delta time: 0.0040831566 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 41.7656, 0.757812
+[11:27:34] [trace] VEKTOR: Delta time: 0.012538433 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 40.7227, 0.0625
+[11:27:34] [trace] VEKTOR: Delta time: 0.0037560463 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 39.1719, -0.328125
+[11:27:34] [trace] VEKTOR: Delta time: 0.01293993 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 37.0859, -1.71875
+[11:27:34] [trace] VEKTOR: Delta time: 0.0043325424 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012248039 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 33.9844, -2.88672
+[11:27:34] [trace] VEKTOR: Delta time: 0.0036945343 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013005257 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 30.8828, -4.44141
+[11:27:34] [trace] VEKTOR: Delta time: 0.0037589073 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012955666 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 27.1953, -6.07422
+[11:27:34] [trace] VEKTOR: Delta time: 0.0038790703 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0127186775 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 25.4844, -7.35938
+[11:27:34] [trace] VEKTOR: Delta time: 0.004225731 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 23.3477, -8.21484
+[11:27:34] [trace] VEKTOR: Delta time: 0.012765884 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 20.7539, -9.6875
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 19.2031, -10.0781
+[11:27:34] [trace] VEKTOR: Delta time: 0.0083498955 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.0080266 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 17.6523, -10.8555
+[11:27:34] [trace] VEKTOR: Delta time: 0.004427433 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012263298 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 15.5664, -11.8984
+[11:27:34] [trace] VEKTOR: Delta time: 0.00417614 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012465477 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 13.9102, -12.8594
+[11:27:34] [trace] VEKTOR: Delta time: 0.0034637451 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013211727 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 12.2539, -13.5156
+[11:27:34] [trace] VEKTOR: Delta time: 0.0035419464 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013179779 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 11.7148, -14.0547
+[11:27:34] [trace] VEKTOR: Delta time: 0.003669262 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.01291132 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 11.1758, -14.3242
+[11:27:34] [trace] VEKTOR: Delta time: 0.003563881 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.013174057 seconds
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 10.9062, -14.8633
+[11:27:34] [trace] VEKTOR: Event received: MouseMovedEvent: 10.9062, -15.1328
+[11:27:34] [trace] VEKTOR: Delta time: 0.0037312508 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.012867928 seconds
+[11:27:34] [trace] VEKTOR: Delta time: 0.004117489 seconds
+[11:27:35] [trace] VEKTOR: Delta time: 0.012545109 seconds
+[11:27:35] [trace] VEKTOR: Delta time: 0.0037527084 seconds
+[11:27:35] [trace] VEKTOR: Event received: WindowClose
+[11:27:35] [info] VEKTOR: Application destroyed
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [error] VEKTOR: GLFW Error (65537): The GLFW library is not initialized
+[11:27:35] [trace] VEKTOR: Vektor Engine has stopped
