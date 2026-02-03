@@ -67,7 +67,9 @@ namespace vektor::renderer::camera
 
     bool Controller::onMouseScrolled(const event::MouseScrolledEvent &event)
     {
-        m_ZoomLevel -= event.getYOffset() * 0.1f;
+        m_ZoomLevel -= event.getYOffset() * 0.5f;
+        m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
+
         m_Camera->setProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
         return false;
     }

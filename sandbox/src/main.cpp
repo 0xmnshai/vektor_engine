@@ -25,10 +25,6 @@ public:
         m_Position = {0.0f, 0.0f, 0.0f};
         m_Transform = glm::translate(glm::mat4(1.0f), m_Position);
 
-        // m_Camera = std::make_shared<vektor::renderer::camera::Orthographic>(
-        //     -aspectRatio * zoom, aspectRatio * zoom, -zoom, zoom);
-        // m_CameraPosition = {0.0f, 0.0f, 0.0f};
-
         m_CameraController = std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
         m_CameraController->setZoomLevel(zoom);
 
@@ -132,8 +128,7 @@ public:
             }
         )";
 
-        // m_Shader = std::make_shared<vektor::opengl::OpenGLShader>("texture",vertexSrc, fragmentSrc);
-        auto textureShader = m_ShaderLibrary.load("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/shaders/texture.glsl");
+        std::shared_ptr<vektor::utils::Shader> textureShader = m_ShaderLibrary.load("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/shaders/texture.glsl");
 
         m_Texture = vektor::utils::Texture::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/texture.jpg");
 
@@ -149,33 +144,6 @@ public:
     void onUpdate(vektor::core::Timestep timestep) override
     {
         VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());
-
-        // using vektor::KeyCode;
-
-        // if (vektor::input::Input::isKeyPressed(KeyCode::R))
-        //     m_CameraRotation += m_CameraRotateSpeed * timestep;
-
-        // if (vektor::input::Input::isKeyPressed(KeyCode::T))
-        //     m_CameraRotation -= m_CameraRotateSpeed * timestep;
-
-        // if (vektor::input::Input::isKeyPressed(KeyCode::A) ||
-        //     vektor::input::Input::isKeyPressed(KeyCode::Left))
-        //     m_CameraPosition.x -= m_CameraMoveSpeed * timestep;
-
-        // if (vektor::input::Input::isKeyPressed(KeyCode::D) ||
-        //     vektor::input::Input::isKeyPressed(KeyCode::Right))
-        //     m_CameraPosition.x += m_CameraMoveSpeed * timestep;
-
-        // if (vektor::input::Input::isKeyPressed(KeyCode::W) ||
-        //     vektor::input::Input::isKeyPressed(KeyCode::Up))
-        //     m_CameraPosition.y += m_CameraMoveSpeed * timestep;
-
-        // if (vektor::input::Input::isKeyPressed(KeyCode::S) ||
-        //     vektor::input::Input::isKeyPressed(KeyCode::Down))
-        //     m_CameraPosition.y -= m_CameraMoveSpeed * timestep;
-
-        // m_Camera->setPosition(m_CameraPosition);
-        // m_Camera->setRotation(m_CameraRotation);
 
         m_CameraController->onUpdate(timestep);
 
@@ -228,9 +196,6 @@ public:
 
     void onEvent(vektor::event::Event &event) override
     {
-        // vektor::event::EventDispatcher dispatcher(event);
-        // dispatcher.dispatch<vektor::event::WindowResizeEvent>(VEKTOR_BIND_EVENT_FN(ExampleLayer::onWindowResizeEvent));
-
         m_CameraController->onEvent(event);
     }
 
@@ -241,23 +206,10 @@ public:
 
     bool onWindowResizeEvent(vektor::event::WindowResizeEvent &event)
     {
-        // if (event.getWidth() == 0 || event.getHeight() == 0)
-        //     return false;
-
-        // float aspectRatio = (float)event.getWidth() / (float)event.getHeight();
-        // float zoom = 0.9f;
-
-        // m_Camera = std::make_shared<vektor::renderer::camera::Orthographic>(
-        //     -aspectRatio * zoom, aspectRatio * zoom, -zoom, zoom);
-
-        // m_Camera->setPosition(m_CameraPosition);
-        // m_Camera->setRotation(m_CameraRotation);
-
         return false;
     }
 
 private:
-    // std::shared_ptr<vektor::utils::Shader> m_Shader, m_TextureShader;
     std::shared_ptr<vektor::utils::VertexArray> m_VertexArray;
 
     vektor::utils::ShaderLibrary m_ShaderLibrary;
@@ -268,11 +220,6 @@ private:
     std::shared_ptr<vektor::utils::Texture> m_Texture;
 
     std::shared_ptr<vektor::renderer::camera::Controller> m_CameraController;
-
-    // float m_CameraRotation = 0.0f;
-
-    float m_CameraRotateSpeed = 50.0f;
-    float m_CameraMoveSpeed = 5.0f;
 
     glm::vec3 m_Position;
     glm::mat4 m_Transform;
