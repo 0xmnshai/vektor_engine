@@ -13,6 +13,11 @@ namespace vektor::renderer
 
     Renderer::SceneInfo *Renderer::cs_SceneData = new Renderer::SceneInfo();
 
+    void Renderer::onWindowResize(uint32_t width, uint32_t height)
+    {
+        glViewport(0, 0, width, height);
+    }
+
     void Renderer::beginScene(const std::shared_ptr<camera::Orthographic> &camera)
     {
         s_SceneCamera = camera;
@@ -25,7 +30,7 @@ namespace vektor::renderer
     }
 
     void Renderer::init()
-    { 
+    {
         renderer::Command::init();
     }
 
@@ -33,14 +38,14 @@ namespace vektor::renderer
         const std::shared_ptr<utils::Shader> &shader,
         const std::shared_ptr<utils::VertexArray> &vertexArray,
         const glm::mat4 &transform)
-        // Taking Material
+    // Taking Material
     {
         std::dynamic_pointer_cast<opengl::OpenGLShader>(shader)->bindProgram();
 
         std::dynamic_pointer_cast<opengl::OpenGLShader>(shader)->setUniformShaderMatrix("u_ViewProjection", cs_SceneData->ViewProjectionMatrix);
         std::dynamic_pointer_cast<opengl::OpenGLShader>(shader)->setUniformShaderMatrix("u_Transform", transform);
 
-        // binding material with shader 
+        // binding material with shader
         vertexArray->bind();
         renderer::Command::drawIndexed(vertexArray);
     }

@@ -71,9 +71,12 @@ namespace vektor
 
             m_LastFrameTime = time;
 
-            for (layer::Layer *layer : m_LayerStack)
+            if (!m_windowMinimised)
             {
-                layer->onUpdate(timestep);
+                for (layer::Layer *layer : m_LayerStack)
+                {
+                    layer->onUpdate(timestep);
+                }
             }
 
             m_ImGuiLayer->begin();
@@ -151,7 +154,16 @@ namespace vektor
 
     bool Application::onWindowResize(event::WindowResizeEvent &event)
     {
-        glViewport(0, 0, event.getWidth(), event.getHeight());
+        if (event.getWidth() == 0 || event.getHeight() == 0)
+        {
+            m_windowMinimised = true;
+            return false;
+        }
+
+        m_windowMinimised = false;
+
+        renderer::Renderer::onWindowResize(event.getWidth(), event.getHeight());
+
         return true;
     }
 }

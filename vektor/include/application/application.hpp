@@ -71,7 +71,7 @@ namespace vektor
         std::shared_ptr<renderer::camera::Orthographic> m_Camera;
 
         float m_LastFrameTime = 0.0f;
-
+        float m_windowMinimised = false;
     };
 
     Application *createApplication();
