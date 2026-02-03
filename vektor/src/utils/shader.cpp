@@ -57,6 +57,7 @@ namespace vektor::utils
 
     void utils::ShaderLibrary::remove(const std::string &name)
     {
+        VEKTOR_CORE_ASSERT(exists(name), "Shader does not exist with that name!");
         s_Shaders.erase(name);
     }
 

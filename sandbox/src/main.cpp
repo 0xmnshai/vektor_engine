@@ -8,6 +8,7 @@
 
 #include "vektor.hpp"
 #include "opengl/texture.hpp"
+#include "utils/shader.hpp"
 
 class ExampleLayer : public vektor::layer::Layer
 {
@@ -126,12 +127,12 @@ public:
         )";
 
         // m_Shader = std::make_shared<vektor::opengl::OpenGLShader>("texture",vertexSrc, fragmentSrc);
-        m_Shader = std::make_shared<vektor::opengl::OpenGLShader>("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/shaders/texture.glsl");
+        auto textureShader = m_ShaderLibrary.load("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/shaders/texture.glsl");
 
         m_Texture = vektor::utils::Texture::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/texture.jpg");
 
-        m_Shader->bindProgram();
-        std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniform1i("u_Texture", 0);
+        textureShader->bindProgram();
+        std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(textureShader)->setUniform1i("u_Texture", 0);
     }
 
     void onAttach() override
@@ -174,6 +175,8 @@ public:
 
         m_Texture->bind(0);
 
+        auto textureShader = m_ShaderLibrary.get("texture");
+
         for (size_t y = 0; y < 5; y++)
         {
             for (size_t i = 0; i < 5; i++)
@@ -184,13 +187,13 @@ public:
 
                 if ((i + y) % 2 == 0) // RED
                 {
-                    std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniformMat4("u_Color", redColor);
-                    vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, transform);
+                    std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(textureShader)->setUniformMat4("u_Color", redColor);
+                    vektor::renderer::Renderer::submit(textureShader, m_VertexArray, transform);
                 }
                 else // BLACK ( blue + red )
                 {
-                    std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(m_Shader)->setUniformMat4("u_Color", blueColor);
-                    vektor::renderer::Renderer::submit(m_Shader, m_VertexArray, transform);
+                    std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(textureShader)->setUniformMat4("u_Color", blueColor);
+                    vektor::renderer::Renderer::submit(textureShader, m_VertexArray, transform);
                 }
             }
         }
@@ -234,8 +237,10 @@ public:
     }
 
 private:
-    std::shared_ptr<vektor::utils::Shader> m_Shader, m_TextureShader;
+    // std::shared_ptr<vektor::utils::Shader> m_Shader, m_TextureShader;
     std::shared_ptr<vektor::utils::VertexArray> m_VertexArray;
+
+    vektor::utils::ShaderLibrary m_ShaderLibrary;
 
     std::shared_ptr<vektor::utils::buffer::Index> m_IndexBuffer;
     std::shared_ptr<vektor::utils::buffer::Vertex> m_VertexBuffer;
