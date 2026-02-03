@@ -28,13 +28,6 @@ public:
         m_CameraController = std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
         m_CameraController->setZoomLevel(zoom);
 
-        // TRIANGLE
-        // float vertices[] = {
-        //     // position         // texcoord
-        //     -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
-        //     0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
-        //     0.0f, 0.5f, 0.0f, 0.5f, 1.0f};
-
         float vertices[] = {
             // Position           // Color             // UV
             -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
@@ -63,34 +56,6 @@ public:
         // texture ..
         // using material in SceneRenderer::submit
 
-        // std::string fragmentSrc = R"(
-        //     #version 410 core
-
-        //     layout(location = 0) out vec4 color;
-
-        //     in vec2 v_TexCoord;
-
-        //     void main() {
-        //         color = vec4(v_TexCoord, 0.0, 1.0);
-        //     }
-        // )";
-
-        // std::string vertexSrc = R"(
-        //     #version 410 core
-
-        //     layout(location = 0) in vec3 a_Position;
-        //     layout(location = 1) in vec2 a_TexCoord;
-
-        //     uniform mat4 u_ViewProjection;
-        //     uniform mat4 u_Transform;
-
-        //     out vec2 v_TexCoord;
-
-        //     void main() {
-        //         v_TexCoord = a_TexCoord;
-        //         gl_Position = u_ViewProjection * u_Transform * vec4(a_Position, 1.0);
-        //     }
-        // )";
 
         std::string vertexSrc = R"(
             #version 410 core
