@@ -9,7 +9,6 @@ namespace vektor::input
 
 namespace vektor::input::window
 {
-
     bool input::window::Input::isKeyPressedImpl(int keycode)
     {
         GLFWwindow *window = static_cast<GLFWwindow *>(Application::getInstance().getWindow().getNativeWindow());

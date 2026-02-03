@@ -145,18 +145,28 @@ public:
     {
         VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());
 
-        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_R))
+        using vektor::KeyCode;
+
+        if (vektor::input::Input::isKeyPressed(KeyCode::R))
             m_CameraRotation += m_CameraRotateSpeed * timestep;
-        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_T))
+
+        if (vektor::input::Input::isKeyPressed(KeyCode::T))
             m_CameraRotation -= m_CameraRotateSpeed * timestep;
 
-        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_LEFT) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_A))
+        if (vektor::input::Input::isKeyPressed(KeyCode::A) ||
+            vektor::input::Input::isKeyPressed(KeyCode::Left))
             m_CameraPosition.x -= m_CameraMoveSpeed * timestep;
-        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_RIGHT) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_D))
+
+        if (vektor::input::Input::isKeyPressed(KeyCode::D) ||
+            vektor::input::Input::isKeyPressed(KeyCode::Right))
             m_CameraPosition.x += m_CameraMoveSpeed * timestep;
-        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_UP) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_W))
+
+        if (vektor::input::Input::isKeyPressed(KeyCode::W) ||
+            vektor::input::Input::isKeyPressed(KeyCode::Up))
             m_CameraPosition.y += m_CameraMoveSpeed * timestep;
-        if (vektor::input::Input::isKeyPressed(VEKTOR_KEY_DOWN) || vektor::input::Input::isKeyPressed(VEKTOR_KEY_S))
+
+        if (vektor::input::Input::isKeyPressed(KeyCode::S) ||
+            vektor::input::Input::isKeyPressed(KeyCode::Down))
             m_CameraPosition.y -= m_CameraMoveSpeed * timestep;
 
         m_Camera->setPosition(m_CameraPosition);

@@ -3,22 +3,30 @@
 #include <glm/glm.hpp>
 
 #include "core/core.hpp"
+#include "events/keycode.hpp"
 
 namespace vektor::input
 {
     class VEKTOR_API Input
     {
     public:
-        inline static bool isKeyPressed(int keycode) { return s_Instance->isKeyPressedImpl(keycode); }
-        inline static bool isMouseButtonPressed(int button) { return s_Instance->isMouseButtonPressedImpl(button); }
+        static bool isKeyPressed(vektor::KeyCode key)
+        {
+            return s_Instance->isKeyPressedImpl(static_cast<int>(key));
+        }
 
-        inline static float getMouseX() { return s_Instance->getMouseXImpl(); }
-        inline static float getMouseY() { return s_Instance->getMouseYImpl(); }
-        inline static glm::vec2 getMousePosition() { return s_Instance->getMousePositionImpl(); }
+        static bool isMouseButtonPressed(vektor::MouseCode button)
+        {
+            return s_Instance->isMouseButtonPressedImpl(static_cast<int>(button));
+        }
+
+        static float getMouseX() { return s_Instance->getMouseXImpl(); }
+        static float getMouseY() { return s_Instance->getMouseYImpl(); }
+        static glm::vec2 getMousePosition() { return s_Instance->getMousePositionImpl(); }
 
     protected:
-        virtual bool isKeyPressedImpl(int keycode) = 0;        // { return s_Instance->isKeyPressedImpl(keycode); }
-        virtual bool isMouseButtonPressedImpl(int button) = 0; // { return s_Instance->isMouseButtonPressedImpl(button); }
+        virtual bool isKeyPressedImpl(int keycode) = 0;
+        virtual bool isMouseButtonPressedImpl(int button) = 0;
 
         virtual float getMouseXImpl() = 0;
         virtual float getMouseYImpl() = 0;
