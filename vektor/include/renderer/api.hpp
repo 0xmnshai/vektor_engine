@@ -49,8 +49,7 @@ namespace vektor::renderer
         static void submit(
             const std::shared_ptr<utils::Shader> &shader,
             const std::shared_ptr<utils::VertexArray> &vertexArray,
-            const glm::mat4 &transform = glm::mat4(1.0f)); // later we can implement material / mesh here
-        // const std::shared_ptr<Command> &command);
+            const glm::mat4 &transform = glm::mat4(1.0f));
 
         inline static RendererApi::API getAPI() { return RendererApi::getAPI(); }
 

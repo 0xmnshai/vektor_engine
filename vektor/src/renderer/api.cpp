@@ -2,6 +2,7 @@
 #include "opengl/shader.hpp"
 
 #include "renderer/api.hpp"
+#include "renderer/2d.hpp"
 #include "renderer/command.hpp"
 #include "renderer/camera/orthographic.hpp"
 
@@ -31,6 +32,7 @@ namespace vektor::renderer
 
     void Renderer::init()
     {
+        renderer::Renderer2D::init();
         renderer::Command::init();
     }
 

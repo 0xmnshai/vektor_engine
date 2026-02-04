@@ -70,6 +70,7 @@
 #include "opengl/texture.hpp"
 #include "utils/shader.hpp"
 
+#include "renderer/2d.hpp"
 #include "renderer/command.hpp"
 #include "renderer/camera/orthographic.hpp"
 #include "renderer/camera/controller.hpp"
