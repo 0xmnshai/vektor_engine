@@ -1,3 +1,11 @@
+#define VEKTOR_PROFILE_SCOPE(name)                                                  \
+    vektor::utils::Timer timer##__LINE__(name,                                      \
+                                         [&](const vektor::utils::ProfileResult &r) \
+                                         {                                          \
+                                             m_ProfileResults.push_back(r);         \
+                                         });                                        \
+    timer##__LINE__.start();
+
 #include "sandbox2d.hpp"
 
 Sandbox2D::Sandbox2D()
@@ -21,28 +29,46 @@ void Sandbox2D::onDetach()
 
 void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
 {
+    VEKTOR_PROFILE_SCOPE("Sandbox2D::OnUpdate");
+
     VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());
 
-    m_CameraController->onUpdate(timestep);
+    {
+        VEKTOR_PROFILE_SCOPE("Sandbox2D::OnUpdate::CameraController::OnUpdate");
+        m_CameraController->onUpdate(timestep);
+    }
 
-    vektor::renderer::Command::setClearColor({0.13f, 0.13f, 0.13f, 1.0f}); // normalised / 255
-    vektor::renderer::Command::clear();
+    {
+        VEKTOR_PROFILE_SCOPE("Sandbox2D::OnUpdate::Renderer::OnRender");
+        vektor::renderer::Command::setClearColor({0.13f, 0.13f, 0.13f, 1.0f}); // normalised: {value} / 255
+        vektor::renderer::Command::clear();
+    }
+    {
+        VEKTOR_PROFILE_SCOPE("Sandbox2D::OnUpdate::Renderer2D::OnRender");
+        vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
 
-    vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
+        vektor::renderer::Renderer2D::drawQuad({0.0f, 0.0f}, {1.0f, 1.0f}, m_Color);
+        vektor::renderer::Renderer2D::drawQuad({0.5f, 0.5f}, {0.5f, 1.5f}, {0.8f, 0.2f, 0.3f, 1.0f});
 
-    vektor::renderer::Renderer2D::drawQuad({0.0f, 0.0f}, {1.0f, 1.0f}, m_Color);
-    vektor::renderer::Renderer2D::drawQuad({0.5f, 0.5f}, {0.5f, 1.5f}, {0.8f, 0.2f, 0.3f, 1.0f});
-
-    m_Texture->bind();
-    vektor::renderer::Renderer2D::drawQuad({0.85f, 0.85f}, {10.0f, 10.5f}, m_Texture);
-
-    vektor::renderer::Renderer2D::endScene();
+        m_Texture->bind();
+        vektor::renderer::Renderer2D::drawQuad({0.85f, 0.85f}, {10.0f, 10.5f}, m_Texture);
+        vektor::renderer::Renderer2D::endScene();
+    }
 }
 
 void Sandbox2D::onRender()
 {
     ImGui::Begin("Color Settings");
     ImGui::ColorEdit3("Square Color", glm::value_ptr(m_Color));
+
+    for (auto &profileResult : m_ProfileResults)
+    {
+        ImGui::Text("%s: %lld us",
+                    profileResult.name.c_str(),
+                    profileResult.end - profileResult.start);
+    };
+
+    m_ProfileResults.clear();
     ImGui::End();
 }
 

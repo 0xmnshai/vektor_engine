@@ -29,4 +29,13 @@ private:
     glm::vec3 m_Position;
 
     glm::vec4 m_Color = {0.2f, 0.3f, 0.8f, 1.0f};
+
+    struct ProfileResult
+    {
+        std::string name;
+        long long start, end;
+        uint32_t threadID;
+    };
+
+    std::vector<vektor::utils::ProfileResult> m_ProfileResults;
 };

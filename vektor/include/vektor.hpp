@@ -74,3 +74,6 @@
 #include "renderer/command.hpp"
 #include "renderer/camera/orthographic.hpp"
 #include "renderer/camera/controller.hpp"
+
+#include "utils/timer.hpp"
+#include "utils/profiling.hpp"
