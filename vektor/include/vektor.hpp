@@ -1,5 +1,30 @@
 #pragma once
 
+#include <string>
+#include <memory>
+#include <cstdint>
+#include <sstream>
+#include <iostream>
+#include <functional>
+#include <type_traits>
+#include <spdlog/spdlog.h>
+#include <spdlog/fmt/ostr.h>
+
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+#include <imgui.h>
+#include <imgui_impl_glfw.h>
+#include <imgui_impl_opengl3.h>
+
+#ifdef VEKTOR_PLATFORM_WINDOWS
+#include <Windows.h>
+#endif
+
 #include "core/core.hpp"
 #include "core/timestep.hpp"
 
@@ -30,7 +55,6 @@
 
 #include "events/event.hpp"
 #include "layer/layer.hpp"
-#include "entry_point.hpp"
 
 #include "imgui/layer.hpp"
 
@@ -40,6 +64,12 @@
 #include "utils/buffer.hpp"
 #include "utils/vertex_array.hpp"
 
-#include "renderer/command.hpp"
-
 #include "opengl/shader.hpp"
+
+#include "events/keycode.hpp"
+#include "opengl/texture.hpp"
+#include "utils/shader.hpp"
+
+#include "renderer/command.hpp"
+#include "renderer/camera/orthographic.hpp"
+#include "renderer/camera/controller.hpp"

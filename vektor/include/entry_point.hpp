@@ -4,7 +4,7 @@
 #include "logger/logger.hpp"
 #include "application/application.hpp"
 
-extern vektor::Application *CreateApplication();
+extern vektor::Application *createApplication();
 
 int main(int argc, char **argv)
 {

@@ -26,23 +26,33 @@ namespace vektor::renderer::camera
     {
         using vektor::KeyCode;
 
-        float actualSpeed = m_CameraTranslationSpeed * m_ZoomLevel;
-
         if (input::Input::isKeyPressed(KeyCode::A) ||
             input::Input::isKeyPressed(KeyCode::Left))
-            m_CameraPosition.x -= actualSpeed * timestep;
+        {
+            m_CameraPosition.x -= std::cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * timestep;
+            m_CameraPosition.y -= std::sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * timestep;
+        }
 
         if (input::Input::isKeyPressed(KeyCode::D) ||
             input::Input::isKeyPressed(KeyCode::Right))
-            m_CameraPosition.x += actualSpeed * timestep;
+        {
+            m_CameraPosition.x += std::cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * timestep;
+            m_CameraPosition.y += std::sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * timestep;
+        }
 
         if (input::Input::isKeyPressed(KeyCode::W) ||
             input::Input::isKeyPressed(KeyCode::Up))
-            m_CameraPosition.y += actualSpeed * timestep;
+        {
+            m_CameraPosition += -std::sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * timestep;
+            m_CameraPosition.y += std::cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * timestep;
+        }
 
         if (input::Input::isKeyPressed(KeyCode::S) ||
             input::Input::isKeyPressed(KeyCode::Down))
-            m_CameraPosition.y -= actualSpeed * timestep;
+        {
+            m_CameraPosition -= -std::sin(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * timestep;
+            m_CameraPosition.y -= std::cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * timestep;
+        }
 
         if (m_Rotation)
         {
