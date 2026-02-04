@@ -37,6 +37,7 @@ namespace vektor::layer
     void LayerStack::pushOverlay(Layer *overlay)
     {
         m_layers.emplace_back(overlay);
+        overlay->onAttach(); 
     }
 
     void LayerStack::popOverlay(Layer *overlay)

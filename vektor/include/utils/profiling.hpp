@@ -9,6 +9,6 @@ namespace vektor::utils
         std::string name;
         long long start;
         long long end;
-        uint32_t threadID;
+        std::__thread_id threadID;
     };
 }

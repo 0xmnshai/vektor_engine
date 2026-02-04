@@ -14,6 +14,8 @@
 
 #include "renderer/api.hpp"
 
+#include "utils/instrumentor.hpp"
+
 namespace vektor
 {
 #define VEKTOR_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
@@ -63,8 +65,14 @@ namespace vektor
 
     void Application::Run()
     {
+        VEKTOR_PROFILE_FUNCTION();
+
+        m_LastFrameTime = (float)glfwGetTime();
+
         while (m_Running)
         {
+            VEKTOR_PROFILE_SCOPE("RunLoop");
+
             float time = (float)glfwGetTime();
 
             core::Timestep timestep = time - m_LastFrameTime;
@@ -101,13 +109,11 @@ namespace vektor
     void Application::pushLayer(layer::Layer *layer)
     {
         m_LayerStack.pushLayer(layer);
-        layer->onAttach();
     }
 
     void Application::pushOverlay(layer::Layer *overlay)
     {
         m_LayerStack.pushOverlay(overlay);
-        overlay->onAttach();
     }
 
     void Application::onEvent(event::Event &event)

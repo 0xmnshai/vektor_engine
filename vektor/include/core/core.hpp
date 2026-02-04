@@ -29,6 +29,8 @@
 
 #define BIT(x) (1 << x)
 
+#define VEKTOR_PROFILE 1
+
 #define VEKTOR_BIND_EVENT_FN(fn) std::bind(&fn, this, std::placeholders::_1)
 
 #define WINDOW_WIDTH 1280

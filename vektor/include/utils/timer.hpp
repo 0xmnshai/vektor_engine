@@ -48,7 +48,7 @@ namespace vektor::utils
             result.name = m_Name;
             result.start = start;
             result.end = end;
-            result.threadID = std::hash<std::thread::id>{}(std::this_thread::get_id());
+            result.threadID = std::this_thread::get_id();
 
             m_Running = false;
 

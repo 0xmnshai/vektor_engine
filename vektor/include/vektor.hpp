@@ -69,7 +69,7 @@
 #include "events/keycode.hpp"
 #include "opengl/texture.hpp"
 #include "utils/shader.hpp"
-
+   
 #include "renderer/2d.hpp"
 #include "renderer/command.hpp"
 #include "renderer/camera/orthographic.hpp"
@@ -77,3 +77,4 @@
 
 #include "utils/timer.hpp"
 #include "utils/profiling.hpp"
+#include "utils/instrumentor.hpp"
