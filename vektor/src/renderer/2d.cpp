@@ -19,6 +19,7 @@ namespace vektor::renderer
         std::shared_ptr<vektor::utils::buffer::Index> quadIndexBuffer;
         std::shared_ptr<vektor::utils::buffer::Vertex> quadVertexBuffer;
         std::shared_ptr<utils::Shader> flatColorShader;
+        std::shared_ptr<utils::Shader> flatTextureShader;
     };
 
     static Renderer2DData *s_Data;
@@ -49,7 +50,10 @@ namespace vektor::renderer
         s_Data->quadVertexArray->setIndexBuffer(s_Data->quadIndexBuffer);
 
         const std::string shaderPath = "/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/shaders/flat_color.glsl";
+        const std::string textureShaderPath = "/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/shaders/texture.glsl";
+
         s_Data->flatColorShader.reset(utils::Shader::create(shaderPath));
+        s_Data->flatTextureShader.reset(utils::Shader::create(textureShaderPath));
     }
 
     void renderer::Renderer2D::shutdown()
@@ -61,6 +65,10 @@ namespace vektor::renderer
     {
         std::dynamic_pointer_cast<opengl::OpenGLShader>(s_Data->flatColorShader)->bindProgram();
         std::dynamic_pointer_cast<opengl::OpenGLShader>(s_Data->flatColorShader)->setUniformShaderMatrix("u_ViewProjection", camera->getViewProjectionMatrix());
+
+        std::dynamic_pointer_cast<opengl::OpenGLShader>(s_Data->flatTextureShader)->bindProgram();
+        std::dynamic_pointer_cast<opengl::OpenGLShader>(s_Data->flatTextureShader)->setUniformShaderMatrix("u_ViewProjection", camera->getViewProjectionMatrix());
+
         s_Data->quadVertexArray->bind();
     }
 
@@ -70,7 +78,7 @@ namespace vektor::renderer
 
     void renderer::Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size, const glm::vec4 &color)
     {
-        auto openGLShader = std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(s_Data->flatColorShader);
+        std::shared_ptr<vektor::opengl::OpenGLShader> openGLShader = std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(s_Data->flatColorShader);
 
         if (openGLShader)
         {
@@ -88,5 +96,27 @@ namespace vektor::renderer
     void renderer::Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size, const glm::vec4 &color)
     {
         drawQuad({position.x, position.y, 0.0f}, {size.x, size.y}, color);
+    }
+
+    void renderer::Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size, const Ref<utils::Texture> &texture)
+    {
+        drawQuad({position.x, position.y, 0.0f}, {size.x, size.y}, texture);
+    }
+    void renderer::Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size, const Ref<utils::Texture> &texture)
+    {
+        std::shared_ptr<vektor::opengl::OpenGLShader> openGLShader = std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(s_Data->flatTextureShader);
+
+        if (openGLShader)
+        {
+            openGLShader->bindProgram();
+
+            glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), {size.x, size.y, 1.0f});
+            openGLShader->setUniformShaderMatrix("u_Transform", transform);
+
+            texture->bind();
+            openGLShader->setUniform1i("u_Texture", 0);
+
+            renderer::Command::drawIndexed(s_Data->quadVertexArray);
+        }
     }
 }

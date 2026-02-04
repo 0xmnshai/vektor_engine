@@ -10,7 +10,7 @@
 
 namespace vektor::opengl
 {
-    static std::unordered_map<utils::ShaderType, std::string> s_ShaderSourceMap;
+    std::unordered_map<utils::ShaderType, std::string> s_ShaderSourceMap;
 
     opengl::OpenGLShader::OpenGLShader(const std::string &filePath)
     {
