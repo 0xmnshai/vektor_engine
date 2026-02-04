@@ -1,6 +1,12 @@
 #pragma once
 #include <string>
+
 #include "core/core.hpp"
+
+namespace vektor::opengl
+{
+    class OpenGLTexture2D;
+}
 
 namespace vektor::utils
 {
@@ -16,5 +22,14 @@ namespace vektor::utils
         virtual void unbind() const = 0;
 
         static std::shared_ptr<Texture> create(const std::string &path);
+    };
+
+    class VEKTOR_API Texture2D : public Texture
+    {
+    public:
+        static std::shared_ptr<opengl::OpenGLTexture2D> create(const std::string &path);
+        static std::shared_ptr<opengl::OpenGLTexture2D> create(uint32_t width, uint32_t height);
+
+        virtual ~Texture2D() = default;
     };
 }

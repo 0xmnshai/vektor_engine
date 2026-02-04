@@ -34,7 +34,7 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
     vektor::renderer::Renderer2D::drawQuad({0.5f, 0.5f}, {0.5f, 1.5f}, {0.8f, 0.2f, 0.3f, 1.0f});
 
     m_Texture->bind();
-    vektor::renderer::Renderer2D::drawQuad({0.85f, 0.85f}, {0.5f, 1.5f}, m_Texture);
+    vektor::renderer::Renderer2D::drawQuad({0.85f, 0.85f}, {10.0f, 10.5f}, m_Texture);
 
     vektor::renderer::Renderer2D::endScene();
 }
