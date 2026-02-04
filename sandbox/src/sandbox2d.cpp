@@ -6,7 +6,7 @@ Sandbox2D::Sandbox2D()
 {
     float aspectRatio = WINDOW_WIDTH / WINDOW_HEIGHT;
     m_CameraController = std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
-    m_Transform = glm::translate(glm::mat4(1.0f), m_Position);
+
     float vertices[] = {
         -0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f,
         0.5f, -0.5f, 0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f,
@@ -20,6 +20,7 @@ Sandbox2D::Sandbox2D()
         {vektor::utils::buffer::ShaderDataType::Float3, "a_Position"},
         {vektor::utils::buffer::ShaderDataType::Float4, "a_Color"},
         {vektor::utils::buffer::ShaderDataType::Float2, "a_TexCoord"}};
+
     m_VertexBuffer->setLayout(layout);
     m_VertexArray->addVertexBuffer(m_VertexBuffer);
 
@@ -37,6 +38,7 @@ void Sandbox2D::onAttach()
 
 void Sandbox2D::onDetach()
 {
+    VEKTOR_CORE_INFO("Sandbox2D layer detached");
 }
 
 void Sandbox2D::onUpdate(vektor::core::Timestep timestep)

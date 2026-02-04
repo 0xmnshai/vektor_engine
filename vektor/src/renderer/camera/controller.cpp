@@ -54,6 +54,17 @@ namespace vektor::renderer::camera
             m_CameraPosition.y -= std::cos(glm::radians(m_CameraRotation)) * m_CameraTranslationSpeed * timestep;
         }
 
+        float zoomDiff = m_TargetZoomLevel - m_ZoomLevel;
+        if (std::abs(zoomDiff) > 0.001f)
+        {
+            m_ZoomLevel += zoomDiff * m_ZoomSmoothSpeed * timestep;
+
+            m_Camera->setProjection(-m_AspectRatio * m_ZoomLevel,
+                                    m_AspectRatio * m_ZoomLevel,
+                                    -m_ZoomLevel,
+                                    m_ZoomLevel);
+        }
+
         if (m_Rotation)
         {
             if (input::Input::isKeyPressed(KeyCode::R))
@@ -77,10 +88,13 @@ namespace vektor::renderer::camera
 
     bool Controller::onMouseScrolled(const event::MouseScrolledEvent &event)
     {
-        m_ZoomLevel -= event.getYOffset() * 0.5f;
-        m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
+        // m_ZoomLevel -= event.getYOffset() * 0.5f;
+        // m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
 
-        m_Camera->setProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+        m_TargetZoomLevel -= event.getYOffset() * 0.25f;
+        m_TargetZoomLevel = std::max(m_TargetZoomLevel, 0.25f);
+
+        // m_Camera->setProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
         return false;
     }
     bool Controller::onWindowResize(const event::WindowResizeEvent &event)

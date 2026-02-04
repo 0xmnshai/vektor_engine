@@ -41,8 +41,11 @@ namespace vektor::renderer::camera
 
     private:
         float m_AspectRatio;
-        float m_ZoomLevel;
         bool m_Rotation;
+
+        float m_ZoomLevel = 1.0f;
+        float m_TargetZoomLevel = 1.0f;
+        float m_ZoomSmoothSpeed = 10.0f;
 
         glm::vec3 m_CameraPosition;
         float m_CameraRotation = 0.0f;
