@@ -221,7 +221,6 @@ namespace vektor::renderer
 
         if (textureIndex == 0.0f)
         {
-
             if (s_Data.textureSlotIndex >= Renderer2DData::MAX_TEXTURE_SLOTS)
             {
                 flushAndReset();
