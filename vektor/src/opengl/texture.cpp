@@ -69,7 +69,8 @@ namespace vektor::opengl
     {
         uint32_t bpp = m_DataFormat == GL_RGBA ? 4 : 3;
         VEKTOR_CORE_ASSERT(size == m_Width * m_Height * bpp, "Data must be entire texture!");
-        glTexSubImage2D(GL_TEXTURE_2D, 0, 0, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, data);
+        // glTexSubImage2D(GL_TEXTURE_2D, 0, 0, m_Width, m_Height, 0, m_DataFormat, GL_UNSIGNED_BYTE, data);
+        glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, m_Width, m_Height, m_DataFormat, GL_UNSIGNED_BYTE, data);
     }
 
     OpenGLTexture2D::~OpenGLTexture2D()

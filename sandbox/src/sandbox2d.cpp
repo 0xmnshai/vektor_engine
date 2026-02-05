@@ -62,7 +62,7 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
 
         // blue 
         const glm::vec4 tintColor = {0.2f, 0.5f, 0.8f, 1.0f};
-
+ 
         vektor::renderer::Renderer2D::drawRotatedQuad({-0.5f, 0.5f}, {1.0f, 1.0f}, 45.0f, m_Texture, tintColor);
 
         m_Texture->bind();

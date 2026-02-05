@@ -13,7 +13,10 @@
 #include "utils/shader.hpp"
 
 #include "renderer/camera/controller.hpp"
+
+// samples 
 #include "sandbox2d.hpp"
+#include "game_layer.hpp"
 
 class ExampleLayer : public vektor::layer::Layer
 {
@@ -199,7 +202,8 @@ public:
     Sandbox()
     {
         // pushLayer(new ExampleLayer());
-        pushLayer(new Sandbox2D());
+        // pushLayer(new Sandbox2D());
+        pushLayer(new GameLayer());
     }
 
     ~Sandbox()
