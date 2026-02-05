@@ -3,7 +3,6 @@ import os
 ROOT_DIR = "./"
 OUTPUT_FILE = "all_files"
 
-# Normalize paths for OS-independent matching
 EXCLUDED_PATHS = {
     os.path.normpath("build"),
     os.path.normpath("build.sh"),
@@ -16,8 +15,9 @@ EXCLUDED_PATHS = {
     os.path.normpath(OUTPUT_FILE),
     os.path.normpath("Readme.md"),
     os.path.normpath("CMakelists.txt"),
-    os.path.normpath("resources.md"), 
-    os.path.normpath("cmake-build-debug")
+    os.path.normpath("cmake-build-debug"),
+
+    os.path.normpath("vektor/resources.md"),
 }
 
 def is_text_file(path):
@@ -28,26 +28,47 @@ def is_text_file(path):
     except (IOError, UnicodeDecodeError):
         return False
 
+def normalize(path):
+    return os.path.normpath(os.path.abspath(path))
+
 def should_skip_path(path):
-    normalized_path = os.path.normpath(path)
+    normalized = normalize(path)
+
+    if os.path.basename(normalized) == ".gitignore":
+        return True
+
+    if (
+        os.path.dirname(normalized) == normalize(ROOT_DIR)
+        and normalized.lower().endswith(".json") or normalized.lower().endswith(".py")
+    ):
+        return True
+
     for excluded in EXCLUDED_PATHS:
-        if normalized_path == excluded or normalized_path.startswith(excluded + os.sep):
+        excluded_abs = normalize(excluded)
+        if normalized == excluded_abs or normalized.startswith(excluded_abs + os.sep):
             return True
+
     return False
+
 
 def collect_files(root):
     all_files = []
 
     for dirpath, dirnames, filenames in os.walk(root):
-        # Remove excluded folders from traversal
+        dirpath_abs = normalize(dirpath)
+
         dirnames[:] = [
             d for d in dirnames
-            if not should_skip_path(os.path.join(dirpath, d))
+            if not should_skip_path(os.path.join(dirpath_abs, d))
         ]
 
         for file in filenames:
-            full_path = os.path.join(dirpath, file)
-            if not should_skip_path(full_path) and is_text_file(full_path):
+            full_path = os.path.join(dirpath_abs, file)
+
+            if should_skip_path(full_path):
+                continue
+
+            if is_text_file(full_path):
                 all_files.append(full_path)
 
     return all_files

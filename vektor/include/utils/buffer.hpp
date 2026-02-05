@@ -178,7 +178,10 @@ namespace vektor::utils::buffer
         virtual const Layout &getLayout() const = 0;
         virtual void setLayout(const Layout &layout) = 0;
 
+        virtual void setData(const void *data, uint32_t size) = 0;
+
         static Vertex *create(const std::vector<float> &vertices);
+        static Vertex *create(const uint32_t size);
     };
 
     class VEKTOR_API Index

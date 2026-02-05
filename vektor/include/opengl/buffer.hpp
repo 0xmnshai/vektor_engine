@@ -10,6 +10,7 @@ namespace vektor::opengl
     class VertexBuffer : public utils::buffer::Vertex
     {
     public:
+        VertexBuffer(const uint32_t size);
         VertexBuffer(const std::vector<float> &vertices);
         virtual ~VertexBuffer();
 
@@ -18,7 +19,6 @@ namespace vektor::opengl
 
         virtual const utils::buffer::Layout &getLayout() const override
         {
-            // return m_Layout.value_or(utils::buffer::Layout({}));
             VEKTOR_CORE_ASSERT(m_Layout.has_value(), "VertexBuffer has no layout!");
             return *m_Layout;
         };
@@ -27,6 +27,8 @@ namespace vektor::opengl
         {
             m_Layout = layout;
         };
+
+        virtual void setData(const void *data, uint32_t size) override;
 
     private:
         uint32_t m_RendererID;

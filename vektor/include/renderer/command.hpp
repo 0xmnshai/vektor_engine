@@ -18,9 +18,9 @@ namespace vektor::renderer
             s_RendererAPI->clear();
         }
 
-        inline static void drawIndexed(const std::shared_ptr<utils::VertexArray> &vertexArray)
+        inline static void drawIndexed(const std::shared_ptr<utils::VertexArray> &vertexArray, uint32_t indexCount = 0)
         {
-            s_RendererAPI->drawIndexed(vertexArray);
+            s_RendererAPI->drawIndexed(vertexArray, indexCount);
         }
 
         inline static void init()
