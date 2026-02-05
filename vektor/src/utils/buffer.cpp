@@ -5,9 +5,6 @@
 #include "opengl/buffer.hpp"
 #include "renderer/api.hpp"
 
-// In a real engine, you would check a Renderer::GetAPI() here
-// For now, we assume OpenGL is the only backend.
-
 namespace vektor::utils::buffer
 {
     Vertex *Vertex::create(const std::vector<float> &vertices)

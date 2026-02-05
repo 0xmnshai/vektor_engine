@@ -25,8 +25,8 @@ public:
     virtual void onEvent(vektor::event::Event &event) override;
 
 private:
-    bool CheckCollision(const GameObject &a, const GameObject &b);
-    void ResetGame();
+    bool checkCollision(const GameObject &a, const GameObject &b);
+    void resetGame();
 
 private:
     std::shared_ptr<vektor::renderer::camera::Controller> m_CameraController;

@@ -11,10 +11,10 @@ GameLayer::GameLayer() : Layer("GameLayer")
 
 void GameLayer::onAttach()
 {
-    ResetGame();
+    resetGame();
 }
 
-void GameLayer::ResetGame()
+void GameLayer::resetGame()
 {
     m_GameOver = false;
     m_Score = 0;
@@ -57,7 +57,7 @@ void GameLayer::onUpdate(vektor::core::Timestep ts)
     m_Player.Position.x += m_PlayerVelocity.x * ts;
     for (auto &obj : m_LevelData)
     {
-        if (CheckCollision(m_Player, obj))
+        if (checkCollision(m_Player, obj))
         {
             m_Player.Position.x -= m_PlayerVelocity.x * ts;
         }
@@ -67,7 +67,7 @@ void GameLayer::onUpdate(vektor::core::Timestep ts)
     m_CanJump = false;  
     for (auto &obj : m_LevelData)
     {
-        if (CheckCollision(m_Player, obj))
+        if (checkCollision(m_Player, obj))
         {
             if (m_PlayerVelocity.y < 0)
             { // Falling
@@ -118,7 +118,7 @@ void GameLayer::onRender()
     {
         ImGui::TextColored({1.0f, 0.0f, 0.0f, 1.0f}, "GAME OVER!");
         if (ImGui::Button("Restart"))
-            ResetGame();
+            resetGame();
     }
 
     ImGui::End();
@@ -129,7 +129,7 @@ void GameLayer::onEvent(vektor::event::Event &event)
     m_CameraController->onEvent(event);
 }
 
-bool GameLayer::CheckCollision(const GameObject &a, const GameObject &b)
+bool GameLayer::checkCollision(const GameObject &a, const GameObject &b)
 {
     bool collisionX = a.Position.x + a.Size.x / 2 >= b.Position.x - b.Size.x / 2 &&
                       b.Position.x + b.Size.x / 2 >= a.Position.x - a.Size.x / 2;
