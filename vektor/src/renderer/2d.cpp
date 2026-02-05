@@ -50,7 +50,7 @@ namespace vektor::renderer
         s_Data->quadIndexBuffer.reset(vektor::utils::buffer::Index::create(indices));
         s_Data->quadVertexArray->setIndexBuffer(s_Data->quadIndexBuffer);
 
-        s_Data->whiteTexture = std::make_shared<opengl::OpenGLTexture2D>(1, 1); 
+        s_Data->whiteTexture = std::make_shared<opengl::OpenGLTexture2D>(1, 1);
         uint32_t whiteTextureData = 0xffffffff;
         s_Data->whiteTexture->setData(&whiteTextureData, sizeof(uint32_t));
 
@@ -101,11 +101,12 @@ namespace vektor::renderer
         drawQuad({position.x, position.y, 0.0f}, {size.x, size.y}, color);
     }
 
-    void renderer::Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size, const Ref<utils::Texture> &texture)
+    void renderer::Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size, const Ref<utils::Texture> &texture,glm::vec4 tintColor)
     {
-        drawQuad({position.x, position.y, 0.0f}, {size.x, size.y}, texture);
+        drawQuad({position.x, position.y, 0.0f}, {size.x, size.y}, texture,tintColor);
     }
-    void renderer::Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size, const Ref<utils::Texture> &texture)
+
+    void renderer::Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size, const Ref<utils::Texture> &texture,glm::vec4 tintColor)
     {
         std::shared_ptr<vektor::opengl::OpenGLShader> openGLShader = std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(s_Data->flatTextureShader);
 
@@ -113,7 +114,7 @@ namespace vektor::renderer
         {
             openGLShader->bindProgram();
 
-            openGLShader->setUniform4f("u_Color", glm::vec4(1.0f));
+            openGLShader->setUniform4f("u_Color", tintColor);
 
             glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::scale(glm::mat4(1.0f), {size.x, size.y, 1.0f});
             openGLShader->setUniformShaderMatrix("u_Transform", transform);
@@ -125,5 +126,54 @@ namespace vektor::renderer
         }
 
         openGLShader->unbindProgram();
+    }
+
+    void renderer::Renderer2D::drawRotatedQuad(const glm::vec2 &position, const glm::vec2 &size, float rotation, const glm::vec4 &color)
+    {
+        drawRotatedQuad({position.x, position.y, 0.0f}, {size.x, size.y}, rotation, color);
+    }
+
+    void renderer::Renderer2D::drawRotatedQuad(const glm::vec3 &position, const glm::vec2 &size, float rotation, const glm::vec4 &color)
+    {
+        std::shared_ptr<vektor::opengl::OpenGLShader> openGLShader = std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(s_Data->flatTextureShader);
+
+        if (openGLShader)
+        {
+            openGLShader->bindProgram();
+
+            glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::rotate(glm::mat4(1.0f), glm::radians(rotation), {0.0f, 0.0f, 1.0f}) * glm::scale(glm::mat4(1.0f), {size.x, size.y, 1.0f});
+            openGLShader->setUniformShaderMatrix("u_Transform", transform);
+
+            openGLShader->setUniform4f("u_Color", color);
+            s_Data->whiteTexture->bind();
+            // openGLShader->setUniform1i("u_Texture", 0);
+
+            renderer::Command::drawIndexed(s_Data->quadVertexArray);
+        }
+    }
+
+    void renderer::Renderer2D::drawRotatedQuad(const glm::vec2 &position, const glm::vec2 &size, float rotation, const Ref<utils::Texture> &texture,glm::vec4 tintColor)
+    {
+        drawRotatedQuad({position.x, position.y, 0.0f}, {size.x, size.y}, rotation, texture,tintColor);
+    }
+
+    void renderer::Renderer2D::drawRotatedQuad(const glm::vec3 &position, const glm::vec2 &size, float rotation, const Ref<utils::Texture> &texture,glm::vec4 tintColor)
+    {
+        std::shared_ptr<vektor::opengl::OpenGLShader> openGLShader = std::dynamic_pointer_cast<vektor::opengl::OpenGLShader>(s_Data->flatTextureShader);
+
+        if (openGLShader)
+        {
+            openGLShader->bindProgram();
+
+            glm::mat4 transform = glm::translate(glm::mat4(1.0f), position) * glm::rotate(glm::mat4(1.0f), glm::radians(rotation), {0.0f, 0.0f, 1.0f}) * glm::scale(glm::mat4(1.0f), {size.x, size.y, 1.0f});
+            openGLShader->setUniformShaderMatrix("u_Transform", transform);
+
+            openGLShader->setUniform4f("u_Color", tintColor);
+
+            texture->bind();
+            openGLShader->setUniform1i("u_Texture", 0);
+
+            renderer::Command::drawIndexed(s_Data->quadVertexArray);
+        }
     }
 }

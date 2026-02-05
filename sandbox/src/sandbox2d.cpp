@@ -25,7 +25,7 @@ void Sandbox2D::onAttach()
 {
     VEKTOR_CORE_INFO("Sandbox2D layer attached");
 
-    m_Texture = vektor::utils::Texture::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/texture.jpg");
+    m_Texture = vektor::utils::Texture::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/image.png");
 }
 
 void Sandbox2D::onDetach()
@@ -36,7 +36,7 @@ void Sandbox2D::onDetach()
 void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
 {
     VEKTOR_PROFILE_FUNCTION();
-    
+
     VEKTOR_PROFILE_BEGIN_SESSION("Sandbox2D::OnUpdate", "SandboxUpdateProfile-Runtime.json");
 
     SANDBOX_PROFILE_SCOPE("Sandbox2D::OnUpdate");
@@ -60,8 +60,13 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
         vektor::renderer::Renderer2D::drawQuad({0.0f, 0.0f}, {1.0f, 1.0f}, m_Color);
         vektor::renderer::Renderer2D::drawQuad({0.5f, 0.5f}, {0.5f, 1.5f}, {0.8f, 0.2f, 0.3f, 1.0f});
 
+        // blue 
+        const glm::vec4 tintColor = {0.2f, 0.5f, 0.8f, 1.0f};
+
+        vektor::renderer::Renderer2D::drawRotatedQuad({-0.5f, 0.5f}, {1.0f, 1.0f}, 45.0f, m_Texture, tintColor);
+
         m_Texture->bind();
-        vektor::renderer::Renderer2D::drawQuad({0.85f, 0.85f}, {10.0f, 10.5f}, m_Texture);
+        vektor::renderer::Renderer2D::drawQuad({0.85f, 0.85f}, {10.0f, 10.5f}, m_Texture, tintColor);
         vektor::renderer::Renderer2D::endScene();
     }
     VEKTOR_PROFILE_END_SESSION();

@@ -161,7 +161,6 @@ namespace vektor
 
     namespace InstrumentorUtils
     {
-
         template <size_t N>
         struct ChangeResult
         {
