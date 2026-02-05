@@ -6,7 +6,6 @@ layout(location = 1) in vec4 a_Color;
 layout(location = 2) in vec2 a_TexCoord;  
 
 uniform mat4 u_ViewProjection;
-uniform mat4 u_Transform;
 
 out vec2 v_TexCoord;
 out vec4 v_Color;
@@ -14,7 +13,8 @@ out vec4 v_Color;
 void main() {
     v_TexCoord = a_TexCoord;
     v_Color = a_Color;
-    gl_Position = u_ViewProjection  * vec4(a_Position, 1.0);
+    // Position is already transformed to World Space by Renderer2D (CPU)
+    gl_Position = u_ViewProjection * vec4(a_Position, 1.0);
 }
 
 #type fragment
@@ -25,11 +25,9 @@ layout(location = 0) out vec4 color;
 in vec4 v_Color;
 in vec2 v_TexCoord;
 
-uniform vec4 u_Color;
-
 uniform sampler2D u_Texture;
 
 void main() { 
-    // color = texture(u_Texture, v_TexCoord) * u_Color;
-    color = v_Color;
+    // Basic texture sampling multiplied by vertex color (tint)
+    color = texture(u_Texture, v_TexCoord) * v_Color;
 }

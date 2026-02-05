@@ -4,7 +4,7 @@
 
 namespace vektor::input
 {
-    Input *Input::s_Instance = new window::Input();
+    Input *Input::s_Instance = new window::Input(); 
 }
 
 namespace vektor::input::window

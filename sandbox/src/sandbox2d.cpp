@@ -65,7 +65,6 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
  
         vektor::renderer::Renderer2D::drawRotatedQuad({-0.5f, 0.5f}, {1.0f, 1.0f}, 45.0f, m_Texture, tintColor);
 
-        m_Texture->bind();
         vektor::renderer::Renderer2D::drawQuad({0.85f, 0.85f}, {10.0f, 10.5f}, m_Texture, tintColor);
         vektor::renderer::Renderer2D::endScene();
     }

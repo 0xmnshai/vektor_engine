@@ -33,6 +33,6 @@ namespace vektor::input
         virtual glm::vec2 getMousePositionImpl() = 0;
 
     private:
-        static Input *s_Instance;
+        static Input *s_Instance; 
     };
 }
