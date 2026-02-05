@@ -38,6 +38,7 @@ namespace vektor::opengl
 
         virtual void setUniformMat4(const std::string &name, const glm::vec4 &values) const;
         virtual void setUniformShaderMatrix(const std::string &name, const glm::mat4 &matrix) const;
+
         void compile(const std::string &vertexSrc, const std::string &fragmentSrc);
 
     private:

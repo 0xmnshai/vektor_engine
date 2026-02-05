@@ -22,6 +22,8 @@ namespace vektor::utils
         virtual void unbind() const = 0;
 
         static std::shared_ptr<Texture> create(const std::string &path);
+
+        virtual bool operator==(const Texture &other) const = 0;
     };
 
     class VEKTOR_API Texture2D : public Texture

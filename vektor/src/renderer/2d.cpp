@@ -1,3 +1,5 @@
+
+#include <array>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
@@ -16,7 +18,7 @@ namespace vektor::renderer
         glm::vec3 position;
         glm::vec4 color;
         glm::vec2 texCoord;
-        // float texIndex;
+        float texIndex;
         // float tilingFactor;
     };
 
@@ -25,6 +27,7 @@ namespace vektor::renderer
         static const uint32_t MAX_QUADS = 20000;
         static const uint32_t MAX_VERTICES = MAX_QUADS * 4;
         static const uint32_t MAX_INDICES = MAX_QUADS * 6;
+        static const uint32_t MAX_TEXTURE_SLOTS = 16; // Render
 
         std::shared_ptr<utils::VertexArray> quadVertexArray;
         std::shared_ptr<vektor::utils::buffer::Vertex> quadVertexBuffer;
@@ -38,6 +41,9 @@ namespace vektor::renderer
         QuadVertex *quadVertexBufferPtr = nullptr;
 
         glm::vec4 quadVertexPositions[4];
+
+        std::array<std::shared_ptr<utils::Texture>, MAX_TEXTURE_SLOTS> textureSlots;
+        uint32_t textureSlotIndex = 1; // 0 = white texture
     };
 
     static Renderer2DData s_Data;
@@ -46,6 +52,11 @@ namespace vektor::renderer
     {
         if (s_Data.quadIndexCount == 0)
             return;
+
+        for (uint32_t i = 0; i < s_Data.textureSlotIndex; i++)
+        {
+            s_Data.textureSlots[i]->bind(i);
+        }
 
         uint32_t dataSize = (uint32_t)((uint8_t *)s_Data.quadVertexBufferPtr - (uint8_t *)s_Data.quadVertexBufferBase);
         s_Data.quadVertexBuffer->setData(s_Data.quadVertexBufferBase, dataSize);
@@ -70,7 +81,9 @@ namespace vektor::renderer
         utils::buffer::Layout layout = {
             {utils::buffer::ShaderDataType::Float3, "a_Position"},
             {utils::buffer::ShaderDataType::Float4, "a_Color"},
-            {utils::buffer::ShaderDataType::Float2, "a_TexCoord"}};
+            {utils::buffer::ShaderDataType::Float2, "a_TexCoord"},
+            {utils::buffer::ShaderDataType::Float, "a_TexIndex"},
+        };
 
         s_Data.quadVertexBuffer->setLayout(layout);
         s_Data.quadVertexArray->addVertexBuffer(s_Data.quadVertexBuffer);
@@ -101,13 +114,30 @@ namespace vektor::renderer
         std::dynamic_pointer_cast<opengl::OpenGLTexture2D>(s_Data.whiteTexture)->setData(&whiteTextureData, sizeof(uint32_t));
 
         s_Data.textureShader.reset(utils::Shader::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/shaders/texture.glsl"));
+
+        int samplers[s_Data.MAX_TEXTURE_SLOTS];
+
+        for (uint32_t i = 0; i < s_Data.MAX_TEXTURE_SLOTS; i++)
+        {
+            samplers[i] = i;
+        }
+
+        std::dynamic_pointer_cast<opengl::OpenGLShader>(s_Data.textureShader)->setUniform1iv("u_Textures", s_Data.MAX_TEXTURE_SLOTS, samplers);
+
         s_Data.textureShader->bindProgram();
         std::dynamic_pointer_cast<opengl::OpenGLShader>(s_Data.textureShader)->setUniform1i("u_Texture", 0);
+
+        // memset(s_Data.textureSlots.data(), 0, s_Data.textureSlots.size() * sizeof(uint32_t));
+
+        for (auto &slot : s_Data.textureSlots)
+            slot.reset();
 
         s_Data.quadVertexPositions[0] = {-0.5f, -0.5f, 0.0f, 1.0f};
         s_Data.quadVertexPositions[1] = {0.5f, -0.5f, 0.0f, 1.0f};
         s_Data.quadVertexPositions[2] = {0.5f, 0.5f, 0.0f, 1.0f};
         s_Data.quadVertexPositions[3] = {-0.5f, 0.5f, 0.0f, 1.0f};
+
+        s_Data.textureSlots[0] = s_Data.whiteTexture;
     }
 
     void Renderer2D::shutdown()
@@ -123,6 +153,8 @@ namespace vektor::renderer
         s_Data.quadIndexCount = 0;
         s_Data.quadVertexBufferPtr = s_Data.quadVertexBufferBase;
         s_Data.currentTexture = s_Data.whiteTexture;
+
+        s_Data.textureSlotIndex = 1;
     }
 
     void Renderer2D::endScene()
@@ -177,11 +209,37 @@ namespace vektor::renderer
 
         constexpr glm::vec2 textureCoords[] = {{0.0f, 0.0f}, {1.0f, 0.0f}, {1.0f, 1.0f}, {0.0f, 1.0f}};
 
+        float textureIndex = 0.0f;
+        for (uint32_t i = 0; i < s_Data.textureSlotIndex; i++)
+        {
+            if (*s_Data.textureSlots.at(i) == *texture.get())
+            {
+                textureIndex = (float)i;
+                break;
+            }
+        }
+
+        if (textureIndex == 0.0f)
+        {
+
+            if (s_Data.textureSlotIndex >= Renderer2DData::MAX_TEXTURE_SLOTS)
+            {
+                flushAndReset();
+                s_Data.textureSlotIndex = 1;
+            }
+
+            textureIndex = (float)s_Data.textureSlotIndex;
+            s_Data.textureSlots[s_Data.textureSlotIndex] = texture;
+            s_Data.textureSlotIndex++;
+        }
+
         for (int i = 0; i < 4; i++)
         {
             s_Data.quadVertexBufferPtr->position = transform * s_Data.quadVertexPositions[i];
             s_Data.quadVertexBufferPtr->color = tintColor;
             s_Data.quadVertexBufferPtr->texCoord = textureCoords[i];
+            s_Data.quadVertexBufferPtr->texIndex = textureIndex;
+            // s_Data.quadVertexBufferPtr->tilingFactor = tilingFactor;
             s_Data.quadVertexBufferPtr++;
         }
 

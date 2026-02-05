@@ -181,7 +181,7 @@ namespace vektor::opengl
         GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
         glUniform1f(location, value);
     }
-
+    
     void opengl::OpenGLShader::setUniform2f(const std::string &name, const glm::vec2 value) const
     {
         GLint location = glGetUniformLocation(m_ShaderProgram, name.c_str());
