@@ -13,6 +13,18 @@
 
 namespace vektor::renderer::camera
 {
+    class VEKTOR_API OrthographicBounds
+    {
+    public:
+        OrthographicBounds(float left, float right, float top, float down)
+            : left(left), right(right), top(top), down(down) {}
+
+        float left, right, top, down;
+
+        float getWidth() const { return right - left; }
+        float getHeight() const { return down - top; }
+    };
+
     class VEKTOR_API Controller
     {
     public:
@@ -32,6 +44,8 @@ namespace vektor::renderer::camera
 
         inline bool getRotation() const { return m_Rotation; }
         inline void setRotation(bool rotation) { m_Rotation = rotation; }
+
+        inline const OrthographicBounds &getCameraBounds() const { return *m_CameraBounds; }
 
         inline float getCameraTranslationSpeed() const { return m_CameraTranslationSpeed; }
         inline void setCameraTranslationSpeed(float speed) { m_CameraTranslationSpeed = speed; }
@@ -57,5 +71,6 @@ namespace vektor::renderer::camera
         bool onWindowResize(const event::WindowResizeEvent &event);
 
         std::shared_ptr<camera::Orthographic> m_Camera;
+        std::shared_ptr<OrthographicBounds> m_CameraBounds;
     };
 }

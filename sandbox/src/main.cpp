@@ -1,5 +1,7 @@
 
-// samples 
+#include "entry_point.hpp"
+
+// samples
 #include "sandbox2d.hpp"
 #include "game_layer.hpp"
 #include "example_layer.hpp"
@@ -13,7 +15,7 @@ public:
         // pushLayer(new ExampleLayer());
         // pushLayer(new Sandbox2D());
         // pushLayer(new GameLayer());
-        pushLayer(new ParticleLayer());    
+        pushLayer(new ParticleLayer());
     }
 
     ~Sandbox()

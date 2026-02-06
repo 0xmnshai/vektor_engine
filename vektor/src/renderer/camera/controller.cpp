@@ -19,6 +19,8 @@ namespace vektor::renderer::camera
     {
         m_Camera = std::make_shared<Orthographic>(
             -m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+
+        m_CameraBounds = std::make_shared<OrthographicBounds>(-1.0f, 1.0f, -1.0f, 1.0f);
     }
 
     void Controller::onUpdate(core::Timestep timestep)

@@ -6,38 +6,55 @@ struct ParticleProps
 {
     glm::vec2 position;
     glm::vec2 velocity, velocityVariation;
-    glm::vec4 colorEnd, colorBegin;
-    float sizeEnd, sizeBegin, sizeVariation;
+    glm::vec4 colorBegin, colorEnd;
+    float sizeBegin, sizeEnd, sizeVariation;
     float lifeTime = 1.0f;
 };
 
-class ParticleLayer : public vektor::layer::Layer
+class ParticleSystem
 {
 public:
-    ParticleLayer() : Layer("ParticleLayer") {}
-    virtual void onAttach() override;
+    ParticleSystem(uint32_t maxParticles = 1000);
 
     void onUpdate(vektor::core::Timestep ts);
-    void OnReader(vektor::renderer::camera::Orthographic &camera);
-    void onEmit(const ParticleProps &props);
+    void onRender();
+
+    void emit(const ParticleProps &particleProps);
 
 private:
     struct Particle
     {
         glm::vec2 position;
         glm::vec2 velocity;
-        glm::vec4 colorEnd, colorBegin;
-        float sizeEnd, sizeBegin, sizeVariation;
-        float lifeTime = 1.0f;
+        glm::vec4 colorBegin, colorEnd;
         float rotation = 0.0f;
+        float sizeBegin, sizeEnd;
+
+        float lifeTime = 1.0f;
         float lifeRemaining = 0.0f;
+
         bool active = false;
     };
 
-    std::vector<Particle> m_Particles;
+    std::vector<Particle> m_ParticlePool;
     uint32_t m_PoolIndex = 999;
+};
 
-    GLuint m_QuadVA = 0;
-    std::unique_ptr<vektor::utils::Shader> m_ParticleShader;
-    GLuint m_ParticleShaderViewProjection, m_ParticleShaderColor, m_ParticleShaderTranform;
+class ParticleLayer : public vektor::layer::Layer
+{
+public:
+    ParticleLayer();
+    virtual ~ParticleLayer() = default;
+
+    virtual void onAttach() override;
+    virtual void onDetach() override;
+
+    virtual void onUpdate(vektor::core::Timestep ts) override;
+    virtual void onRender() override;
+    virtual void onEvent(vektor::event::Event &event) override;
+
+private:
+    std::shared_ptr<vektor::renderer::camera::Controller> m_CameraController;
+    ParticleSystem m_ParticleSystem;
+    ParticleProps m_ParticleProps;
 };
