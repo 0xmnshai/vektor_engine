@@ -1,6 +1,9 @@
 build/
+build/_deps
 bin/
 vektor/resources.md
 logs/engine.log
 merge.py
 all_files
+.vsccode
+_deps
