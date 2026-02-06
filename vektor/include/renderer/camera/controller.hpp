@@ -45,12 +45,12 @@ namespace vektor::renderer::camera
 
         float m_ZoomLevel = 1.0f;
         float m_TargetZoomLevel = 1.0f;
-        float m_ZoomSmoothSpeed = 10.0f;
+        float m_ZoomSmoothSpeed = 8.0f;
 
         glm::vec3 m_CameraPosition;
         float m_CameraRotation = 0.0f;
 
-        float m_CameraTranslationSpeed = 5.0f;
+        float m_CameraTranslationSpeed = 10.0f;
         float m_CameraRotationSpeed = 180.0f;
 
         bool onMouseScrolled(const event::MouseScrolledEvent &event);

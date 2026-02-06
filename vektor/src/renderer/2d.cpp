@@ -44,6 +44,8 @@ namespace vektor::renderer
 
         std::array<std::shared_ptr<utils::Texture>, MAX_TEXTURE_SLOTS> textureSlots;
         uint32_t textureSlotIndex = 1; // 0 = white texture
+
+        renderer::Renderer2D::Statistics stats;
     };
 
     static Renderer2DData s_Data;
@@ -69,6 +71,8 @@ namespace vektor::renderer
 
         s_Data.quadIndexCount = 0;
         s_Data.quadVertexBufferPtr = s_Data.quadVertexBufferBase;
+
+        s_Data.stats.drawCalls++;
     }
 
     void Renderer2D::init()
@@ -162,6 +166,16 @@ namespace vektor::renderer
         flushAndReset();
     }
 
+    void Renderer2D::startNewBatch()
+    {
+        endScene();
+
+        s_Data.quadIndexCount = 0;
+        s_Data.quadVertexBufferPtr = s_Data.quadVertexBufferBase;
+
+        s_Data.textureSlotIndex = 1;
+    }
+
     void Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size, const glm::vec4 &color)
     {
         drawQuad({position.x, position.y, 0.0f}, size, color);
@@ -196,7 +210,7 @@ namespace vektor::renderer
     {
         if (s_Data.quadIndexCount >= Renderer2DData::MAX_INDICES)
         {
-            flushAndReset();
+            startNewBatch();
         }
 
         if (s_Data.currentTexture != texture)
@@ -243,5 +257,16 @@ namespace vektor::renderer
         }
 
         s_Data.quadIndexCount += 6;
+
+        s_Data.stats.quadCount++;
+    }
+
+    void renderer::Renderer2D::resetStats()
+    {
+        memset(&s_Data.stats, 0, sizeof(Statistics));
+    }
+    renderer::Renderer2D::Statistics renderer::Renderer2D::getStats()
+    {
+        return s_Data.stats;
     }
 }

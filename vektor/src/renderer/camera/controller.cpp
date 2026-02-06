@@ -12,7 +12,6 @@
 
 namespace vektor::renderer::camera
 {
-
     Controller::Controller(float aspectRatio, float zoomLevel, bool rotation)
         : m_AspectRatio(aspectRatio),
           m_ZoomLevel(zoomLevel),

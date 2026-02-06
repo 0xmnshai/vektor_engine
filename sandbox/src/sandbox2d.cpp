@@ -43,6 +43,8 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
 
     VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());
 
+    vektor::renderer::Renderer2D::resetStats();
+
     {
         SANDBOX_PROFILE_SCOPE("Sandbox2D::OnUpdate::CameraController::OnUpdate");
         m_CameraController->onUpdate(timestep);
@@ -53,6 +55,7 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
         vektor::renderer::Command::setClearColor({0.13f, 0.13f, 0.13f, 1.0f}); // normalised: {value} / 255
         vektor::renderer::Command::clear();
     }
+
     {
         SANDBOX_PROFILE_SCOPE("Sandbox2D::OnUpdate::Renderer2D::OnRender");
         vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
@@ -60,14 +63,28 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
         vektor::renderer::Renderer2D::drawQuad({0.0f, 0.0f}, {1.0f, 1.0f}, m_Color);
         vektor::renderer::Renderer2D::drawQuad({0.5f, 0.5f}, {0.5f, 1.5f}, {0.8f, 0.2f, 0.3f, 1.0f});
 
-        // blue 
+        // blue
         const glm::vec4 tintColor = {0.2f, 0.5f, 0.8f, 1.0f};
- 
         vektor::renderer::Renderer2D::drawRotatedQuad({-0.5f, 0.5f}, {1.0f, 1.0f}, 45.0f, m_Texture, tintColor);
-
         vektor::renderer::Renderer2D::drawQuad({0.85f, 0.85f}, {10.0f, 10.5f}, m_Texture, tintColor);
+
+        static float rotation = 0.0f;
+        rotation += timestep.getSeconds() * 25.0f;
+
+        vektor::renderer::Renderer2D::drawRotatedQuad({10.0f, 10.0f}, {1.0f, 1.0f}, rotation, m_Texture, m_Color);
+
+        // for (float y = -5.0f; y < 10.0f; y += 0.5f)
+        // {
+        //     for (float x = -5.0f; x < 10.0f; x += 0.5f)
+        //     {
+        //         glm::vec4 color = {((x + 5.0f) / 10.0f), 0.0f, ((y + 5.0f) / 10.0f), 1.0f};
+        //         vektor::renderer::Renderer2D::drawQuad({x, y}, {0.45f, 0.45f}, color);
+        //     }
+        // }
+
         vektor::renderer::Renderer2D::endScene();
     }
+
     VEKTOR_PROFILE_END_SESSION();
 }
 
@@ -84,6 +101,17 @@ void Sandbox2D::onRender()
     };
 
     m_ProfileResults.clear();
+
+    ImGui::End();
+
+    ImGui::Begin("Stats");
+
+    auto stats = vektor::renderer::Renderer2D::getStats();
+    ImGui::Text("Draw Calls: %d", stats.getDrawCalls());
+    ImGui::Text("Quad Count: %d", stats.getQuadCount());
+    ImGui::Text("Total Vertex Count: %d", stats.getTotalVertexCount());
+    ImGui::Text("Total Index Count: %d", stats.getTotalIndexCount());
+
     ImGui::End();
 }
 
