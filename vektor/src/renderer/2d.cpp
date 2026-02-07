@@ -196,14 +196,35 @@ namespace vektor::renderer
         drawRotatedQuad(position, size, 0.0f, texture, tintColor);
     }
 
+    void Renderer2D::drawQuad(const glm::vec2 &position, const glm::vec2 &size, const Ref<utils::SubTexture2D> &texture, glm::vec4 tintColor)
+    {
+        // drawQuad({position.x, position.y, 0.0f}, size, texture, tintColor);
+    }
+    void Renderer2D::drawQuad(const glm::vec3 &position, const glm::vec2 &size, const Ref<utils::SubTexture2D> &texture, glm::vec4 tintColor)
+    {
+        // drawRotatedQuad(position, size, 0.0f, texture, tintColor);
+    }
+
     void Renderer2D::drawRotatedQuad(const glm::vec2 &position, const glm::vec2 &size, float rotation, const glm::vec4 &color)
     {
         drawRotatedQuad({position.x, position.y, 0.0f}, size, rotation, s_Data.whiteTexture, color);
     }
 
+    void Renderer2D::drawRotatedQuad(const glm::vec3 &position, const glm::vec2 &size, float rotation, const glm::vec4 &color)
+    {
+        drawRotatedQuad(position, size, rotation, s_Data.whiteTexture, color);
+    }
+
     void Renderer2D::drawRotatedQuad(const glm::vec2 &position, const glm::vec2 &size, float rotation, const std::shared_ptr<utils::Texture> &texture, glm::vec4 tintColor)
     {
         drawRotatedQuad({position.x, position.y, 0.0f}, size, rotation, texture, tintColor);
+    }
+
+    void Renderer2D::drawRotatedQuad(const glm::vec2 &position, const glm::vec2 &size, float rotation, const Ref<utils::SubTexture2D> &texture, glm::vec4 tintColor)
+    {
+    }
+    void Renderer2D::drawRotatedQuad(const glm::vec3 &position, const glm::vec2 &size, float rotation, const Ref<utils::SubTexture2D> &texture, glm::vec4 tintColor)
+    {
     }
 
     void Renderer2D::drawRotatedQuad(const glm::vec3 &position, const glm::vec2 &size, float rotation, const std::shared_ptr<utils::Texture> &texture, glm::vec4 tintColor)

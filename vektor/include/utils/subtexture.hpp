@@ -19,7 +19,7 @@ namespace vektor::utils
         inline const glm::vec2 &getMin() const { return m_Min; }
         inline const glm::vec2 &getMax() const { return m_Max; }
 
-        static std::shared_ptr<utils::Texture> createFromCords(float x, float y, float spriteWidth, float spriteHeight);
+        static std::shared_ptr<utils::SubTexture2D> createFromCords(const std::shared_ptr<utils::Texture> &texture, const glm::vec2 &coords, const glm::vec2 &spriteSize);
 
     private:
         std::shared_ptr<utils::Texture> m_Texture;
