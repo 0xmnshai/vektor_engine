@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17)
 project(sandbox)
- 
+
 file(GLOB_RECURSE SANDBOX_SOURCES CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
 )
@@ -8,18 +8,18 @@ file(GLOB_RECURSE SANDBOX_SOURCES CONFIGURE_DEPENDS
 file(GLOB_RECURSE SANDBOX_HEADERS CONFIGURE_DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
 )
- 
+
 add_executable(sandbox
     ${SANDBOX_SOURCES}
     ${SANDBOX_HEADERS}
-) 
+)
 
 target_include_directories(sandbox
     PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/include
-        ${CMAKE_CURRENT_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
 )
- 
+
 set(CMAKE_BUILD_RPATH_USE_ORIGIN ON)
 
 if(APPLE)
@@ -31,9 +31,9 @@ elseif(UNIX)
         BUILD_RPATH "$ORIGIN"
     )
 endif()
- 
+
 target_link_libraries(sandbox PRIVATE vektor)
- 
+
 target_sources(sandbox PRIVATE
     ${vektor_SOURCE_DIR}/include/entry_point.hpp
 )

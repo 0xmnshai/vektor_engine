@@ -27,7 +27,7 @@ namespace vektor
     class VEKTOR_API Application
     {
     public:
-        Application();
+        Application(std::string name);
 
         virtual ~Application();
 
@@ -49,6 +49,8 @@ namespace vektor
         inline static Application &getInstance() { return *s_Instance; }
 
     private:
+        std::string m_Name;
+
         std::shared_ptr<utils::Shader> m_Shader;
         std::shared_ptr<window::Window> m_Window;
 

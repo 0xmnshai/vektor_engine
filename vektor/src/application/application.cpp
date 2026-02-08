@@ -22,13 +22,15 @@ namespace vektor
 
     Application *Application::s_Instance = nullptr;
 
-    Application::Application()
+    Application::Application(std::string name)
     {
+        m_Name = name;
+
         VEKTOR_CORE_ASSERT(!s_Instance, "Application already exists!");
         s_Instance = this;
 
         window::WindowProps props;
-        props.title = "Vektor Engine";
+        props.title = m_Name;
         props.width = WINDOW_WIDTH;
         props.height = WINDOW_HEIGHT;
 

@@ -11,9 +11,10 @@ class Sandbox : public vektor::Application
 {
 public:
     Sandbox()
+        : Application("Sandbox")
     {
         // pushLayer(new ExampleLayer());
-        pushLayer(new Sandbox2D());
+        // pushLayer(new Sandbox2D());
         // pushLayer(new GameLayer());
         // pushLayer(new ParticleLayer());
     }

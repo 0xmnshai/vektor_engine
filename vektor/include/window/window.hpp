@@ -19,8 +19,8 @@ namespace vektor::window
         unsigned int width, height;
 
         WindowProps(const std::string &title = "Vektor Engine",
-                    unsigned int width = WINDOW_WIDTH,
-                    unsigned int height = WINDOW_HEIGHT) : title(title), width(width), height(height) {}
+                    uint32_t width = WINDOW_WIDTH,
+                    uint32_t height = WINDOW_HEIGHT) : title(title), width(width), height(height) {}
 
         bool operator==(const WindowProps &other) const
         {
@@ -42,8 +42,8 @@ namespace vektor::window
 
         virtual void onUpdate() = 0;
 
-        virtual unsigned int getWidth() const = 0;
-        virtual unsigned int getHeight() const = 0;
+        virtual uint32_t getWidth() const = 0;
+        virtual uint32_t getHeight() const = 0;
 
         virtual void setEventCallback(const EventCallbackFn &callback) = 0;
         virtual void setVSync(bool enabled) = 0;

@@ -1,0 +1,39 @@
+cmake_minimum_required(VERSION 3.17)
+project(vektor_editor)
+
+file(GLOB_RECURSE VEKTOR_EDITOR_SOURCES CONFIGURE_DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+)
+
+file(GLOB_RECURSE VEKTOR_EDITOR_HEADERS CONFIGURE_DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
+)
+
+add_executable(vektor_editor
+    ${VEKTOR_EDITOR_SOURCES}
+    ${VEKTOR_EDITOR_HEADERS}
+)
+
+target_include_directories(vektor_editor
+    PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/src
+)
+
+set(CMAKE_BUILD_RPATH_USE_ORIGIN ON)
+
+if(APPLE)
+    set_target_properties(vektor_editor PROPERTIES
+        BUILD_RPATH "@loader_path"
+    )
+elseif(UNIX)
+    set_target_properties(vektor_editor PROPERTIES
+        BUILD_RPATH "$ORIGIN"
+    )
+endif()
+
+target_link_libraries(vektor_editor PRIVATE vektor)
+
+target_sources(vektor_editor PRIVATE
+    ${vektor_SOURCE_DIR}/include/entry_point.hpp
+)
