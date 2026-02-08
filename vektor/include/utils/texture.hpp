@@ -24,6 +24,8 @@ namespace vektor::utils
         static std::shared_ptr<Texture> create(const std::string &path);
 
         virtual bool operator==(const Texture &other) const = 0;
+
+        virtual uint32_t getRenderID() const = 0;
     };
 
     class VEKTOR_API Texture2D : public Texture

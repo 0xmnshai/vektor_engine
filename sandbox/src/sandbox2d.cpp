@@ -26,6 +26,15 @@ void Sandbox2D::onAttach()
     VEKTOR_CORE_INFO("Sandbox2D layer attached");
 
     m_Texture = vektor::utils::Texture::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/image.png");
+
+    vektor::renderer::FramebufferSpecification spec;
+    spec.width = WINDOW_WIDTH;
+    spec.height = WINDOW_HEIGHT;
+    spec.samples = 1;
+    spec.colorAttachmentFormat = vektor::renderer::FramebufferFormat::TextureFormat::RGBA8;
+    spec.depthAttachmentFormat = vektor::renderer::FramebufferFormat::TextureFormat::DEPTH24STENCIL8;
+
+    m_Framebuffer = vektor::renderer::Framebuffer::create(spec);
 }
 
 void Sandbox2D::onDetach()
@@ -44,6 +53,8 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
     VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());
 
     vektor::renderer::Renderer2D::resetStats();
+
+    m_Framebuffer->bind();
 
     {
         SANDBOX_PROFILE_SCOPE("Sandbox2D::OnUpdate::CameraController::OnUpdate");
@@ -73,17 +84,10 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
 
         vektor::renderer::Renderer2D::drawRotatedQuad({10.0f, 10.0f}, {1.0f, 1.0f}, rotation, m_Texture, m_Color);
 
-        // for (float y = -5.0f; y < 10.0f; y += 0.5f)
-        // {
-        //     for (float x = -5.0f; x < 10.0f; x += 0.5f)
-        //     {
-        //         glm::vec4 color = {((x + 5.0f) / 10.0f), 0.0f, ((y + 5.0f) / 10.0f), 1.0f};
-        //         vektor::renderer::Renderer2D::drawQuad({x, y}, {0.45f, 0.45f}, color);
-        //     }
-        // }
-
         vektor::renderer::Renderer2D::endScene();
     }
+
+    m_Framebuffer->unBind();
 
     VEKTOR_PROFILE_END_SESSION();
 }
@@ -111,6 +115,101 @@ void Sandbox2D::onRender()
     ImGui::Text("Quad Count: %d", stats.getQuadCount());
     ImGui::Text("Total Vertex Count: %d", stats.getTotalVertexCount());
     ImGui::Text("Total Index Count: %d", stats.getTotalIndexCount());
+
+    ImGui::End();
+
+    ImGui::Begin("IMAGE SHOW");
+
+    ImGui::Image(m_Framebuffer->getColorAttachmentRendererID(), ImVec2({320.0f, 240.0f}));
+
+    ImGui::End();
+
+    static bool dockspaceOpen = true;
+    static bool fullscreenPersistant = true;
+    bool fullscreen = fullscreenPersistant;
+
+    ImGuiDockNodeFlags dockspaceFlags = ImGuiDockNodeFlags_None;
+    ImGuiWindowFlags windowFlags =
+        ImGuiWindowFlags_MenuBar |
+        ImGuiWindowFlags_NoDocking;
+
+    if (fullscreen)
+    {
+        const ImGuiViewport *viewport = ImGui::GetMainViewport();
+        ImGui::SetNextWindowPos(viewport->WorkPos);
+        ImGui::SetNextWindowSize(viewport->WorkSize);
+        ImGui::SetNextWindowViewport(viewport->ID);
+
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowRounding, 0.0f);
+        ImGui::PushStyleVar(ImGuiStyleVar_WindowBorderSize, 0.0f);
+
+        windowFlags |=
+            ImGuiWindowFlags_NoTitleBar |
+            ImGuiWindowFlags_NoCollapse |
+            ImGuiWindowFlags_NoResize |
+            ImGuiWindowFlags_NoMove |
+            ImGuiWindowFlags_NoBringToFrontOnFocus |
+            ImGuiWindowFlags_NoNavFocus;
+    }
+
+    if (dockspaceFlags & ImGuiDockNodeFlags_PassthruCentralNode)
+        windowFlags |= ImGuiWindowFlags_NoBackground;
+
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
+
+    ImGui::Begin("VektorDockspace", &dockspaceOpen, windowFlags);
+
+    ImGui::PopStyleVar(); // padding
+
+    if (fullscreen)
+        ImGui::PopStyleVar(2);
+
+    if (!ImGui::BeginMenuBar())
+        return;
+
+    if (ImGui::BeginMenu("File"))
+    {
+        if (ImGui::MenuItem("New Scene", "Ctrl+N"))
+        {
+        }
+        if (ImGui::MenuItem("Open...", "Ctrl+O"))
+        {
+        }
+        if (ImGui::MenuItem("Save", "Ctrl+S"))
+        {
+        }
+        if (ImGui::MenuItem("Exit"))
+        {
+            std::cout << "Exiting..." << std::endl;
+            exit(0);
+        }
+
+        ImGui::EndMenu();
+    }
+
+    if (ImGui::BeginMenu("Edit"))
+    {
+        ImGui::MenuItem("Undo", "Ctrl+Z");
+        ImGui::MenuItem("Redo", "Ctrl+Y");
+        ImGui::EndMenu();
+    }
+
+    if (ImGui::BeginMenu("Window"))
+    {
+        ImGui::MenuItem("Scene Hierarchy");
+        ImGui::MenuItem("Inspector");
+        ImGui::MenuItem("Console");
+        ImGui::EndMenu();
+    }
+
+    ImGui::EndMenuBar();
+
+    ImGuiIO &io = ImGui::GetIO();
+    if (io.ConfigFlags & ImGuiConfigFlags_DockingEnable)
+    {
+        ImGuiID dockspaceID = ImGui::GetID("VektorDockspaceID");
+        ImGui::DockSpace(dockspaceID, ImVec2(0, 0), dockspaceFlags);
+    }
 
     ImGui::End();
 }

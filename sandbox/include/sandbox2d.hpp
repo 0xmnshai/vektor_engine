@@ -26,6 +26,8 @@ private:
 
     std::shared_ptr<vektor::utils::Texture> m_Texture;
 
+    std::shared_ptr<vektor::renderer::Framebuffer> m_Framebuffer;
+
     glm::vec3 m_Position;
 
     glm::vec4 m_Color = {0.2f, 0.3f, 0.8f, 1.0f};

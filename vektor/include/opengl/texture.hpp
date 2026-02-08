@@ -26,6 +26,8 @@ namespace vektor::opengl
             return m_RendererID == ((OpenGLTexture2D &)other).m_RendererID;
         }
 
+        inline virtual uint32_t getRenderID() const override { return m_RendererID; }
+
     private:
         std::string m_Path;
         uint32_t m_Width, m_Height;

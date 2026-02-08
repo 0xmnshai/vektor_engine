@@ -13,9 +13,9 @@ public:
     Sandbox()
     {
         // pushLayer(new ExampleLayer());
-        // pushLayer(new Sandbox2D());
+        pushLayer(new Sandbox2D());
         // pushLayer(new GameLayer());
-        pushLayer(new ParticleLayer());
+        // pushLayer(new ParticleLayer());
     }
 
     ~Sandbox()
