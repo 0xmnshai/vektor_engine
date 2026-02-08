@@ -99,4 +99,15 @@ namespace vektor::renderer::camera
         m_Camera->setProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
         return false;
     }
+
+    void Controller::onResize(float width, float height)
+    {
+        m_AspectRatio = width / height;
+        m_Camera->setProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
+
+        m_CameraBounds->left = -m_AspectRatio * m_ZoomLevel;
+        m_CameraBounds->right = m_AspectRatio * m_ZoomLevel;
+        m_CameraBounds->top = m_ZoomLevel;
+        m_CameraBounds->down = -m_ZoomLevel;
+    }
 }

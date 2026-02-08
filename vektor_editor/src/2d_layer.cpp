@@ -55,8 +55,11 @@ void VektorEditor2D::onUpdate(vektor::core::Timestep timestep)
     m_Framebuffer->bind();
 
     {
-        SANDBOX_PROFILE_SCOPE("VektorEditor2D::OnUpdate::CameraController::OnUpdate");
-        m_CameraController->onUpdate(timestep);
+        if (m_ViewportFocused)
+        {
+            SANDBOX_PROFILE_SCOPE("VektorEditor2D::OnUpdate::CameraController::OnUpdate");
+            m_CameraController->onUpdate(timestep);
+        }
     }
 
     {
@@ -116,19 +119,26 @@ void VektorEditor2D::onRender()
 
     ImGui::End();
 
+    ImGui::PushStyleVar(ImGuiStyleVar_WindowPadding, ImVec2(0, 0));
     ImGui::Begin("Viewport");
+
+    m_ViewportFocused = ImGui::IsWindowFocused();
+    m_ViewportHovered = ImGui::IsWindowHovered();
+
     ImVec2 viewportSize = ImGui::GetContentRegionAvail();
-    ImGui::Text("Viewport Size: %f x %f", viewportSize.x, viewportSize.y);
 
     if (m_ViewportSize != *reinterpret_cast<glm::vec2 *>(&viewportSize))
     {
         m_Framebuffer->resize(viewportSize.x, viewportSize.y);
         m_ViewportSize = *reinterpret_cast<glm::vec2 *>(&viewportSize);
+
+        m_CameraController->onResize(viewportSize.x, viewportSize.y);
     }
 
     uint32_t textureID = m_Framebuffer->getColorAttachmentRendererID();
     ImGui::Image(reinterpret_cast<void *>(textureID), ImVec2(m_ViewportSize.x, m_ViewportSize.y), ImVec2(0, 1), ImVec2(1, 0));
     ImGui::End();
+    ImGui::PopStyleVar();
 
     static bool dockspaceOpen = true;
     static bool fullscreenPersistant = true;
@@ -222,5 +232,8 @@ void VektorEditor2D::onRender()
 
 void VektorEditor2D::onEvent(vektor::event::Event &event)
 {
-    m_CameraController->onEvent(event);
+    if (m_ViewportHovered)
+    {
+        m_CameraController->onEvent(event);
+    }
 }

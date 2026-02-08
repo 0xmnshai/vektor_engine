@@ -45,6 +45,8 @@ namespace vektor::renderer::camera
         inline bool getRotation() const { return m_Rotation; }
         inline void setRotation(bool rotation) { m_Rotation = rotation; }
 
+        void onResize(float width, float height);
+
         inline const OrthographicBounds &getCameraBounds() const { return *m_CameraBounds; }
 
         inline float getCameraTranslationSpeed() const { return m_CameraTranslationSpeed; }

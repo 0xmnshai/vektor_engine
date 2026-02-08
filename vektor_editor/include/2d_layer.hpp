@@ -40,6 +40,8 @@ private:
     };
 
     glm::vec2 m_ViewportSize;
+    bool m_ViewportFocused = false;
+    bool m_ViewportHovered = false;
 
     std::vector<vektor::utils::ProfileResult> m_ProfileResults;
 };
