@@ -2,10 +2,6 @@
 #include "application/application.hpp"
 #include "input/window.hpp"
 
-namespace vektor::input
-{
-    Input *Input::s_Instance = new window::Input(); 
-}
 
 namespace vektor::input::window
 {

@@ -5,6 +5,11 @@
 #include "core/core.hpp"
 #include "events/keycode.hpp"
 
+namespace vektor::input::window
+{
+    class Input;
+}
+
 namespace vektor::input
 {
     class VEKTOR_API Input
@@ -33,6 +38,8 @@ namespace vektor::input
         virtual glm::vec2 getMousePositionImpl() = 0;
 
     private:
-        static Input *s_Instance; 
+        static Input *s_Instance;
+
+        std::shared_ptr<window::Input> create();
     };
 }
