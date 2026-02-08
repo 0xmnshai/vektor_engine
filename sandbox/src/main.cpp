@@ -1,30 +1,23 @@
 
 #include "entry_point.hpp"
 
-// samples
-#include "sandbox2d.hpp"
-#include "game_layer.hpp"
-#include "example_layer.hpp"
-#include "particle_layer.hpp"
+#include "sandbox.hpp"
 
-class Sandbox : public vektor::Application
+class SandboxApp : public vektor::Application
 {
 public:
-    Sandbox()
+    SandboxApp()
         : Application("Sandbox")
     {
-        // pushLayer(new ExampleLayer());
-        // pushLayer(new Sandbox2D());
-        // pushLayer(new GameLayer());
-        // pushLayer(new ParticleLayer());
+        pushLayer(new Sandbox());
     }
 
-    ~Sandbox()
+    ~SandboxApp()
     {
     }
 };
 
 vektor::Application *vektor::createApplication()
 {
-    return new Sandbox();
+    return new SandboxApp();
 }

@@ -1,23 +1,30 @@
 
 #include "entry_point.hpp"
 
-#include "editor_layer.hpp"
+// samples
+#include "vektor_editor_2D.hpp"
+#include "game_layer.hpp"
+#include "example_layer.hpp"
+#include "particle_layer.hpp"
 
-class VektorEditor : public vektor::Application
+class Sandbox : public vektor::Application
 {
 public:
-    VektorEditor()
-        : Application("Vektor Editor")
+    Sandbox()
+        : Application("Sandbox")
     {
-        pushLayer(new EditorLayer());
+        // pushLayer(new ExampleLayer());
+        // pushLayer(new Sandbox2D());
+        // pushLayer(new GameLayer());
+        // pushLayer(new ParticleLayer());
     }
 
-    ~VektorEditor()
+    ~Sandbox()
     {
     }
 };
 
 vektor::Application *vektor::createApplication()
 {
-    return new VektorEditor();
+    return new Sandbox();
 }

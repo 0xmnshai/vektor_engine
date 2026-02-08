@@ -2,11 +2,11 @@
 
 #include "vektor.hpp"
 
-class EditorLayer : public vektor::layer::Layer
+class Sandbox : public vektor::layer::Layer
 {
 public:
-    EditorLayer();
-    ~EditorLayer();
+    Sandbox();
+    ~Sandbox();
 
     virtual void onAttach() override;
     virtual void onDetach() override;

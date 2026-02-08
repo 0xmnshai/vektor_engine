@@ -2,10 +2,10 @@
 
 #include "vektor.hpp"
 
-class Sandbox2D : public vektor::layer::Layer
+class VektorEditor2D : public vektor::layer::Layer
 {
 public:
-    Sandbox2D();
+    VektorEditor2D();
 
     virtual void onAttach() override;
     virtual void onDetach() override;

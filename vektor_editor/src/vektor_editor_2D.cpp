@@ -10,20 +10,18 @@
                                                          });                                        \
     PROFILE_CONCAT(timer, __LINE__).start();
 
-#include "sandbox2d.hpp"
+#include "vektor_editor_2d.hpp"
 
-#include "sandbox2d.hpp"
-
-Sandbox2D::Sandbox2D()
-    : Layer("Sandbox2D")
+VektorEditor2D::VektorEditor2D()
+    : Layer("VektorEditor2D")
 {
     float aspectRatio = WINDOW_WIDTH / WINDOW_HEIGHT;
     m_CameraController = std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
 }
 
-void Sandbox2D::onAttach()
+void VektorEditor2D::onAttach()
 {
-    VEKTOR_CORE_INFO("Sandbox2D layer attached");
+    VEKTOR_CORE_INFO("VektorEditor2D layer attached");
 
     m_Texture = vektor::utils::Texture::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/image.png");
 
@@ -37,18 +35,18 @@ void Sandbox2D::onAttach()
     m_Framebuffer = vektor::renderer::Framebuffer::create(spec);
 }
 
-void Sandbox2D::onDetach()
+void VektorEditor2D::onDetach()
 {
-    VEKTOR_CORE_INFO("Sandbox2D layer detached");
+    VEKTOR_CORE_INFO("VektorEditor2D layer detached");
 }
 
-void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
+void VektorEditor2D::onUpdate(vektor::core::Timestep timestep)
 {
     VEKTOR_PROFILE_FUNCTION();
 
-    VEKTOR_PROFILE_BEGIN_SESSION("Sandbox2D::OnUpdate", "SandboxUpdateProfile-Runtime.json");
+    VEKTOR_PROFILE_BEGIN_SESSION("VektorEditor2D::OnUpdate", "VektorEditorUpdateProfile-Runtime.json");
 
-    SANDBOX_PROFILE_SCOPE("Sandbox2D::OnUpdate");
+    SANDBOX_PROFILE_SCOPE("VektorEditor2D::OnUpdate");
 
     VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());
 
@@ -57,18 +55,18 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
     m_Framebuffer->bind();
 
     {
-        SANDBOX_PROFILE_SCOPE("Sandbox2D::OnUpdate::CameraController::OnUpdate");
+        SANDBOX_PROFILE_SCOPE("VektorEditor2D::OnUpdate::CameraController::OnUpdate");
         m_CameraController->onUpdate(timestep);
     }
 
     {
-        SANDBOX_PROFILE_SCOPE("Sandbox2D::OnUpdate::Renderer::OnRender");
+        SANDBOX_PROFILE_SCOPE("VektorEditor2D::OnUpdate::Renderer::OnRender");
         vektor::renderer::Command::setClearColor({0.13f, 0.13f, 0.13f, 1.0f}); // normalised: {value} / 255
         vektor::renderer::Command::clear();
     }
 
     {
-        SANDBOX_PROFILE_SCOPE("Sandbox2D::OnUpdate::Renderer2D::OnRender");
+        SANDBOX_PROFILE_SCOPE("VektorEditor2D::OnUpdate::Renderer2D::OnRender");
         vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
 
         vektor::renderer::Renderer2D::drawQuad({0.0f, 0.0f}, {1.0f, 1.0f}, m_Color);
@@ -92,7 +90,7 @@ void Sandbox2D::onUpdate(vektor::core::Timestep timestep)
     VEKTOR_PROFILE_END_SESSION();
 }
 
-void Sandbox2D::onRender()
+void VektorEditor2D::onRender()
 {
     ImGui::Begin("Color Settings");
     ImGui::ColorEdit3("Square Color", glm::value_ptr(m_Color));
@@ -214,7 +212,7 @@ void Sandbox2D::onRender()
     ImGui::End();
 }
 
-void Sandbox2D::onEvent(vektor::event::Event &event)
+void VektorEditor2D::onEvent(vektor::event::Event &event)
 {
     m_CameraController->onEvent(event);
 }

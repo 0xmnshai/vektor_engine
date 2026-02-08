@@ -1,24 +1,24 @@
-#include "editor_layer.hpp"
+#include "sandbox.hpp"
 
-EditorLayer::EditorLayer()
-    : Layer("EditorLayer")
+Sandbox::Sandbox()
+    : Layer("Sandbox")
 {
     float aspectRatio = (float)WINDOW_WIDTH / (float)WINDOW_HEIGHT;
     m_CameraController = std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
     m_CameraController->setZoomLevel(5.0f);
 }
 
-EditorLayer::~EditorLayer()
+Sandbox::~Sandbox()
 {
 }
 
-void EditorLayer::onAttach()
+void Sandbox::onAttach()
 {
 }
-void EditorLayer::onDetach()
+void Sandbox::onDetach()
 {
 }
-void EditorLayer::onUpdate(vektor::core::Timestep timestep)
+void Sandbox::onUpdate(vektor::core::Timestep timestep)
 {
     m_CameraController->onUpdate(timestep);
 
@@ -31,9 +31,9 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
 
     vektor::renderer::Renderer2D::endScene();
 }
-void EditorLayer::onRender()
+void Sandbox::onRender()
 {
 }
-void EditorLayer::onEvent(vektor::event::Event &event)
+void Sandbox::onEvent(vektor::event::Event &event)
 {
 }
