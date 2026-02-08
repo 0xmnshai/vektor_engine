@@ -17,7 +17,7 @@ EXCLUDED_PATHS = {
     os.path.normpath("CMakelists.txt"),
     os.path.normpath("cmake-build-debug"),
 
-    os.path.normpath("vektor/resources.md"),
+    os.path.normpath("resources.md"),
 }
 
 def is_text_file(path):

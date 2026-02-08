@@ -47,6 +47,10 @@ namespace vektor::renderer
 
         virtual uint32_t getColorAttachmentRendererID() const = 0;
 
+        virtual void resize(uint32_t width, uint32_t height) = 0;
+        virtual void clearAttachment(uint32_t attachmentIndex, int32_t value) = 0;
+        virtual void clearDepthStencilAttachment(uint32_t attachmentIndex, float depth, uint8_t stencil) = 0;
+
         static std::shared_ptr<Framebuffer> create(const FramebufferSpecification &spec);
     };
 }

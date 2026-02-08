@@ -15,8 +15,11 @@ namespace vektor::opengl
         virtual void bind() override;
         virtual void unBind() override;
 
-        inline virtual const renderer::FramebufferSpecification getSpecification() const override { return m_FramebufferSpecification; }
+        virtual void resize(uint32_t width, uint32_t height) override;
+        virtual void clearAttachment(uint32_t attachmentIndex, int32_t value) override;
+        virtual void clearDepthStencilAttachment(uint32_t attachmentIndex, float depth, uint8_t stencil) override;
 
+        inline virtual const renderer::FramebufferSpecification getSpecification() const override { return m_FramebufferSpecification; }
         inline virtual uint32_t getColorAttachmentRendererID() const override { return m_ColorAttachement; }
 
     private:

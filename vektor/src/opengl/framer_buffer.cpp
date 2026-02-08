@@ -18,6 +18,27 @@ namespace vektor::opengl
         glDeleteTextures(1, &m_DepthAttachement);
     }
 
+    void opengl::Framebuffer::resize(uint32_t width, uint32_t height)
+    {
+        if (width == 0 || height == 0 || m_FramebufferSpecification.width == width && m_FramebufferSpecification.height == height)
+            return;
+
+        m_FramebufferSpecification.width = width;
+        m_FramebufferSpecification.height = height;
+        invalidate();
+    }
+
+    void opengl::Framebuffer::clearAttachment(uint32_t attachmentIndex, int32_t value)
+    {
+        glClearTexImage(m_ColorAttachement, attachmentIndex, GL_RGBA, GL_INT, &value);
+    };
+
+    void opengl::Framebuffer::clearDepthStencilAttachment(uint32_t attachmentIndex, float depth, uint8_t stencil)
+    {
+        bind();
+        glClearBufferfi(GL_DEPTH_STENCIL, 0, depth, stencil);
+    }
+
     void opengl::Framebuffer::invalidate()
     {
         if (m_RendererID)

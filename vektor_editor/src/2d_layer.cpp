@@ -10,7 +10,7 @@
                                                          });                                        \
     PROFILE_CONCAT(timer, __LINE__).start();
 
-#include "vektor_editor_2d.hpp"
+#include "2d_layer.hpp"
 
 VektorEditor2D::VektorEditor2D()
     : Layer("VektorEditor2D")
@@ -21,7 +21,7 @@ VektorEditor2D::VektorEditor2D()
 
 void VektorEditor2D::onAttach()
 {
-    VEKTOR_CORE_INFO("VektorEditor2D layer attached");
+    VEKTOR_CORE_INFO("2D layer attached");
 
     m_Texture = vektor::utils::Texture::create("/Users/lazycodebaker/Documents/Dev/CPP/vektor_engine/assets/image.png");
 
@@ -37,7 +37,7 @@ void VektorEditor2D::onAttach()
 
 void VektorEditor2D::onDetach()
 {
-    VEKTOR_CORE_INFO("VektorEditor2D layer detached");
+    VEKTOR_CORE_INFO("2D layer detached");
 }
 
 void VektorEditor2D::onUpdate(vektor::core::Timestep timestep)
@@ -116,10 +116,18 @@ void VektorEditor2D::onRender()
 
     ImGui::End();
 
-    ImGui::Begin("IMAGE SHOW");
+    ImGui::Begin("Viewport");
+    ImVec2 viewportSize = ImGui::GetContentRegionAvail();
+    ImGui::Text("Viewport Size: %f x %f", viewportSize.x, viewportSize.y);
 
-    ImGui::Image(m_Framebuffer->getColorAttachmentRendererID(), ImVec2({320.0f, 240.0f}));
+    if (m_ViewportSize != *reinterpret_cast<glm::vec2 *>(&viewportSize))
+    {
+        m_Framebuffer->resize(viewportSize.x, viewportSize.y);
+        m_ViewportSize = *reinterpret_cast<glm::vec2 *>(&viewportSize);
+    }
 
+    uint32_t textureID = m_Framebuffer->getColorAttachmentRendererID();
+    ImGui::Image(reinterpret_cast<void *>(textureID), ImVec2(m_ViewportSize.x, m_ViewportSize.y), ImVec2(0, 1), ImVec2(1, 0));
     ImGui::End();
 
     static bool dockspaceOpen = true;
