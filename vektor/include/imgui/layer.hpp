@@ -8,7 +8,7 @@
 #include "events/keyboard.hpp"
 #include "events/window.hpp"
 
-namespace vektor::imgui_layer
+namespace vektor::imgui
 {
     class VEKTOR_API Layer : public layer::Layer
     {
@@ -18,19 +18,20 @@ namespace vektor::imgui_layer
 
         void onAttach() override;
         void onDetach() override;
-        
+
         void onRender() override;
 
         void onEvent(event::Event &event) override;
+        void blockEvents(bool block) { m_BlockEvents = block; }
 
         void begin();
         void end();
 
-        //testing theme 
+        // testing theme
         void setTheme();
 
     private:
-        bool m_BlockEvents = true;
+         bool m_BlockEvents = true;
         float m_Time = 0.0f;
 
         // Mouse events

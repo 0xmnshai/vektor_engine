@@ -58,7 +58,7 @@ namespace vektor
         std::shared_ptr<utils::buffer::Index> m_IndexBuffer;
         std::shared_ptr<utils::VertexArray> m_VertexArray;
 
-        imgui_layer::Layer *m_ImGuiLayer;
+        imgui::Layer *m_ImGuiLayer;
 
         bool m_Running = true;
 

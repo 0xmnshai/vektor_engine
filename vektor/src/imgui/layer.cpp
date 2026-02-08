@@ -12,17 +12,17 @@
 #include "application/application.hpp"
 #include "imgui/layer.hpp"
 
-namespace vektor::imgui_layer
+namespace vektor::imgui
 {
     Layer::Layer() : layer::Layer("ImGuiLayer")
     {
     }
-
-    imgui_layer::Layer::~Layer()
+  
+    imgui::Layer::~Layer()
     {
     }
 
-    void imgui_layer::Layer::setTheme()
+    void imgui::Layer::setTheme()
     {
         // ImGuiStyle &style = ImGui::GetStyle();
 
@@ -216,7 +216,7 @@ namespace vektor::imgui_layer
         colors[ImGuiCol_ModalWindowDimBg] = ImVec4(0.20f, 0.20f, 0.20f, 0.35f);
     }
 
-    void imgui_layer::Layer::onAttach()
+    void imgui::Layer::onAttach()
     {
         ImGui::CreateContext();
         ImGui::StyleColorsDark();
@@ -244,14 +244,14 @@ namespace vektor::imgui_layer
         ImGui_ImplOpenGL3_Init("#version 410");
     }
 
-    void imgui_layer::Layer::onDetach()
+    void imgui::Layer::onDetach()
     {
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplGlfw_Shutdown();
         ImGui::DestroyContext();
     }
 
-    void imgui_layer::Layer::begin()
+    void imgui::Layer::begin()
     {
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
@@ -288,7 +288,7 @@ namespace vektor::imgui_layer
         ImGui::End();
     }
 
-    void imgui_layer::Layer::onRender()
+    void imgui::Layer::onRender()
     {
         setTheme();
 
@@ -297,7 +297,7 @@ namespace vektor::imgui_layer
             ImGui::ShowDemoWindow(&show_demo);
     }
 
-    void imgui_layer::Layer::end()
+    void imgui::Layer::end()
     {
         ImGuiIO &io = ImGui::GetIO();
         Application &app = Application::getInstance();
@@ -323,52 +323,52 @@ namespace vektor::imgui_layer
         glViewport(0, 0, static_cast<int>(w), static_cast<int>(h));
     }
 
-    void imgui_layer::Layer::onEvent(event::Event &event)
+    void imgui::Layer::onEvent(event::Event &event)
     {
         event::EventDispatcher dispatcher(event);
 
-        dispatcher.dispatch<event::MouseButtonPressedEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onMouseButtonPressedEvent));
-        dispatcher.dispatch<event::MouseButtonReleasedEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onMouseButtonReleasedEvent));
-        dispatcher.dispatch<event::MouseMovedEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onMouseMovedEvent));
-        dispatcher.dispatch<event::MouseScrolledEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onMouseScrolledEvent));
+        dispatcher.dispatch<event::MouseButtonPressedEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onMouseButtonPressedEvent));
+        dispatcher.dispatch<event::MouseButtonReleasedEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onMouseButtonReleasedEvent));
+        dispatcher.dispatch<event::MouseMovedEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onMouseMovedEvent));
+        dispatcher.dispatch<event::MouseScrolledEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onMouseScrolledEvent));
 
-        dispatcher.dispatch<event::KeyPressedEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onKeyPressedEvent));
-        dispatcher.dispatch<event::KeyReleasedEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onKeyReleasedEvent));
-        dispatcher.dispatch<event::KeyTypedEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onKeyTypedEvent));
+        dispatcher.dispatch<event::KeyPressedEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onKeyPressedEvent));
+        dispatcher.dispatch<event::KeyReleasedEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onKeyReleasedEvent));
+        dispatcher.dispatch<event::KeyTypedEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onKeyTypedEvent));
 
-        dispatcher.dispatch<event::WindowResizeEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onWindowResizeEvent));
-        dispatcher.dispatch<event::WindowMovedEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onWindowMovedEvent));
-        dispatcher.dispatch<event::WindowFocusEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onWindowFocusEvent));
-        dispatcher.dispatch<event::WindowLostFocusEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onWindowLostFocusEvent));
+        dispatcher.dispatch<event::WindowResizeEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onWindowResizeEvent));
+        dispatcher.dispatch<event::WindowMovedEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onWindowMovedEvent));
+        dispatcher.dispatch<event::WindowFocusEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onWindowFocusEvent));
+        dispatcher.dispatch<event::WindowLostFocusEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onWindowLostFocusEvent));
 
-        dispatcher.dispatch<event::AppTickEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onAppTickEvent));
-        dispatcher.dispatch<event::AppUpdateEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onAppUpdateEvent));
-        dispatcher.dispatch<event::AppRenderEvent>(VEKTOR_BIND_EVENT_FN(imgui_layer::Layer::onAppRenderEvent));
+        dispatcher.dispatch<event::AppTickEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onAppTickEvent));
+        dispatcher.dispatch<event::AppUpdateEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onAppUpdateEvent));
+        dispatcher.dispatch<event::AppRenderEvent>(VEKTOR_BIND_EVENT_FN(imgui::Layer::onAppRenderEvent));
     }
 
     // Mouse events
-    bool imgui_layer::Layer::onMouseButtonPressedEvent(event::MouseButtonPressedEvent &event)
+    bool imgui::Layer::onMouseButtonPressedEvent(event::MouseButtonPressedEvent &event)
     {
         ImGuiIO &io = ImGui::GetIO();
         io.MouseDown[event.getMouseButton()] = true;
         return false;
     }
 
-    bool imgui_layer::Layer::onMouseButtonReleasedEvent(event::MouseButtonReleasedEvent &event)
+    bool imgui::Layer::onMouseButtonReleasedEvent(event::MouseButtonReleasedEvent &event)
     {
         ImGuiIO &io = ImGui::GetIO();
         io.MouseDown[event.getMouseButton()] = false;
         return false;
     }
 
-    bool imgui_layer::Layer::onMouseMovedEvent(event::MouseMovedEvent &event)
+    bool imgui::Layer::onMouseMovedEvent(event::MouseMovedEvent &event)
     {
         ImGuiIO &io = ImGui::GetIO();
         io.MousePos = ImVec2(event.getX(), event.getY());
         return false;
     }
 
-    bool imgui_layer::Layer::onMouseScrolledEvent(event::MouseScrolledEvent &event)
+    bool imgui::Layer::onMouseScrolledEvent(event::MouseScrolledEvent &event)
     {
         ImGuiIO &io = ImGui::GetIO();
         io.MouseWheel += event.getYOffset();
@@ -377,7 +377,7 @@ namespace vektor::imgui_layer
     }
 
     // Keyboard events
-    bool imgui_layer::Layer::onKeyPressedEvent(event::KeyPressedEvent &event)
+    bool imgui::Layer::onKeyPressedEvent(event::KeyPressedEvent &event)
     {
         ImGuiIO &io = ImGui::GetIO();
         io.AddKeyEvent(ImGuiKey_LeftCtrl, ImGui::IsKeyDown(ImGuiKey_LeftCtrl));
@@ -387,7 +387,7 @@ namespace vektor::imgui_layer
         return false;
     }
 
-    bool imgui_layer::Layer::onKeyReleasedEvent(event::KeyReleasedEvent &event)
+    bool imgui::Layer::onKeyReleasedEvent(event::KeyReleasedEvent &event)
     {
         ImGuiIO &io = ImGui::GetIO();
         io.AddKeyEvent(ImGuiKey_LeftCtrl, false);
@@ -397,7 +397,7 @@ namespace vektor::imgui_layer
         return false;
     }
 
-    bool imgui_layer::Layer::onKeyTypedEvent(event::KeyTypedEvent &event)
+    bool imgui::Layer::onKeyTypedEvent(event::KeyTypedEvent &event)
     {
         return false;
         // ImGuiIO &io = ImGui::GetIO();
@@ -406,7 +406,7 @@ namespace vektor::imgui_layer
     }
 
     // Window events
-    bool imgui_layer::Layer::onWindowResizeEvent(event::WindowResizeEvent &event)
+    bool imgui::Layer::onWindowResizeEvent(event::WindowResizeEvent &event)
     {
         ImGuiIO &io = ImGui::GetIO();
         io.DisplaySize = ImVec2(event.getWidth(), event.getHeight());
@@ -415,33 +415,33 @@ namespace vektor::imgui_layer
         return false;
     }
 
-    bool imgui_layer::Layer::onWindowMovedEvent(event::WindowMovedEvent &event)
+    bool imgui::Layer::onWindowMovedEvent(event::WindowMovedEvent &event)
     {
         return false;
     }
 
-    bool imgui_layer::Layer::onWindowFocusEvent(event::WindowFocusEvent &event)
+    bool imgui::Layer::onWindowFocusEvent(event::WindowFocusEvent &event)
     {
         return false;
     }
 
-    bool imgui_layer::Layer::onWindowLostFocusEvent(event::WindowLostFocusEvent &event)
+    bool imgui::Layer::onWindowLostFocusEvent(event::WindowLostFocusEvent &event)
     {
         return false;
     }
 
     // App events
-    bool imgui_layer::Layer::onAppTickEvent(event::AppTickEvent &event)
+    bool imgui::Layer::onAppTickEvent(event::AppTickEvent &event)
     {
         return false;
     }
 
-    bool imgui_layer::Layer::onAppUpdateEvent(event::AppUpdateEvent &event)
+    bool imgui::Layer::onAppUpdateEvent(event::AppUpdateEvent &event)
     {
         return false;
     }
 
-    bool imgui_layer::Layer::onAppRenderEvent(event::AppRenderEvent &event)
+    bool imgui::Layer::onAppRenderEvent(event::AppRenderEvent &event)
     {
         return false;
     }

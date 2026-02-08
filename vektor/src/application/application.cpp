@@ -40,7 +40,7 @@ namespace vektor
 
         renderer::Renderer::init();
 
-        m_ImGuiLayer = new imgui_layer::Layer();
+        m_ImGuiLayer = new imgui::Layer();
         pushOverlay(m_ImGuiLayer);
     }
 
