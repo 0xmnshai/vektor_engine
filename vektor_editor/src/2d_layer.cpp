@@ -127,7 +127,7 @@ void VektorEditor2D::onRender()
 
     ImVec2 viewportSize = ImGui::GetContentRegionAvail();
 
-    if (m_ViewportSize != *reinterpret_cast<glm::vec2 *>(&viewportSize))
+    if (m_ViewportSize != *reinterpret_cast<glm::vec2 *>(&viewportSize) && (viewportSize.x > 0.0f && viewportSize.y > 0.0f))
     {
         m_Framebuffer->resize(viewportSize.x, viewportSize.y);
         m_ViewportSize = *reinterpret_cast<glm::vec2 *>(&viewportSize);

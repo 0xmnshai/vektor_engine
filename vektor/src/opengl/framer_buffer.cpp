@@ -21,7 +21,10 @@ namespace vektor::opengl
     void opengl::Framebuffer::resize(uint32_t width, uint32_t height)
     {
         if (width == 0 || height == 0 || m_FramebufferSpecification.width == width && m_FramebufferSpecification.height == height)
-            return;
+        {
+            VEKTOR_CORE_WARN("Invalid size for Framebuffer!");
+            return; 
+        }
 
         m_FramebufferSpecification.width = width;
         m_FramebufferSpecification.height = height;
