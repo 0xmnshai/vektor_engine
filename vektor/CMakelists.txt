@@ -109,6 +109,21 @@ else()
     message(STATUS " [Vektor] stb found in cache. Skipping download.")
 endif()
 
+FetchContent_Declare(
+    entt
+    GIT_REPOSITORY https://github.com/skypjack/entt.git
+    GIT_TAG v3.16.0
+)
+FetchContent_GetProperties(entt)
+
+if(NOT entt_POPULATED)
+    FetchContent_MakeAvailable(entt)
+    message(STATUS " [Vektor] entt downloaded and configured.")
+else()
+    FetchContent_MakeAvailable(entt)
+    message(STATUS " [Vektor] entt found in cache. Skipping download.")
+endif()
+
 file(GLOB_RECURSE SOURCES
     "src/*.cpp"
     "include/*.hpp"
@@ -137,6 +152,13 @@ target_include_directories(vektor PUBLIC
 target_include_directories(vektor PRIVATE
     ${stb_SOURCE_DIR}
 )
+
+target_include_directories(vektor PRIVATE
+    ${entt_SOURCE_DIR}/include
+)
+
+target_link_libraries(vektor PUBLIC EnTT::EnTT)
+
 
 target_link_libraries(vektor PUBLIC
     spdlog::spdlog
