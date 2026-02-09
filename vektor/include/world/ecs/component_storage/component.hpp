@@ -10,6 +10,42 @@
 
 namespace vektor::world::ecs::component_storage
 {
+    struct TagComponent
+    {
+        std::string tag;
+
+        TagComponent() = default;
+
+        TagComponent(const TagComponent &) = default;
+        TagComponent(TagComponent &&) = default;
+
+        TagComponent &operator=(const TagComponent &) = default;
+        TagComponent &operator=(TagComponent &&) = default;
+
+        TagComponent(const std::string &_tag)
+            : tag(_tag) {}
+
+        inline const std::string &getTag() const
+        {
+            return tag;
+        }
+
+        inline void setTag(const std::string &_tag)
+        {
+            tag = _tag;
+        }
+
+        inline bool operator==(const TagComponent &other) const
+        {
+            return tag == other.tag;
+        }
+
+        inline bool operator!=(const TagComponent &other) const
+        {
+            return tag != other.tag;
+        }
+    };
+
     struct TransformComponent
     {
         glm::mat4 localMatrix{1.0f};

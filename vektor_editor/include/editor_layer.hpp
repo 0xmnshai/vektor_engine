@@ -34,6 +34,8 @@ private:
     bool m_ViewportFocused = false;
     bool m_ViewportHovered = false;
 
-    std::vector<entt::entity> m_Entities;
-    entt::entity m_SelectedEntity = entt::null;
+    std::vector<vektor::world::ecs::entity_manager::Entity> m_Entities;
+    vektor::world::ecs::entity_manager::Entity m_SelectedEntity;
+
+    vektor::world::ecs::entity_manager::Entity m_EntityObj;
 };

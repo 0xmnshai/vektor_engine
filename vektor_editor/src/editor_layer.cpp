@@ -1,5 +1,7 @@
 #include "editor_layer.hpp"
 
+namespace entity_manager = vektor::world::ecs::entity_manager;
+
 glm::vec3 clearColor = glm::vec3(0.1f, 0.1f, 0.1f);
 
 EditorLayer::EditorLayer()
@@ -22,14 +24,13 @@ void EditorLayer::onAttach()
 
     for (int i = 0; i < 3; i++)
     {
-        entt::entity entity = m_ActiveScene->createEntity();
-
-        auto &transform = m_ActiveScene->addComponent<vektor::world::ecs::component_storage::TransformComponent>(entity);
+        m_EntityObj = m_ActiveScene->createEntity("Square");
+        auto &transform = m_EntityObj.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
 
         transform.translate({i * 1.2f, 0.0f, 0.0f});
         transform.color = {1, 0, 0, 1};
 
-        m_Entities.push_back(entity);
+        m_Entities.push_back(m_EntityObj);
     }
 }
 void EditorLayer::onDetach()
@@ -82,7 +83,11 @@ void EditorLayer::onRender()
     {
         bool selected = (m_SelectedEntity == e);
 
-        if (ImGui::Selectable(("Quad " + std::to_string((uint32_t)e)).c_str(), selected))
+        std::string tag = "Unnamed Entity";
+        if (e.hasComponent<vektor::world::ecs::component_storage::TagComponent>())
+            tag = e.getComponent<vektor::world::ecs::component_storage::TagComponent>().getTag();
+
+        if (ImGui::Selectable((tag + " " + std::to_string((uint32_t)e.getEntity())).c_str(), selected))
             m_SelectedEntity = e;
     }
 
@@ -92,12 +97,11 @@ void EditorLayer::onRender()
 
     entt::registry &registry = m_ActiveScene->getRegistry();
 
-    if (m_SelectedEntity != entt::null && registry.valid(m_SelectedEntity))
+    if (m_SelectedEntity.getEntity() != entt::null && registry.valid(m_SelectedEntity.getEntity()))
     {
-        if (registry.all_of<vektor::world::ecs::component_storage::TransformComponent>(m_SelectedEntity))
+        if (m_SelectedEntity.hasComponent<vektor::world::ecs::component_storage::TransformComponent>())
         {
-            auto &transform =
-                registry.get<vektor::world::ecs::component_storage::TransformComponent>(m_SelectedEntity);
+            auto &transform = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
 
             ImGui::Text("Transform");
             ImGui::ColorEdit4("Color", glm::value_ptr(transform.color));

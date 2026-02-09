@@ -8,8 +8,12 @@
 #include "renderer/api.hpp"
 #include "renderer/2d.hpp"
 
-#include "world/ecs/entity_manager/entity.hpp"
 #include "world/ecs/component_storage/component.hpp"
+
+namespace vektor::world::ecs::entity_manager
+{
+    class Entity;
+}
 
 namespace vektor::world::scene
 {
@@ -21,44 +25,35 @@ namespace vektor::world::scene
 
         void onUpdate(core::Timestep timestep);
 
-        // template <typename T, typename... Args>
-        // inline entt:entity &createEntity(Args &&...args)
-        // {
-        //     // entt::entity entity = m_Registry.create();
-        //     // m_Registry.emplace<T>(entity, std::forward<Args>(args)...);
-        //     // return m_Registry.get<T>(entity);
-
-        //     return m_Registry.create();
-        // }
-
-        inline entt::entity createEntity()
-        {
-            return m_Registry.create();
-        }
+        world::ecs::entity_manager::Entity createEntity(std::string name = "Unnamed Entity");
 
         template <typename T, typename... Args>
-        inline T &addComponent(entt::entity e, Args &&...args)
+        T &addComponent(entt::entity e, Args &&...args)
         {
             return m_Registry.emplace<T>(e, std::forward<Args>(args)...);
         }
 
         template <typename T>
-        inline T &getComponent(entt::entity e)
+        T &getComponent(entt::entity e)
         {
             return m_Registry.get<T>(e);
         }
 
-        template <typename T, typename... Args>
-        inline bool hasEntity() const
-        { 
-            return m_Registry.any_of<T>();
+        template <typename T>
+        bool hasComponent(entt::entity e) const
+        {
+            return m_Registry.all_of<T>(e);
+        }
+
+        template <typename T>
+        void removeComponent(entt::entity entity)
+        {
+            m_Registry.remove<T>(entity);
         }
 
         entt::registry &getRegistry() { return m_Registry; }
 
     private:
         entt::registry m_Registry;
-
-        friend class world::ecs::entity_manager::Entity;
     };
 }
