@@ -88,4 +88,4 @@
 #include "utils/subtexture.hpp"
 
 #include "world/scene/scene.hpp"
-#include "world/component_storage/component.hpp"
+#include "world/ecs/component_storage/component.hpp"

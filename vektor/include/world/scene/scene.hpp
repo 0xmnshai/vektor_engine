@@ -8,7 +8,8 @@
 #include "renderer/api.hpp"
 #include "renderer/2d.hpp"
 
-#include "world/component_storage/component.hpp"
+#include "world/ecs/entity_manager/entity.hpp"
+#include "world/ecs/component_storage/component.hpp"
 
 namespace vektor::world::scene
 {
@@ -47,9 +48,9 @@ namespace vektor::world::scene
             return m_Registry.get<T>(e);
         }
 
-        template <typename T>
+        template <typename T, typename... Args>
         inline bool hasEntity() const
-        {
+        { 
             return m_Registry.any_of<T>();
         }
 
@@ -57,5 +58,7 @@ namespace vektor::world::scene
 
     private:
         entt::registry m_Registry;
+
+        friend class world::ecs::entity_manager::Entity;
     };
 }

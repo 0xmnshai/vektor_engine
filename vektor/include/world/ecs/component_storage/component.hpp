@@ -1,7 +1,5 @@
 #pragma once
 
-#define GLM_ENABLE_EXPERIMENTAL
-
 #include <vector>
 #include <cstdint>
 
@@ -10,7 +8,7 @@
 #include <glm/gtx/matrix_decompose.hpp>
 #include <glm/gtx/quaternion.hpp>
 
-namespace vektor::world::component_storage
+namespace vektor::world::ecs::component_storage
 {
     struct TransformComponent
     {
