@@ -14,13 +14,14 @@ namespace vektor::scene
 
     void Scene::onUpdate(core::Timestep timestep)
     {
-    }
+        auto group = m_Registry.group<components::TransformComponent>();
 
-    template <typename T, typename... Args>
-    T &Scene::createEntity(Args &&...args)
-    {
-        entt::entity entity = m_Registry.create();
-        m_Registry.emplace<T>(entity, std::forward<Args>(args)...);
-        return m_Registry.get<T>(entity);
+        for (auto tranformEntity : group)
+        {
+            // auto &[transform, mesh] = group.get<components::TransformComponent, components::MeshComponent>(tranformEntity);
+            auto &transform = group.get<components::TransformComponent>(tranformEntity);
+
+            renderer::Renderer2D::drawQuad(transform.getLocalMatrix(), glm::vec4(1.0f));
+        }
     }
 }

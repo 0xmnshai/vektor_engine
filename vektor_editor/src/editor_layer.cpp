@@ -7,6 +7,7 @@ EditorLayer::EditorLayer()
 {
     float aspectRatio = WINDOW_WIDTH / WINDOW_HEIGHT;
     m_CameraController = std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
+    m_ActiveScene = std::make_shared<vektor::scene::Scene>();
 }
 
 void EditorLayer::onAttach()
@@ -19,9 +20,7 @@ void EditorLayer::onAttach()
 
     m_Framebuffer = vektor::renderer::Framebuffer::create(framebufferSpecification);
 
-    m_ActiveScene = std::make_shared<vektor::scene::Scene>();
-
-    // auto transformComponent = m_ActiveScene->createEntity<vektor::components::TransformComponent>();
+    auto transformComponent = m_ActiveScene->createEntity<vektor::components::TransformComponent>();
 }
 void EditorLayer::onDetach()
 {
@@ -34,19 +33,25 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
 
     VEKTOR_PROFILE_BEGIN_SESSION("EditorLayer::OnUpdate", "EditorLayer-Profile-Runtime.json");
 
-    
+    auto stats = m_Framebuffer->getSpecification();
+    if (m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f &&                  // size is valid
+        (stats.width != m_ViewportSize.x || stats.height != m_ViewportSize.y)) // size changed
+    {
+        m_Framebuffer->resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+        m_CameraController->onResize(m_ViewportSize.x, m_ViewportSize.y); // Update camera aspect ratio
+    }
+
     VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());
     m_CameraController->onUpdate(timestep);
-    
-    m_Framebuffer->bind();
-    glClearColor(clearColor.x, clearColor.y, clearColor.z, 1.0f);
-    glClear(GL_COLOR_BUFFER_BIT);
 
-    m_ActiveScene->onUpdate(timestep);
+    m_Framebuffer->bind();
+    glViewport(0, 0, (uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+    glClearColor(clearColor.x, clearColor.y, clearColor.z, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
 
-    // somthing ?
+    m_ActiveScene->onUpdate(timestep);
 
     vektor::renderer::Renderer2D::endScene();
 
@@ -61,12 +66,14 @@ void EditorLayer::onRender()
     ImGui::ColorEdit3("Clear Color", glm::value_ptr(clearColor));
     ImGui::End();
 
-    // using frame buffer here 
-
     ImGui::Begin("Frame buffer viewport");
-    auto viewportSize = ImGui::GetContentRegionAvail();
-    m_Framebuffer->resize(viewportSize.x, viewportSize.y);
-    ImGui::Image((void*)(intptr_t)m_Framebuffer->getColorAttachmentRendererID(), ImVec2(viewportSize.x, viewportSize.y), ImVec2(0, 1), ImVec2(1, 0));
+
+    ImVec2 viewportSize = ImGui::GetContentRegionAvail();
+    m_ViewportSize = {viewportSize.x, viewportSize.y};
+
+    uint32_t textureID = m_Framebuffer->getColorAttachmentRendererID();
+    ImGui::Image((void *)(intptr_t)textureID, ImVec2(m_ViewportSize.x, m_ViewportSize.y), ImVec2(0, 1), ImVec2(1, 0));
+
     ImGui::End();
 }
 

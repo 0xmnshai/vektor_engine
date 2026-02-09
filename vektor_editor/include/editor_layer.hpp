@@ -29,4 +29,8 @@ private:
     std::shared_ptr<vektor::renderer::Framebuffer> m_Framebuffer;
 
     std::shared_ptr<vektor::scene::Scene> m_ActiveScene;
+
+    ImVec2 m_ViewportSize;
+    bool m_ViewportFocused = false;
+    bool m_ViewportHovered = false;
 };

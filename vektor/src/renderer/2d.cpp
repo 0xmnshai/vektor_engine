@@ -205,6 +205,20 @@ namespace vektor::renderer
         // drawRotatedQuad(position, size, 0.0f, texture, tintColor);
     }
 
+    void Renderer2D::drawQuad(const glm::mat4 &transform, glm::vec4 tintColor)
+    {
+        glm::vec2 size = {transform[0][0], transform[1][1]};
+        glm::vec3 position = {transform[3][0], transform[3][1], transform[3][2]};
+        drawQuad(position, size, tintColor);
+    }
+
+    void Renderer2D::drawQuad(const glm::mat4 &transform, const std::shared_ptr<utils::SubTexture2D> &texture, glm::vec4 tintColor)
+    {
+        glm::vec2 size = {transform[0][0], transform[1][1]};
+        glm::vec3 position = {transform[3][0], transform[3][1], transform[3][2]};
+        drawRotatedQuad(position, size, 0.0f, texture, tintColor);
+    }
+
     void Renderer2D::drawRotatedQuad(const glm::vec2 &position, const glm::vec2 &size, float rotation, const glm::vec4 &color)
     {
         drawRotatedQuad({position.x, position.y, 0.0f}, size, rotation, s_Data.whiteTexture, color);
