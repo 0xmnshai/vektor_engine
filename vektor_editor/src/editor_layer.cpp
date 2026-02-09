@@ -7,7 +7,7 @@ EditorLayer::EditorLayer()
 {
     float aspectRatio = WINDOW_WIDTH / WINDOW_HEIGHT;
     m_CameraController = std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
-    m_ActiveScene = std::make_shared<vektor::scene::Scene>();
+    m_ActiveScene = std::make_shared<vektor::world::scene::Scene>();
 }
 
 void EditorLayer::onAttach()
@@ -20,14 +20,11 @@ void EditorLayer::onAttach()
 
     m_Framebuffer = vektor::renderer::Framebuffer::create(framebufferSpecification);
 
-    // m_ActiveScene->createEntity<vektor::components::TransformComponent>();
-    // auto &transformComponent = m_ActiveScene->addComponent<vektor::components::TransformComponent>();
-
     for (int i = 0; i < 3; i++)
     {
         entt::entity entity = m_ActiveScene->createEntity();
 
-        auto &transform = m_ActiveScene->addComponent<vektor::components::TransformComponent>(entity);
+        auto &transform = m_ActiveScene->addComponent<vektor::world::component_storage::TransformComponent>(entity);
 
         transform.translate({i * 1.2f, 0.0f, 0.0f});
         transform.color = {1, 0, 0, 1};
@@ -97,10 +94,10 @@ void EditorLayer::onRender()
 
     if (m_SelectedEntity != entt::null && registry.valid(m_SelectedEntity))
     {
-        if (registry.all_of<vektor::components::TransformComponent>(m_SelectedEntity))
+        if (registry.all_of<vektor::world::component_storage::TransformComponent>(m_SelectedEntity))
         {
             auto &transform =
-                registry.get<vektor::components::TransformComponent>(m_SelectedEntity);
+                registry.get<vektor::world::component_storage::TransformComponent>(m_SelectedEntity);
 
             ImGui::Text("Transform");
             ImGui::ColorEdit4("Color", glm::value_ptr(transform.color));

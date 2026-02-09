@@ -8,9 +8,9 @@
 #include "renderer/api.hpp"
 #include "renderer/2d.hpp"
 
-#include "scene/components.hpp"
+#include "world/component_storage/component.hpp"
 
-namespace vektor::scene
+namespace vektor::world::scene
 {
     class VEKTOR_API Scene
     {

@@ -1,6 +1,6 @@
-#include "scene/scene.hpp"
+#include "world/scene/scene.hpp"
 
-namespace vektor::scene
+namespace vektor::world::scene
 {
     Scene::Scene()
     {
@@ -14,12 +14,12 @@ namespace vektor::scene
 
     void Scene::onUpdate(core::Timestep timestep)
     {
-        auto group = m_Registry.group<components::TransformComponent>();
+        auto group = m_Registry.group<world::component_storage::TransformComponent>();
 
         for (auto tranformEntity : group)
         {
             // auto &[transform, mesh] = group.get<components::TransformComponent, components::MeshComponent>(tranformEntity);
-            auto &transform = group.get<components::TransformComponent>(tranformEntity);
+            auto &transform = group.get<world::component_storage::TransformComponent>(tranformEntity);
 
             renderer::Renderer2D::drawQuad(transform.getLocalMatrix(), transform.getColor());
         }

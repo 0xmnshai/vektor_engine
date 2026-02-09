@@ -87,5 +87,5 @@
 #include "utils/texture.hpp"
 #include "utils/subtexture.hpp"
 
-#include "scene/scene.hpp"
-#include "scene/components.hpp"
+#include "world/scene/scene.hpp"
+#include "world/component_storage/component.hpp"

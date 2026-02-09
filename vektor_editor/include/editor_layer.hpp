@@ -1,7 +1,6 @@
 #pragma once
 
 #include "vektor.hpp"
-#include "scene/components.hpp"
 
 class EditorLayer : public vektor::layer::Layer
 {
@@ -29,7 +28,7 @@ private:
 
     std::shared_ptr<vektor::renderer::Framebuffer> m_Framebuffer;
 
-    std::shared_ptr<vektor::scene::Scene> m_ActiveScene;
+    std::shared_ptr<vektor::world::scene::Scene> m_ActiveScene;
 
     ImVec2 m_ViewportSize;
     bool m_ViewportFocused = false;

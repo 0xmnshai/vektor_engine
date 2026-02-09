@@ -10,7 +10,7 @@
 #include <glm/gtx/matrix_decompose.hpp>
 #include <glm/gtx/quaternion.hpp>
 
-namespace vektor::components
+namespace vektor::world::component_storage
 {
     struct TransformComponent
     {
