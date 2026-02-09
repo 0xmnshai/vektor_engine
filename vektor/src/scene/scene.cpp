@@ -21,7 +21,7 @@ namespace vektor::scene
             // auto &[transform, mesh] = group.get<components::TransformComponent, components::MeshComponent>(tranformEntity);
             auto &transform = group.get<components::TransformComponent>(tranformEntity);
 
-            renderer::Renderer2D::drawQuad(transform.getLocalMatrix(), glm::vec4(1.0f));
+            renderer::Renderer2D::drawQuad(transform.getLocalMatrix(), transform.getColor());
         }
     }
 }

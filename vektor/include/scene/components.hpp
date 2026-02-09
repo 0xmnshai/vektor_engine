@@ -22,7 +22,15 @@ namespace vektor::components
         mutable bool dirty = true;
         mutable glm::mat4 worldMatrix{1.0f};
 
+        glm::vec4 color = glm::vec4(1.0f);
+
         TransformComponent() = default;
+
+        TransformComponent(const TransformComponent &) = default;
+        TransformComponent(TransformComponent &&) = default;
+
+        TransformComponent &operator=(const TransformComponent &) = default;
+        TransformComponent &operator=(TransformComponent &&) = default;
 
         TransformComponent(const glm::mat4 &matrix)
             : localMatrix(matrix), dirty(true) {}
@@ -35,6 +43,16 @@ namespace vektor::components
                 glm::translate(glm::mat4(1.0f), position) *
                 glm::toMat4(rotation) *
                 glm::scale(glm::mat4(1.0f), scale);
+        }
+
+        inline const glm::vec4 &getColor() const
+        {
+            return color;
+        }
+
+        inline void setColor(const glm::vec4 &_color)
+        {
+            color = _color;
         }
 
         const glm::mat4 &getLocalMatrix() const

@@ -20,7 +20,20 @@ void EditorLayer::onAttach()
 
     m_Framebuffer = vektor::renderer::Framebuffer::create(framebufferSpecification);
 
-    auto transformComponent = m_ActiveScene->createEntity<vektor::components::TransformComponent>();
+    // m_ActiveScene->createEntity<vektor::components::TransformComponent>();
+    // auto &transformComponent = m_ActiveScene->addComponent<vektor::components::TransformComponent>();
+
+    for (int i = 0; i < 3; i++)
+    {
+        entt::entity entity = m_ActiveScene->createEntity();
+
+        auto &transform = m_ActiveScene->addComponent<vektor::components::TransformComponent>(entity);
+
+        transform.translate({i * 1.2f, 0.0f, 0.0f});
+        transform.color = {1, 0, 0, 1};
+
+        m_Entities.push_back(entity);
+    }
 }
 void EditorLayer::onDetach()
 {
@@ -34,11 +47,11 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
     VEKTOR_PROFILE_BEGIN_SESSION("EditorLayer::OnUpdate", "EditorLayer-Profile-Runtime.json");
 
     auto stats = m_Framebuffer->getSpecification();
-    if (m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f &&                  // size is valid
-        (stats.width != m_ViewportSize.x || stats.height != m_ViewportSize.y)) // size changed
+    if (m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f &&
+        (stats.width != m_ViewportSize.x || stats.height != m_ViewportSize.y))
     {
         m_Framebuffer->resize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
-        m_CameraController->onResize(m_ViewportSize.x, m_ViewportSize.y); // Update camera aspect ratio
+        m_CameraController->onResize(m_ViewportSize.x, m_ViewportSize.y);
     }
 
     VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());
@@ -62,8 +75,34 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
 
 void EditorLayer::onRender()
 {
-    ImGui::Begin("Clear Color Settings");
-    ImGui::ColorEdit3("Clear Color", glm::value_ptr(clearColor));
+    ImGui::Begin("Scene Hierarchy");
+
+    for (auto e : m_Entities)
+    {
+        bool selected = (m_SelectedEntity == e);
+
+        if (ImGui::Selectable(("Quad " + std::to_string((uint32_t)e)).c_str(), selected))
+            m_SelectedEntity = e;
+    }
+
+    ImGui::End();
+
+    ImGui::Begin("Inspector");
+
+    entt::registry &registry = m_ActiveScene->getRegistry();
+
+    if (m_SelectedEntity != entt::null && registry.valid(m_SelectedEntity))
+    {
+        if (registry.all_of<vektor::components::TransformComponent>(m_SelectedEntity))
+        {
+            auto &transform =
+                registry.get<vektor::components::TransformComponent>(m_SelectedEntity);
+
+            ImGui::Text("Transform");
+            ImGui::ColorEdit4("Color", glm::value_ptr(transform.color));
+        }
+    }
+
     ImGui::End();
 
     ImGui::Begin("Frame buffer viewport");

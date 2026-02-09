@@ -1,6 +1,7 @@
 #pragma once
 
 #include "vektor.hpp"
+#include "scene/components.hpp"
 
 class EditorLayer : public vektor::layer::Layer
 {
@@ -33,4 +34,9 @@ private:
     ImVec2 m_ViewportSize;
     bool m_ViewportFocused = false;
     bool m_ViewportHovered = false;
+
+    // entt::entity m_QuadEntity;
+
+    std::vector<entt::entity> m_Entities;
+    entt::entity m_SelectedEntity = entt::null;
 };
