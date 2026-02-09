@@ -60,6 +60,7 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
     }
 
     m_Framebuffer->bind();
+
     glViewport(0, 0, (uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
     glClearColor(clearColor.x, clearColor.y, clearColor.z, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -102,6 +103,9 @@ void EditorLayer::onRender()
         if (m_SelectedEntity.hasComponent<vektor::world::ecs::component_storage::TransformComponent>())
         {
             auto &transform = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+
+            std::string tag = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TagComponent>().getTag();
+            ImGui::Text("Entity Name: %s", (tag.c_str() + std::to_string((uint32_t)m_SelectedEntity.getEntity())).c_str());
 
             ImGui::Text("Transform");
             ImGui::ColorEdit4("Color", glm::value_ptr(transform.color));
