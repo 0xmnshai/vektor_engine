@@ -86,3 +86,6 @@
 #include "utils/vertex_array.hpp"
 #include "utils/texture.hpp"
 #include "utils/subtexture.hpp"
+
+#include "scene/scene.hpp"
+#include "scene/components.hpp"

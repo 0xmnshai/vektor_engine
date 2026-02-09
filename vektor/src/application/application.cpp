@@ -13,6 +13,7 @@
 #include "input/input.hpp"
 
 #include "renderer/api.hpp"
+#include "renderer/command.hpp"
 
 #include "utils/instrumentor.hpp"
 
@@ -80,6 +81,12 @@ namespace vektor
             core::Timestep timestep = time - m_LastFrameTime;
 
             m_LastFrameTime = time;
+
+            // Clearing the frame buffer
+            // Binding the frame buffer
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+            renderer::Command::setClearColor({0.1f, 0.1f, 0.1f, 1.0f});
+            renderer::Command::clear();
 
             if (!m_windowMinimised)
             {

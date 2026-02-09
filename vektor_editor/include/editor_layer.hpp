@@ -25,6 +25,8 @@ private:
     std::shared_ptr<vektor::utils::buffer::Vertex> m_VertexBuffer;
     std::shared_ptr<vektor::utils::buffer::Layout> m_Layout;
     std::shared_ptr<vektor::utils::Texture> m_Texture;
-    
+
     std::shared_ptr<vektor::renderer::Framebuffer> m_Framebuffer;
+
+    std::shared_ptr<vektor::scene::Scene> m_ActiveScene;
 };
