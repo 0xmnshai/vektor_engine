@@ -415,8 +415,6 @@ namespace vektor::imgui
 
     void imgui::Layer::onRender()
     {
-        setTheme();
-
         static bool show_demo = true;
         if (show_demo)
             ImGui::ShowDemoWindow(&show_demo);
