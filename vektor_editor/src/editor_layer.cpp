@@ -55,7 +55,11 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
     }
 
     VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());
-    m_CameraController->onUpdate(timestep);
+
+    if (m_ViewportHovered && m_ViewportFocused)
+    {
+        m_CameraController->onUpdate(timestep);
+    }
 
     m_Framebuffer->bind();
     glViewport(0, 0, (uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
@@ -106,6 +110,8 @@ void EditorLayer::onRender()
     ImGui::End();
 
     ImGui::Begin("Frame buffer viewport");
+    m_ViewportFocused = ImGui::IsWindowFocused();
+    m_ViewportHovered = ImGui::IsWindowHovered();
 
     ImVec2 viewportSize = ImGui::GetContentRegionAvail();
     m_ViewportSize = {viewportSize.x, viewportSize.y};
@@ -118,5 +124,8 @@ void EditorLayer::onRender()
 
 void EditorLayer::onEvent(vektor::event::Event &event)
 {
-    m_CameraController->onEvent(event);
+    if (m_ViewportHovered && m_ViewportFocused)
+    {
+        m_CameraController->onEvent(event);
+    }
 }
