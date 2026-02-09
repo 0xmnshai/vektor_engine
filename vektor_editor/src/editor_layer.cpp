@@ -104,8 +104,26 @@ void EditorLayer::onRender()
         {
             auto &transform = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
 
-            std::string tag = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TagComponent>().getTag();
-            ImGui::Text("Entity Name: %s", (tag.c_str() + std::to_string((uint32_t)m_SelectedEntity.getEntity())).c_str());
+            auto &tagComponent = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TagComponent>();
+            std::string tag = tagComponent.getTag();
+
+            char buffer[256];
+            memset(buffer, 0, sizeof(buffer));
+            strncpy(buffer, tag.c_str(), sizeof(buffer) - 1);
+
+            ImGui::PushItemWidth(-1); 
+
+            if (ImGui::InputTextWithHint(
+                    "##EntityName",
+                    "Entity Name", 
+                    buffer,
+                    sizeof(buffer)))
+            {
+                tag = std::string(buffer); 
+                tagComponent.setTag(tag);
+            }
+
+            ImGui::PopItemWidth();
 
             ImGui::Text("Transform");
             ImGui::ColorEdit4("Color", glm::value_ptr(transform.color));
