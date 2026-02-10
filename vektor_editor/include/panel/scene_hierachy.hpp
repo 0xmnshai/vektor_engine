@@ -16,6 +16,8 @@ public:
     vektor::world::ecs::entity_manager::Entity getSelectedEntity() const { return m_SelectionContext; }
     void setSelectedEntity(vektor::world::ecs::entity_manager::Entity entity) { m_SelectionContext = entity; }
 
+    void drawComponents(vektor::world::ecs::entity_manager::Entity entity);
+
 private:
     void drawEntityNode(vektor::world::ecs::entity_manager::Entity entity);
     void drawContextMenu();

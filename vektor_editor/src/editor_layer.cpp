@@ -165,42 +165,42 @@ void EditorLayer::onRender()
   // ImGui::End();
 
   m_SceneHierarchyPanel->onRender();
-  m_SelectedEntity = m_SceneHierarchyPanel->getSelectedEntity();
+  // m_SelectedEntity = m_SceneHierarchyPanel->getSelectedEntity();
  
-  ImGui::Begin("Inspector");
+  // ImGui::Begin("Inspector");
 
-  entt::registry &registry = m_ActiveScene->getRegistry();
+  // entt::registry &registry = m_ActiveScene->getRegistry();
 
-  if (m_SelectedEntity.getEntity() != entt::null &&
-      registry.valid(m_SelectedEntity.getEntity()))
-  {
-    if (m_SelectedEntity.hasComponent<vektor::world::ecs::component_storage::TransformComponent>())
-    {
-      auto &transform = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+  // if (m_SelectedEntity.getEntity() != entt::null &&
+  //     registry.valid(m_SelectedEntity.getEntity()))
+  // {
+  //   if (m_SelectedEntity.hasComponent<vektor::world::ecs::component_storage::TransformComponent>())
+  //   {
+  //     auto &transform = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
 
-      auto &tagComponent = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TagComponent>();
-      std::string tag = tagComponent.getTag();
+  //     auto &tagComponent = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TagComponent>();
+  //     std::string tag = tagComponent.getTag();
 
-      char buffer[256];
-      memset(buffer, 0, sizeof(buffer));
-      strncpy(buffer, tag.c_str(), sizeof(buffer) - 1);
+  //     char buffer[256];
+  //     memset(buffer, 0, sizeof(buffer));
+  //     strncpy(buffer, tag.c_str(), sizeof(buffer) - 1);
 
-      ImGui::PushItemWidth(-1);
+  //     ImGui::PushItemWidth(-1);
 
-      if (ImGui::InputTextWithHint("##EntityName", "Entity Name", buffer, sizeof(buffer)))
-      {
-        tag = std::string(buffer);
-        tagComponent.setTag(tag);
-      }
+  //     if (ImGui::InputTextWithHint("##EntityName", "Entity Name", buffer, sizeof(buffer)))
+  //     {
+  //       tag = std::string(buffer);
+  //       tagComponent.setTag(tag);
+  //     }
 
-      ImGui::PopItemWidth();
+  //     ImGui::PopItemWidth();
 
-      ImGui::Text("Transform");
-      ImGui::ColorEdit4("Color", glm::value_ptr(transform.color));
-    }
-  }
+  //     ImGui::Text("Transform");
+  //     ImGui::ColorEdit4("Color", glm::value_ptr(transform.color));
+  //   }
+  // }
 
-  ImGui::End();
+  // ImGui::End();
 
   // // clip space camera imgui
   // ImGui::DragFloat3("Clip camera Transform",
