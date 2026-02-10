@@ -11,6 +11,8 @@ EditorLayer::EditorLayer() : Layer("Editor Layer")
   m_CameraController = std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
   m_ActiveScene = std::make_shared<vektor::world::scene::Scene>();
 
+  m_SceneHierarchyPanel = std::make_unique<SceneHierarchyPanel>(m_ActiveScene);
+
   // main camera
   m_CameraObj = m_ActiveScene->createEntity("Camera");
   auto &cameraTransform = m_CameraObj.addComponent<vektor::world::ecs::component_storage::CameraComponent>();
@@ -67,6 +69,8 @@ EditorLayer::EditorLayer() : Layer("Editor Layer")
   };
 
   m_CameraObj.addComponent<vektor::world::ecs::component_storage::NativeScriptComponent>().bindFunction<CameraController>();
+
+  m_SceneHierarchyPanel->setContext(m_ActiveScene);
 }
 
 void EditorLayer::onAttach()
@@ -144,22 +148,25 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
 
 void EditorLayer::onRender()
 {
-  ImGui::Begin("Scene Hierarchy");
+  // ImGui::Begin("Scene Hierarchy");
 
-  for (auto e : m_Entities)
-  {
-    bool selected = (m_SelectedEntity == e);
+  // for (auto e : m_Entities)
+  // {
+  //   bool selected = (m_SelectedEntity == e);
 
-    std::string tag = "Unnamed Entity";
-    if (e.hasComponent<vektor::world::ecs::component_storage::TagComponent>())
-      tag = e.getComponent<vektor::world::ecs::component_storage::TagComponent>().getTag();
+  //   std::string tag = "Unnamed Entity";
+  //   if (e.hasComponent<vektor::world::ecs::component_storage::TagComponent>())
+  //     tag = e.getComponent<vektor::world::ecs::component_storage::TagComponent>().getTag();
 
-    if (ImGui::Selectable((tag + " " + std::to_string((uint32_t)e.getEntity())).c_str(), selected))
-      m_SelectedEntity = e;
-  }
+  //   if (ImGui::Selectable((tag + " " + std::to_string((uint32_t)e.getEntity())).c_str(), selected))
+  //     m_SelectedEntity = e;
+  // }
 
-  ImGui::End();
+  // ImGui::End();
 
+  m_SceneHierarchyPanel->onRender();
+  m_SelectedEntity = m_SceneHierarchyPanel->getSelectedEntity();
+ 
   ImGui::Begin("Inspector");
 
   entt::registry &registry = m_ActiveScene->getRegistry();

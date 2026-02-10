@@ -2,6 +2,8 @@
 
 #include "vektor.hpp"
 
+#include "panel/scene_hierachy.hpp"
+
 class EditorLayer : public vektor::layer::Layer
 {
 public:
@@ -34,4 +36,6 @@ private:
     vektor::world::ecs::entity_manager::Entity m_EntityObj;
     vektor::world::ecs::entity_manager::Entity m_CameraObj;
     vektor::world::ecs::entity_manager::Entity m_CameraObj2;
+
+    std::unique_ptr<SceneHierarchyPanel> m_SceneHierarchyPanel;
 };
