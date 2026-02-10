@@ -7,15 +7,12 @@ glm::vec3 clearColor = glm::vec3(0.1f, 0.1f, 0.1f);
 EditorLayer::EditorLayer() : Layer("Editor Layer")
 {
   float aspectRatio = WINDOW_WIDTH / WINDOW_HEIGHT;
-  m_CameraController =
-      std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
+  m_CameraController = std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
   m_ActiveScene = std::make_shared<vektor::world::scene::Scene>();
 
   m_CameraObj = m_ActiveScene->createEntity("Camera");
-  auto &cameraTransform = m_CameraObj.addComponent<
-      vektor::world::ecs::component_storage::CameraComponent>();
-  cameraTransform.setProjectionMatrix(
-      glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, -10.0f, 10.0f));
+  auto &cameraTransform = m_CameraObj.addComponent<vektor::world::ecs::component_storage::CameraComponent>();
+  cameraTransform.setProjectionMatrix(glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, -10.0f, 10.0f));
 }
 
 void EditorLayer::onAttach()
@@ -26,14 +23,12 @@ void EditorLayer::onAttach()
   framebufferSpecification.width = WINDOW_WIDTH;
   framebufferSpecification.height = WINDOW_HEIGHT;
 
-  m_Framebuffer =
-      vektor::renderer::Framebuffer::create(framebufferSpecification);
+  m_Framebuffer = vektor::renderer::Framebuffer::create(framebufferSpecification);
 
   for (int i = 0; i < 3; i++)
   {
     m_EntityObj = m_ActiveScene->createEntity("Square");
-    auto &transform = m_EntityObj.getComponent<
-        vektor::world::ecs::component_storage::TransformComponent>();
+    auto &transform = m_EntityObj.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
 
     transform.translate({i * 1.2f, 0.0f, 0.0f});
     transform.color = {1, 0, 0, 1};
@@ -47,8 +42,7 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
 {
   VEKTOR_PROFILE_FUNCTION();
 
-  VEKTOR_PROFILE_BEGIN_SESSION("EditorLayer::OnUpdate",
-                               "EditorLayer-Profile-Runtime.json");
+  VEKTOR_PROFILE_BEGIN_SESSION("EditorLayer::OnUpdate", "EditorLayer-Profile-Runtime.json");
 
   auto stats = m_Framebuffer->getSpecification();
   if (m_ViewportSize.x > 0.0f && m_ViewportSize.y > 0.0f &&
@@ -93,13 +87,9 @@ void EditorLayer::onRender()
 
     std::string tag = "Unnamed Entity";
     if (e.hasComponent<vektor::world::ecs::component_storage::TagComponent>())
-      tag =
-          e.getComponent<vektor::world::ecs::component_storage::TagComponent>()
-              .getTag();
+      tag = e.getComponent<vektor::world::ecs::component_storage::TagComponent>().getTag();
 
-    if (ImGui::Selectable(
-            (tag + " " + std::to_string((uint32_t)e.getEntity())).c_str(),
-            selected))
+    if (ImGui::Selectable((tag + " " + std::to_string((uint32_t)e.getEntity())).c_str(), selected))
       m_SelectedEntity = e;
   }
 
@@ -112,14 +102,11 @@ void EditorLayer::onRender()
   if (m_SelectedEntity.getEntity() != entt::null &&
       registry.valid(m_SelectedEntity.getEntity()))
   {
-    if (m_SelectedEntity.hasComponent<
-            vektor::world::ecs::component_storage::TransformComponent>())
+    if (m_SelectedEntity.hasComponent<vektor::world::ecs::component_storage::TransformComponent>())
     {
-      auto &transform = m_SelectedEntity.getComponent<
-          vektor::world::ecs::component_storage::TransformComponent>();
+      auto &transform = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
 
-      auto &tagComponent = m_SelectedEntity.getComponent<
-          vektor::world::ecs::component_storage::TagComponent>();
+      auto &tagComponent = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TagComponent>();
       std::string tag = tagComponent.getTag();
 
       char buffer[256];
@@ -128,8 +115,7 @@ void EditorLayer::onRender()
 
       ImGui::PushItemWidth(-1);
 
-      if (ImGui::InputTextWithHint("##EntityName", "Entity Name", buffer,
-                                   sizeof(buffer)))
+      if (ImGui::InputTextWithHint("##EntityName", "Entity Name", buffer, sizeof(buffer)))
       {
         tag = std::string(buffer);
         tagComponent.setTag(tag);
@@ -152,9 +138,7 @@ void EditorLayer::onRender()
   m_ViewportSize = {viewportSize.x, viewportSize.y};
 
   uint32_t textureID = m_Framebuffer->getColorAttachmentRendererID();
-  ImGui::Image((void *)(intptr_t)textureID,
-               ImVec2(m_ViewportSize.x, m_ViewportSize.y), ImVec2(0, 1),
-               ImVec2(1, 0));
+  ImGui::Image((void *)(intptr_t)textureID, ImVec2(m_ViewportSize.x, m_ViewportSize.y), ImVec2(0, 1), ImVec2(1, 0));
 
   ImGui::End();
 }
