@@ -191,6 +191,7 @@ namespace vektor::world::ecs::component_storage
         };
 
         bool isPrimary = false;
+        bool fixedAspectRatio = false;
 
         CameraProjection projectionType = CameraProjection::Perspective;
 
@@ -235,6 +236,24 @@ namespace vektor::world::ecs::component_storage
         const glm::mat4 &getViewProjectionMatrix() const
         {
             return viewProjectionMatrix;
+        }
+
+        void setViewPortSize(uint32_t width, uint32_t height)
+        {
+            aspectRatio = static_cast<float>(width) / static_cast<float>(height);
+
+            // if (projectionType == CameraProjection::Perspective)
+            // {
+            //     projectionMatrix = glm::perspective(glm::radians(fovY), aspectRatio, nearPlane, farPlane);
+            // }
+            // else
+            // {
+            projectionMatrix = glm::ortho(-orthoSize * aspectRatio, orthoSize * aspectRatio, -orthoSize, orthoSize, orthoNear, orthoFar);
+            // }
+
+            viewProjectionMatrix = projectionMatrix * viewMatrix;
+            projectionDirty = false;
+            viewDirty = true;
         }
 
         void setPerspective(float fovDeg, float aspect, float nearP, float farP)

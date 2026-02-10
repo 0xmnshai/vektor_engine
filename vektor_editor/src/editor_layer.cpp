@@ -61,6 +61,9 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
     m_Framebuffer->resize((uint32_t)m_ViewportSize.x,
                           (uint32_t)m_ViewportSize.y);
     m_CameraController->onResize(m_ViewportSize.x, m_ViewportSize.y);
+
+    m_ActiveScene->onViewportResize((uint32_t)m_ViewportSize.x,
+                                    (uint32_t)m_ViewportSize.y);
   }
 
   VEKTOR_CORE_TRACE("Delta time: {0} seconds", timestep.getSeconds());

@@ -21,6 +21,22 @@ namespace vektor::world::scene
         return entity;
     }
 
+    void Scene::onViewportResize(uint32_t width, uint32_t height)
+    {
+        m_ViewportWidth = width;
+        m_ViewportHeight = height;
+
+        // resize non fixed aspect ratio cameras
+        auto cameraView = m_Registry.view<world::ecs::component_storage::CameraComponent>();
+        cameraView.each([width, height](auto entity, world::ecs::component_storage::CameraComponent &camera)
+                        {
+                            if (!camera.fixedAspectRatio)
+                            {
+                                // camera.setAspectRatio(static_cast<float>(width) / static_cast<float>(height));
+                                camera.setViewPortSize(width, height);
+                            } });
+        }
+
     void Scene::onUpdate(core::Timestep timestep)
     {
         world::ecs::component_storage::CameraComponent *mainCamera = nullptr;
