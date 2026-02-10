@@ -1,4 +1,4 @@
-
+https://aistudio.google.com/prompts/1kk3cWWr1aVoE-oMjQqQpvKA4zNT4zqm- 
 
 # Resources 
 
@@ -124,3 +124,172 @@ Message box widget.
 Wrap panel widget.
 Curve editor widget.
 User defined widget.
+
+
+vektor
+├── CMakeLists.txt
+├── cmake/
+│   ├── toolchains/
+│   ├── sanitizers.cmake
+│   ├── platform.cmake
+│   └── vktr_config.cmake
+│
+├── tools/
+│   ├── shader_compiler/
+│   ├── asset_pipeline/
+│   └── codegen/
+│
+├── vendor/
+│   ├── glad/
+│   ├── imgui/
+│   ├── stb/
+│   └── entt/
+│
+├── include/
+│   └── vktr/
+│       ├── vktr.hpp
+│       ├── config.hpp
+│       ├── platform.hpp
+│       ├── core.hpp
+│       ├── application.hpp
+│       ├── renderer.hpp
+│       ├── ecs.hpp
+│       ├── events.hpp
+│       ├── input.hpp
+│       └── world.hpp
+│
+│       ├── core/
+│       │   ├── fwd.hpp
+│       │   ├── time.hpp
+│       │   ├── uuid.hpp
+│       │   └── memory.hpp
+│       │
+│       │   └── detail
+│       │       ├── platform
+│       │       │   ├── win32.hpp
+│       │       │   ├── macos.hpp
+│       │       │   └── linux.hpp
+│       │       │
+│       │       ├── traits
+│       │       │   ├── type_traits.hpp
+│       │       │   └── numeric_traits.hpp
+│       │       │
+│       │       └── allocators
+│       │           ├── linear_allocator.hpp
+│       │           ├── pool_allocator.hpp
+│       │           └── tlsf_allocator.hpp
+│
+│       ├── application/
+│       │   ├── app.hpp
+│       │   ├── layer.hpp
+│       │   ├── layer_stack.hpp
+│       │   └── entry_point.hpp
+│       │
+│       │   └── detail
+│       │       ├── app_singleton.hpp
+│       │       ├── app_context.hpp
+│       │       └── layer_dispatch.hpp
+│
+│       ├── events/
+│       │   ├── event.hpp
+│       │   ├── dispatcher.hpp
+│       │   └── categories.hpp
+│       │
+│       │   └── detail
+│       │       ├── event_traits.hpp
+│       │       ├── type_id.hpp
+│       │       ├── event_storage.hpp
+│       │       └── dispatch_impl.hpp
+│
+│       ├── ecs/
+│       │   ├── entity.hpp
+│       │   ├── registry.hpp
+│       │   ├── view.hpp
+│       │   └── system.hpp
+│       │
+│       │   └── detail
+│       │       ├── archetype
+│       │       │   ├── archetype.hpp
+│       │       │   ├── archetype_storage.hpp
+│       │       │   └── archetype_view.hpp
+│       │       │
+│       │       ├── component
+│       │       │   ├── component_traits.hpp
+│       │       │   ├── component_storage.hpp
+│       │       │   └── component_policy.hpp
+│       │       │
+│       │       ├── entity
+│       │       │   ├── entity_handle.hpp
+│       │       │   └── entity_traits.hpp
+│       │       │
+│       │       └── storage
+│       │           ├── sparse_set.hpp
+│       │           └── packed_array.hpp
+│
+│       ├── renderer/
+│       │   ├── renderer_api.hpp
+│       │   ├── command_buffer.hpp
+│       │   ├── resource_handle.hpp
+│       │   ├── pipeline.hpp
+│       │   └── frame_graph.hpp
+│       │
+│       │   └── detail
+│       │       ├── traits
+│       │       │   ├── backend_traits.hpp
+│       │       │   ├── resource_traits.hpp
+│       │       │   └── shader_traits.hpp
+│       │       │
+│       │       ├── policy
+│       │       │   ├── threading_policy.hpp
+│       │       │   ├── lifetime_policy.hpp
+│       │       │   └── cache_policy.hpp
+│       │       │
+│       │       ├── crtp
+│       │       │   ├── renderer_crtp.hpp
+│       │       │   └── command_encoder_crtp.hpp
+│       │       │
+│       │       └── impl
+│       │           ├── renderer_base.hpp
+│       │           ├── command_encoder.hpp
+│       │           └── resource_allocator.hpp
+│       │
+│       ├── input/
+│       │   ├── input.hpp
+│       │   └── keycodes.hpp
+│       │
+│       │   └── detail
+│       │       └── input_backend.hpp
+│
+│       └── world/
+│           ├── scene.hpp
+│           └── transform.hpp
+│
+│           └── detail
+│               ├── scene_graph.hpp
+│               └── spatial_index.hpp
+│
+├── src/
+│   └── vktr/
+│       ├── core/
+│       ├── application/
+│       ├── ecs/
+│       ├── events/
+│       ├── input/
+│       ├── world/
+│       └── renderer/
+│           └── backend/
+│               ├── opengl/
+│               │   ├── gl_backend.cpp
+│               │   ├── gl_command_encoder.cpp
+│               │   └── gl_resource_allocator.cpp
+│               │
+│               ├── vulkan/
+│               │   ├── vk_backend.cpp
+│               │   └── vk_command_encoder.cpp
+│               │
+│               └── null/
+│                   └── null_backend.cpp
+│
+└── sandbox/
+    └── src/
+        └── sandbox_app.cpp

@@ -181,4 +181,174 @@ namespace vektor::world::ecs::component_storage
             // children will be marked dirty by scene system
         }
     };
+
+    struct CameraComponent
+    {
+        enum class CameraProjection : uint8_t
+        {
+            Perspective = 0,
+            Orthographic = 1
+        };
+
+        CameraProjection projectionType = CameraProjection::Perspective;
+
+        float fovY = 60.0f; // degrees
+        float nearPlane = 0.1f;
+        float farPlane = 1000.0f;
+
+        float orthoSize = 10.0f; // half-height
+        float orthoNear = -100.0f;
+        float orthoFar = 100.0f;
+
+        float aspectRatio = 1.0f;
+
+        glm::mat4 projectionMatrix{1.0f};
+        glm::mat4 viewMatrix{1.0f};
+        glm::mat4 viewProjectionMatrix{1.0f};
+
+        mutable bool projectionDirty = true;
+        mutable bool viewDirty = true;
+
+        CameraComponent() = default;
+
+        CameraComponent(const CameraComponent &) = default;
+        CameraComponent(CameraComponent &&) = default;
+
+        CameraComponent &operator=(const CameraComponent &) = default;
+        CameraComponent &operator=(CameraComponent &&) = default;
+
+        CameraComponent(const glm::mat4 &projection, const glm::mat4 &view)
+            : projectionMatrix(projection), viewMatrix(view), viewProjectionMatrix(projection * view) {}
+
+        const glm::mat4 &getProjectionMatrix() const
+        {
+            return projectionMatrix;
+        }
+
+        const glm::mat4 &getViewMatrix() const
+        {
+            return viewMatrix;
+        }
+
+        const glm::mat4 &getViewProjectionMatrix() const
+        {
+            return viewProjectionMatrix;
+        }
+
+        void setPerspective(float fovDeg, float aspect, float nearP, float farP)
+        {
+            projectionType = CameraProjection::Perspective;
+            fovY = fovDeg;
+            aspectRatio = aspect;
+            nearPlane = nearP;
+            farPlane = farP;
+            projectionDirty = true;
+        }
+
+        void setOrthographic(float size, float aspect, float nearP, float farP)
+        {
+            projectionType = CameraProjection::Orthographic;
+            orthoSize = size;
+            aspectRatio = aspect;
+            orthoNear = nearP;
+            orthoFar = farP;
+            projectionDirty = true;
+        }
+
+        void setAspectRatio(float aspect)
+        {
+            aspectRatio = aspect;
+            projectionDirty = true;
+        }
+
+        void setProjectionMatrix(const glm::mat4 &projection)
+        {
+            projectionMatrix = projection;
+            viewProjectionMatrix = projection * viewMatrix;
+            projectionDirty = false;
+        }
+
+        void setViewMatrix(const glm::mat4 &view)
+        {
+            viewMatrix = view;
+            viewProjectionMatrix = projectionMatrix * view;
+            viewDirty = false;
+        }
+    };
 }
+
+/*
+
+#pragma once
+#include "scene/components.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+
+namespace vektor::world::ecs
+{
+    class CameraSystem
+    {
+    public:
+        static void Update(entt::registry& registry)
+        {
+            auto view = registry.view<
+                component_storage::CameraComponent,
+                component_storage::TransformComponent>();
+
+            for (auto entity : view)
+            {
+                auto& cam = view.get<component_storage::CameraComponent>(entity);
+                auto& transform = view.get<component_storage::TransformComponent>(entity);
+
+                UpdateProjection(cam);
+                UpdateView(cam, transform);
+            }
+        }
+
+    private:
+        static void UpdateProjection(component_storage::CameraComponent& cam)
+        {
+            if (!cam.projectionDirty)
+                return;
+
+            if (cam.projectionType == component_storage::CameraProjection::Perspective)
+            {
+                cam.projection = glm::perspective(
+                    glm::radians(cam.fovY),
+                    cam.aspectRatio,
+                    cam.nearPlane,
+                    cam.farPlane
+                );
+            }
+            else
+            {
+                float h = cam.orthoSize;
+                float w = h * cam.aspectRatio;
+
+                cam.projection = glm::ortho(
+                    -w, w,
+                    -h, h,
+                    cam.orthoNear,
+                    cam.orthoFar
+                );
+            }
+
+            cam.projectionDirty = false;
+        }
+
+        static void UpdateView(component_storage::CameraComponent& cam,
+                               const component_storage::TransformComponent& transform)
+        {
+            if (!cam.viewDirty && !transform.dirty)
+                return;
+
+            glm::mat4 world = transform.getWorldMatrix();
+            cam.view = glm::inverse(world);
+            cam.viewProjection = cam.projection * cam.view;
+
+            cam.viewDirty = false;
+        }
+    };
+}
+
+
+*/

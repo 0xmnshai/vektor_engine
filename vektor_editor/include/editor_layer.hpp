@@ -30,4 +30,5 @@ private:
     vektor::world::ecs::entity_manager::Entity m_SelectedEntity;
 
     vektor::world::ecs::entity_manager::Entity m_EntityObj;
+    vektor::world::ecs::entity_manager::Entity m_CameraObj;
 };
