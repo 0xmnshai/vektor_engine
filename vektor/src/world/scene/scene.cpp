@@ -23,19 +23,48 @@ namespace vektor::world::scene
 
     void Scene::onUpdate(core::Timestep timestep)
     {
+        world::ecs::component_storage::CameraComponent *mainCamera = nullptr;
+        world::ecs::component_storage::TransformComponent *cameraTransform = nullptr;
+        bool found = false;
 
         auto cameraView = m_Registry.view<world::ecs::component_storage::TransformComponent, world::ecs::component_storage::CameraComponent>();
 
-        cameraView.each([=](auto entity, world::ecs::component_storage::TransformComponent &transform, world::ecs::component_storage::CameraComponent &camera)
+        cameraView.each([&](auto entity, world::ecs::component_storage::TransformComponent &transform, world::ecs::component_storage::CameraComponent &camera)
                         {
                             world::ecs::component_storage::CameraComponent &cam = cameraView.get<world::ecs::component_storage::CameraComponent>(entity);
                             world::ecs::component_storage::TransformComponent &tr = cameraView.get<world::ecs::component_storage::TransformComponent>(entity);
- 
-                            if(camera.projectionType == world::ecs::component_storage::CameraComponent::CameraProjection::Perspective)
+
+                            // if(camera.projectionType == world::ecs::component_storage::CameraComponent::CameraProjection::Perspective)
+                            // {
+                            //     renderer::Renderer2D::beginScene(cam, tr);
+                            // }
+
+                            if(found) return;
+
+                            if (cam.isPrimary)
                             {
-                                renderer::Renderer2D::beginScene(cam, tr);
+                                mainCamera = &cam;
+                                cameraTransform = &tr;
+                                found = true;
                             } });
 
+        if (mainCamera)
+        {
+            renderer::Renderer2D::beginScene(*mainCamera, *cameraTransform);
+
+            auto group = m_Registry.group<world::ecs::component_storage::TransformComponent>();
+
+            for (auto entity : group)
+            {
+                if (m_Registry.any_of<world::ecs::component_storage::CameraComponent>(entity))
+                    continue;
+
+                auto &transform = group.get<world::ecs::component_storage::TransformComponent>(entity);
+                renderer::Renderer2D::drawQuad(transform.getWorldMatrix(), transform.getColor());
+            }
+
+            renderer::Renderer2D::endScene();
+        }
         // for (auto it = cameraView.begin(), end = cameraView.end(); it != end; ++it)
         // {
         //     entt::entity e = *it;
@@ -68,14 +97,14 @@ namespace vektor::world::scene
         //     camera.viewDirty = false;
         // }
 
-        auto group = m_Registry.group<world::ecs::component_storage::TransformComponent>();
+        // auto group = m_Registry.group<world::ecs::component_storage::TransformComponent>();
 
-        for (auto tranformEntity : group)
-        {
-            auto &transform = group.get<world::ecs::component_storage::TransformComponent>(tranformEntity);
-            renderer::Renderer2D::drawQuad(transform.getLocalMatrix(), transform.getColor());
-        }
+        // for (auto tranformEntity : group)
+        // {
+        //     auto &transform = group.get<world::ecs::component_storage::TransformComponent>(tranformEntity);
+        //     renderer::Renderer2D::drawQuad(transform.getLocalMatrix(), transform.getColor());
+        // }
 
-        renderer::Renderer2D::endScene();
+        // renderer::Renderer2D::endScene();
     }
 }

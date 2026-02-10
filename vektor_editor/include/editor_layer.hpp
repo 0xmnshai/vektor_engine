@@ -26,9 +26,12 @@ private:
     bool m_ViewportFocused = false;
     bool m_ViewportHovered = false;
 
+    bool m_PrimaryCamera = false;
+
     std::vector<vektor::world::ecs::entity_manager::Entity> m_Entities;
     vektor::world::ecs::entity_manager::Entity m_SelectedEntity;
 
     vektor::world::ecs::entity_manager::Entity m_EntityObj;
     vektor::world::ecs::entity_manager::Entity m_CameraObj;
+    vektor::world::ecs::entity_manager::Entity m_CameraObj2;
 };

@@ -10,9 +10,19 @@ EditorLayer::EditorLayer() : Layer("Editor Layer")
   m_CameraController = std::make_shared<vektor::renderer::camera::Controller>(aspectRatio);
   m_ActiveScene = std::make_shared<vektor::world::scene::Scene>();
 
+  // main camera
   m_CameraObj = m_ActiveScene->createEntity("Camera");
   auto &cameraTransform = m_CameraObj.addComponent<vektor::world::ecs::component_storage::CameraComponent>();
   cameraTransform.setProjectionMatrix(glm::ortho(-10.0f, 10.0f, -10.0f, 10.0f, -10.0f, 10.0f));
+  cameraTransform.isPrimary = true;
+
+  // clip space camera
+  m_CameraObj2 = m_ActiveScene->createEntity("Clip Space Camera");
+  auto &cameraComponent2 = m_CameraObj2.addComponent<vektor::world::ecs::component_storage::CameraComponent>();
+  cameraComponent2.setProjectionMatrix(glm::ortho(-1.0f, 1.0f, -1.0f, 1.0f, -1.0f, 1.0f));
+  cameraComponent2.isPrimary = false;
+
+  m_PrimaryCamera = true;
 }
 
 void EditorLayer::onAttach()
@@ -58,6 +68,14 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
   if (m_ViewportHovered && m_ViewportFocused)
   {
     m_CameraController->onUpdate(timestep);
+
+    // TESTING ...
+    auto &activeCameraEntity = m_PrimaryCamera ? m_CameraObj : m_CameraObj2;
+    auto &tc = activeCameraEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+
+    glm::mat4 mat = tc.getLocalMatrix();
+    mat[3] = glm::vec4(m_CameraController->getCameraPosition(), 1.0f);
+    tc.setLocalMatrix(mat);
   }
 
   m_Framebuffer->bind();
@@ -66,11 +84,11 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
   glClearColor(clearColor.x, clearColor.y, clearColor.z, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-  vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
+  // vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
 
   m_ActiveScene->onUpdate(timestep);
 
-  vektor::renderer::Renderer2D::endScene();
+  // vektor::renderer::Renderer2D::endScene();
 
   m_Framebuffer->unBind();
 
@@ -129,6 +147,76 @@ void EditorLayer::onRender()
   }
 
   ImGui::End();
+
+  // // clip space camera imgui
+  // ImGui::DragFloat3("Clip camera Transform",
+  //                   glm::value_ptr(m_CameraObj.getComponent<vektor::world::ecs::component_storage::TransformComponent>().localMatrix[3]));
+
+  // // camera switch checkbox
+  // if (ImGui::Checkbox("Primary Camera", &m_PrimaryCamera))
+  // {
+  //   m_CameraObj.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = m_PrimaryCamera;
+  //   m_CameraObj2.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = !m_PrimaryCamera;
+  // }
+
+  ImGui::Begin("Camera Debug");
+
+  auto &activeCameraEntity = m_PrimaryCamera ? m_CameraObj : m_CameraObj2;
+
+  ImGui::Text("Currently Controlling: %s", m_PrimaryCamera ? "Main Camera" : "Clip Space Camera");
+
+  auto &cameraTransform = activeCameraEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+  glm::vec3 pos = cameraTransform.getPosition();
+
+  if (ImGui::DragFloat3("Position", glm::value_ptr(pos), 0.1f))
+  {
+    glm::mat4 mat = cameraTransform.getLocalMatrix();
+    mat[3] = glm::vec4(pos, 1.0f);
+    cameraTransform.setLocalMatrix(mat);
+  }
+
+  ImGui::Separator();
+
+  if (ImGui::Checkbox("Primary Camera", &m_PrimaryCamera))
+  {
+    m_CameraObj.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = m_PrimaryCamera;
+    m_CameraObj2.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = !m_PrimaryCamera;
+
+    // Optional: Sync the controller position to the new active camera so it doesn't "jump"
+    auto &newTransform = activeCameraEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+    m_CameraController->setCameraPosition(newTransform.getPosition());
+  }
+  ImGui::End();
+
+  // auto &cameraTransform = m_CameraObj.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+  // glm::vec3 pos = cameraTransform.getPosition();
+
+  // // Controls for the Clip Space Camera
+  // ImGui::Text("Clip Space Camera");
+  // // ImGui::DragFloat3("Position##Clip",
+  // //                   glm::value_ptr(m_CameraObj.getComponent<vektor::world::ecs::component_storage::TransformComponent>().localMatrix[3]));
+
+  // //   if (ImGui::DragFloat3("Position##Clip", glm::value_ptr(m_CameraObj.getComponent<...>().localMatrix[3]))) {
+  // //     m_CameraObj.getComponent<...>().markDirty(); // Explicitly trigger the update
+  // // }
+
+  // if (ImGui::DragFloat3("Position##Clip", glm::value_ptr(pos), 0.1f))
+  // {
+  //   glm::mat4 mat = cameraTransform.getLocalMatrix();
+  //   mat[3] = glm::vec4(pos, 1.0f);
+
+  //   cameraTransform.setLocalMatrix(mat);
+  // }
+
+  // ImGui::Separator();
+
+  // // Camera switch checkbox
+  // if (ImGui::Checkbox("Primary Camera", &m_PrimaryCamera))
+  // {
+  //   m_CameraObj.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = m_PrimaryCamera;
+  //   m_CameraObj2.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = !m_PrimaryCamera;
+  // }
+  // ImGui::End();
 
   ImGui::Begin("Frame buffer viewport");
   m_ViewportFocused = ImGui::IsWindowFocused();

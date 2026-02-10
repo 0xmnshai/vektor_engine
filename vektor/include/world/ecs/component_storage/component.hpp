@@ -174,7 +174,7 @@ namespace vektor::world::ecs::component_storage
             return glm::normalize(glm::vec3(getWorldMatrix()[1]));
         }
 
-    private:
+    public:
         void markDirty()
         {
             dirty = true;
@@ -189,6 +189,8 @@ namespace vektor::world::ecs::component_storage
             Perspective = 0,
             Orthographic = 1
         };
+
+        bool isPrimary = false;
 
         CameraProjection projectionType = CameraProjection::Perspective;
 
