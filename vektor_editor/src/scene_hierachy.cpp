@@ -6,7 +6,6 @@
 using namespace vektor::world;
 using namespace vektor::world::ecs;
 
-// Helper to draw professional Vector3 controls with colored labels (X, Y, Z)
 static void DrawVec3Control(const std::string &label, glm::vec3 &values, float resetValue = 0.0f, float columnWidth = 100.0f)
 {
     ImGui::PushID(label.c_str());
@@ -19,7 +18,6 @@ static void DrawVec3Control(const std::string &label, glm::vec3 &values, float r
     ImGui::PushMultiItemsWidths(3, ImGui::CalcItemWidth());
     ImGui::PushStyleVar(ImGuiStyleVar_ItemSpacing, ImVec2{0, 0});
 
-    // FIX: Use ImGui::GetFontSize() instead of internal GImGui pointers
     float lineHeight = ImGui::GetFontSize() + ImGui::GetStyle().FramePadding.y * 2.0f;
     ImVec2 buttonSize = {lineHeight + 3.0f, lineHeight};
 
@@ -70,7 +68,6 @@ static void DrawVec3Control(const std::string &label, glm::vec3 &values, float r
 template <typename T, typename UIFunction>
 static void DrawComponent(const std::string &name, entity_manager::Entity entity, UIFunction uiFunction)
 {
-    // FIX: Renamed AllowItemOverlap to AllowOverlap for newer ImGui versions
     const ImGuiTreeNodeFlags treeNodeFlags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowOverlap | ImGuiTreeNodeFlags_FramePadding;
 
     if (entity.hasComponent<T>())
@@ -82,7 +79,6 @@ static void DrawComponent(const std::string &name, entity_manager::Entity entity
         float lineHeight = ImGui::GetFontSize() + ImGui::GetStyle().FramePadding.y * 2.0f;
         ImGui::Separator();
 
-        // FIX: Added "%s" to solve format security warning
         bool open = ImGui::TreeNodeEx((void *)typeid(T).hash_code(), treeNodeFlags, "%s", name.c_str());
         ImGui::PopStyleVar();
 
@@ -138,7 +134,6 @@ void SceneHierarchyPanel::onRender()
 
     auto &registry = m_Context->getRegistry();
 
-    // Use each() for safety with EnTT iterators
     registry.view<component_storage::TransformComponent, component_storage::TagComponent>()
         .each([this](auto entity, auto &transform, auto &tag)
               {
@@ -163,7 +158,6 @@ void SceneHierarchyPanel::onRender()
 
 void SceneHierarchyPanel::drawComponents(vektor::world::ecs::entity_manager::Entity entity)
 {
-    // Tag Component (Top level identity)
     if (entity.hasComponent<component_storage::TagComponent>())
     {
         auto &tag = entity.getComponent<component_storage::TagComponent>().tag;
@@ -307,7 +301,7 @@ void SceneHierarchyPanel::drawEntityNode(entity_manager::Entity entity)
         ImGui::TreePop();
     }
 
-    ImGui::PopID(); // Match PushID
+    ImGui::PopID();  
 }
 
 void SceneHierarchyPanel::drawContextMenu()
