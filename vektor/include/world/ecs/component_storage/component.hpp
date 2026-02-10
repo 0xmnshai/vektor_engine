@@ -319,24 +319,29 @@ namespace vektor::world::ecs::component_storage
         NativeScriptComponent(uint64_t inst, world::ecs::entity_manager::ScriptableEntity *script)
             : instance(script) {}
 
-        std::function<void()> instantiateFunction = nullptr;
         std::function<void()> destroyInstanceFunction = nullptr;
         std::function<void(world::ecs::entity_manager::ScriptableEntity *)> onCreateFunction = nullptr;
         std::function<void(world::ecs::entity_manager::ScriptableEntity *)> onDestroyFunction = nullptr;
         std::function<void(world::ecs::entity_manager::ScriptableEntity *, core::Timestep)> onUpdateFunction = nullptr;
 
+        world::ecs::entity_manager::ScriptableEntity *(*instantiateScript)() = nullptr;
+        void (*destroyScript)(NativeScriptComponent *) = nullptr;
+
         template <typename T>
         void bindFunction()
         {
-            instantiateFunction = [this]()
+            static_assert(std::is_base_of_v<world::ecs::entity_manager::ScriptableEntity, T>,
+                          "T must derive from ScriptableEntity");
+
+            instantiateScript = []() -> world::ecs::entity_manager::ScriptableEntity *
             {
-                instance = new T();
+                return static_cast<world::ecs::entity_manager::ScriptableEntity *>(new T());
             };
 
-            destroyInstanceFunction = [this]()
+            destroyScript = [](NativeScriptComponent *ns)
             {
-                delete (T *)instance;
-                instance = nullptr;
+                delete (T *)ns->instance;
+                ns->instance = nullptr;
             };
 
             onCreateFunction = [](world::ecs::entity_manager::ScriptableEntity *_instance)

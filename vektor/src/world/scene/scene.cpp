@@ -43,16 +43,20 @@ namespace vektor::world::scene
         m_Registry.view<world::ecs::component_storage::NativeScriptComponent>()
             .each([this, timestep](auto entity, world::ecs::component_storage::NativeScriptComponent &script)
                   {
+                    // we must move this to scene play 
                       if (!script.instance)
                       {
-                          if (script.instantiateFunction)
+                          if (script.instantiateScript)
                           {
-                              script.instantiateFunction();
+                            //   script.instantiateFunction();
 
-                                script.instance->m_Entity = world::ecs::entity_manager::Entity{entity, this};
+                            //     script.instance->m_Entity = world::ecs::entity_manager::Entity{entity, this};
 
-                              if (script.onCreateFunction)
-                                  script.onCreateFunction(script.instance);
+                            script.instance = script.instantiateScript();
+                            script.instance->m_Entity = world::ecs::entity_manager::Entity{entity, this};
+
+                            if (script.onCreateFunction)
+                                script.onCreateFunction(script.instance); 
                           }
                       }
 

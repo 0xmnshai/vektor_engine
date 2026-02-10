@@ -17,6 +17,7 @@ namespace vektor::world::ecs::entity_manager
             return m_Entity.getComponent<T>();
         }
 
+    protected: 
         virtual void onCreate() {}
         virtual void onDestroy() {}
         virtual void onUpdate(core::Timestep ts) {}
