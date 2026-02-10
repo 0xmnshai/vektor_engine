@@ -6,7 +6,7 @@
 using namespace vektor::world;
 using namespace vektor::world::ecs;
 
-static void DrawVec3Control(const std::string &label, glm::vec3 &values, float resetValue = 0.0f, float columnWidth = 100.0f)
+static void drawVec3Control(const std::string &label, glm::vec3 &values, float resetValue = 0.0f, float columnWidth = 100.0f)
 {
     ImGui::PushID(label.c_str());
 
@@ -66,7 +66,7 @@ static void DrawVec3Control(const std::string &label, glm::vec3 &values, float r
 }
 
 template <typename T, typename UIFunction>
-static void DrawComponent(const std::string &name, entity_manager::Entity entity, UIFunction uiFunction)
+static void drawComponent(const std::string &name, entity_manager::Entity entity, UIFunction uiFunction)
 {
     const ImGuiTreeNodeFlags treeNodeFlags = ImGuiTreeNodeFlags_DefaultOpen | ImGuiTreeNodeFlags_Framed | ImGuiTreeNodeFlags_SpanAvailWidth | ImGuiTreeNodeFlags_AllowOverlap | ImGuiTreeNodeFlags_FramePadding;
 
@@ -148,7 +148,7 @@ void SceneHierarchyPanel::onRender()
 
     ImGui::End();
 
-    if(ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
+    if (ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
         m_SelectionContext = {};
 
     ImGui::Begin("Inspector");
@@ -195,7 +195,7 @@ void SceneHierarchyPanel::drawComponents(vektor::world::ecs::entity_manager::Ent
     ImGui::PopItemWidth();
 
     // 1. Transform
-    DrawComponent<component_storage::TransformComponent>("Transform", entity, [](auto &component)
+    drawComponent<component_storage::TransformComponent>("Transform", entity, [](auto &component)
                                                          {
         glm::vec3 translation, rotation, scale;
         glm::quat qRotation;
@@ -207,9 +207,9 @@ void SceneHierarchyPanel::drawComponents(vektor::world::ecs::entity_manager::Ent
         // Convert to degrees for the UI
         rotation = glm::degrees(glm::eulerAngles(qRotation));
 
-        DrawVec3Control("Translation", translation);
-        DrawVec3Control("Rotation", rotation);
-        DrawVec3Control("Scale", scale, 1.0f);
+        drawVec3Control("Translation", translation);
+        drawVec3Control("Rotation", rotation);
+        drawVec3Control("Scale", scale, 1.0f);
 
         // Update Matrix back from user input
         component.localMatrix = glm::translate(glm::mat4(1.0f), translation) *
@@ -222,7 +222,7 @@ void SceneHierarchyPanel::drawComponents(vektor::world::ecs::entity_manager::Ent
         ImGui::ColorEdit4("Color Tint", glm::value_ptr(component.color)); });
 
     // 2. Camera
-    DrawComponent<component_storage::CameraComponent>("Camera", entity, [](auto &component)
+    drawComponent<component_storage::CameraComponent>("Camera", entity, [](component_storage::CameraComponent &component)
                                                       {
         const char* projectionTypeStrings[] = { "Perspective", "Orthographic" };
         const char* currentProjectionTypeString = projectionTypeStrings[(int)component.projectionType];
@@ -247,7 +247,7 @@ void SceneHierarchyPanel::drawComponents(vektor::world::ecs::entity_manager::Ent
             if (ImGui::DragFloat("Near", &component.nearPlane)) component.projectionDirty = true;
             if (ImGui::DragFloat("Far", &component.farPlane)) component.projectionDirty = true;
         }
-        else
+        if (component.projectionType == component_storage::CameraComponent::CameraProjection::Orthographic)
         {
             if (ImGui::DragFloat("Size", &component.orthoSize)) component.projectionDirty = true;
             if (ImGui::DragFloat("Near", &component.orthoNear)) component.projectionDirty = true;
@@ -257,7 +257,7 @@ void SceneHierarchyPanel::drawComponents(vektor::world::ecs::entity_manager::Ent
         ImGui::Checkbox("Primary", &component.isPrimary); });
 
     // 3. Script
-    DrawComponent<component_storage::NativeScriptComponent>("Native Script", entity, [](auto &component)
+    drawComponent<component_storage::NativeScriptComponent>("Native Script", entity, [](auto &component)
                                                             { ImGui::Text("Script Instance: %s", component.instance ? "Running" : "Pending/None"); });
 }
 
@@ -305,7 +305,7 @@ void SceneHierarchyPanel::drawEntityNode(entity_manager::Entity entity)
         ImGui::TreePop();
     }
 
-    ImGui::PopID();  
+    ImGui::PopID();
 }
 
 void SceneHierarchyPanel::drawContextMenu()

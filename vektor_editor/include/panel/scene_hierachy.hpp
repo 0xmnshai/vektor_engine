@@ -18,6 +18,8 @@ public:
 
     void drawComponents(vektor::world::ecs::entity_manager::Entity entity);
 
+    
+
 private:
     void drawEntityNode(vektor::world::ecs::entity_manager::Entity entity);
     void drawContextMenu();

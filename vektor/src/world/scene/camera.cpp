@@ -27,7 +27,9 @@ namespace vektor::world::scene
 
     void SceneCamera::recalculateProjectionMatrix()
     {
-        m_ProjectionMatrix = glm::ortho(-m_OrthographicSize * m_AspectRatio, m_OrthographicSize * m_AspectRatio, -m_OrthographicSize, m_OrthographicSize, m_OrthographicNear, m_OrthographicFar);
+        // m_ProjectionMatrix = glm::ortho(-m_OrthographicSize * m_AspectRatio, m_OrthographicSize * m_AspectRatio, -m_OrthographicSize, m_OrthographicSize, m_OrthographicNear, m_OrthographicFar);
+    
+        
     }
 
     void SceneCamera::setViewPortSize(uint32_t width, uint32_t height)

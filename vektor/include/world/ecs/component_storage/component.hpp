@@ -303,6 +303,21 @@ namespace vektor::world::ecs::component_storage
             viewProjectionMatrix = projectionMatrix * view;
             viewDirty = false;
         }
+
+        void recalculateProjectionMatrix()
+        {
+            if (projectionType == CameraProjection::Perspective)
+            {
+                projectionMatrix = glm::perspective(glm::radians(fovY), aspectRatio, nearPlane, farPlane);
+            }
+            else
+            {
+                float h = orthoSize;
+                float w = h * aspectRatio;
+
+                projectionMatrix = glm::ortho(-w, w, -h, h, orthoNear, orthoFar);
+            }
+        }
     };
 
     struct NativeScriptComponent

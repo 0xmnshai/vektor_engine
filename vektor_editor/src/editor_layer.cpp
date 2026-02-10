@@ -135,11 +135,7 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
   glClearColor(clearColor.x, clearColor.y, clearColor.z, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-  // vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
-
   m_ActiveScene->onUpdate(timestep);
-
-  // vektor::renderer::Renderer2D::endScene();
 
   m_Framebuffer->unBind();
 
@@ -148,127 +144,34 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
 
 void EditorLayer::onRender()
 {
-  // ImGui::Begin("Scene Hierarchy");
-
-  // for (auto e : m_Entities)
-  // {
-  //   bool selected = (m_SelectedEntity == e);
-
-  //   std::string tag = "Unnamed Entity";
-  //   if (e.hasComponent<vektor::world::ecs::component_storage::TagComponent>())
-  //     tag = e.getComponent<vektor::world::ecs::component_storage::TagComponent>().getTag();
-
-  //   if (ImGui::Selectable((tag + " " + std::to_string((uint32_t)e.getEntity())).c_str(), selected))
-  //     m_SelectedEntity = e;
-  // }
-
-  // ImGui::End();
-
   m_SceneHierarchyPanel->onRender();
-  // m_SelectedEntity = m_SceneHierarchyPanel->getSelectedEntity();
- 
-  // ImGui::Begin("Inspector");
 
-  // entt::registry &registry = m_ActiveScene->getRegistry();
+  // ImGui::Begin("Camera Debug");
 
-  // if (m_SelectedEntity.getEntity() != entt::null &&
-  //     registry.valid(m_SelectedEntity.getEntity()))
-  // {
-  //   if (m_SelectedEntity.hasComponent<vektor::world::ecs::component_storage::TransformComponent>())
-  //   {
-  //     auto &transform = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+  // auto &activeCameraEntity = m_PrimaryCamera ? m_CameraObj : m_CameraObj2;
 
-  //     auto &tagComponent = m_SelectedEntity.getComponent<vektor::world::ecs::component_storage::TagComponent>();
-  //     std::string tag = tagComponent.getTag();
+  // ImGui::Text("Currently Controlling: %s", m_PrimaryCamera ? "Main Camera" : "Clip Space Camera");
 
-  //     char buffer[256];
-  //     memset(buffer, 0, sizeof(buffer));
-  //     strncpy(buffer, tag.c_str(), sizeof(buffer) - 1);
-
-  //     ImGui::PushItemWidth(-1);
-
-  //     if (ImGui::InputTextWithHint("##EntityName", "Entity Name", buffer, sizeof(buffer)))
-  //     {
-  //       tag = std::string(buffer);
-  //       tagComponent.setTag(tag);
-  //     }
-
-  //     ImGui::PopItemWidth();
-
-  //     ImGui::Text("Transform");
-  //     ImGui::ColorEdit4("Color", glm::value_ptr(transform.color));
-  //   }
-  // }
-
-  // ImGui::End();
-
-  // // clip space camera imgui
-  // ImGui::DragFloat3("Clip camera Transform",
-  //                   glm::value_ptr(m_CameraObj.getComponent<vektor::world::ecs::component_storage::TransformComponent>().localMatrix[3]));
-
-  // // camera switch checkbox
-  // if (ImGui::Checkbox("Primary Camera", &m_PrimaryCamera))
-  // {
-  //   m_CameraObj.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = m_PrimaryCamera;
-  //   m_CameraObj2.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = !m_PrimaryCamera;
-  // }
-
-  ImGui::Begin("Camera Debug");
-
-  auto &activeCameraEntity = m_PrimaryCamera ? m_CameraObj : m_CameraObj2;
-
-  ImGui::Text("Currently Controlling: %s", m_PrimaryCamera ? "Main Camera" : "Clip Space Camera");
-
-  auto &cameraTransform = activeCameraEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
-  glm::vec3 pos = cameraTransform.getPosition();
-
-  if (ImGui::DragFloat3("Position", glm::value_ptr(pos), 0.1f))
-  {
-    glm::mat4 mat = cameraTransform.getLocalMatrix();
-    mat[3] = glm::vec4(pos, 1.0f);
-    cameraTransform.setLocalMatrix(mat);
-  }
-
-  ImGui::Separator();
-
-  if (ImGui::Checkbox("Primary Camera", &m_PrimaryCamera))
-  {
-    m_CameraObj.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = m_PrimaryCamera;
-    m_CameraObj2.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = !m_PrimaryCamera;
-
-    // Optional: Sync the controller position to the new active camera so it doesn't "jump"
-    auto &newTransform = activeCameraEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
-    m_CameraController->setCameraPosition(newTransform.getPosition());
-  }
-  ImGui::End();
-
-  // auto &cameraTransform = m_CameraObj.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+  // auto &cameraTransform = activeCameraEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
   // glm::vec3 pos = cameraTransform.getPosition();
 
-  // // Controls for the Clip Space Camera
-  // ImGui::Text("Clip Space Camera");
-  // // ImGui::DragFloat3("Position##Clip",
-  // //                   glm::value_ptr(m_CameraObj.getComponent<vektor::world::ecs::component_storage::TransformComponent>().localMatrix[3]));
-
-  // //   if (ImGui::DragFloat3("Position##Clip", glm::value_ptr(m_CameraObj.getComponent<...>().localMatrix[3]))) {
-  // //     m_CameraObj.getComponent<...>().markDirty(); // Explicitly trigger the update
-  // // }
-
-  // if (ImGui::DragFloat3("Position##Clip", glm::value_ptr(pos), 0.1f))
+  // if (ImGui::DragFloat3("Position", glm::value_ptr(pos), 0.1f))
   // {
   //   glm::mat4 mat = cameraTransform.getLocalMatrix();
   //   mat[3] = glm::vec4(pos, 1.0f);
-
   //   cameraTransform.setLocalMatrix(mat);
   // }
 
   // ImGui::Separator();
 
-  // // Camera switch checkbox
   // if (ImGui::Checkbox("Primary Camera", &m_PrimaryCamera))
   // {
   //   m_CameraObj.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = m_PrimaryCamera;
   //   m_CameraObj2.getComponent<vektor::world::ecs::component_storage::CameraComponent>().isPrimary = !m_PrimaryCamera;
+
+  //   // Optional: Sync the controller position to the new active camera so it doesn't "jump"
+  //   auto &newTransform = activeCameraEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+  //   m_CameraController->setCameraPosition(newTransform.getPosition());
   // }
   // ImGui::End();
 
