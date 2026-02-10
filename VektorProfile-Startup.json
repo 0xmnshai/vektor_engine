@@ -1,1 +1,0 @@
-{"otherData": {},"traceEvents":[,{"cat":"function","dur":213,"name":"vektor::opengl::VertexBuffer::VertexBuffer(const uint32_t)","ph":"X","pid":0,"tid":17100518141460009457,"ts":35613295646},{"cat":"function","dur":74,"name":"vektor::opengl::IndexBuffer::IndexBuffer(const std::vector<uint32_t> &)","ph":"X","pid":0,"tid":17100518141460009457,"ts":35613296185}]}
