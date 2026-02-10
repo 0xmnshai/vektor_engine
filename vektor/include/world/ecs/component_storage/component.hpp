@@ -8,6 +8,15 @@
 #include <glm/gtx/matrix_decompose.hpp>
 #include <glm/gtx/quaternion.hpp>
 
+#include "core/core.hpp"
+#include "core/timestep.hpp"
+// #include "world/ecs/entity_manager/scriptable.hpp"
+
+namespace vektor::world::ecs::entity_manager
+{
+    class ScriptableEntity;
+}
+
 namespace vektor::world::ecs::component_storage
 {
     struct TagComponent
@@ -296,7 +305,141 @@ namespace vektor::world::ecs::component_storage
             viewDirty = false;
         }
     };
-}
+
+    struct NativeScriptComponent
+    {
+        world::ecs::entity_manager::ScriptableEntity *instance = nullptr;
+
+        NativeScriptComponent() = default;
+        NativeScriptComponent(const NativeScriptComponent &) = default;
+        NativeScriptComponent(NativeScriptComponent &&) = default;
+        NativeScriptComponent &operator=(const NativeScriptComponent &) = default;
+        NativeScriptComponent &operator=(NativeScriptComponent &&) = default;
+
+        NativeScriptComponent(uint64_t inst, world::ecs::entity_manager::ScriptableEntity *script)
+            : instance(script) {}
+
+        std::function<void()> instantiateFunction = nullptr;
+        std::function<void()> destroyInstanceFunction = nullptr; // Corrected name
+
+        std::function<void(world::ecs::entity_manager::ScriptableEntity *)> onCreateFunction = nullptr;
+        std::function<void(world::ecs::entity_manager::ScriptableEntity *)> onDestroyFunction = nullptr;
+        std::function<void(world::ecs::entity_manager::ScriptableEntity *, core::Timestep)> onUpdateFunction = nullptr;
+
+        template <typename T>
+        void bindFunction()
+        {
+            instantiateFunction = [&]()
+            {
+                instance = new T();
+            };
+
+            destroyInstanceFunction = [&]()
+            {
+                delete (T *)instance;
+                instance = nullptr;
+            };
+
+            onCreateFunction = [](world::ecs::entity_manager::ScriptableEntity *inst)
+            {
+                ((T *)inst)->onCreate();
+            };
+
+            onDestroyFunction = [](world::ecs::entity_manager::ScriptableEntity *inst)
+            {
+                ((T *)inst)->onDestroy();
+            };
+
+            onUpdateFunction = [](world::ecs::entity_manager::ScriptableEntity *inst, core::Timestep ts)
+            {
+                ((T *)inst)->onUpdate(ts);
+            };
+        }
+
+        inline world::ecs::entity_manager::ScriptableEntity *getInstance() const
+        {
+            return instance;
+        }
+    };
+
+    // struct NativeScriptComponent
+    // {
+    //     world::ecs::entity_manager::ScriptableEntity *instance = nullptr;
+
+    //     NativeScriptComponent() = default;
+
+    //     NativeScriptComponent(const NativeScriptComponent &) = default;
+    //     NativeScriptComponent(NativeScriptComponent &&) = default;
+
+    //     NativeScriptComponent &operator=(const NativeScriptComponent &) = default;
+    //     NativeScriptComponent &operator=(NativeScriptComponent &&) = default;
+
+    //     NativeScriptComponent(uint64_t instance, world::ecs::entity_manager::ScriptableEntity *script)
+    //         : instance(script) {}
+
+    //     std::function<void()> instantiateFunction = nullptr;
+
+    //     std::function<void()> destoryInstanceFunction = nullptr;
+
+    //     std::function<void(world::ecs::entity_manager::ScriptableEntity *)> onCreateFunction = nullptr;
+    //     std::function<void(world::ecs::entity_manager::ScriptableEntity *)> onDestroyFunction = nullptr;
+    //     std::function<void(world::ecs::entity_manager::ScriptableEntity *, core::Timestep)> onUpdateFunction = nullptr;
+
+    //     // template <typename T>
+    //     // void bindCreateFunction()
+    //     // {
+    //     //     onCreateFunction = [instance = static_cast<T *>(instance)]()
+    //     //     { instance->onCreate(); };
+    //     // }
+
+    //     template <typename T>
+    //     void bindFunction()
+    //     {
+    //         // static_assert(std::is_base_of<world::ecs::entity_manager::ScriptableEntity, T>::value, "T must inherit from ScriptableEntity");
+
+    //         instantiateFunction = [&instance = static_cast<T *>(instance)]()
+    //         {
+    //             instance = new T();
+    //         };
+
+    //         destoryInstanceFunction = [&instance = static_cast<T *>(instance)]()
+    //         { delete (T *)instance; };
+
+    //         onCreateFunction = [&](world::ecs::entity_manager::ScriptableEntity *instance)
+    //         {
+    //             ((T *)instance)->onCreate();
+    //         };
+
+    //         onDestroyFunction = [](world::ecs::entity_manager::ScriptableEntity *inst)
+    //         {
+    //             ((T *)inst)->onDestroy();
+    //         };
+
+    //         onUpdateFunction = [&](world::ecs::entity_manager::ScriptableEntity *instance, core::Timestep ts)
+    //         {
+    //             ((T *)instance)->onUpdate(ts);
+    //         };
+    //     }
+
+    //     inline world::ecs::entity_manager::ScriptableEntity *getInstance() const
+    //     {
+    //         return instance;
+    //     }
+
+    // template <typename T>
+    // void bindCreateFunction(T *instance)
+    // {
+    //     onCreateFunction = [instance]()
+    //     { instance->onCreate(); };
+    // }
+
+    // template <typename T>
+    // void bindUpdateFunction(T *instance)
+    // {
+    //     onUpdateFunction = [instance](core::Timestep ts)
+    //     { instance->onUpdate(ts); };
+    // }
+};
 
 /*
 

@@ -1,7 +1,14 @@
 #pragma once
 
+#include "entt/entt.hpp"
+
 #include "core/core.hpp"
-#include "world/scene/scene.hpp"
+// REMOVE: #include "world/scene/scene.hpp"
+
+namespace vektor::world::scene
+{
+    class Scene;
+}
 
 namespace vektor::world::ecs::entity_manager
 {
@@ -9,57 +16,33 @@ namespace vektor::world::ecs::entity_manager
     {
     public:
         Entity() = default;
-
         Entity(entt::entity entity, vektor::world::scene::Scene *scene);
-
         Entity(const Entity &other) = default;
-
         ~Entity() = default;
 
         template <typename T>
-        bool hasComponent() const
-        {
-            return m_Scene->hasComponent<T>(m_Entity);
-        }
+        bool hasComponent() const;
 
         template <typename T, typename... Args>
-        T &addComponent(Args &&...args)
-        {
-            VEKTOR_CORE_ASSERT(!hasComponent<T>(), "Entity already has component!");
-            return m_Scene->addComponent<T>(m_Entity, std::forward<Args>(args)...);
-        }
+        T &addComponent(Args &&...args);
 
         template <typename T>
-        T &getComponent()
-        {
-            VEKTOR_CORE_ASSERT(hasComponent<T>(), "Entity does not have component!");
-            return m_Scene->getComponent<T>(m_Entity);
-        }
+        T &getComponent();
 
         template <typename T>
-        const T &getComponent() const
-        {
-            VEKTOR_CORE_ASSERT(hasComponent<T>(), "Entity does not have component!");
-            return m_Scene->getComponent<T>(m_Entity);
-        }
+        const T &getComponent() const;
 
         template <typename T>
-        void removeComponent()
-        {
-            VEKTOR_CORE_ASSERT(hasComponent<T>(), "Entity does not have component!");
-            m_Scene->removeComponent<T>(m_Entity);
-        }
+        void removeComponent();
 
         operator entt::entity() const { return m_Entity; }
         operator bool() const { return m_Entity != entt::null; }
-
         entt::entity getEntity() const { return m_Entity; }
 
         bool operator==(const Entity &other) const
         {
             return m_Entity == other.m_Entity && m_Scene == other.m_Scene;
         }
-
         bool operator!=(const Entity &other) const
         {
             return !(*this == other);

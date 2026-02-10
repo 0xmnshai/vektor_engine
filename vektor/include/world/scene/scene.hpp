@@ -9,11 +9,7 @@
 #include "renderer/2d.hpp"
 
 #include "world/ecs/component_storage/component.hpp"
-
-namespace vektor::world::ecs::entity_manager
-{
-    class Entity;
-}
+#include "world/ecs/entity_manager/entity.hpp"
 
 namespace vektor::world::scene
 {
@@ -59,4 +55,41 @@ namespace vektor::world::scene
         entt::registry m_Registry;
         uint32_t m_ViewportWidth = 0, m_ViewportHeight = 0;
     };
+}
+
+namespace vektor::world::ecs::entity_manager
+{
+    template <typename T>
+    bool Entity::hasComponent() const
+    {
+        return m_Scene->hasComponent<T>(m_Entity);
+    }
+
+    template <typename T, typename... Args>
+    T &Entity::addComponent(Args &&...args)
+    {
+        VEKTOR_CORE_ASSERT(!hasComponent<T>(), "Entity already has component!");
+        return m_Scene->addComponent<T>(m_Entity, std::forward<Args>(args)...);
+    }
+
+    template <typename T>
+    T &Entity::getComponent()
+    {
+        VEKTOR_CORE_ASSERT(hasComponent<T>(), "Entity does not have component!");
+        return m_Scene->getComponent<T>(m_Entity);
+    }
+
+    template <typename T>
+    const T &Entity::getComponent() const
+    {
+        VEKTOR_CORE_ASSERT(hasComponent<T>(), "Entity does not have component!");
+        return m_Scene->getComponent<T>(m_Entity);
+    }
+
+    template <typename T>
+    void Entity::removeComponent()
+    {
+        VEKTOR_CORE_ASSERT(hasComponent<T>(), "Entity does not have component!");
+        m_Scene->removeComponent<T>(m_Entity);
+    }
 }

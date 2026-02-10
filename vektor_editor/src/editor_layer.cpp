@@ -23,6 +23,29 @@ EditorLayer::EditorLayer() : Layer("Editor Layer")
   cameraComponent2.isPrimary = false;
 
   m_PrimaryCamera = true;
+
+  // TESTING NATIVE SCRIPTING ...
+
+#include "world/ecs/entity_manager/scriptable.hpp"
+
+  class CameraController : public vektor::world::ecs::entity_manager::ScriptableEntity
+  {
+  public:
+    void onCreate()
+    {
+      auto &cameraTransform = getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+    };
+    void onUpdate(vektor::core::Timestep ts)
+    {
+      std::cout << "CameraController::onUpdate" << std::endl;
+    };
+    void onDestroy()
+    {
+      std::cout << "CameraController::onDestroy" << std::endl;
+    };
+  };
+
+  m_CameraObj2.addComponent<vektor::world::ecs::component_storage::NativeScriptComponent>().bindFunction<CameraController>();
 }
 
 void EditorLayer::onAttach()
@@ -87,11 +110,11 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
   glClearColor(clearColor.x, clearColor.y, clearColor.z, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-  // vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
+  vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
 
   m_ActiveScene->onUpdate(timestep);
 
-  // vektor::renderer::Renderer2D::endScene();
+  vektor::renderer::Renderer2D::endScene();
 
   m_Framebuffer->unBind();
 

@@ -1,4 +1,6 @@
+
 #include "world/ecs/entity_manager/entity.hpp"
+#include "world/scene/scene.hpp" 
 
 namespace vektor::world::ecs::entity_manager
 {
