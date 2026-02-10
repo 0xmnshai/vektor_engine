@@ -35,6 +35,7 @@ EditorLayer::EditorLayer() : Layer("Editor Layer")
       auto &cameraTransform = getComponent<vektor::world::ecs::component_storage::TransformComponent>();
       std::cout << "CameraController::onCreate" << std::endl;
     };
+
     void onUpdate(vektor::core::Timestep ts)
     {
       std::cout << "CameraController::onUpdate" << std::endl;

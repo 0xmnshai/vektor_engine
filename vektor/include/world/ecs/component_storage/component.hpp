@@ -10,7 +10,6 @@
 
 #include "core/core.hpp"
 #include "core/timestep.hpp"
-// #include "world/ecs/entity_manager/scriptable.hpp"
 
 namespace vektor::world::ecs::entity_manager
 {
