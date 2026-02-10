@@ -49,7 +49,7 @@ namespace vektor::world::scene
                           {
                               script.instantiateFunction();
 
-                              script.instance->m_Entity = world::ecs::entity_manager::Entity{entity, this};
+                                script.instance->m_Entity = world::ecs::entity_manager::Entity{entity, this};
 
                               if (script.onCreateFunction)
                                   script.onCreateFunction(script.instance);
@@ -57,8 +57,7 @@ namespace vektor::world::scene
                       }
 
                       if (script.onUpdateFunction && script.instance)
-                          script.onUpdateFunction(script.instance, timestep);
-                  });
+                          script.onUpdateFunction(script.instance, timestep); });
 
         world::ecs::component_storage::CameraComponent *mainCamera = nullptr;
         world::ecs::component_storage::TransformComponent *cameraTransform = nullptr;

@@ -33,11 +33,31 @@ EditorLayer::EditorLayer() : Layer("Editor Layer")
     void onCreate()
     {
       auto &cameraTransform = getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+      std::cout << "CameraController::onCreate" << std::endl;
     };
     void onUpdate(vektor::core::Timestep ts)
     {
       std::cout << "CameraController::onUpdate" << std::endl;
-      std::cout << "Timestep " << ts.getSeconds() << std::endl;
+
+      auto &cameraTransform = getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+      float speed = 5.0f;
+
+      auto &camera = getComponent<vektor::world::ecs::component_storage::CameraComponent>();
+
+      if (!camera.isPrimary)
+        return;
+
+      if (vektor::input::Input::isKeyPressed(vektor::KeyCode::A))
+        cameraTransform.translate({-speed * ts, 0.0f, 0.0f});
+
+      if (vektor::input::Input::isKeyPressed(vektor::KeyCode::D))
+        cameraTransform.translate({speed * ts, 0.0f, 0.0f});
+
+      if (vektor::input::Input::isKeyPressed(vektor::KeyCode::W))
+        cameraTransform.translate({0.0f, speed * ts, 0.0f});
+
+      if (vektor::input::Input::isKeyPressed(vektor::KeyCode::S))
+        cameraTransform.translate({0.0f, -speed * ts, 0.0f});
     };
     void onDestroy()
     {
@@ -45,7 +65,7 @@ EditorLayer::EditorLayer() : Layer("Editor Layer")
     };
   };
 
-  m_CameraObj2.addComponent<vektor::world::ecs::component_storage::NativeScriptComponent>().bindFunction<CameraController>();
+  m_CameraObj.addComponent<vektor::world::ecs::component_storage::NativeScriptComponent>().bindFunction<CameraController>();
 }
 
 void EditorLayer::onAttach()
@@ -93,15 +113,15 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
 
   if (m_ViewportHovered && m_ViewportFocused)
   {
-    m_CameraController->onUpdate(timestep);
+    // m_CameraController->onUpdate(timestep);
 
-    // TESTING ...
-    auto &activeCameraEntity = m_PrimaryCamera ? m_CameraObj : m_CameraObj2;
-    auto &tc = activeCameraEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
+    // // TESTING ...
+    // auto &activeCameraEntity = m_PrimaryCamera ? m_CameraObj : m_CameraObj2;
+    // auto &tc = activeCameraEntity.getComponent<vektor::world::ecs::component_storage::TransformComponent>();
 
-    glm::mat4 mat = tc.getLocalMatrix();
-    mat[3] = glm::vec4(m_CameraController->getCameraPosition(), 1.0f);
-    tc.setLocalMatrix(mat);
+    // glm::mat4 mat = tc.getLocalMatrix();
+    // mat[3] = glm::vec4(m_CameraController->getCameraPosition(), 1.0f);
+    // tc.setLocalMatrix(mat);
   }
 
   m_Framebuffer->bind();
@@ -110,11 +130,11 @@ void EditorLayer::onUpdate(vektor::core::Timestep timestep)
   glClearColor(clearColor.x, clearColor.y, clearColor.z, 1.0f);
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-  vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
+  // vektor::renderer::Renderer2D::beginScene(m_CameraController->getCamera());
 
   m_ActiveScene->onUpdate(timestep);
 
-  vektor::renderer::Renderer2D::endScene();
+  // vektor::renderer::Renderer2D::endScene();
 
   m_Framebuffer->unBind();
 
