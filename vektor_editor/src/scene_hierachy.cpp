@@ -148,11 +148,15 @@ void SceneHierarchyPanel::onRender()
 
     ImGui::End();
 
+    if(ImGui::IsMouseDown(0) && ImGui::IsWindowHovered())
+        m_SelectionContext = {};
+
     ImGui::Begin("Inspector");
     if (m_SelectionContext)
     {
         drawComponents(m_SelectionContext);
     }
+
     ImGui::End();
 }
 
