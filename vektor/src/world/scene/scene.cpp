@@ -24,21 +24,17 @@ namespace vektor::world::scene
     void Scene::onUpdate(core::Timestep timestep)
     {
 
-        auto cameraView = m_Registry.view<
-            world::ecs::component_storage::TransformComponent,
-            world::ecs::component_storage::CameraComponent>();
+        auto cameraView = m_Registry.view<world::ecs::component_storage::TransformComponent, world::ecs::component_storage::CameraComponent>();
 
-        cameraView.each([=](auto entity, auto &transform, auto &camera)
+        cameraView.each([=](auto entity, world::ecs::component_storage::TransformComponent &transform, world::ecs::component_storage::CameraComponent &camera)
                         {
                             world::ecs::component_storage::CameraComponent &cam = cameraView.get<world::ecs::component_storage::CameraComponent>(entity);
                             world::ecs::component_storage::TransformComponent &tr = cameraView.get<world::ecs::component_storage::TransformComponent>(entity);
  
-
-                            if(camera.projectionType::CameraProjection::Perspective)
+                            if(camera.projectionType == world::ecs::component_storage::CameraComponent::CameraProjection::Perspective)
                             {
-                                
-                            }
-                        });
+                                renderer::Renderer2D::beginScene(cam, tr);
+                            } });
 
         // for (auto it = cameraView.begin(), end = cameraView.end(); it != end; ++it)
         // {
@@ -79,5 +75,7 @@ namespace vektor::world::scene
             auto &transform = group.get<world::ecs::component_storage::TransformComponent>(tranformEntity);
             renderer::Renderer2D::drawQuad(transform.getLocalMatrix(), transform.getColor());
         }
+
+        renderer::Renderer2D::endScene();
     }
 }

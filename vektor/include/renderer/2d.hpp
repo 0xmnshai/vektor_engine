@@ -4,6 +4,7 @@
 #include "utils/texture.hpp"
 #include "utils/subtexture.hpp"
 #include "renderer/camera/orthographic.hpp"
+#include "world/ecs/component_storage/component.hpp"
 
 namespace vektor::renderer
 {
@@ -23,7 +24,11 @@ namespace vektor::renderer
         static void init();
         static void shutdown();
 
+        static void beginScene(const world::ecs::component_storage::CameraComponent &cameraComponent,
+                               const world::ecs::component_storage::TransformComponent &transformComponent);
+
         static void beginScene(const std::shared_ptr<camera::Orthographic> &camera);
+
         static void endScene();
 
         static void drawQuad(const glm::vec2 &position, const glm::vec2 &size, const glm::vec4 &color);

@@ -161,6 +161,24 @@ namespace vektor::renderer
         s_Data.textureSlotIndex = 1;
     }
 
+    void Renderer2D::beginScene(
+        const world::ecs::component_storage::CameraComponent &cameraComponenet,
+        const world::ecs::component_storage::TransformComponent &transformComponent)
+
+    {
+        s_Data.textureShader->bindProgram();
+
+        glm::mat4 viewProjection = cameraComponenet.getViewProjectionMatrix() * glm::inverse(transformComponent.getWorldMatrix());
+
+        std::dynamic_pointer_cast<opengl::OpenGLShader>(s_Data.textureShader)->setUniformShaderMatrix("u_ViewProjection", viewProjection);
+
+        s_Data.quadIndexCount = 0;
+        s_Data.quadVertexBufferPtr = s_Data.quadVertexBufferBase;
+        s_Data.currentTexture = s_Data.whiteTexture;
+
+        s_Data.textureSlotIndex = 1;
+    }
+
     void Renderer2D::endScene()
     {
         flushAndReset();
