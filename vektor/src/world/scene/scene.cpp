@@ -1,6 +1,7 @@
 #include "world/scene/scene.hpp"
 #include "world/ecs/entity_manager/entity.hpp"
 #include "world/ecs/component_storage/component.hpp"
+#include "world/ecs/entity_manager/scriptable.hpp"
 
 namespace vektor::world::scene
 {
@@ -35,10 +36,30 @@ namespace vektor::world::scene
                                 // camera.setAspectRatio(static_cast<float>(width) / static_cast<float>(height));
                                 camera.setViewPortSize(width, height);
                             } });
-        }
+    }
 
     void Scene::onUpdate(core::Timestep timestep)
     {
+        m_Registry.view<world::ecs::component_storage::NativeScriptComponent>()
+            .each([this, timestep](auto entity, world::ecs::component_storage::NativeScriptComponent &script)
+                  {
+                      if (!script.instance)
+                      {
+                          if (script.instantiateFunction)
+                          {
+                              script.instantiateFunction();
+
+                              script.instance->m_Entity = world::ecs::entity_manager::Entity{entity, this};
+
+                              if (script.onCreateFunction)
+                                  script.onCreateFunction(script.instance);
+                          }
+                      }
+
+                      if (script.onUpdateFunction && script.instance)
+                          script.onUpdateFunction(script.instance, timestep);
+                  });
+
         world::ecs::component_storage::CameraComponent *mainCamera = nullptr;
         world::ecs::component_storage::TransformComponent *cameraTransform = nullptr;
         bool found = false;

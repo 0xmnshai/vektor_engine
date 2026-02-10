@@ -90,4 +90,4 @@
 #include "world/scene/scene.hpp"
 #include "world/ecs/component_storage/component.hpp"
 #include "world/ecs/entity_manager/entity.hpp"
-#include "world/ecs/entity_manager/scriptable.hpp""
+#include "world/ecs/entity_manager/scriptable.hpp"

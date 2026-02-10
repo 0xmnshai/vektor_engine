@@ -320,8 +320,7 @@ namespace vektor::world::ecs::component_storage
             : instance(script) {}
 
         std::function<void()> instantiateFunction = nullptr;
-        std::function<void()> destroyInstanceFunction = nullptr; // Corrected name
-
+        std::function<void()> destroyInstanceFunction = nullptr;
         std::function<void(world::ecs::entity_manager::ScriptableEntity *)> onCreateFunction = nullptr;
         std::function<void(world::ecs::entity_manager::ScriptableEntity *)> onDestroyFunction = nullptr;
         std::function<void(world::ecs::entity_manager::ScriptableEntity *, core::Timestep)> onUpdateFunction = nullptr;
@@ -329,30 +328,30 @@ namespace vektor::world::ecs::component_storage
         template <typename T>
         void bindFunction()
         {
-            instantiateFunction = [&]()
+            instantiateFunction = [this]()
             {
                 instance = new T();
             };
 
-            destroyInstanceFunction = [&]()
+            destroyInstanceFunction = [this]()
             {
                 delete (T *)instance;
                 instance = nullptr;
             };
 
-            onCreateFunction = [](world::ecs::entity_manager::ScriptableEntity *inst)
+            onCreateFunction = [](world::ecs::entity_manager::ScriptableEntity *_instance)
             {
-                ((T *)inst)->onCreate();
+                ((T *)_instance)->onCreate();
             };
 
-            onDestroyFunction = [](world::ecs::entity_manager::ScriptableEntity *inst)
+            onDestroyFunction = [](world::ecs::entity_manager::ScriptableEntity *_instance)
             {
-                ((T *)inst)->onDestroy();
+                ((T *)_instance)->onDestroy();
             };
 
-            onUpdateFunction = [](world::ecs::entity_manager::ScriptableEntity *inst, core::Timestep ts)
+            onUpdateFunction = [](world::ecs::entity_manager::ScriptableEntity *_instance, core::Timestep ts)
             {
-                ((T *)inst)->onUpdate(ts);
+                ((T *)_instance)->onUpdate(ts);
             };
         }
 

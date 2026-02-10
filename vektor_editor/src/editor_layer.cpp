@@ -1,4 +1,5 @@
 #include "editor_layer.hpp"
+#include "world/ecs/entity_manager/scriptable.hpp"
 
 namespace entity_manager = vektor::world::ecs::entity_manager;
 
@@ -26,8 +27,6 @@ EditorLayer::EditorLayer() : Layer("Editor Layer")
 
   // TESTING NATIVE SCRIPTING ...
 
-#include "world/ecs/entity_manager/scriptable.hpp"
-
   class CameraController : public vektor::world::ecs::entity_manager::ScriptableEntity
   {
   public:
@@ -38,6 +37,7 @@ EditorLayer::EditorLayer() : Layer("Editor Layer")
     void onUpdate(vektor::core::Timestep ts)
     {
       std::cout << "CameraController::onUpdate" << std::endl;
+      std::cout << "Timestep " << ts.getSeconds() << std::endl;
     };
     void onDestroy()
     {

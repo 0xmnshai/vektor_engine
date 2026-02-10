@@ -11,21 +11,26 @@ int main(int argc, char **argv)
 {
     vektor::logger::Logger::Init();
 
-    VEKTOR_CORE_TRACE("Starting Vektor Engine");
-    VEKTOR_CORE_CRITICAL("Vektor Engine is running");
-    VEKTOR_CORE_WARN("Vektor Engine is running");
+    vektor::Application *application;
 
-    VEKTOR_PROFILE_FUNCTION();
     {
-        VEKTOR_PROFILE_BEGIN_SESSION("Startup", "VektorProfile-Runtime.json");
-
-        vektor::Application *application = vektor::createApplication();
-
-        application->Run();
-        delete application;
+        VEKTOR_PROFILE_BEGIN_SESSION("Startup", "VektorProfile-Startup.json");
+        application = vektor::createApplication();
+        VEKTOR_PROFILE_END_SESSION();
     }
-    VEKTOR_CORE_TRACE("Vektor Engine has stopped");
-    VEKTOR_PROFILE_END_SESSION();
 
+    {
+        VEKTOR_PROFILE_BEGIN_SESSION("Runtime", "VektorProfile-Runtime.json");
+        application->Run();
+        VEKTOR_PROFILE_END_SESSION();
+    }
+
+    {
+        VEKTOR_PROFILE_BEGIN_SESSION("Shutdown", "VektorProfile-Shutdown.json");
+        delete application;
+        VEKTOR_PROFILE_END_SESSION();
+    }
+
+    VEKTOR_CORE_TRACE("Vektor Engine has stopped");
     return 0;
 }
